@@ -14,4 +14,8 @@ Original reference styles: https://music.apple.com/assets/NotFoundPage~fd10aec65
 Apple assets and branding belong to their respective owners. Independent reference reproduction.
 
 ## Offline behavior
+All graphic assets are kept in this repository: the device, controls, and error graphics are embedded in `dist/includes/ipod/web-music-ipod.esm.js` as SVG, CSS, or image data; the ChicagoKare font is embedded there too. The music icon, favicon, and reference font are also bundled under `dist/`. No graphics or fonts need to be fetched from Apple or another external site. Keep the complete `dist/` directory together when copying or serving the simulator. Music previews are excluded from the local copy and offline cache.
+
+The service worker precaches all bundled graphics, fonts, styles, scripts, and menu data, and falls back to cached files on connection failures or server error responses. With the local server running, the simulator's graphics remain available even if the original Apple site is down.
+
 The original component shows its sad-iPod error graphic and “You are not connected to the internet” message when the browser goes offline, and restores its menus on reconnect. A service worker caches the page, exact fonts, component, and menu data after the first successful visit, so reopening or refreshing offline still displays the original error screen. The first visit needs a connection; music previews are streamed and require the internet. No operating-system network settings are changed.
