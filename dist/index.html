@@ -1,7 +1,22 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,interactive-widget=resizes-content"><meta name="theme-color" content="#1f1f1f"><meta name="description" content="The original interactive iPod from Apple Music’s Page Not Found experience, with working music previews."><title>Page Not Found — iPod</title><link rel="icon" href="assets/music-icon.png"><link rel="stylesheet" href="reference.css"><link rel="stylesheet" href="style.css"><script type="module" src="includes/ipod/web-music-ipod.esm.js"></script></head><body>
-<aside class="sidebar"><a class="apple-music" href="https://music.apple.com/us/home" aria-label="Apple Music">Music</a><nav><a href="https://music.apple.com/us/search"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></svg>Search</a><a href="https://music.apple.com/us/home"><svg viewBox="0 0 24 24"><path d="m3 10 9-8 9 8v11h-7v-7h-4v7H3Z"/></svg>Home</a><a href="https://music.apple.com/us/new"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg>New</a><a href="https://music.apple.com/us/radio"><svg viewBox="0 0 24 24"><path d="M5 4a12 12 0 0 0 0 16M19 4a12 12 0 0 1 0 16M8 7a7 7 0 0 0 0 10M16 7a7 7 0 0 1 0 10"/><circle cx="12" cy="12" r="2"/></svg>Radio</a></nav><div class="sidebar-bottom"><a class="open-music" href="https://music.apple.com/us/home">▣ &nbsp;Open in Music ↗</a><a class="sign-in" href="https://music.apple.com/login">♟ Sign In</a></div></aside>
-<header class="mobile-header"><a href="https://music.apple.com/us/home">Music</a><a href="https://music.apple.com/login">Sign In</a></header>
-<div class="top-player" aria-label="Music controls"><div class="player-controls"><span>⤨</span><span>◀◀</span><span class="player-play">▶</span><span>▶▶</span><span>↻</span></div><div class="player-art"></div><div class="player-placeholder"></div><div class="volume">◖ <span></span> ◗</div><a href="https://music.apple.com/login" class="top-sign-in">Sign In</a></div>
-<main><div class="error-page-container svelte-1ma4y5r"><div class="error-page-content svelte-1ma4y5r"><div class="music-message music-message--overlay svelte-1ma4y5r"><img class="app-icon svelte-1ma4y5r" src="assets/music-icon.png" alt=""><h1 class="svelte-1ma4y5r">Page Not Found</h1><p class="svelte-1ma4y5r">Give this a spin instead.</p><div class="links svelte-1ma4y5r"><a class="link svelte-1ma4y5r" href="https://music.apple.com/us/home"><span class="icon-copy svelte-1ma4y5r">Home</span> ›</a><a class="link svelte-1ma4y5r" href="https://music.apple.com/us/new"><span class="icon-copy svelte-1ma4y5r">New</span> ›</a><a class="link svelte-1ma4y5r" href="https://music.apple.com/us/search"><span class="icon-copy svelte-1ma4y5r">Search</span> ›</a></div></div><div class="ipod-container svelte-1ma4y5r"><web-music-ipod class="svelte-1ma4y5r"></web-music-ipod></div></div></div></main>
-<footer class="upsell"><div><strong>Explore 100 million songs. All ad-free.</strong><p>Plus your entire music library on all your devices. Plan auto-renews for $11.99/month.</p></div><a href="https://music.apple.com/us/subscribe">Try It Now</a></footer>
-</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,interactive-widget=resizes-content">
+  <meta name="theme-color" content="#1f1f1f">
+  <meta name="description" content="The original iPod simulator, with a working scroll wheel, music previews, and the classic offline screen.">
+  <title>iPod</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="includes/ipod/web-music-ipod.esm.js"></script>
+  <script defer src="app.js"></script>
+  <script defer src="offline.js"></script>
+</head>
+<body>
+  <main aria-label="iPod simulator">
+    <div class="ipod-stage">
+      <web-music-ipod aria-label="Interactive original iPod"></web-music-ipod>
+    </div>
+  </main>
+</body>
+</html>
