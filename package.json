@@ -1,0 +1,10 @@
+{
+  "name": "original-ipod-simulation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Original Apple Music iPod reference reproduction",
+  "scripts": {
+    "dev": "python3 -m http.server 5173 --directory dist",
+    "check": "node --check dist/includes/ipod/web-music-ipod.esm.js"
+  }
+}
