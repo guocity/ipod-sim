@@ -1,4 +1,4 @@
-const CACHE = 'ipod-shell-v3';
+const CACHE = 'ipod-shell-v4';
 const ASSETS = [
   './',
   './index.html',

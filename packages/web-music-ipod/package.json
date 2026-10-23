@@ -1,0 +1,13 @@
+{
+  "name": "@ipod-sim/web-music-ipod",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Locally reconstructed Apple iPod web component",
+  "exports": {
+    ".": "./src/index.js",
+    "./data": "./src/data.js",
+    "./settings": "./src/settings.js"
+  },
+  "files": ["src", "README.md"]
+}

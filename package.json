@@ -2,9 +2,18 @@
   "name": "original-ipod-simulation",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@12.15.0",
   "description": "Original Apple Music iPod reference reproduction",
   "scripts": {
-    "dev": "python3 -m http.server 5173 --directory dist",
-    "check": "node --check dist/includes/ipod/web-music-ipod.esm.js && node --check dist/app.js && node --check dist/offline.js && node --check dist/sw.js"
+    "dev": "pnpm run build && python3 -m http.server 5173 --directory dist",
+    "check": "node scripts/check.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "dependencies": {
+    "@ipod-sim/web-music-ipod": "workspace:*"
   }
 }

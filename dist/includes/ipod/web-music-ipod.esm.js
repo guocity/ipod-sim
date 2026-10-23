@@ -1,70 +1,94 @@
-var Sn = Object.defineProperty;
-var xn = (e, t, i) => t in e ? Sn(e, t, { enumerable: !0, configurable: !0, writable: !0, value: i }) : e[t] = i;
-var Zt = (e, t, i) => xn(e, typeof t != "symbol" ? t + "" : t, i);
-const Dn = "data:font/woff2;base64,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";
-function Bl() {
-  return !1;
-}
-function _n(e) {
+// Generated by pnpm build. Edit packages/web-music-ipod/src instead.
+
+// packages/web-music-ipod/src/logging.js
+function isLoggingEnabled(namespace) {
   try {
-    const t = localStorage.getItem("onyxLog");
-    if (t === null) return Bl();
-    const i = t.split(",").map((a) => a.trim()), l = i.find((a) => a.split("=")[0] === e);
-    return l !== void 0 ? l.split("=")[1] !== "off" : i.some((a) => a === "*" || a === "*=*");
+    const configuration = localStorage.getItem("onyxLog");
+    if (configuration === null) return false;
+    const entries = configuration.split(",").map((entry) => entry.trim());
+    const match = entries.find((entry) => entry.split("=")[0] === namespace);
+    if (match !== void 0) return match.split("=")[1] !== "off";
+    return entries.some((entry) => entry === "*" || entry === "*=*");
   } catch {
-    return Bl();
+    return false;
   }
 }
-function le(e) {
-  const t = `[${e}]`;
+function createLogger(namespace) {
+  const prefix = `[${namespace}]`;
   return {
-    debug: (...i) => {
-      _n(e) && console.log(t, ...i);
+    debug(...args) {
+      if (isLoggingEnabled(namespace)) console.log(prefix, ...args);
     },
-    info: (...i) => console.info(t, ...i),
-    warn: (...i) => console.warn(t, ...i),
-    error: (...i) => console.error(t, ...i)
+    info: (...args) => console.info(prefix, ...args),
+    warn: (...args) => console.warn(prefix, ...args),
+    error: (...args) => console.error(prefix, ...args)
   };
 }
-const Tl = le("fonts"), Cn = [
-  {
-    family: "ChicagoKare",
-    source: `url(${Dn}) format('woff2')`,
-    descriptors: { display: "block" }
-  },
-  {
-    // Installed with macOS, reads as Chicago, and covers Thai. The metric
-    // overrides line its glyphs up with ChicagoKare's so falling back does
-    // not shift the layout.
-    family: "Krungthep",
-    source: 'local("Krungthep")',
-    descriptors: {
-      display: "block",
-      sizeAdjust: "79.5%",
-      ascentOverride: "94.1%",
-      descentOverride: "27.7%"
+
+// packages/web-music-ipod/src/assets/chicago.woff2
+var chicago_default = "data:font/woff2;base64,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";
+
+// packages/web-music-ipod/src/assets/chicago-font.js
+var chicagoFont = chicago_default;
+
+// packages/web-music-ipod/src/fonts.js
+var fontLogger = createLogger("fonts");
+var fontDefinitions = [{
+  family: "ChicagoKare",
+  source: `url(${chicagoFont}) format('woff2')`,
+  descriptors: {
+    display: "block"
+  }
+}, {
+  // Installed with macOS, reads as Chicago, and covers Thai. The metric
+  // overrides line its glyphs up with ChicagoKare's so falling back does
+  // not shift the layout.
+  family: "Krungthep",
+  source: 'local("Krungthep")',
+  descriptors: {
+    display: "block",
+    sizeAdjust: "79.5%",
+    ascentOverride: "94.1%",
+    descentOverride: "27.7%"
+  }
+}];
+var fontsRegistered = false;
+function registerFonts() {
+  if (!(fontsRegistered || typeof document > "u" || !document.fonts)) {
+    fontsRegistered = true;
+    for (const {
+      family: e,
+      source: t,
+      descriptors: i
+    } of fontDefinitions) try {
+      const l = new FontFace(e, t, i);
+      document.fonts.add(l);
+      l.load().catch((a) => {
+        fontLogger.warn(`Could not load ${e}`, a);
+      });
+    } catch (l) {
+      fontLogger.warn(`Could not register ${e}`, l);
     }
   }
-];
-let Hl = !1;
-function Bn() {
-  if (!(Hl || typeof document > "u" || !document.fonts)) {
-    Hl = !0;
-    for (const { family: e, source: t, descriptors: i } of Cn)
-      try {
-        const l = new FontFace(e, t, i);
-        document.fonts.add(l), l.load().catch((a) => {
-          Tl.warn(`Could not load ${e}`, a);
-        });
-      } catch (l) {
-        Tl.warn(`Could not register ${e}`, l);
-      }
-  }
 }
-const Tn = ":host,:root{box-sizing:border-box;font-family:ChicagoKare,Krungthep,system-ui,sans-serif;-webkit-text-size-adjust:100%;text-size-adjust:100%}:host{display:block;container-type:inline-size;container-name:ipod}*,*:before,*:after{box-sizing:inherit}*{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,p,blockquote,figure,button{margin:0;padding:0}ul,ol{list-style-type:none}pre,code,address,caption,figcaption{font-size:1em;font-weight:400;font-style:normal}button{background:none;border:0;color:inherit;cursor:pointer;font:inherit;line-height:inherit;vertical-align:inherit}button:disabled{cursor:default}svg{pointer-events:none}";
-function J() {
+
+// packages/web-music-ipod/src/assets/base.css
+var base_default = ":host,:root{box-sizing:border-box;font-family:ChicagoKare,Krungthep,system-ui,sans-serif;-webkit-text-size-adjust:100%;text-size-adjust:100%}:host{display:block;container-type:inline-size;container-name:ipod}*,*:before,*:after{box-sizing:inherit}*{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,p,blockquote,figure,button{margin:0;padding:0}ul,ol{list-style-type:none}pre,code,address,caption,figcaption{font-size:1em;font-weight:400;font-style:normal}button{background:none;border:0;color:inherit;cursor:pointer;font:inherit;line-height:inherit;vertical-align:inherit}button:disabled{cursor:default}svg{pointer-events:none}\n";
+
+// packages/web-music-ipod/src/vendor/object-helpers.js
+var Sn = Object.defineProperty;
+var xn = (e, t, i) => t in e ? Sn(e, t, {
+  enumerable: true,
+  configurable: true,
+  writable: true,
+  value: i
+}) : e[t] = i;
+var Zt = (e, t, i) => xn(e, typeof t != "symbol" ? t + "" : t, i);
+
+// packages/web-music-ipod/src/vendor/svelte-runtime.js
+function noop() {
 }
-const Da = (e) => e;
+var Da = (e) => e;
 function pt(e, t) {
   for (const i in t) e[i] = t[i];
   return (
@@ -92,14 +116,13 @@ function Hn(e) {
 }
 function Ii(e, ...t) {
   if (e == null) {
-    for (const l of t)
-      l(void 0);
-    return J;
+    for (const l of t) l(void 0);
+    return noop;
   }
   const i = e.subscribe(...t);
   return i.unsubscribe ? () => i.unsubscribe() : i;
 }
-function Qt(e) {
+function getStoreValue(e) {
   let t;
   return Ii(e, (i) => t = i)(), t;
 }
@@ -112,11 +135,12 @@ function _t(e) {
   return t;
 }
 function Kt(e) {
-  return e && Pt(e.destroy) ? e.destroy : J;
+  return e && Pt(e.destroy) ? e.destroy : noop;
 }
-const Ca = typeof window < "u";
-let Ba = Ca ? () => window.performance.now() : () => Date.now(), kl = Ca ? (e) => requestAnimationFrame(e) : J;
-const Xe = /* @__PURE__ */ new Set();
+var Ca = typeof window < "u";
+var Ba = Ca ? () => window.performance.now() : () => Date.now();
+var kl = Ca ? (e) => requestAnimationFrame(e) : noop;
+var Xe = /* @__PURE__ */ new Set();
 function Ta(e) {
   Xe.forEach((t) => {
     t.c(e) || (Xe.delete(t), t.f());
@@ -126,23 +150,26 @@ function Ha(e) {
   let t;
   return Xe.size === 0 && kl(Ta), {
     promise: new Promise((i) => {
-      Xe.add(t = { c: e, f: i });
+      Xe.add(t = {
+        c: e,
+        f: i
+      });
     }),
     abort() {
       Xe.delete(t);
     }
   };
 }
-const Ln = typeof window < "u" ? window : typeof globalThis < "u" ? globalThis : (
+var Ln = typeof window < "u" ? window : typeof globalThis < "u" ? globalThis : (
   // @ts-ignore Node typings have this
   global
 );
-let $i = !1;
+var $i = false;
 function zn() {
-  $i = !0;
+  $i = true;
 }
 function Qn() {
-  $i = !1;
+  $i = false;
 }
 function On(e, t, i, l) {
   for (; e < t; ) {
@@ -153,7 +180,7 @@ function On(e, t, i, l) {
 }
 function Nn(e) {
   if (e.hydrate_init) return;
-  e.hydrate_init = !0;
+  e.hydrate_init = true;
   let t = (
     /** @type {ArrayLike<NodeEx2>} */
     e.childNodes
@@ -178,16 +205,13 @@ function Nn(e) {
   const n = [], o = [];
   let p = t.length - 1;
   for (let h = i[a] + 1; h != 0; h = l[h - 1]) {
-    for (n.push(t[h - 1]); p >= h; p--)
-      o.push(t[p]);
+    for (n.push(t[h - 1]); p >= h; p--) o.push(t[p]);
     p--;
   }
-  for (; p >= 0; p--)
-    o.push(t[p]);
+  for (; p >= 0; p--) o.push(t[p]);
   n.reverse(), o.sort((h, r) => h.claim_order - r.claim_order);
   for (let h = 0, r = 0; h < o.length; h++) {
-    for (; r < n.length && o[h].claim_order >= n[r].claim_order; )
-      r++;
+    for (; r < n.length && o[h].claim_order >= n[r].claim_order; ) r++;
     const c = r < n.length ? n[r] : null;
     e.insertBefore(o[h], c);
   }
@@ -195,7 +219,7 @@ function Nn(e) {
 function u(e, t) {
   e.appendChild(t);
 }
-function ae(e, t, i) {
+function appendStyles(e, t, i) {
   const l = Pl(e);
   if (!l.getElementById(t)) {
     const a = T("style");
@@ -224,8 +248,7 @@ function La(e, t) {
 }
 function jt(e, t) {
   if ($i) {
-    for (Nn(e), (e.actual_end_child === void 0 || e.actual_end_child !== null && e.actual_end_child.parentNode !== e) && (e.actual_end_child = e.firstChild); e.actual_end_child !== null && e.actual_end_child.claim_order === void 0; )
-      e.actual_end_child = e.actual_end_child.nextSibling;
+    for (Nn(e), (e.actual_end_child === void 0 || e.actual_end_child !== null && e.actual_end_child.parentNode !== e) && (e.actual_end_child = e.firstChild); e.actual_end_child !== null && e.actual_end_child.claim_order === void 0; ) e.actual_end_child = e.actual_end_child.nextSibling;
     t !== e.actual_end_child ? (t.claim_order !== void 0 || t.parentNode !== e) && e.insertBefore(t, e.actual_end_child) : e.actual_end_child = t.nextSibling;
   } else (t.parentNode !== e || t.nextSibling !== null) && e.appendChild(t);
 }
@@ -239,8 +262,7 @@ function H(e) {
   e.parentNode && e.parentNode.removeChild(e);
 }
 function Wn(e, t) {
-  for (let i = 0; i < e.length; i += 1)
-    e[i] && e[i].d(t);
+  for (let i = 0; i < e.length; i += 1) e[i] && e[i].d(t);
 }
 function T(e) {
   return document.createElement(e);
@@ -264,8 +286,7 @@ function s(e, t, i) {
   i == null ? e.removeAttribute(t) : e.getAttribute(t) !== i && e.setAttribute(t, i);
 }
 function Ct(e, t) {
-  for (const i in t)
-    s(e, i, t[i]);
+  for (const i in t) s(e, i, t[i]);
 }
 function jn(e, t, i) {
   e.setAttributeNS("http://www.w3.org/1999/xlink", t, i);
@@ -274,9 +295,12 @@ function mt(e) {
   return Array.from(e.childNodes);
 }
 function Fn(e) {
-  e.claim_info === void 0 && (e.claim_info = { last_index: 0, total_claimed: 0 });
+  e.claim_info === void 0 && (e.claim_info = {
+    last_index: 0,
+    total_claimed: 0
+  });
 }
-function Qa(e, t, i, l, a = !1) {
+function Qa(e, t, i, l, a = false) {
   Fn(e);
   const n = (() => {
     for (let o = e.claim_info.last_index; o < e.length; o++) {
@@ -326,13 +350,11 @@ function qn(e, t) {
     (i) => {
       const l = "" + t;
       if (i.data.startsWith(l)) {
-        if (i.data.length !== l.length)
-          return i.splitText(l.length);
-      } else
-        i.data = l;
+        if (i.data.length !== l.length) return i.splitText(l.length);
+      } else i.data = l;
     },
     () => Mt(t),
-    !0
+    true
     // Text nodes should not update last index since it is likely not worth it to eliminate an increasing subsequence of actual elements
   );
 }
@@ -346,27 +368,37 @@ function m(e, t, i, l) {
 function Nt(e, t, i) {
   e.classList.toggle(t, !!i);
 }
-function Oa(e, t, { bubbles: i = !1, cancelable: l = !1 } = {}) {
-  return new CustomEvent(e, { detail: t, bubbles: i, cancelable: l });
+function Oa(e, t, {
+  bubbles: i = false,
+  cancelable: l = false
+} = {}) {
+  return new CustomEvent(e, {
+    detail: t,
+    bubbles: i,
+    cancelable: l
+  });
 }
 function Un(e) {
   const t = {};
   return e.childNodes.forEach(
     /** @param {Element} node */
     (i) => {
-      t[i.slot || "default"] = !0;
+      t[i.slot || "default"] = true;
     }
   ), t;
 }
-const Ui = /* @__PURE__ */ new Map();
-let Ki = 0;
+var Ui = /* @__PURE__ */ new Map();
+var Ki = 0;
 function Kn(e) {
   let t = 5381, i = e.length;
   for (; i--; ) t = (t << 5) - t ^ e.charCodeAt(i);
   return t >>> 0;
 }
 function Gn(e, t) {
-  const i = { stylesheet: Rn(t), rules: {} };
+  const i = {
+    stylesheet: Rn(t),
+    rules: {}
+  };
   return Ui.set(e, i), i;
 }
 function Na(e, t, i, l, a, n, o, p = 0) {
@@ -379,8 +411,11 @@ function Na(e, t, i, l, a, n, o, p = 0) {
 `;
   }
   const c = r + `100% {${o(i, 1 - i)}}
-}`, d = `__svelte_${Kn(c)}_${p}`, A = Pl(e), { stylesheet: f, rules: g } = Ui.get(A) || Gn(A, e);
-  g[d] || (g[d] = !0, f.insertRule(`@keyframes ${d} ${c}`, f.cssRules.length));
+}`, d = `__svelte_${Kn(c)}_${p}`, A = Pl(e), {
+    stylesheet: f,
+    rules: g
+  } = Ui.get(A) || Gn(A, e);
+  g[d] || (g[d] = true, f.insertRule(`@keyframes ${d} ${c}`, f.cssRules.length));
   const M = e.style.animation || "";
   return e.style.animation = `${M ? `${M}, ` : ""}${d} ${l}ms linear ${a}ms 1 both`, Ki += 1, d;
 }
@@ -394,12 +429,14 @@ function dl(e, t) {
 function Yn() {
   kl(() => {
     Ki || (Ui.forEach((e) => {
-      const { ownerNode: t } = e.stylesheet;
+      const {
+        ownerNode: t
+      } = e.stylesheet;
       t && H(t);
     }), Ui.clear());
   });
 }
-let _i;
+var _i;
 function Si(e) {
   _i = e;
 }
@@ -410,25 +447,29 @@ function Ti() {
 function Ra(e) {
   Ti().$$.on_mount.push(e);
 }
-function je(e) {
+function onDestroy(e) {
   Ti().$$.on_destroy.push(e);
 }
 function Hi() {
   const e = Ti();
-  return (t, i, { cancelable: l = !1 } = {}) => {
+  return (t, i, {
+    cancelable: l = false
+  } = {}) => {
     const a = e.$$.callbacks[t];
     if (a) {
       const n = Oa(
         /** @type {string} */
         t,
         i,
-        { cancelable: l }
+        {
+          cancelable: l
+        }
       );
       return a.slice().forEach((o) => {
         o.call(e, n);
       }), !n.defaultPrevented;
     }
-    return !0;
+    return true;
   };
 }
 function Xn(e, t) {
@@ -441,14 +482,16 @@ function ll(e, t) {
   const i = e.$$.callbacks[t.type];
   i && i.slice().forEach((l) => l.call(this, t));
 }
-const Ye = [], Jt = [];
-let Ze = [];
-const Al = [], Wa = /* @__PURE__ */ Promise.resolve();
-let fl = !1;
+var Ye = [];
+var Jt = [];
+var Ze = [];
+var Al = [];
+var Wa = /* @__PURE__ */ Promise.resolve();
+var fl = false;
 function ja() {
-  fl || (fl = !0, Wa.then(R));
+  fl || (fl = true, Wa.then(flush));
 }
-function Jn() {
+function tick() {
   return ja(), Wa;
 }
 function $e(e) {
@@ -457,11 +500,10 @@ function $e(e) {
 function Gi(e) {
   Al.push(e);
 }
-const al = /* @__PURE__ */ new Set();
-let qe = 0;
-function R() {
-  if (qe !== 0)
-    return;
+var al = /* @__PURE__ */ new Set();
+var qe = 0;
+function flush() {
+  if (qe !== 0) return;
   const e = _i;
   do {
     try {
@@ -479,9 +521,8 @@ function R() {
     }
     Ze.length = 0;
   } while (Ye.length);
-  for (; Al.length; )
-    Al.pop()();
-  fl = !1, al.clear(), Si(e);
+  for (; Al.length; ) Al.pop()();
+  fl = false, al.clear(), Si(e);
 }
 function $n(e) {
   if (e.fragment !== null) {
@@ -494,7 +535,7 @@ function ts(e) {
   const t = [], i = [];
   Ze.forEach((l) => e.indexOf(l) === -1 ? t.push(l) : i.push(l)), i.forEach((l) => l()), Ze = t;
 }
-let Pi;
+var Pi;
 function Fa() {
   return Pi || (Pi = Promise.resolve(), Pi.then(() => {
     Pi = null;
@@ -503,8 +544,8 @@ function Fa() {
 function Yi(e, t, i) {
   e.dispatchEvent(Oa(`${t ? "intro" : "outro"}${i}`));
 }
-const ji = /* @__PURE__ */ new Set();
-let Ie;
+var ji = /* @__PURE__ */ new Set();
+var Ie;
 function Ae() {
   Ie = {
     r: 0,
@@ -527,10 +568,14 @@ function et(e, t, i, l) {
     }), e.o(t);
   } else l && l();
 }
-const Va = { duration: 0 };
+var Va = {
+  duration: 0
+};
 function es(e, t, i) {
-  const l = { direction: "in" };
-  let a = t(e, i, l), n = !1, o, p, h = 0;
+  const l = {
+    direction: "in"
+  };
+  let a = t(e, i, l), n = false, o, p, h = 0;
   function r() {
     o && dl(e, o);
   }
@@ -539,15 +584,14 @@ function es(e, t, i) {
       delay: A = 0,
       duration: f = 300,
       easing: g = Da,
-      tick: M = J,
+      tick: M = noop,
       css: y
     } = a || Va;
     y && (o = Na(e, 0, 1, f, A, g, y, h++)), M(0, 1);
     const w = Ba() + A, E = w + f;
-    p && p.abort(), n = !0, $e(() => Yi(e, !0, "start")), p = Ha((I) => {
+    p && p.abort(), n = true, $e(() => Yi(e, true, "start")), p = Ha((I) => {
       if (n) {
-        if (I >= E)
-          return M(1, 0), Yi(e, !0, "end"), r(), n = !1;
+        if (I >= E) return M(1, 0), Yi(e, true, "end"), r(), n = false;
         if (I >= w) {
           const x = g((I - w) / f);
           M(x, 1 - x);
@@ -556,22 +600,24 @@ function es(e, t, i) {
       return n;
     });
   }
-  let d = !1;
+  let d = false;
   return {
     start() {
-      d || (d = !0, dl(e), Pt(a) ? (a = a(l), Fa().then(c)) : c());
+      d || (d = true, dl(e), Pt(a) ? (a = a(l), Fa().then(c)) : c());
     },
     invalidate() {
-      d = !1;
+      d = false;
     },
     end() {
-      n && (r(), n = !1);
+      n && (r(), n = false);
     }
   };
 }
 function is(e, t, i) {
-  const l = { direction: "out" };
-  let a = t(e, i, l), n = !0, o;
+  const l = {
+    direction: "out"
+  };
+  let a = t(e, i, l), n = true, o;
   const p = Ie;
   p.r += 1;
   let h;
@@ -580,16 +626,15 @@ function is(e, t, i) {
       delay: c = 0,
       duration: d = 300,
       easing: A = Da,
-      tick: f = J,
+      tick: f = noop,
       css: g
     } = a || Va;
     g && (o = Na(e, 1, 0, d, c, A, g));
     const M = Ba() + c, y = M + d;
-    $e(() => Yi(e, !1, "start")), "inert" in e && (h = /** @type {HTMLElement} */
-    e.inert, e.inert = !0), Ha((w) => {
+    $e(() => Yi(e, false, "start")), "inert" in e && (h = /** @type {HTMLElement} */
+    e.inert, e.inert = true), Ha((w) => {
       if (n) {
-        if (w >= y)
-          return f(0, 1), Yi(e, !1, "end"), --p.r || ue(p.c), !1;
+        if (w >= y) return f(0, 1), Yi(e, false, "end"), --p.r || ue(p.c), false;
         if (w >= M) {
           const E = A((w - M) / d);
           f(1 - E, E);
@@ -602,7 +647,7 @@ function is(e, t, i) {
     a = a(l), r();
   }) : r(), {
     end(c) {
-      c && "inert" in e && (e.inert = h), c && a.tick && a.tick(1, 0), n && (o && dl(e, o), n = !1);
+      c && "inert" in e && (e.inert = h), c && a.tick && a.tick(1, 0), n && (o && dl(e, o), n = false);
     }
   };
 }
@@ -610,22 +655,19 @@ function zl(e) {
   return (e == null ? void 0 : e.length) !== void 0 ? e : Array.from(e);
 }
 function ye(e, t) {
-  const i = {}, l = {}, a = { $$scope: 1 };
+  const i = {}, l = {}, a = {
+    $$scope: 1
+  };
   let n = e.length;
   for (; n--; ) {
     const o = e[n], p = t[n];
     if (p) {
-      for (const h in o)
-        h in p || (l[h] = 1);
-      for (const h in p)
-        a[h] || (i[h] = p[h], a[h] = 1);
+      for (const h in o) h in p || (l[h] = 1);
+      for (const h in p) a[h] || (i[h] = p[h], a[h] = 1);
       e[n] = p;
-    } else
-      for (const h in o)
-        a[h] = 1;
+    } else for (const h in o) a[h] = 1;
   }
-  for (const o in l)
-    o in i || (i[o] = void 0);
+  for (const o in l) o in i || (i[o] = void 0);
   return i;
 }
 function Xi(e, t, i) {
@@ -636,7 +678,10 @@ function gt(e) {
   e && e.c();
 }
 function vt(e, t, i) {
-  const { fragment: l, after_update: a } = e.$$;
+  const {
+    fragment: l,
+    after_update: a
+  } = e.$$;
   l && l.m(t, i), $e(() => {
     const n = e.$$.on_mount.map(_a).filter(Pt);
     e.$$.on_destroy ? e.$$.on_destroy.push(...n) : ue(n), e.$$.on_mount = [];
@@ -649,7 +694,7 @@ function yt(e, t) {
 function ls(e, t) {
   e.$$.dirty[0] === -1 && (Ye.push(e), ja(), e.$$.dirty.fill(0)), e.$$.dirty[t / 31 | 0] |= 1 << t % 31;
 }
-function Et(e, t, i, l, a, n, o = null, p = [-1]) {
+function initComponent(e, t, i, l, a, n, o = null, p = [-1]) {
   const h = _i;
   Si(e);
   const r = e.$$ = {
@@ -657,7 +702,7 @@ function Et(e, t, i, l, a, n, o = null, p = [-1]) {
     ctx: [],
     // state
     props: n,
-    update: J,
+    update: noop,
     not_equal: a,
     bound: Ll(),
     // lifecycle
@@ -670,48 +715,40 @@ function Et(e, t, i, l, a, n, o = null, p = [-1]) {
     // everything else
     callbacks: Ll(),
     dirty: p,
-    skip_bound: !1,
+    skip_bound: false,
     root: t.target || h.$$.root
   };
   o && o(r.root);
-  let c = !1;
+  let c = false;
   if (r.ctx = i ? i(e, t.props || {}, (d, A, ...f) => {
     const g = f.length ? f[0] : A;
     return r.ctx && a(r.ctx[d], r.ctx[d] = g) && (!r.skip_bound && r.bound[d] && r.bound[d](g), c && ls(e, d)), A;
-  }) : [], r.update(), c = !0, ue(r.before_update), r.fragment = l ? l(r.ctx) : !1, t.target) {
+  }) : [], r.update(), c = true, ue(r.before_update), r.fragment = l ? l(r.ctx) : false, t.target) {
     if (t.hydrate) {
       zn();
       const d = mt(t.target);
       r.fragment && r.fragment.l(d), d.forEach(H);
-    } else
-      r.fragment && r.fragment.c();
-    t.intro && $(e.$$.fragment), vt(e, t.target, t.anchor), Qn(), R();
+    } else r.fragment && r.fragment.c();
+    t.intro && $(e.$$.fragment), vt(e, t.target, t.anchor), Qn(), flush();
   }
   Si(h);
 }
-let qa;
+var qa;
 typeof HTMLElement == "function" && (qa = class extends HTMLElement {
   constructor(t, i, l) {
     super();
-    /** The Svelte component constructor */
     Zt(this, "$$ctor");
-    /** Slots */
     Zt(this, "$$s");
-    /** The Svelte component instance */
     Zt(this, "$$c");
-    /** Whether or not the custom element is connected */
-    Zt(this, "$$cn", !1);
-    /** Component props data */
+    Zt(this, "$$cn", false);
     Zt(this, "$$d", {});
-    /** `true` if currently in the process of reflecting component props back to attributes */
-    Zt(this, "$$r", !1);
-    /** @type {Record<string, CustomElementPropDefinition>} Props definition (name, reflected, type etc) */
+    Zt(this, "$$r", false);
     Zt(this, "$$p_d", {});
-    /** @type {Record<string, Function[]>} Event listeners */
     Zt(this, "$$l", {});
-    /** @type {Map<Function, Function>} Event listener unsubscribe functions */
     Zt(this, "$$l_u", /* @__PURE__ */ new Map());
-    this.$$ctor = t, this.$$s = i, l && this.attachShadow({ mode: "open" });
+    this.$$ctor = t, this.$$s = i, l && this.attachShadow({
+      mode: "open"
+    });
   }
   addEventListener(t, i, l) {
     if (this.$$l[t] = this.$$l[t] || [], this.$$l[t].push(i), this.$$c) {
@@ -731,7 +768,7 @@ typeof HTMLElement == "function" && (qa = class extends HTMLElement {
     }
   }
   async connectedCallback() {
-    if (this.$$cn = !0, !this.$$c) {
+    if (this.$$cn = true, !this.$$c) {
       let t = function(n) {
         return () => {
           let o;
@@ -752,17 +789,14 @@ typeof HTMLElement == "function" && (qa = class extends HTMLElement {
           };
         };
       };
-      if (await Promise.resolve(), !this.$$cn || this.$$c)
-        return;
+      if (await Promise.resolve(), !this.$$cn || this.$$c) return;
       const i = {}, l = Un(this);
-      for (const n of this.$$s)
-        n in l && (i[n] = [t(n)]);
+      for (const n of this.$$s) n in l && (i[n] = [t(n)]);
       for (const n of this.attributes) {
         const o = this.$$g_p(n.name);
         o in this.$$d || (this.$$d[o] = Fi(o, n.value, this.$$p_d, "toProp"));
       }
-      for (const n in this.$$p_d)
-        !(n in this.$$d) && this[n] !== void 0 && (this.$$d[n] = this[n], delete this[n]);
+      for (const n in this.$$p_d) !(n in this.$$d) && this[n] !== void 0 && (this.$$d[n] = this[n], delete this[n]);
       this.$$c = new this.$$ctor({
         target: this.shadowRoot || this,
         props: {
@@ -774,25 +808,18 @@ typeof HTMLElement == "function" && (qa = class extends HTMLElement {
         }
       });
       const a = () => {
-        this.$$r = !0;
-        for (const n in this.$$p_d)
-          if (this.$$d[n] = this.$$c.$$.ctx[this.$$c.$$.props[n]], this.$$p_d[n].reflect) {
-            const o = Fi(
-              n,
-              this.$$d[n],
-              this.$$p_d,
-              "toAttribute"
-            );
-            o == null ? this.removeAttribute(this.$$p_d[n].attribute || n) : this.setAttribute(this.$$p_d[n].attribute || n, o);
-          }
-        this.$$r = !1;
+        this.$$r = true;
+        for (const n in this.$$p_d) if (this.$$d[n] = this.$$c.$$.ctx[this.$$c.$$.props[n]], this.$$p_d[n].reflect) {
+          const o = Fi(n, this.$$d[n], this.$$p_d, "toAttribute");
+          o == null ? this.removeAttribute(this.$$p_d[n].attribute || n) : this.setAttribute(this.$$p_d[n].attribute || n, o);
+        }
+        this.$$r = false;
       };
       this.$$c.$$.after_update.push(a), a();
-      for (const n in this.$$l)
-        for (const o of this.$$l[n]) {
-          const p = this.$$c.$on(n, o);
-          this.$$l_u.set(o, p);
-        }
+      for (const n in this.$$l) for (const o of this.$$l[n]) {
+        const p = this.$$c.$on(n, o);
+        this.$$l_u.set(o, p);
+      }
       this.$$l = {};
     }
   }
@@ -800,58 +827,53 @@ typeof HTMLElement == "function" && (qa = class extends HTMLElement {
   // and setting attributes through setAttribute etc, this is helpful
   attributeChangedCallback(t, i, l) {
     var a;
-    this.$$r || (t = this.$$g_p(t), this.$$d[t] = Fi(t, l, this.$$p_d, "toProp"), (a = this.$$c) == null || a.$set({ [t]: this.$$d[t] }));
+    this.$$r || (t = this.$$g_p(t), this.$$d[t] = Fi(t, l, this.$$p_d, "toProp"), (a = this.$$c) == null || a.$set({
+      [t]: this.$$d[t]
+    }));
   }
   disconnectedCallback() {
-    this.$$cn = !1, Promise.resolve().then(() => {
+    this.$$cn = false, Promise.resolve().then(() => {
       !this.$$cn && this.$$c && (this.$$c.$destroy(), this.$$c = void 0);
     });
   }
   $$g_p(t) {
-    return Object.keys(this.$$p_d).find(
-      (i) => this.$$p_d[i].attribute === t || !this.$$p_d[i].attribute && i.toLowerCase() === t
-    ) || t;
+    return Object.keys(this.$$p_d).find((i) => this.$$p_d[i].attribute === t || !this.$$p_d[i].attribute && i.toLowerCase() === t) || t;
   }
 });
 function Fi(e, t, i, l) {
   var n;
   const a = (n = i[e]) == null ? void 0 : n.type;
-  if (t = a === "Boolean" && typeof t != "boolean" ? t != null : t, !l || !i[e])
-    return t;
-  if (l === "toAttribute")
-    switch (a) {
-      case "Object":
-      case "Array":
-        return t == null ? null : JSON.stringify(t);
-      case "Boolean":
-        return t ? "" : null;
-      case "Number":
-        return t ?? null;
-      default:
-        return t;
-    }
-  else
-    switch (a) {
-      case "Object":
-      case "Array":
-        return t && JSON.parse(t);
-      case "Boolean":
-        return t;
-      case "Number":
-        return t != null ? +t : t;
-      default:
-        return t;
-    }
+  if (t = a === "Boolean" && typeof t != "boolean" ? t != null : t, !l || !i[e]) return t;
+  if (l === "toAttribute") switch (a) {
+    case "Object":
+    case "Array":
+      return t == null ? null : JSON.stringify(t);
+    case "Boolean":
+      return t ? "" : null;
+    case "Number":
+      return t ?? null;
+    default:
+      return t;
+  }
+  else switch (a) {
+    case "Object":
+    case "Array":
+      return t && JSON.parse(t);
+    case "Boolean":
+      return t;
+    case "Number":
+      return t != null ? +t : t;
+    default:
+      return t;
+  }
 }
-function ne(e, t, i, l, a, n) {
+function defineSvelteElement(e, t, i, l, a, n) {
   let o = class extends qa {
     constructor() {
       super(e, i, a), this.$$p_d = t;
     }
     static get observedAttributes() {
-      return Object.keys(t).map(
-        (p) => (t[p].attribute || p).toLowerCase()
-      );
+      return Object.keys(t).map((p) => (t[p].attribute || p).toLowerCase());
     }
   };
   return Object.keys(t).forEach((p) => {
@@ -861,7 +883,9 @@ function ne(e, t, i, l, a, n) {
       },
       set(h) {
         var r;
-        h = Fi(p, h, t), this.$$d[p] = h, (r = this.$$c) == null || r.$set({ [p]: h });
+        h = Fi(p, h, t), this.$$d[p] = h, (r = this.$$c) == null || r.$set({
+          [p]: h
+        });
       }
     });
   }), l.forEach((p) => {
@@ -874,28 +898,14 @@ function ne(e, t, i, l, a, n) {
   }), e.element = /** @type {any} */
   o, o;
 }
-class It {
+var SvelteComponent = class {
   constructor() {
-    /**
-     * ### PRIVATE API
-     *
-     * Do not use, may change at any time
-     *
-     * @type {any}
-     */
     Zt(this, "$$");
-    /**
-     * ### PRIVATE API
-     *
-     * Do not use, may change at any time
-     *
-     * @type {any}
-     */
     Zt(this, "$$set");
   }
   /** @returns {void} */
   $destroy() {
-    yt(this, 1), this.$destroy = J;
+    yt(this, 1), this.$destroy = noop;
   }
   /**
    * @template {Extract<keyof Events, string>} K
@@ -904,8 +914,7 @@ class It {
    * @returns {() => void}
    */
   $on(t, i) {
-    if (!Pt(i))
-      return J;
+    if (!Pt(i)) return noop;
     const l = this.$$.callbacks[t] || (this.$$.callbacks[t] = []);
     return l.push(i), () => {
       const a = l.indexOf(i);
@@ -917,28 +926,28 @@ class It {
    * @returns {void}
    */
   $set(t) {
-    this.$$set && !Hn(t) && (this.$$.skip_bound = !0, this.$$set(t), this.$$.skip_bound = !1);
+    this.$$set && !Hn(t) && (this.$$.skip_bound = true, this.$$set(t), this.$$.skip_bound = false);
   }
-}
-const as = "4";
-typeof window < "u" && (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(as);
-const Ue = [];
-function Ua(e, t) {
+};
+var as = "4";
+typeof window < "u" && (window.__svelte || (window.__svelte = {
+  v: /* @__PURE__ */ new Set()
+})).v.add(as);
+var Ue = [];
+function readable(e, t) {
   return {
-    subscribe: Ot(e, t).subscribe
+    subscribe: writable(e, t).subscribe
   };
 }
-function Ot(e, t = J) {
+function writable(e, t = noop) {
   let i;
   const l = /* @__PURE__ */ new Set();
   function a(p) {
     if (bt(e, p) && (e = p, i)) {
       const h = !Ue.length;
-      for (const r of l)
-        r[1](), Ue.push(r, e);
+      for (const r of l) r[1](), Ue.push(r, e);
       if (h) {
-        for (let r = 0; r < Ue.length; r += 2)
-          Ue[r][0](Ue[r + 1]);
+        for (let r = 0; r < Ue.length; r += 2) Ue[r][0](Ue[r + 1]);
         Ue.length = 0;
       }
     }
@@ -946,155 +955,209 @@ function Ot(e, t = J) {
   function n(p) {
     a(p(e));
   }
-  function o(p, h = J) {
+  function o(p, h = noop) {
     const r = [p, h];
-    return l.add(r), l.size === 1 && (i = t(a, n) || J), p(e), () => {
+    return l.add(r), l.size === 1 && (i = t(a, n) || noop), p(e), () => {
       l.delete(r), l.size === 0 && i && (i(), i = null);
     };
   }
-  return { set: a, update: n, subscribe: o };
+  return {
+    set: a,
+    update: n,
+    subscribe: o
+  };
 }
-var Li = /* @__PURE__ */ ((e) => (e.OFF = "off", e.SONGS = "songs", e))(Li || {}), Re = /* @__PURE__ */ ((e) => (e.OFF = "off", e.ONE = "one", e.ALL = "all", e))(Re || {}), de = /* @__PURE__ */ ((e) => (e.OFF = "off", e.SEC_1 = "1sec", e.SEC_2 = "2sec", e.SEC_3 = "3sec", e.SEC_5 = "5sec", e.ALWAYS_ON = "always_on", e))(de || {});
-const Ka = [
-  { mode: "off", labelKey: "ASE.Web.IPod.Backlight.Off" },
-  {
-    mode: "1sec",
-    labelKey: "ASE.Web.IPod.Backlight.OneSecond",
-    durationMs: 1e3
-  },
-  {
-    mode: "2sec",
-    labelKey: "ASE.Web.IPod.Backlight.TwoSeconds",
-    durationMs: 2e3
-  },
-  {
-    mode: "3sec",
-    labelKey: "ASE.Web.IPod.Backlight.ThreeSeconds",
-    durationMs: 3e3
-  },
-  {
-    mode: "5sec",
-    labelKey: "ASE.Web.IPod.Backlight.FiveSeconds",
-    durationMs: 5e3
-  },
-  {
-    mode: "always_on",
-    labelKey: "ASE.Web.IPod.Backlight.AlwaysOn"
-  }
-];
-var zi = /* @__PURE__ */ ((e) => (e.OFF = "off", e.ON = "on", e))(zi || {});
-const Ql = { storefront: "us", language: "en-US" }, Ga = "apple-ipod:settings", ns = 2e3, ss = 1e4, os = 15, hs = 15, Ya = 350, rs = 100 / Ya * 100, cs = 276 / Ya * 100, ps = 1e4, Oe = 1e3, ul = 500, Ol = [5, 5, 5, 10, 10, 10, 20], ds = 1, As = 1e3, fs = 5e3, vl = {
+
+// packages/web-music-ipod/src/settings.js
+var ShuffleMode = /* @__PURE__ */ ((e) => (e.OFF = "off", e.SONGS = "songs", e))(ShuffleMode || {});
+var RepeatMode = /* @__PURE__ */ ((e) => (e.OFF = "off", e.ONE = "one", e.ALL = "all", e))(RepeatMode || {});
+var BacklightMode = /* @__PURE__ */ ((e) => (e.OFF = "off", e.SEC_1 = "1sec", e.SEC_2 = "2sec", e.SEC_3 = "3sec", e.SEC_5 = "5sec", e.ALWAYS_ON = "always_on", e))(BacklightMode || {});
+var backlightOptions = [{
+  mode: "off",
+  labelKey: "ASE.Web.IPod.Backlight.Off"
+}, {
+  mode: "1sec",
+  labelKey: "ASE.Web.IPod.Backlight.OneSecond",
+  durationMs: 1e3
+}, {
+  mode: "2sec",
+  labelKey: "ASE.Web.IPod.Backlight.TwoSeconds",
+  durationMs: 2e3
+}, {
+  mode: "3sec",
+  labelKey: "ASE.Web.IPod.Backlight.ThreeSeconds",
+  durationMs: 3e3
+}, {
+  mode: "5sec",
+  labelKey: "ASE.Web.IPod.Backlight.FiveSeconds",
+  durationMs: 5e3
+}, {
+  mode: "always_on",
+  labelKey: "ASE.Web.IPod.Backlight.AlwaysOn"
+}];
+var ClickerMode = /* @__PURE__ */ ((e) => (e.OFF = "off", e.ON = "on", e))(ClickerMode || {});
+var defaultLocale = {
+  storefront: "us",
+  language: "en-US"
+};
+var settingsStorageKey = "apple-ipod:settings";
+var ns = 2e3;
+var ss = 1e4;
+var os = 15;
+var hs = 15;
+var Ya = 350;
+var rs = 100 / Ya * 100;
+var cs = 276 / Ya * 100;
+var ps = 1e4;
+var Oe = 1e3;
+var ul = 500;
+var Ol = [5, 5, 5, 10, 10, 10, 20];
+var ds = 1;
+var As = 1e3;
+var fs = 5e3;
+var vl = {
   minSpeed: 180,
   tierMs: 500,
   tiers: [1, 2, 3, 5, 8, 13, 21, 34]
   // rows per click
-}, yl = {
+};
+var yl = {
   minSpeed: 180,
   tierMs: 500,
   tiers: [1, 2, 3, 5]
   // SEEK_STEP_SECONDS per click
-}, us = 400, vs = Math.min(
-  vl.minSpeed,
-  yl.minSpeed
-), ys = 0.15, gs = 300, ms = 80, bs = 5, Ms = 1, ws = 5e3, ks = 1e3, Ps = 1.25 * 360 / 100, Es = 1.25 * 360 / 22, Is = 5e3, Ss = 360, Nl = 0.035, Xa = le("<Settings>");
+};
+var us = 400;
+var vs = Math.min(vl.minSpeed, yl.minSpeed);
+var ys = 0.15;
+var gs = 300;
+var ms = 80;
+var bs = 5;
+var Ms = 1;
+var ws = 5e3;
+var ks = 1e3;
+var Ps = 1.25 * 360 / 100;
+var Es = 1.25 * 360 / 22;
+var Is = 5e3;
+var Ss = 360;
+var Nl = 0.035;
+var Xa = createLogger("<Settings>");
 var xa;
-const Je = typeof window > "u" || (xa = window.matchMedia) == null ? void 0 : xa.call(window, "(prefers-color-scheme: dark)");
-function tl() {
-  return Je != null && Je.matches ? de.ALWAYS_ON : de.OFF;
+var Je = typeof window > "u" || (xa = window.matchMedia) == null ? void 0 : xa.call(window, "(prefers-color-scheme: dark)");
+function preferredBacklight() {
+  return Je != null && Je.matches ? BacklightMode.ALWAYS_ON : BacklightMode.OFF;
 }
-const Pe = Object.freeze({
-  shuffle: Li.OFF,
-  repeat: Re.OFF,
-  clicker: zi.ON,
-  backlight: tl(),
+var defaultSettings = Object.freeze({
+  shuffle: ShuffleMode.OFF,
+  repeat: RepeatMode.OFF,
+  clicker: ClickerMode.ON,
+  backlight: preferredBacklight(),
   volume: 50
 });
-function Ei(e, t) {
-  return Object.values(e).includes(t);
+function isEnumValue(values, value) {
+  return Object.values(values).includes(value);
 }
-function xs(e) {
-  return typeof e == "number" && Number.isFinite(e) && e >= 0 && e <= 100;
+function isValidVolume(volume) {
+  return typeof volume == "number" && Number.isFinite(volume) && volume >= 0 && volume <= 100;
 }
-function Ds(e) {
-  const t = e ?? {};
+function normalizeSettings(input) {
+  const saved = input ?? {};
   return {
-    shuffle: Ei(Li, t.shuffle) ? t.shuffle : Pe.shuffle,
-    repeat: Ei(Re, t.repeat) ? t.repeat : Pe.repeat,
-    clicker: Ei(zi, t.clicker) ? t.clicker : Pe.clicker,
-    backlight: Ei(de, t.backlight) ? t.backlight : Pe.backlight,
-    volume: xs(t.volume) ? t.volume : Pe.volume
+    shuffle: isEnumValue(ShuffleMode, saved.shuffle) ? saved.shuffle : defaultSettings.shuffle,
+    repeat: isEnumValue(RepeatMode, saved.repeat) ? saved.repeat : defaultSettings.repeat,
+    clicker: isEnumValue(ClickerMode, saved.clicker) ? saved.clicker : defaultSettings.clicker,
+    backlight: isEnumValue(BacklightMode, saved.backlight) ? saved.backlight : defaultSettings.backlight,
+    volume: isValidVolume(saved.volume) ? saved.volume : defaultSettings.volume
   };
 }
-let ti = !1;
-function _s() {
+var backlightChosen = false;
+function readSettings() {
   try {
-    const e = localStorage.getItem(Ga), t = e === null ? void 0 : JSON.parse(e), i = t;
-    ti = (i == null ? void 0 : i.backlightChosen) === !0 && Ei(de, i.backlight);
-    const l = t === void 0 ? Pe : Ds(t);
-    return ti ? l : { ...l, backlight: tl() };
+    const e = localStorage.getItem(settingsStorageKey), t = e === null ? void 0 : JSON.parse(e), i = t;
+    backlightChosen = (i == null ? void 0 : i.backlightChosen) === true && isEnumValue(BacklightMode, i.backlight);
+    const l = t === void 0 ? defaultSettings : normalizeSettings(t);
+    return backlightChosen ? l : {
+      ...l,
+      backlight: preferredBacklight()
+    };
   } catch (e) {
-    return Xa.error("Failed to read settings from localStorage", e), Pe;
+    return Xa.error("Failed to read settings from localStorage", e), defaultSettings;
   }
 }
-function Cs({ backlight: e, ...t }) {
+function saveSettings({
+  backlight,
+  ...remaining
+}) {
   try {
-    localStorage.setItem(
-      Ga,
-      JSON.stringify(
-        ti ? { ...t, backlight: e, backlightChosen: !0 } : t
-      )
-    );
+    localStorage.setItem(settingsStorageKey, JSON.stringify(backlightChosen ? {
+      ...remaining,
+      backlight,
+      backlightChosen: true
+    } : remaining));
   } catch (i) {
     Xa.error("Failed to write settings to localStorage", i);
   }
 }
-const ie = Ot(_s());
-ie.subscribe(Cs);
-const gl = /* @__PURE__ */ new Set();
-function Bs(e) {
+var settings = writable(readSettings());
+settings.subscribe(saveSettings);
+var gl = /* @__PURE__ */ new Set();
+function onSettingsReset(e) {
   return gl.add(e), () => gl.delete(e);
 }
-function Ts(e) {
-  ti = !0, ie.update((t) => ({ ...t, backlight: e }));
+function setBacklight(mode) {
+  backlightChosen = true;
+  settings.update((t) => ({
+    ...t,
+    backlight: mode
+  }));
 }
 Je == null || Je.addEventListener("change", () => {
-  ti || ie.update((e) => ({ ...e, backlight: tl() }));
+  backlightChosen || settings.update((e) => ({
+    ...e,
+    backlight: preferredBacklight()
+  }));
 });
-function Hs() {
-  ti = !1, ie.set({ ...Pe, backlight: tl() }), gl.forEach((e) => e());
+function resetSettings() {
+  backlightChosen = false;
+  settings.set({
+    ...defaultSettings,
+    backlight: preferredBacklight()
+  });
+  gl.forEach((e) => e());
 }
+
+// packages/web-music-ipod/src/interaction.js
 function Za(e, t) {
   return t > 0 ? e / t * 1e3 : 0;
 }
 function Ls(e, t, i) {
   const l = t !== void 0 ? e - t : 0;
-  return Math.min(
-    Za(i, l),
-    vs
-  );
+  return Math.min(Za(i, l), vs);
 }
 function El(e, t) {
-  const i = Math.min(
-    e.tiers.length - 1,
-    Math.floor(t / e.tierMs)
-  );
+  const i = Math.min(e.tiers.length - 1, Math.floor(t / e.tierMs));
   return e.tiers[i];
 }
-const zs = 250;
+var zs = 250;
 function Ja(e) {
   let t = 0, i, l, a;
   function n() {
-    t = 0, i = void 0, l = void 0, a = void 0;
+    t = 0;
+    i = void 0;
+    l = void 0;
+    a = void 0;
   }
   function o(p, h, r) {
-    if (!r)
-      return n(), e.tiers[0];
+    if (!r) return n(), e.tiers[0];
     const c = performance.now(), d = l !== void 0 && c - l > zs;
     l = c;
     const A = Math.min(p, us);
     return h !== i || d ? (t = A, i = h, a = void 0) : t += ys * (A - t), t <= e.minSpeed ? (a = void 0, e.tiers[0]) : (a ?? (a = c), El(e, c - a));
   }
-  return { next: o, reset: n };
+  return {
+    next: o,
+    reset: n
+  };
 }
 function Ci(e) {
   return Math.round(e * 100);
@@ -1105,65 +1168,70 @@ function ml(e) {
 function Il(e, t) {
   let i;
   function l() {
-    clearTimeout(i), i = void 0;
+    clearTimeout(i);
+    i = void 0;
   }
   function a() {
-    l(), i = setTimeout(() => {
-      i = void 0, t();
+    l();
+    i = setTimeout(() => {
+      i = void 0;
+      t();
     }, e);
   }
   function n() {
     i !== void 0 && (l(), t());
   }
-  return { start: a, stop: l, flush: n, destroy: l };
+  return {
+    start: a,
+    stop: l,
+    flush: n,
+    destroy: l
+  };
 }
 function Sl(e) {
-  let t, i, l = !1;
+  let t, i, l = false;
   function a() {
-    clearTimeout(t), clearInterval(i), t = void 0, i = void 0;
+    clearTimeout(t);
+    clearInterval(i);
+    t = void 0;
+    i = void 0;
   }
   function n() {
     a();
     const p = l;
-    return l = !1, p;
+    return l = false, p;
   }
   function o(p, h) {
-    n(), t = setTimeout(() => {
-      t = void 0, l = !0, e(!1), l && h !== void 0 && (i = setInterval(() => e(!0), h));
+    n();
+    t = setTimeout(() => {
+      t = void 0;
+      l = true;
+      e(false);
+      l && h !== void 0 && (i = setInterval(() => e(true), h));
     }, p);
   }
-  return { start: o, stop: n };
+  return {
+    start: o,
+    stop: n
+  };
 }
-const Rl = /* @__PURE__ */ new Set([
-  "ArrowDown",
-  "ArrowUp",
-  "ArrowRight",
-  "ArrowLeft",
-  "Enter",
-  " ",
-  "Escape"
-]), Wl = /* @__PURE__ */ new Set([
-  "ArrowDown",
-  "ArrowUp",
-  "ArrowRight",
-  "ArrowLeft",
-  "Home",
-  "End",
-  "PageUp",
-  "PageDown"
-]);
+var Rl = /* @__PURE__ */ new Set(["ArrowDown", "ArrowUp", "ArrowRight", "ArrowLeft", "Enter", " ", "Escape"]);
+var Wl = /* @__PURE__ */ new Set(["ArrowDown", "ArrowUp", "ArrowRight", "ArrowLeft", "Home", "End", "PageUp", "PageDown"]);
 function Ke(e) {
-  e.preventDefault(), e.stopPropagation();
+  e.preventDefault();
+  e.stopPropagation();
 }
-const Qs = (e, t) => {
+var Qs = (e, t) => {
   let i = t;
   const l = Sl(() => i.onMenuHold());
-  let a = !1;
+  let a = false;
   function n() {
-    a = !1, l.stop();
+    a = false;
+    l.stop();
   }
   function o(r) {
-    Ke(r), r.repeat || (a = !0, l.start(Oe));
+    Ke(r);
+    r.repeat || (a = true, l.start(Oe));
   }
   function p(r) {
     if (i.mode !== "passthrough") {
@@ -1178,10 +1246,12 @@ const Qs = (e, t) => {
       }
       switch (r.key) {
         case "ArrowDown":
-          Ke(r), i.onArrow(r, 1);
+          Ke(r);
+          i.onArrow(r, 1);
           break;
         case "ArrowUp":
-          Ke(r), i.onArrow(r, -1);
+          Ke(r);
+          i.onArrow(r, -1);
           break;
         case "ArrowRight":
         case "ArrowLeft":
@@ -1189,7 +1259,8 @@ const Qs = (e, t) => {
           break;
         case "Enter":
         case " ":
-          Ke(r), r.repeat || i.onSelect();
+          Ke(r);
+          r.repeat || i.onSelect();
           break;
         case "Escape":
           o(r);
@@ -1198,15 +1269,20 @@ const Qs = (e, t) => {
     }
   }
   function h(r) {
-    r.key !== "Escape" || !a || (a = !1, l.stop() || i.onBack());
+    r.key !== "Escape" || !a || (a = false, l.stop() || i.onBack());
   }
   return e.addEventListener("keydown", p), e.addEventListener("keyup", h), e.addEventListener("focusout", n), window.addEventListener("blur", n), {
     update(r) {
       const c = r.navigationId !== i.navigationId;
-      i = r, (i.disabled || c) && n();
+      i = r;
+      (i.disabled || c) && n();
     },
     destroy() {
-      e.removeEventListener("keydown", p), e.removeEventListener("keyup", h), e.removeEventListener("focusout", n), window.removeEventListener("blur", n), n();
+      e.removeEventListener("keydown", p);
+      e.removeEventListener("keyup", h);
+      e.removeEventListener("focusout", n);
+      window.removeEventListener("blur", n);
+      n();
     }
   };
 };
@@ -1216,7 +1292,9 @@ function jl(e) {
 function Fl(e) {
   return Math.sin(e * Math.PI / 2);
 }
-const Vl = 240, nl = /* @__PURE__ */ new WeakMap(), ql = /* @__PURE__ */ new WeakMap();
+var Vl = 240;
+var nl = /* @__PURE__ */ new WeakMap();
+var ql = /* @__PURE__ */ new WeakMap();
 function Ul(e, t) {
   const i = ql.get(e) ?? /* @__PURE__ */ new Map(), l = i.get(t) ?? [];
   return i.set(t, l), ql.set(e, i), l;
@@ -1224,28 +1302,31 @@ function Ul(e, t) {
 function sl(e) {
   if (!e || e.duration <= 0) return;
   const t = (performance.now() - e.startedAt) / e.duration;
-  if (!(t >= 1))
-    return e.from + (e.to - e.from) * e.easing(t);
+  if (!(t >= 1)) return e.from + (e.to - e.from) * e.easing(t);
 }
 function Os(e) {
-  const { transform: t } = getComputedStyle(e);
-  if (!(!t || t === "none") && !(typeof DOMMatrixReadOnly > "u"))
-    try {
-      return new DOMMatrixReadOnly(t).m41;
-    } catch {
-      return;
-    }
+  const {
+    transform: t
+  } = getComputedStyle(e);
+  if (!(!t || t === "none") && !(typeof DOMMatrixReadOnly > "u")) try {
+    return new DOMMatrixReadOnly(t).m41;
+  } catch {
+    return;
+  }
 }
 function Ns() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
-function Kl(e, { back: t = !1 }, i) {
+function Kl(e, {
+  back: t = false
+}, i) {
   const l = e.parentElement, a = (l == null ? void 0 : l.clientWidth) ?? 0;
-  if (Ns() || a === 0)
-    return { duration: 0 };
+  if (Ns() || a === 0) return {
+    duration: 0
+  };
   const n = e.matches(":dir(rtl)"), o = (t === n ? 1 : -1) * a;
   if (i.direction !== "out") {
-    const c = l ? Ul(l, Math.sign(o)).pop() : void 0, d = sl(c), A = d !== void 0 && (c != null && c.node) ? Os(c.node) ?? d : d;
+    const c = l ? Ul(l, Math.sign(o)).pop() : void 0, d = sl(c), A = d !== void 0 && c != null && c.node ? Os(c.node) ?? d : d;
     c != null && c.node && (c.node.style.display = "none");
     const f = A ?? o, g = {
       node: e,
@@ -1278,7 +1359,8 @@ function Kl(e, { back: t = !1 }, i) {
     const c = Ul(l, Math.sign(h));
     c.forEach((d) => {
       sl(d) === void 0 && (d.node = void 0);
-    }), c.push(r);
+    });
+    c.push(r);
   }
   return {
     duration: r.duration,
@@ -1289,7 +1371,7 @@ function Kl(e, { back: t = !1 }, i) {
     css: (c, d) => `transform: translateX(${p + (h - p) * d}px)`
   };
 }
-const Rs = {
+var Rs = {
   "ASE.Web.IPod.Menu.Playlists": "Playlists",
   "ASE.Web.IPod.Menu.Artists": "Artists",
   "ASE.Web.IPod.Menu.Songs": "Songs",
@@ -1341,40 +1423,35 @@ const Rs = {
   "ASE.Web.IPod.Status.Loading": "Loading",
   "ASE.Web.IPod.Status.Ready": "Ready",
   "ASE.Web.IPod.Error.NotConnected": "You are not connected to the internet"
-}, bl = le("i18n");
+};
+var bl = createLogger("i18n");
 function Ws(e, t) {
-  return t ? e.replace(
-    /@@(\w+)@@/g,
-    (i, l) => l in t ? String(t[l]) : i
-  ) : e;
+  return t ? e.replace(/@@(\w+)@@/g, (i, l) => l in t ? String(t[l]) : i) : e;
 }
-const Vi = "en-US";
+
+// packages/web-music-ipod/src/localization.js
+var defaultLanguage = "en-US";
 function js(e) {
-  if (!e)
-    return Vi;
+  if (!e) return defaultLanguage;
   try {
     return Intl.getCanonicalLocales(e)[0];
   } catch {
-    return bl.warn(
-      `Invalid language "${e}"; using ${Vi}`
-    ), Vi;
+    return bl.warn(`Invalid language "${e}"; using ${defaultLanguage}`), defaultLanguage;
   }
 }
-function $a(e, t) {
-  const i = e ? js(t) : Vi, l = /* @__PURE__ */ new Map(), a = new Intl.ListFormat(i, {
+function createTranslator(e, t) {
+  const i = e ? js(t) : defaultLanguage, l = /* @__PURE__ */ new Map(), a = new Intl.ListFormat(i, {
     style: "long",
     type: "conjunction"
   });
   return {
     t(n, o) {
-      if (e)
-        try {
-          const h = e.t(n, o);
-          if (h)
-            return h;
-        } catch (h) {
-          bl.error(`Host i18n failed for "${n}"`, h);
-        }
+      if (e) try {
+        const h = e.t(n, o);
+        if (h) return h;
+      } catch (h) {
+        bl.error(`Host i18n failed for "${n}"`, h);
+      }
       const p = Rs[n];
       return p === void 0 ? (bl.warn(`No English default for "${n}"`), `**${n}**`) : Ws(p, o);
     },
@@ -1388,38 +1465,339 @@ function $a(e, t) {
     }
   };
 }
-const Fe = $a(), tn = "i18n";
-function Fs() {
-  const e = Ot(Fe);
+var defaultTranslator = createTranslator();
+var tn = "i18n";
+function getTranslationStore() {
+  const e = writable(defaultTranslator);
   return Xn(tn, e), e;
 }
-function Qi() {
-  return Zn(tn) ?? Ua(Fe);
+function getTranslator() {
+  return Zn(tn) ?? readable(defaultTranslator);
 }
+
+// packages/web-music-ipod/src/navigation.js
+function createMainMenu({
+  i18n: e,
+  hasNowPlaying: t
+}) {
+  return [
+    Ee("playlists", e),
+    Ee("artists", e),
+    Ee("songs", e),
+    Ee("settings", e),
+    // Now Playing is the only row driven by playback state.
+    ...t ? [Ee("now-playing", e)] : []
+  ];
+}
+function createSettingsMenu({
+  i18n: e
+}) {
+  return [Ee("about", e), ol("shuffle", e.t("ASE.Web.IPod.Settings.Shuffle"), kh), ol("repeat", e.t("ASE.Web.IPod.Settings.Repeat"), Ph), Ee("backlight", e), ol("clicker", e.t("ASE.Web.IPod.Settings.Clicker"), Eh), Ee("reset-settings", e)];
+}
+function Dh({
+  i18n: e
+}) {
+  return backlightOptions.map(({
+    mode: t,
+    labelKey: i
+  }) => Ih(t, e.t(i)));
+}
+function _h({
+  i18n: e
+}) {
+  return [{
+    id: "cancel",
+    title: e.t("ASE.Web.IPod.Reset.Cancel"),
+    action: "cancel"
+  }, {
+    id: "reset-all",
+    title: e.t("ASE.Web.IPod.Reset.Reset"),
+    action: "reset-all"
+  }];
+}
+function createArtistsMenu({
+  data: e,
+  i18n: t
+}) {
+  const i = (l) => t.formatNumber(l, {
+    style: "unit",
+    unit: "gigabyte"
+  });
+  return [
+    // Product names are typically not localized.
+    {
+      id: "ipod",
+      title: "iPod",
+      action: "info",
+      centered: true
+    },
+    {
+      id: "songs-count",
+      title: t.t("ASE.Web.IPod.About.Songs"),
+      action: "info",
+      value: t.formatNumber((e == null ? void 0 : e.songs.length) ?? 0)
+    },
+    {
+      id: "capacity",
+      title: t.t("ASE.Web.IPod.About.Capacity"),
+      action: "info",
+      value: i(9.2)
+    },
+    {
+      id: "available",
+      title: t.t("ASE.Web.IPod.About.Available"),
+      action: "info",
+      value: i(4.5)
+    },
+    {
+      id: "version",
+      title: t.t("ASE.Web.IPod.About.Version"),
+      action: "info",
+      value: "2644.1.0"
+    }
+  ];
+}
+function createSongsMenu({
+  data: e,
+  i18n: t
+}) {
+  const i = ((e == null ? void 0 : e.playlists) ?? []).map((l) => ({
+    id: l.id,
+    title: l.name,
+    action: "navigate",
+    target: "playlist-tracks",
+    contextId: l.id
+  }));
+  return _l(i, t);
+}
+function createPlaylistsMenu({
+  data: e,
+  i18n: t
+}) {
+  const i = ((e == null ? void 0 : e.artists) ?? []).map((l) => ({
+    id: l.id,
+    title: l.name,
+    action: "navigate",
+    target: "artist-tracks",
+    contextId: l.id
+  }));
+  return i.length && e != null && e.songs.length && i.unshift({
+    id: "all",
+    title: t.t("ASE.Web.IPod.Menu.All"),
+    action: "navigate",
+    target: "songs",
+    screenTitleKey: "ASE.Web.IPod.Menu.AllSongs"
+  }), _l(i, t);
+}
+function hl(e) {
+  return ({
+    data: t,
+    contextId: i,
+    i18n: l
+  }) => {
+    if (!t) return yn(l);
+    const a = nn(e, i, t).map((n) => ({
+      id: n.id,
+      title: n.name,
+      action: "play",
+      songId: n.id
+    }));
+    return _l(a, l);
+  };
+}
+var menuDefinitions = {
+  main: {
+    view: "list",
+    // Product names are usually not localized.
+    title: () => "iPod",
+    items: createMainMenu,
+    listsNowPlaying: true
+  },
+  settings: {
+    view: "list",
+    titleKey: "ASE.Web.IPod.Menu.Settings",
+    items: createSettingsMenu
+  },
+  about: {
+    view: "list",
+    titleKey: "ASE.Web.IPod.Settings.About",
+    items: createArtistsMenu,
+    selectHold: {
+      ms: Is,
+      target: "brick"
+    }
+  },
+  backlight: {
+    view: "list",
+    titleKey: "ASE.Web.IPod.Settings.BacklightTimer",
+    items: Dh
+  },
+  "reset-settings": {
+    view: "list",
+    titleKey: "ASE.Web.IPod.Settings.ResetAllSettings",
+    items: _h,
+    forgetsSelection: true
+  },
+  playlists: {
+    view: "list",
+    titleKey: "ASE.Web.IPod.Menu.Playlists",
+    items: createSongsMenu
+  },
+  artists: {
+    view: "list",
+    titleKey: "ASE.Web.IPod.Menu.Artists",
+    items: createPlaylistsMenu
+  },
+  songs: {
+    view: "list",
+    titleKey: "ASE.Web.IPod.Menu.Songs",
+    items: hl("songs")
+  },
+  "playlist-tracks": {
+    view: "list",
+    titleKey: "ASE.Web.IPod.Menu.Playlists",
+    title: ({
+      data: e,
+      contextId: t
+    }) => {
+      var i;
+      return (i = e == null ? void 0 : e.playlists.find((l) => l.id === t)) == null ? void 0 : i.name;
+    },
+    items: hl("playlist-tracks")
+  },
+  "artist-tracks": {
+    view: "list",
+    titleKey: "ASE.Web.IPod.Menu.Artists",
+    title: ({
+      data: e,
+      contextId: t
+    }) => {
+      var i;
+      return (i = e == null ? void 0 : e.artists.find((l) => l.id === t)) == null ? void 0 : i.name;
+    },
+    items: hl("artist-tracks")
+  },
+  "now-playing": {
+    view: "now-playing",
+    titleKey: "ASE.Web.IPod.Menu.NowPlaying",
+    blocksIdleJump: true
+  },
+  brick: {
+    view: "brick",
+    titleKey: "ASE.Web.IPod.Game.Title",
+    blocksIdleJump: true
+  }
+};
+function getMenuDefinition(e) {
+  return menuDefinitions[e];
+}
+function ua(e, t) {
+  return t && !!getMenuDefinition(e).listsNowPlaying;
+}
+function va(e, t) {
+  var i, l;
+  return ((l = (i = getMenuDefinition(e.key)).items) == null ? void 0 : l.call(i, {
+    ...t,
+    contextId: e.contextId
+  })) ?? [];
+}
+function Hh(e, t, i = defaultTranslator) {
+  var n;
+  if (e.titleKey) return i.t(e.titleKey);
+  const l = getMenuDefinition(e.key), a = (n = l.title) == null ? void 0 : n.call(l, {
+    data: t,
+    contextId: e.contextId
+  });
+  return a !== void 0 ? a : l.titleKey ? i.t(l.titleKey) : "";
+}
+function Ri({
+  key: e,
+  contextId: t
+}) {
+  return `${e}:${t ?? ""}`;
+}
+function Lh() {
+  const e = /* @__PURE__ */ new Map();
+  let t, i, l;
+  function a({
+    queue: r,
+    currentTrackIndex: c
+  }, d) {
+    if (r === i && c === l) return false;
+    i = r;
+    l = c;
+    const A = r[c];
+    return t && A && !d.some((f) => Ri(f) === t) && e.set(t, {
+      itemId: A.id,
+      index: c
+    }), true;
+  }
+  function n(r, c, d) {
+    const A = c[d];
+    !A || getMenuDefinition(r.key).forgetsSelection || e.set(Ri(r), {
+      itemId: A.id,
+      index: d
+    });
+  }
+  function o(r, c) {
+    var A;
+    const d = e.get(Ri(r));
+    return d ? ((A = c[d.index]) == null ? void 0 : A.id) === d.itemId ? d.index : c.findIndex((f) => f.id === d.itemId) : -1;
+  }
+  function p(r) {
+    t = Ri(r);
+  }
+  function h() {
+    t && (e.delete(t), t = void 0);
+  }
+  return {
+    syncQueue: a,
+    remember: n,
+    rememberedIndexIn: o,
+    setQueueSource: p,
+    clearQueueSource: h
+  };
+}
+var ya = {
+  isAdjustingVolume: false
+};
+
+// packages/web-music-ipod/src/generated/screens-and-games.js
 function Vs(e) {
   let t, i, l = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { width: "14" },
-    { height: "20" },
-    { viewBox: "0 0 14 20" },
+    {
+      xmlns: "http://www.w3.org/2000/svg"
+    },
+    {
+      width: "14"
+    },
+    {
+      height: "20"
+    },
+    {
+      viewBox: "0 0 14 20"
+    },
     /*$$props*/
     e[0]
   ], a = {};
-  for (let n = 0; n < l.length; n += 1)
-    a = pt(a, l[n]);
+  for (let n = 0; n < l.length; n += 1) a = pt(a, l[n]);
   return {
     c() {
       t = v("svg"), i = v("path"), this.h();
     },
     l(n) {
       t = wt(n, "svg", {
-        xmlns: !0,
-        width: !0,
-        height: !0,
-        viewBox: !0
+        xmlns: true,
+        width: true,
+        height: true,
+        viewBox: true
       });
       var o = mt(t);
-      i = wt(o, "path", { d: !0, style: !0, transform: !0 }), mt(i).forEach(H), o.forEach(H), this.h();
+      i = wt(o, "path", {
+        d: true,
+        style: true,
+        transform: true
+      }), mt(i).forEach(H), o.forEach(H), this.h();
     },
     h() {
       s(i, "d", "M6.576-95.378h21.875V0H6.576zm42.578 0h21.94V0h-21.94z"), m(i, "fill-rule", "nonzero"), s(i, "transform", "translate(-1.379 20)scale(.2097)"), Ct(t, a);
@@ -1428,18 +1806,20 @@ function Vs(e) {
       ve(n, t, o), jt(t, i);
     },
     p(n, [o]) {
-      Ct(t, a = ye(l, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { width: "14" },
-        { height: "20" },
-        { viewBox: "0 0 14 20" },
-        o & /*$$props*/
-        1 && /*$$props*/
-        n[0]
-      ]));
+      Ct(t, a = ye(l, [{
+        xmlns: "http://www.w3.org/2000/svg"
+      }, {
+        width: "14"
+      }, {
+        height: "20"
+      }, {
+        viewBox: "0 0 14 20"
+      }, o & /*$$props*/
+      1 && /*$$props*/
+      n[0]]));
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(n) {
       n && H(t);
     }
@@ -1450,35 +1830,46 @@ function qs(e, t, i) {
     i(0, t = pt(pt({}, t), _t(l)));
   }, t = _t(t), [t];
 }
-let Us = class extends It {
+var Us = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, qs, Vs, bt, {});
+    super(), initComponent(this, t, qs, Vs, bt, {});
   }
 };
 function Ks(e) {
   let t, i, l = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { width: "17" },
-    { height: "20" },
-    { viewBox: "0 0 17 20" },
+    {
+      xmlns: "http://www.w3.org/2000/svg"
+    },
+    {
+      width: "17"
+    },
+    {
+      height: "20"
+    },
+    {
+      viewBox: "0 0 17 20"
+    },
     /*$$props*/
     e[0]
   ], a = {};
-  for (let n = 0; n < l.length; n += 1)
-    a = pt(a, l[n]);
+  for (let n = 0; n < l.length; n += 1) a = pt(a, l[n]);
   return {
     c() {
       t = v("svg"), i = v("path"), this.h();
     },
     l(n) {
       t = wt(n, "svg", {
-        xmlns: !0,
-        width: !0,
-        height: !0,
-        viewBox: !0
+        xmlns: true,
+        width: true,
+        height: true,
+        viewBox: true
       });
       var o = mt(t);
-      i = wt(o, "path", { d: !0, style: !0, transform: !0 }), mt(i).forEach(H), o.forEach(H), this.h();
+      i = wt(o, "path", {
+        d: true,
+        style: true,
+        transform: true
+      }), mt(i).forEach(H), o.forEach(H), this.h();
     },
     h() {
       s(i, "d", "M71.234-28.693 10.883 7.049v-71.533z"), m(i, "fill-rule", "nonzero"), s(i, "transform", "translate(-3.043 18.03)scale(.27959)"), Ct(t, a);
@@ -1487,18 +1878,20 @@ function Ks(e) {
       ve(n, t, o), jt(t, i);
     },
     p(n, [o]) {
-      Ct(t, a = ye(l, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { width: "17" },
-        { height: "20" },
-        { viewBox: "0 0 17 20" },
-        o & /*$$props*/
-        1 && /*$$props*/
-        n[0]
-      ]));
+      Ct(t, a = ye(l, [{
+        xmlns: "http://www.w3.org/2000/svg"
+      }, {
+        width: "17"
+      }, {
+        height: "20"
+      }, {
+        viewBox: "0 0 17 20"
+      }, o & /*$$props*/
+      1 && /*$$props*/
+      n[0]]));
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(n) {
       n && H(t);
     }
@@ -1509,13 +1902,13 @@ function Gs(e, t, i) {
     i(0, t = pt(pt({}, t), _t(l)));
   }, t = _t(t), [t];
 }
-let Ys = class extends It {
+var Ys = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, Gs, Ks, bt, {});
+    super(), initComponent(this, t, Gs, Ks, bt, {});
   }
 };
 function Xs(e) {
-  ae(e, "svelte-1bjtjdb", '.menu-title.svelte-1bjtjdb{position:relative;flex:none;box-sizing:border-box;height:37px;margin:0 5px;border-bottom:2px solid #484647;text-align:center}.screen-title.svelte-1bjtjdb{position:absolute;top:calc(50% + 3px);left:50%;max-width:calc(100% - 86px);transform:translate(-50%, -50%);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.screen-title.brick-game-title.svelte-1bjtjdb{display:grid;grid-template-columns:1fr 1fr;width:calc(100% - 110px);max-width:calc(100% - 110px);overflow:visible}.balls-left.svelte-1bjtjdb{justify-self:start}.game-score.svelte-1bjtjdb{justify-self:end}.play-icon.svelte-1bjtjdb{position:absolute;top:50%;inset-inline-start:10px;display:inline-block;width:auto;height:20px;transform:translate(0, calc(-50% + 1.2px)) scale(0.9);fill:#484647}.play-icon.pause.svelte-1bjtjdb{--flip:1;transform:translate(calc(2.3px * var(--flip)), calc(-50% + 1.2px)) scale(1, 0.8)}.play-icon.pause.svelte-1bjtjdb:dir(rtl){--flip:-1}.battery-indicator.svelte-1bjtjdb{position:absolute;top:3px;inset-inline-end:5px;box-sizing:content-box;width:98px;height:44px;background:linear-gradient(#484647, #484647) right 0 top -6px/6px calc((100% - 28%) / 2 + 6px) no-repeat, linear-gradient(#484647, #484647) right 0 bottom -6px/6px calc((100% - 28%) / 2 + 6px) no-repeat;border:6px solid #484647;border-right:0;transform:scale(0.3, 0.3);transform-origin:100% 23%}.battery-indicator.svelte-1bjtjdb:dir(rtl){transform-origin:0% 23%}.battery-indicator.svelte-1bjtjdb::before{content:"";position:absolute;top:50%;right:-6px;width:6px;height:28%;border-top:6px solid #484647;border-right:6px solid #484647;border-bottom:6px solid #484647;transform:translate(0, -50%)}.battery-indicator.svelte-1bjtjdb::after{content:"";position:absolute;top:5px;bottom:5px;left:5px;width:84px;background:repeating-linear-gradient(to right, #484647, #484647 16px, transparent 16px, transparent 22px, #484647 22px, #484647 37px, transparent 38px, transparent 43px, #484647 42px, #484647 57px, transparent 59px, transparent 64px, #484647 55px, #484647 55px)}.menu-title.svelte-1bjtjdb{opacity:var(--ipod-screen-opacity, 1)}');
+  appendStyles(e, "svelte-1bjtjdb", '.menu-title.svelte-1bjtjdb{position:relative;flex:none;box-sizing:border-box;height:37px;margin:0 5px;border-bottom:2px solid #484647;text-align:center}.screen-title.svelte-1bjtjdb{position:absolute;top:calc(50% + 3px);left:50%;max-width:calc(100% - 86px);transform:translate(-50%, -50%);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.screen-title.brick-game-title.svelte-1bjtjdb{display:grid;grid-template-columns:1fr 1fr;width:calc(100% - 110px);max-width:calc(100% - 110px);overflow:visible}.balls-left.svelte-1bjtjdb{justify-self:start}.game-score.svelte-1bjtjdb{justify-self:end}.play-icon.svelte-1bjtjdb{position:absolute;top:50%;inset-inline-start:10px;display:inline-block;width:auto;height:20px;transform:translate(0, calc(-50% + 1.2px)) scale(0.9);fill:#484647}.play-icon.pause.svelte-1bjtjdb{--flip:1;transform:translate(calc(2.3px * var(--flip)), calc(-50% + 1.2px)) scale(1, 0.8)}.play-icon.pause.svelte-1bjtjdb:dir(rtl){--flip:-1}.battery-indicator.svelte-1bjtjdb{position:absolute;top:3px;inset-inline-end:5px;box-sizing:content-box;width:98px;height:44px;background:linear-gradient(#484647, #484647) right 0 top -6px/6px calc((100% - 28%) / 2 + 6px) no-repeat, linear-gradient(#484647, #484647) right 0 bottom -6px/6px calc((100% - 28%) / 2 + 6px) no-repeat;border:6px solid #484647;border-right:0;transform:scale(0.3, 0.3);transform-origin:100% 23%}.battery-indicator.svelte-1bjtjdb:dir(rtl){transform-origin:0% 23%}.battery-indicator.svelte-1bjtjdb::before{content:"";position:absolute;top:50%;right:-6px;width:6px;height:28%;border-top:6px solid #484647;border-right:6px solid #484647;border-bottom:6px solid #484647;transform:translate(0, -50%)}.battery-indicator.svelte-1bjtjdb::after{content:"";position:absolute;top:5px;bottom:5px;left:5px;width:84px;background:repeating-linear-gradient(to right, #484647, #484647 16px, transparent 16px, transparent 22px, #484647 22px, #484647 37px, transparent 38px, transparent 43px, #484647 42px, #484647 57px, transparent 59px, transparent 64px, #484647 55px, #484647 55px)}.menu-title.svelte-1bjtjdb{opacity:var(--ipod-screen-opacity, 1)}');
 }
 function Gl(e) {
   let t, i, l, a;
@@ -1531,7 +1924,7 @@ function Gl(e) {
       i.c(), l = za();
     },
     m(h, r) {
-      o[t].m(h, r), ht(h, l, r), a = !0;
+      o[t].m(h, r), ht(h, l, r), a = true;
     },
     p(h, r) {
       let c = t;
@@ -1540,10 +1933,10 @@ function Gl(e) {
       }), fe(), i = o[t], i || (i = o[t] = n[t](h), i.c()), $(i, 1), i.m(l.parentNode, l));
     },
     i(h) {
-      a || ($(i), a = !0);
+      a || ($(i), a = true);
     },
     o(h) {
-      et(i), a = !1;
+      et(i), a = false;
     },
     d(h) {
       h && H(l), o[t].d(h);
@@ -1557,13 +1950,13 @@ function Zs(e) {
       t = T("div"), gt(i.$$.fragment), s(t, "class", "play-icon pause svelte-1bjtjdb"), s(t, "data-testid", "now-playing-indicator"), s(t, "aria-hidden", "true");
     },
     m(a, n) {
-      ht(a, t, n), vt(i, t, null), l = !0;
+      ht(a, t, n), vt(i, t, null), l = true;
     },
     i(a) {
-      l || ($(i.$$.fragment, a), l = !0);
+      l || ($(i.$$.fragment, a), l = true);
     },
     o(a) {
-      et(i.$$.fragment, a), l = !1;
+      et(i.$$.fragment, a), l = false;
     },
     d(a) {
       a && H(t), yt(i);
@@ -1577,13 +1970,13 @@ function Js(e) {
       t = T("div"), gt(i.$$.fragment), s(t, "class", "play-icon play svelte-1bjtjdb"), s(t, "data-testid", "now-playing-indicator"), s(t, "aria-hidden", "true");
     },
     m(a, n) {
-      ht(a, t, n), vt(i, t, null), l = !0;
+      ht(a, t, n), vt(i, t, null), l = true;
     },
     i(a) {
-      l || ($(i.$$.fragment, a), l = !0);
+      l || ($(i.$$.fragment, a), l = true);
     },
     o(a) {
-      et(i.$$.fragment, a), l = !1;
+      et(i.$$.fragment, a), l = false;
     },
     d(a) {
       a && H(t), yt(i);
@@ -1665,20 +2058,19 @@ function eo(e) {
       t = T("div"), o && o.c(), i = rt(), l = T("div"), a = rt(), r.c(), s(l, "class", "battery-indicator svelte-1bjtjdb"), s(l, "data-testid", "battery-indicator"), s(l, "aria-hidden", "true"), s(t, "id", "menu-title"), s(t, "class", "menu-title svelte-1bjtjdb"), s(t, "data-testid", "menu-title");
     },
     m(c, d) {
-      ht(c, t, d), o && o.m(t, null), u(t, i), u(t, l), u(t, a), r.m(t, null), n = !0;
+      ht(c, t, d), o && o.m(t, null), u(t, i), u(t, l), u(t, a), r.m(t, null), n = true;
     },
     p(c, [d]) {
-      /*hasLoadedItem*/
       c[1] ? o ? (o.p(c, d), d & /*hasLoadedItem*/
       2 && $(o, 1)) : (o = Gl(c), o.c(), $(o, 1), o.m(t, i)) : o && (Ae(), et(o, 1, 1, () => {
         o = null;
       }), fe()), h === (h = p(c)) && r ? r.p(c, d) : (r.d(1), r = h(c), r && (r.c(), r.m(t, null)));
     },
     i(c) {
-      n || ($(o), n = !0);
+      n || ($(o), n = true);
     },
     o(c) {
-      et(o), n = !1;
+      et(o), n = false;
     },
     d(c) {
       c && H(t), o && o.d(), r.d();
@@ -1686,82 +2078,110 @@ function eo(e) {
   };
 }
 function io(e, t, i) {
-  let { title: l } = t, { hasLoadedItem: a } = t, { isPlaying: n } = t, { isBrick: o = !1 } = t, { brickBalls: p = 0 } = t, { brickScore: h = 0 } = t;
+  let {
+    title: l
+  } = t, {
+    hasLoadedItem: a
+  } = t, {
+    isPlaying: n
+  } = t, {
+    isBrick: o = false
+  } = t, {
+    brickBalls: p = 0
+  } = t, {
+    brickScore: h = 0
+  } = t;
   return e.$$set = (r) => {
     "title" in r && i(0, l = r.title), "hasLoadedItem" in r && i(1, a = r.hasLoadedItem), "isPlaying" in r && i(2, n = r.isPlaying), "isBrick" in r && i(3, o = r.isBrick), "brickBalls" in r && i(4, p = r.brickBalls), "brickScore" in r && i(5, h = r.brickScore);
   }, [l, a, n, o, p, h];
 }
-class en extends It {
+var en = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(
-      this,
-      t,
-      io,
-      eo,
-      bt,
-      {
-        title: 0,
-        hasLoadedItem: 1,
-        isPlaying: 2,
-        isBrick: 3,
-        brickBalls: 4,
-        brickScore: 5
-      },
-      Xs
-    );
+    super(), initComponent(this, t, io, eo, bt, {
+      title: 0,
+      hasLoadedItem: 1,
+      isPlaying: 2,
+      isBrick: 3,
+      brickBalls: 4,
+      brickScore: 5
+    }, Xs);
   }
   get title() {
     return this.$$.ctx[0];
   }
   set title(t) {
-    this.$$set({ title: t }), R();
+    this.$$set({
+      title: t
+    }), flush();
   }
   get hasLoadedItem() {
     return this.$$.ctx[1];
   }
   set hasLoadedItem(t) {
-    this.$$set({ hasLoadedItem: t }), R();
+    this.$$set({
+      hasLoadedItem: t
+    }), flush();
   }
   get isPlaying() {
     return this.$$.ctx[2];
   }
   set isPlaying(t) {
-    this.$$set({ isPlaying: t }), R();
+    this.$$set({
+      isPlaying: t
+    }), flush();
   }
   get isBrick() {
     return this.$$.ctx[3];
   }
   set isBrick(t) {
-    this.$$set({ isBrick: t }), R();
+    this.$$set({
+      isBrick: t
+    }), flush();
   }
   get brickBalls() {
     return this.$$.ctx[4];
   }
   set brickBalls(t) {
-    this.$$set({ brickBalls: t }), R();
+    this.$$set({
+      brickBalls: t
+    }), flush();
   }
   get brickScore() {
     return this.$$.ctx[5];
   }
   set brickScore(t) {
-    this.$$set({ brickScore: t }), R();
+    this.$$set({
+      brickScore: t
+    }), flush();
   }
-}
-ne(en, { title: {}, hasLoadedItem: {}, isPlaying: {}, isBrick: { type: "Boolean" }, brickBalls: {}, brickScore: {} }, [], [], !0);
-const ln = (e, t) => {
-  t && e.focus({ preventScroll: !0 });
-}, lo = {
+};
+defineSvelteElement(en, {
+  title: {},
+  hasLoadedItem: {},
+  isPlaying: {},
+  isBrick: {
+    type: "Boolean"
+  },
+  brickBalls: {},
+  brickScore: {}
+}, [], [], true);
+var ln = (e, t) => {
+  t && e.focus({
+    preventScroll: true
+  });
+};
+var lo = {
   off: "ASE.Web.IPod.Settings.Value.Off",
   on: "ASE.Web.IPod.Settings.Value.On",
   songs: "ASE.Web.IPod.Settings.Value.Songs",
   one: "ASE.Web.IPod.Settings.Value.One",
   all: "ASE.Web.IPod.Settings.Value.All"
 };
-function Yl(e, t = Fe) {
+function Yl(e, t = defaultTranslator) {
   const i = lo[e];
   return i ? t.t(i) : e;
 }
-const Xl = /* @__PURE__ */ new WeakMap();
+var Xl = /* @__PURE__ */ new WeakMap();
 function ao(e) {
   let t = Xl.get(e);
   return t || (t = new Map(e.songs.map((i) => [i.id, i])), Xl.set(e, t)), t;
@@ -1779,34 +2199,24 @@ function no(e, t) {
     return i === ((a = t[l]) == null ? void 0 : a.id);
   });
 }
-function Ni(e, { queue: t, currentTrackIndex: i }) {
+function Ni(e, {
+  queue: t,
+  currentTrackIndex: i
+}) {
   const l = xl(e);
-  return no(
-    l.map((a) => a.songId),
-    t
-  ) ? e.indexOf(l[i]) : -1;
+  return no(l.map((a) => a.songId), t) ? e.indexOf(l[i]) : -1;
 }
 function so(e, t) {
-  return an(
-    xl(e).map((i) => i.songId),
-    t
-  );
+  return an(xl(e).map((i) => i.songId), t);
 }
-const oo = [
-  "songs",
-  "playlist-tracks",
-  "artist-tracks"
-];
+var oo = ["songs", "playlist-tracks", "artist-tracks"];
 function ho(e) {
   return oo.includes(e);
 }
 function nn(e, t, i) {
   const l = (a) => {
     var n;
-    return an(
-      ((n = a.find((o) => o.id === t)) == null ? void 0 : n.songIds) ?? [],
-      i
-    );
+    return an(((n = a.find((o) => o.id === t)) == null ? void 0 : n.songIds) ?? [], i);
   };
   switch (e) {
     case "songs":
@@ -1819,27 +2229,27 @@ function nn(e, t, i) {
       return e;
   }
 }
-function sn(e, t = Fe) {
+function sn(e, t = defaultTranslator) {
   const i = Math.max(0, Math.floor(e)), l = t.formatNumber(Math.floor(i / 60), {
-    useGrouping: !1
+    useGrouping: false
   }), a = t.formatNumber(i % 60, {
     minimumIntegerDigits: 2
   });
   return `${l}:${a}`;
 }
-function ro(e, t, i = Fe) {
+function ro(e, t, i = defaultTranslator) {
   return !Number.isFinite(t) || t <= 0 ? "" : `-${sn(Math.ceil(t - e), i)}`;
 }
-function Zl(e, t = Fe) {
-  const i = Math.max(0, Math.floor(e)), l = (n, o) => t.formatNumber(n, { style: "unit", unit: o, unitDisplay: "long" }), a = [
-    [Math.floor(i / 3600), "hour"],
-    [Math.floor(i / 60) % 60, "minute"],
-    [i % 60, "second"]
-  ].filter(([n]) => n > 0).map(([n, o]) => l(n, o));
+function Zl(e, t = defaultTranslator) {
+  const i = Math.max(0, Math.floor(e)), l = (n, o) => t.formatNumber(n, {
+    style: "unit",
+    unit: o,
+    unitDisplay: "long"
+  }), a = [[Math.floor(i / 3600), "hour"], [Math.floor(i / 60) % 60, "minute"], [i % 60, "second"]].filter(([n]) => n > 0).map(([n, o]) => l(n, o));
   return a.length ? t.formatList(a) : l(0, "second");
 }
 function co(e) {
-  ae(e, "svelte-v01lnd", ".menu-items.svelte-v01lnd.svelte-v01lnd{height:180px;margin:1.7px 0 0;padding:0 5px;overflow:hidden auto;opacity:var(--ipod-screen-opacity, 1)}.menu-items.svelte-v01lnd.svelte-v01lnd::-webkit-scrollbar{width:12px}.menu-items.svelte-v01lnd.svelte-v01lnd::-webkit-scrollbar-track{background-color:rgba(72, 70, 71, 0.1);border:1px solid #484647}.menu-items.svelte-v01lnd.svelte-v01lnd::-webkit-scrollbar-thumb{background-color:#484647;background-clip:padding-box;border:2px solid transparent}.menu-item.svelte-v01lnd.svelte-v01lnd{display:flex;justify-content:space-between;align-items:center;padding:3px 12px 1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.menu-item.centered.svelte-v01lnd.svelte-v01lnd{justify-content:center}.menu-item.selected.svelte-v01lnd.svelte-v01lnd:not([data-action=info]){background-color:#484647;color:var(--ipod-faux-backlit, var(--screen-ink-inverse, #afaea7))}.menu-item.selected.svelte-v01lnd.svelte-v01lnd:not([data-action=info]):dir(rtl){--screen-ink-inverse:#b8b7b1}.menu-item.selected.svelte-v01lnd.svelte-v01lnd:not([data-action=info]):focus-visible{outline:2px solid currentcolor;outline-offset:-2px}@media(prefers-contrast: more){.menu-item.selected.svelte-v01lnd.svelte-v01lnd:not([data-action=info]){background-color:black;color:var(--ipod-faux-backlit, #eed)}}.menu-item.selected.svelte-v01lnd:not([data-action=info]) .item-value.svelte-v01lnd,.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd{border-color:var(--ipod-faux-backlit, var(--item-color-fallback, #c1c1ba));color:var(--ipod-faux-backlit, var(--item-color-fallback, #c1c1ba));fill:var(--ipod-faux-backlit, var(--item-color-fallback, #c1c1ba))}@media(prefers-contrast: more){.menu-item.selected.svelte-v01lnd:not([data-action=info]) .item-value.svelte-v01lnd,.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd{--item-color-fallback:#eed}}.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd{--item-color-fallback:#b9b9b3}.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd:dir(rtl){--item-color-fallback:#a7a79f}@media(prefers-contrast: more){.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd,.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd:dir(rtl){--item-color-fallback:#eed}}.item-title.svelte-v01lnd.svelte-v01lnd{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.item-value.svelte-v01lnd.svelte-v01lnd{font-weight:normal;white-space:nowrap}[data-action=info].svelte-v01lnd .item-value.svelte-v01lnd{color:inherit}[data-action=inline-toggle].svelte-v01lnd .item-value.svelte-v01lnd{color:#333;overflow:hidden;text-overflow:ellipsis}.chevron.svelte-v01lnd.svelte-v01lnd{--flip:1;display:inline-block;box-sizing:border-box;width:12px;height:12px;margin-inline-end:5px;border-block-start:3px solid #333;border-inline-end:3px solid #333;transform:rotate(calc(45deg * var(--flip))) translateY(-2px)}.chevron.svelte-v01lnd.svelte-v01lnd:dir(rtl){--flip:-1}");
+  appendStyles(e, "svelte-v01lnd", ".menu-items.svelte-v01lnd.svelte-v01lnd{height:180px;margin:1.7px 0 0;padding:0 5px;overflow:hidden auto;opacity:var(--ipod-screen-opacity, 1)}.menu-items.svelte-v01lnd.svelte-v01lnd::-webkit-scrollbar{width:12px}.menu-items.svelte-v01lnd.svelte-v01lnd::-webkit-scrollbar-track{background-color:rgba(72, 70, 71, 0.1);border:1px solid #484647}.menu-items.svelte-v01lnd.svelte-v01lnd::-webkit-scrollbar-thumb{background-color:#484647;background-clip:padding-box;border:2px solid transparent}.menu-item.svelte-v01lnd.svelte-v01lnd{display:flex;justify-content:space-between;align-items:center;padding:3px 12px 1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.menu-item.centered.svelte-v01lnd.svelte-v01lnd{justify-content:center}.menu-item.selected.svelte-v01lnd.svelte-v01lnd:not([data-action=info]){background-color:#484647;color:var(--ipod-faux-backlit, var(--screen-ink-inverse, #afaea7))}.menu-item.selected.svelte-v01lnd.svelte-v01lnd:not([data-action=info]):dir(rtl){--screen-ink-inverse:#b8b7b1}.menu-item.selected.svelte-v01lnd.svelte-v01lnd:not([data-action=info]):focus-visible{outline:2px solid currentcolor;outline-offset:-2px}@media(prefers-contrast: more){.menu-item.selected.svelte-v01lnd.svelte-v01lnd:not([data-action=info]){background-color:black;color:var(--ipod-faux-backlit, #eed)}}.menu-item.selected.svelte-v01lnd:not([data-action=info]) .item-value.svelte-v01lnd,.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd{border-color:var(--ipod-faux-backlit, var(--item-color-fallback, #c1c1ba));color:var(--ipod-faux-backlit, var(--item-color-fallback, #c1c1ba));fill:var(--ipod-faux-backlit, var(--item-color-fallback, #c1c1ba))}@media(prefers-contrast: more){.menu-item.selected.svelte-v01lnd:not([data-action=info]) .item-value.svelte-v01lnd,.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd{--item-color-fallback:#eed}}.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd{--item-color-fallback:#b9b9b3}.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd:dir(rtl){--item-color-fallback:#a7a79f}@media(prefers-contrast: more){.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd,.menu-item.selected.svelte-v01lnd:not([data-action=info]) .chevron.svelte-v01lnd:dir(rtl){--item-color-fallback:#eed}}.item-title.svelte-v01lnd.svelte-v01lnd{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.item-value.svelte-v01lnd.svelte-v01lnd{font-weight:normal;white-space:nowrap}[data-action=info].svelte-v01lnd .item-value.svelte-v01lnd{color:inherit}[data-action=inline-toggle].svelte-v01lnd .item-value.svelte-v01lnd{color:#333;overflow:hidden;text-overflow:ellipsis}.chevron.svelte-v01lnd.svelte-v01lnd{--flip:1;display:inline-block;box-sizing:border-box;width:12px;height:12px;margin-inline-end:5px;border-block-start:3px solid #333;border-inline-end:3px solid #333;transform:rotate(calc(45deg * var(--flip))) translateY(-2px)}.chevron.svelte-v01lnd.svelte-v01lnd:dir(rtl){--flip:-1}");
 }
 function Jl(e, t, i) {
   const l = e.slice();
@@ -1854,7 +2264,7 @@ function po(e) {
     m(i, l) {
       ht(i, t, l);
     },
-    p: J,
+    p: noop,
     d(i) {
       i && H(t);
     }
@@ -1969,7 +2379,7 @@ function $l(e) {
         /*idx*/
         e[12] === /*selectedIndex*/
         e[1]
-      )), A = !0);
+      )), A = true);
     },
     p(w, E) {
       e = w, E & /*items*/
@@ -2010,7 +2420,7 @@ function $l(e) {
       );
     },
     d(w) {
-      w && H(t), y && y.d(), A = !1, f();
+      w && H(t), y && y.d(), A = false, f();
     }
   };
 }
@@ -2019,36 +2429,30 @@ function uo(e) {
     /*items*/
     e[0]
   ), h = [];
-  for (let r = 0; r < p.length; r += 1)
-    h[r] = $l(Jl(e, p, r));
+  for (let r = 0; r < p.length; r += 1) h[r] = $l(Jl(e, p, r));
   return {
     c() {
       t = T("ul");
-      for (let r = 0; r < h.length; r += 1)
-        h[r].c();
+      for (let r = 0; r < h.length; r += 1) h[r].c();
       s(t, "class", "menu-items svelte-v01lnd"), s(t, "data-testid", "menu-items"), s(t, "role", "listbox"), s(t, "tabindex", "0"), s(t, "aria-activedescendant", i = `menu-item-${/*navigationId*/
       e[2]}-${/*selectedIndex*/
       e[1]}`), s(t, "aria-labelledby", "menu-title");
     },
     m(r, c) {
       ht(r, t, c);
-      for (let d = 0; d < h.length; d += 1)
-        h[d] && h[d].m(t, null);
-      n || (o = [
-        Kt(l = ln.call(
-          null,
-          t,
-          /*shouldFocus*/
-          e[3]
-        )),
-        Kt(a = /*restoreListScroll*/
-        e[8].call(
-          null,
-          t,
-          /*restoredScrollTop*/
-          e[4]
-        ))
-      ], n = !0);
+      for (let d = 0; d < h.length; d += 1) h[d] && h[d].m(t, null);
+      n || (o = [Kt(l = ln.call(
+        null,
+        t,
+        /*shouldFocus*/
+        e[3]
+      )), Kt(a = /*restoreListScroll*/
+      e[8].call(
+        null,
+        t,
+        /*restoredScrollTop*/
+        e[4]
+      ))], n = true);
     },
     p(r, [c]) {
       if (c & /*navigationId, items, undefined, selectedIndex, $settings, $i18n*/
@@ -2062,8 +2466,7 @@ function uo(e) {
           const A = Jl(r, p, d);
           h[d] ? h[d].p(A, c) : (h[d] = $l(A), h[d].c(), h[d].m(t, null));
         }
-        for (; d < h.length; d += 1)
-          h[d].d(1);
+        for (; d < h.length; d += 1) h[d].d(1);
         h.length = p.length;
       }
       c & /*navigationId, selectedIndex*/
@@ -2081,27 +2484,41 @@ function uo(e) {
         r[4]
       );
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(r) {
-      r && H(t), Wn(h, r), n = !1, ue(o);
+      r && H(t), Wn(h, r), n = false, ue(o);
     }
   };
 }
 function vo(e, t) {
-  return t && e.scrollIntoView({ block: "nearest" }), {
+  return t && e.scrollIntoView({
+    block: "nearest"
+  }), {
     update(i) {
-      i && e.scrollIntoView({ block: "nearest" });
+      i && e.scrollIntoView({
+        block: "nearest"
+      });
     }
   };
 }
 function yo(e, t, i) {
   let l, a;
-  Ut(e, ie, (f) => i(5, l = f));
-  const n = Qi();
+  Ut(e, settings, (f) => i(5, l = f));
+  const n = getTranslator();
   Ut(e, n, (f) => i(6, a = f));
   const o = Hi();
-  let { items: p } = t, { selectedIndex: h } = t, { navigationId: r } = t, { shouldFocus: c } = t, { restoredScrollTop: d = void 0 } = t;
+  let {
+    items: p
+  } = t, {
+    selectedIndex: h
+  } = t, {
+    navigationId: r
+  } = t, {
+    shouldFocus: c
+  } = t, {
+    restoredScrollTop: d = void 0
+  } = t;
   function A(f, g) {
     return o("listmount", f), g !== void 0 && (f.scrollTop = g), {
       destroy() {
@@ -2111,69 +2528,67 @@ function yo(e, t, i) {
   }
   return e.$$set = (f) => {
     "items" in f && i(0, p = f.items), "selectedIndex" in f && i(1, h = f.selectedIndex), "navigationId" in f && i(2, r = f.navigationId), "shouldFocus" in f && i(3, c = f.shouldFocus), "restoredScrollTop" in f && i(4, d = f.restoredScrollTop);
-  }, [
-    p,
-    h,
-    r,
-    c,
-    d,
-    l,
-    a,
-    n,
-    A
-  ];
+  }, [p, h, r, c, d, l, a, n, A];
 }
-class on extends It {
+var on = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(
-      this,
-      t,
-      yo,
-      uo,
-      bt,
-      {
-        items: 0,
-        selectedIndex: 1,
-        navigationId: 2,
-        shouldFocus: 3,
-        restoredScrollTop: 4
-      },
-      co
-    );
+    super(), initComponent(this, t, yo, uo, bt, {
+      items: 0,
+      selectedIndex: 1,
+      navigationId: 2,
+      shouldFocus: 3,
+      restoredScrollTop: 4
+    }, co);
   }
   get items() {
     return this.$$.ctx[0];
   }
   set items(t) {
-    this.$$set({ items: t }), R();
+    this.$$set({
+      items: t
+    }), flush();
   }
   get selectedIndex() {
     return this.$$.ctx[1];
   }
   set selectedIndex(t) {
-    this.$$set({ selectedIndex: t }), R();
+    this.$$set({
+      selectedIndex: t
+    }), flush();
   }
   get navigationId() {
     return this.$$.ctx[2];
   }
   set navigationId(t) {
-    this.$$set({ navigationId: t }), R();
+    this.$$set({
+      navigationId: t
+    }), flush();
   }
   get shouldFocus() {
     return this.$$.ctx[3];
   }
   set shouldFocus(t) {
-    this.$$set({ shouldFocus: t }), R();
+    this.$$set({
+      shouldFocus: t
+    }), flush();
   }
   get restoredScrollTop() {
     return this.$$.ctx[4];
   }
   set restoredScrollTop(t) {
-    this.$$set({ restoredScrollTop: t }), R();
+    this.$$set({
+      restoredScrollTop: t
+    }), flush();
   }
-}
-ne(on, { items: {}, selectedIndex: {}, navigationId: {}, shouldFocus: {}, restoredScrollTop: {} }, [], [], !0);
-const go = le("linkNavigation");
+};
+defineSvelteElement(on, {
+  items: {},
+  selectedIndex: {},
+  navigationId: {},
+  shouldFocus: {},
+  restoredScrollTop: {}
+}, [], [], true);
+var go = createLogger("linkNavigation");
 async function mo(e, t) {
   try {
     await e(t);
@@ -2181,7 +2596,7 @@ async function mo(e, t) {
     go.error(`Host navigation failed for "${t}"`, i);
   }
 }
-const bo = (e, t) => {
+var bo = (e, t) => {
   let i = t;
   function l(a) {
     const n = a.metaKey || a.ctrlKey || a.shiftKey || a.altKey;
@@ -2197,7 +2612,7 @@ const bo = (e, t) => {
   };
 };
 function Mo(e) {
-  ae(e, "svelte-61q7q9", `.marquee.svelte-61q7q9.svelte-61q7q9{overflow:hidden}.marquee-track.svelte-61q7q9.svelte-61q7q9{--marquee-distance:calc(
+  appendStyles(e, "svelte-61q7q9", `.marquee.svelte-61q7q9.svelte-61q7q9{overflow:hidden}.marquee-track.svelte-61q7q9.svelte-61q7q9{--marquee-distance:calc(
       var(--marquee-copy-width, 0) + 30
   );--marquee-direction:-1;display:flex;width:max-content;gap:30px;margin-inline:auto}.marquee.svelte-61q7q9:dir(rtl) .marquee-track.svelte-61q7q9{--marquee-direction:1}.marquee-copy.svelte-61q7q9.svelte-61q7q9{white-space:nowrap}.scrolling.svelte-61q7q9 .marquee-track.svelte-61q7q9{animation:svelte-61q7q9-marquee-scroll calc(var(--marquee-distance) * 0.05s) linear 2s infinite}@media(prefers-reduced-motion: reduce){.marquee-track.svelte-61q7q9.svelte-61q7q9{display:block;width:auto}.scrolling.svelte-61q7q9 .marquee-track.svelte-61q7q9{animation:none}.marquee-copy.svelte-61q7q9.svelte-61q7q9{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis}.marquee-copy[aria-hidden].svelte-61q7q9.svelte-61q7q9{display:none}}@keyframes svelte-61q7q9-marquee-scroll{to{transform:translateX(calc(var(--marquee-distance) * var(--marquee-direction) * 1px))}}`);
 }
@@ -2250,7 +2665,7 @@ function ea(e) {
         i,
         /*measure_function*/
         e[7]
-      )), o = !0);
+      )), o = true);
     },
     p(r, c) {
       c & /*text*/
@@ -2273,7 +2688,7 @@ function ea(e) {
       );
     },
     d(r) {
-      r && H(t), h && h.d(), o = !1, p();
+      r && H(t), h && h.d(), o = false, p();
     }
   };
 }
@@ -2298,7 +2713,7 @@ function wo(e) {
         t,
         /*measure_function_1*/
         e[8]
-      )), a = !0);
+      )), a = true);
     },
     p(p, [h]) {
       h & /*restartKey*/
@@ -2316,18 +2731,24 @@ function wo(e) {
         p[3]
       );
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(p) {
-      p && H(t), o.d(p), a = !1, n();
+      p && H(t), o.d(p), a = false, n();
     }
   };
 }
 function ko(e, t, i) {
-  let l, a, { text: n } = t, { resetKey: o = void 0 } = t, p = 0, h = 0;
+  let l, a, {
+    text: n
+  } = t, {
+    resetKey: o = void 0
+  } = t, p = 0, h = 0;
   const r = (A, f) => {
     const g = new ResizeObserver(() => f(A));
-    return g.observe(A), f(A), { destroy: () => g.disconnect() };
+    return g.observe(A), f(A), {
+      destroy: () => g.disconnect()
+    };
   }, c = (A) => {
     i(2, h = A.offsetWidth);
   }, d = (A) => {
@@ -2339,38 +2760,38 @@ function ko(e, t, i) {
     e.$$.dirty & /*resetKey, text*/
     65 && i(4, l = `${o ?? ""}\0${n}`), e.$$.dirty & /*copyWidth, containerWidth*/
     6 && i(3, a = h - p > 1);
-  }, [
-    n,
-    p,
-    h,
-    a,
-    l,
-    r,
-    o,
-    c,
-    d
-  ];
+  }, [n, p, h, a, l, r, o, c, d];
 }
-class Dl extends It {
+var Dl = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, ko, wo, bt, { text: 0, resetKey: 6 }, Mo);
+    super(), initComponent(this, t, ko, wo, bt, {
+      text: 0,
+      resetKey: 6
+    }, Mo);
   }
   get text() {
     return this.$$.ctx[0];
   }
   set text(t) {
-    this.$$set({ text: t }), R();
+    this.$$set({
+      text: t
+    }), flush();
   }
   get resetKey() {
     return this.$$.ctx[6];
   }
   set resetKey(t) {
-    this.$$set({ resetKey: t }), R();
+    this.$$set({
+      resetKey: t
+    }), flush();
   }
-}
-ne(Dl, { text: {}, resetKey: {} }, [], [], !0);
+};
+defineSvelteElement(Dl, {
+  text: {},
+  resetKey: {}
+}, [], [], true);
 function Po(e) {
-  ae(e, "svelte-rmzg1t", ".progress-bar.svelte-rmzg1t{position:relative;width:100%;height:15px;min-height:12px;border:1.5px solid #484647;border-radius:7px;overflow:hidden;direction:ltr}.progress-bar.svelte-rmzg1t:has(.progress-marker){overflow:visible}.progress-bar.svelte-rmzg1t:has(.range-input:focus-visible){outline:2px solid currentcolor;outline-offset:2px}.progress-fill.svelte-rmzg1t{width:0%;height:15px;background:#484647}.progress-marker.svelte-rmzg1t{position:absolute;top:50%;width:10px;height:10px;background:#484647;transform:translate(-50%, -50%) rotate(45deg)}.range-input.svelte-rmzg1t{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0}");
+  appendStyles(e, "svelte-rmzg1t", ".progress-bar.svelte-rmzg1t{position:relative;width:100%;height:15px;min-height:12px;border:1.5px solid #484647;border-radius:7px;overflow:hidden;direction:ltr}.progress-bar.svelte-rmzg1t:has(.progress-marker){overflow:visible}.progress-bar.svelte-rmzg1t:has(.range-input:focus-visible){outline:2px solid currentcolor;outline-offset:2px}.progress-fill.svelte-rmzg1t{width:0%;height:15px;background:#484647}.progress-marker.svelte-rmzg1t{position:absolute;top:50%;width:10px;height:10px;background:#484647;transform:translate(-50%, -50%) rotate(45deg)}.range-input.svelte-rmzg1t{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0}");
 }
 function Eo(e) {
   let t, i, l = `${/*percent*/
@@ -2442,32 +2863,27 @@ function ia(e) {
       );
     },
     m(a, n) {
-      ht(a, t, n), i || (l = [
-        ut(
-          t,
-          "focus",
-          /*focus_handler*/
-          e[9]
-        ),
-        ut(
-          t,
-          "input",
-          /*input_handler*/
-          e[12]
-        ),
-        ut(
-          t,
-          "change",
-          /*change_handler*/
-          e[10]
-        ),
-        ut(
-          t,
-          "blur",
-          /*blur_handler*/
-          e[11]
-        )
-      ], i = !0);
+      ht(a, t, n), i || (l = [ut(
+        t,
+        "focus",
+        /*focus_handler*/
+        e[9]
+      ), ut(
+        t,
+        "input",
+        /*input_handler*/
+        e[12]
+      ), ut(
+        t,
+        "change",
+        /*change_handler*/
+        e[10]
+      ), ut(
+        t,
+        "blur",
+        /*blur_handler*/
+        e[11]
+      )], i = true);
     },
     p(a, n) {
       n & /*max*/
@@ -2495,7 +2911,7 @@ function ia(e) {
       );
     },
     d(a) {
-      a && H(t), i = !1, ue(l);
+      a && H(t), i = false, ue(l);
     }
   };
 }
@@ -2525,15 +2941,29 @@ function So(e) {
       4 && l !== (l = /*testId*/
       h[2] + "-bar") && s(t, "data-testid", l);
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(h) {
       h && H(t), o.d(), p && p.d();
     }
   };
 }
 function xo(e, t, i) {
-  let l, { value: a } = t, { max: n } = t, { testId: o } = t, { variant: p = "fill" } = t, { label: h = void 0 } = t, { valuetext: r = void 0 } = t, { disabled: c = !1 } = t;
+  let l, {
+    value: a
+  } = t, {
+    max: n
+  } = t, {
+    testId: o
+  } = t, {
+    variant: p = "fill"
+  } = t, {
+    label: h = void 0
+  } = t, {
+    valuetext: r = void 0
+  } = t, {
+    disabled: c = false
+  } = t;
   const d = Hi();
   function A(y) {
     ll.call(this, e, y);
@@ -2550,110 +2980,123 @@ function xo(e, t, i) {
   }, e.$$.update = () => {
     e.$$.dirty & /*max, value*/
     3 && i(7, l = n > 0 ? Math.min(100, a * 100 / n) : 0);
-  }, [
-    a,
-    n,
-    o,
-    p,
-    h,
-    r,
-    c,
-    l,
-    d,
-    A,
-    f,
-    g,
-    M
-  ];
+  }, [a, n, o, p, h, r, c, l, d, A, f, g, M];
 }
-class qi extends It {
+var qi = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(
-      this,
-      t,
-      xo,
-      So,
-      bt,
-      {
-        value: 0,
-        max: 1,
-        testId: 2,
-        variant: 3,
-        label: 4,
-        valuetext: 5,
-        disabled: 6
-      },
-      Po
-    );
+    super(), initComponent(this, t, xo, So, bt, {
+      value: 0,
+      max: 1,
+      testId: 2,
+      variant: 3,
+      label: 4,
+      valuetext: 5,
+      disabled: 6
+    }, Po);
   }
   get value() {
     return this.$$.ctx[0];
   }
   set value(t) {
-    this.$$set({ value: t }), R();
+    this.$$set({
+      value: t
+    }), flush();
   }
   get max() {
     return this.$$.ctx[1];
   }
   set max(t) {
-    this.$$set({ max: t }), R();
+    this.$$set({
+      max: t
+    }), flush();
   }
   get testId() {
     return this.$$.ctx[2];
   }
   set testId(t) {
-    this.$$set({ testId: t }), R();
+    this.$$set({
+      testId: t
+    }), flush();
   }
   get variant() {
     return this.$$.ctx[3];
   }
   set variant(t) {
-    this.$$set({ variant: t }), R();
+    this.$$set({
+      variant: t
+    }), flush();
   }
   get label() {
     return this.$$.ctx[4];
   }
   set label(t) {
-    this.$$set({ label: t }), R();
+    this.$$set({
+      label: t
+    }), flush();
   }
   get valuetext() {
     return this.$$.ctx[5];
   }
   set valuetext(t) {
-    this.$$set({ valuetext: t }), R();
+    this.$$set({
+      valuetext: t
+    }), flush();
   }
   get disabled() {
     return this.$$.ctx[6];
   }
   set disabled(t) {
-    this.$$set({ disabled: t }), R();
+    this.$$set({
+      disabled: t
+    }), flush();
   }
-}
-ne(qi, { value: {}, max: {}, testId: {}, variant: {}, label: {}, valuetext: {}, disabled: { type: "Boolean" } }, [], [], !0);
+};
+defineSvelteElement(qi, {
+  value: {},
+  max: {},
+  testId: {},
+  variant: {},
+  label: {},
+  valuetext: {},
+  disabled: {
+    type: "Boolean"
+  }
+}, [], [], true);
 function Do(e) {
   let t, i, l = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { width: "18" },
-    { height: "15" },
-    { viewBox: "0 0 18 15" },
+    {
+      xmlns: "http://www.w3.org/2000/svg"
+    },
+    {
+      width: "18"
+    },
+    {
+      height: "15"
+    },
+    {
+      viewBox: "0 0 18 15"
+    },
     /*$$props*/
     e[0]
   ], a = {};
-  for (let n = 0; n < l.length; n += 1)
-    a = pt(a, l[n]);
+  for (let n = 0; n < l.length; n += 1) a = pt(a, l[n]);
   return {
     c() {
       t = v("svg"), i = v("path"), this.h();
     },
     l(n) {
       t = wt(n, "svg", {
-        xmlns: !0,
-        width: !0,
-        height: !0,
-        viewBox: !0
+        xmlns: true,
+        width: true,
+        height: true,
+        viewBox: true
       });
       var o = mt(t);
-      i = wt(o, "path", { d: !0, style: !0, transform: !0 }), mt(i).forEach(H), o.forEach(H), this.h();
+      i = wt(o, "path", {
+        d: true,
+        style: true,
+        transform: true
+      }), mt(i).forEach(H), o.forEach(H), this.h();
     },
     h() {
       s(i, "d", "M24.851-6.64v-3.324H14.294q-.883 0-1.655.3a4.2 4.2 0 0 0-1.347.831 3.8 3.8 0 0 0-.906 1.272 3.9 3.9 0 0 0-.33 1.61q0 .689.277 1.378.277.688.682 1.213L7.062-.141a8.7 8.7 0 0 1-1.565-2.613 8.6 8.6 0 0 1-.562-3.092q0-1.841.697-3.452a8.92 8.92 0 0 1 4.694-4.716 8.5 8.5 0 0 1 3.414-.697h11.111v-3.533l7.232 5.944zm-9.554 2.771V-.56h10.572q.868 0 1.647-.292a4 4 0 0 0 1.348-.824q.569-.53.906-1.273a3.9 3.9 0 0 0 .337-1.624q0-.689-.277-1.355a5.5 5.5 0 0 0-.697-1.221l3.968-3.219a8.6 8.6 0 0 1 2.127 5.705 8.6 8.6 0 0 1-.697 3.451 8.9 8.9 0 0 1-1.894 2.808 9 9 0 0 1-2.8 1.894 8.5 8.5 0 0 1-3.414.697H15.297v3.548L8.08 1.791z"), m(i, "fill-rule", "nonzero"), s(i, "transform", "translate(-2.83 10.464)scale(.57352)"), Ct(t, a);
@@ -2662,18 +3105,20 @@ function Do(e) {
       ve(n, t, o), jt(t, i);
     },
     p(n, [o]) {
-      Ct(t, a = ye(l, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { width: "18" },
-        { height: "15" },
-        { viewBox: "0 0 18 15" },
-        o & /*$$props*/
-        1 && /*$$props*/
-        n[0]
-      ]));
+      Ct(t, a = ye(l, [{
+        xmlns: "http://www.w3.org/2000/svg"
+      }, {
+        width: "18"
+      }, {
+        height: "15"
+      }, {
+        viewBox: "0 0 18 15"
+      }, o & /*$$props*/
+      1 && /*$$props*/
+      n[0]]));
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(n) {
       n && H(t);
     }
@@ -2684,35 +3129,46 @@ function _o(e, t, i) {
     i(0, t = pt(pt({}, t), _t(l)));
   }, t = _t(t), [t];
 }
-let Co = class extends It {
+var Co = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, _o, Do, bt, {});
+    super(), initComponent(this, t, _o, Do, bt, {});
   }
 };
 function Bo(e) {
   let t, i, l = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { width: "19" },
-    { height: "15" },
-    { viewBox: "0 0 19 15" },
+    {
+      xmlns: "http://www.w3.org/2000/svg"
+    },
+    {
+      width: "19"
+    },
+    {
+      height: "15"
+    },
+    {
+      viewBox: "0 0 19 15"
+    },
     /*$$props*/
     e[0]
   ], a = {};
-  for (let n = 0; n < l.length; n += 1)
-    a = pt(a, l[n]);
+  for (let n = 0; n < l.length; n += 1) a = pt(a, l[n]);
   return {
     c() {
       t = v("svg"), i = v("path"), this.h();
     },
     l(n) {
       t = wt(n, "svg", {
-        xmlns: !0,
-        width: !0,
-        height: !0,
-        viewBox: !0
+        xmlns: true,
+        width: true,
+        height: true,
+        viewBox: true
       });
       var o = mt(t);
-      i = wt(o, "path", { d: !0, style: !0, transform: !0 }), mt(i).forEach(H), o.forEach(H), this.h();
+      i = wt(o, "path", {
+        d: true,
+        style: true,
+        transform: true
+      }), mt(i).forEach(H), o.forEach(H), this.h();
     },
     h() {
       s(i, "d", "M.3-.313q.04 0 .077.016.035.015.062.042a.2.2 0 0 1 .042.062q.016.036.016.077a.2.2 0 0 1-.016.076.2.2 0 0 1-.042.062.2.2 0 0 1-.062.042.2.2 0 0 1-.215-.042.2.2 0 0 1-.057-.138.2.2 0 0 1 .015-.077.2.2 0 0 1 .042-.062.2.2 0 0 1 .062-.042A.2.2 0 0 1 .3-.313m.027.302L.326-.23H.29l-.003.011-.005.01-.015.013-.009.004-.01.002-.009.002-.01.001H.225l.002.035h.054v.143h.046zM.7-.354v-.108H.355a.15.15 0 0 0-.09.03.12.12 0 0 0-.046.078.25.25 0 0 0-.147.135.3.3 0 0 1-.022-.109.293.293 0 0 1 .288-.289H.7v-.115l.236.193zm.269-.121a.283.283 0 0 1-.016.39A.3.3 0 0 1 .75 0H.522a.24.24 0 0 0 .029-.116L.55-.135l-.002-.02h.185a.14.14 0 0 0 .054-.01.1.1 0 0 0 .044-.027.1.1 0 0 0 .03-.041.1.1 0 0 0 .011-.053.1.1 0 0 0-.009-.044.2.2 0 0 0-.023-.04z"), m(i, "fill-rule", "nonzero"), s(i, "transform", "translate(-.918 13.44)scale(18.3605)"), Ct(t, a);
@@ -2721,18 +3177,20 @@ function Bo(e) {
       ve(n, t, o), jt(t, i);
     },
     p(n, [o]) {
-      Ct(t, a = ye(l, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { width: "19" },
-        { height: "15" },
-        { viewBox: "0 0 19 15" },
-        o & /*$$props*/
-        1 && /*$$props*/
-        n[0]
-      ]));
+      Ct(t, a = ye(l, [{
+        xmlns: "http://www.w3.org/2000/svg"
+      }, {
+        width: "19"
+      }, {
+        height: "15"
+      }, {
+        viewBox: "0 0 19 15"
+      }, o & /*$$props*/
+      1 && /*$$props*/
+      n[0]]));
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(n) {
       n && H(t);
     }
@@ -2743,35 +3201,46 @@ function To(e, t, i) {
     i(0, t = pt(pt({}, t), _t(l)));
   }, t = _t(t), [t];
 }
-let Ho = class extends It {
+var Ho = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, To, Bo, bt, {});
+    super(), initComponent(this, t, To, Bo, bt, {});
   }
 };
 function Lo(e) {
   let t, i, l = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { width: "20" },
-    { height: "15" },
-    { viewBox: "0 0 20 15" },
+    {
+      xmlns: "http://www.w3.org/2000/svg"
+    },
+    {
+      width: "20"
+    },
+    {
+      height: "15"
+    },
+    {
+      viewBox: "0 0 20 15"
+    },
     /*$$props*/
     e[0]
   ], a = {};
-  for (let n = 0; n < l.length; n += 1)
-    a = pt(a, l[n]);
+  for (let n = 0; n < l.length; n += 1) a = pt(a, l[n]);
   return {
     c() {
       t = v("svg"), i = v("path"), this.h();
     },
     l(n) {
       t = wt(n, "svg", {
-        xmlns: !0,
-        width: !0,
-        height: !0,
-        viewBox: !0
+        xmlns: true,
+        width: true,
+        height: true,
+        viewBox: true
       });
       var o = mt(t);
-      i = wt(o, "path", { d: !0, style: !0, transform: !0 }), mt(i).forEach(H), o.forEach(H), this.h();
+      i = wt(o, "path", {
+        d: true,
+        style: true,
+        transform: true
+      }), mt(i).forEach(H), o.forEach(H), this.h();
     },
     h() {
       s(i, "d", "M.935-.347v-.111H.812a.1.1 0 0 0-.03.007.1.1 0 0 0-.026.02l-.252.314a1 1 0 0 1-.066.058l-.032.022-.035.019-.036.013A.2.2 0 0 1 .299 0h-.25v-.165h.25a.1.1 0 0 0 .037-.011.3.3 0 0 0 .073-.061L.68-.572l.017-.015.026-.017a.1.1 0 0 1 .035-.014.2.2 0 0 1 .044-.006h.133v-.109l.222.192zM.299-.624q.018 0 .036.006a.4.4 0 0 1 .11.064 1 1 0 0 1 .075.069l-.095.118L.38-.413.36-.429.339-.444.318-.455.299-.458h-.25v-.166zm.636.735V0H.802a.2.2 0 0 1-.044-.005.2.2 0 0 1-.061-.03L.68-.051.608-.14l.095-.116.053.066.026.018a.1.1 0 0 0 .03.007h.123v-.11l.222.192z"), m(i, "fill-rule", "nonzero"), s(i, "transform", "translate(-.864 12.93)scale(17.6389)"), Ct(t, a);
@@ -2780,18 +3249,20 @@ function Lo(e) {
       ve(n, t, o), jt(t, i);
     },
     p(n, [o]) {
-      Ct(t, a = ye(l, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { width: "20" },
-        { height: "15" },
-        { viewBox: "0 0 20 15" },
-        o & /*$$props*/
-        1 && /*$$props*/
-        n[0]
-      ]));
+      Ct(t, a = ye(l, [{
+        xmlns: "http://www.w3.org/2000/svg"
+      }, {
+        width: "20"
+      }, {
+        height: "15"
+      }, {
+        viewBox: "0 0 20 15"
+      }, o & /*$$props*/
+      1 && /*$$props*/
+      n[0]]));
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(n) {
       n && H(t);
     }
@@ -2802,35 +3273,46 @@ function zo(e, t, i) {
     i(0, t = pt(pt({}, t), _t(l)));
   }, t = _t(t), [t];
 }
-let Qo = class extends It {
+var Qo = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, zo, Lo, bt, {});
+    super(), initComponent(this, t, zo, Lo, bt, {});
   }
 };
 function Oo(e) {
   let t, i, l, a = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { width: "18" },
-    { height: "16" },
-    { viewBox: "0 0 18 16" },
+    {
+      xmlns: "http://www.w3.org/2000/svg"
+    },
+    {
+      width: "18"
+    },
+    {
+      height: "16"
+    },
+    {
+      viewBox: "0 0 18 16"
+    },
     /*$$props*/
     e[0]
   ], n = {};
-  for (let o = 0; o < a.length; o += 1)
-    n = pt(n, a[o]);
+  for (let o = 0; o < a.length; o += 1) n = pt(n, a[o]);
   return {
     c() {
       t = v("svg"), i = v("path"), l = v("path"), this.h();
     },
     l(o) {
       t = wt(o, "svg", {
-        xmlns: !0,
-        width: !0,
-        height: !0,
-        viewBox: !0
+        xmlns: true,
+        width: true,
+        height: true,
+        viewBox: true
       });
       var p = mt(t);
-      i = wt(p, "path", { d: !0 }), mt(i).forEach(H), l = wt(p, "path", { d: !0 }), mt(l).forEach(H), p.forEach(H), this.h();
+      i = wt(p, "path", {
+        d: true
+      }), mt(i).forEach(H), l = wt(p, "path", {
+        d: true
+      }), mt(l).forEach(H), p.forEach(H), this.h();
     },
     h() {
       s(i, "d", "M11.526 15.763c.569.239 1.022.245 1.462-.13 2.568-2.046 4.353-4.826 4.353-7.632S15.55 2.482 13.038.425c-.44-.384-.943-.424-1.512-.185-.455.443-.257 1.07.202 1.454 2.518 1.79 3.852 3.795 3.852 6.3 0 2.493-1.597 4.509-3.816 6.317-.458.384-.7.934-.238 1.452"), s(l, "d", "M10.628 11.546c.426.211 1.023.148 1.365-.22.852-.843 1.45-2.069 1.45-3.311 0-1.243-.598-2.491-1.45-3.344-.342-.369-.939-.432-1.365-.21-.434.428-.343.91.055 1.299.597.6 1.14 1.385 1.14 2.29s-.457 1.746-1.177 2.293c-.384.4-.412.806-.018 1.203M9.476 16V0L4.307 4.495a.25.25 0 0 1-.168.073L0 4.555v6.924l4.138-.014a.24.24 0 0 1 .168.063z"), Ct(t, n);
@@ -2839,18 +3321,20 @@ function Oo(e) {
       ve(o, t, p), jt(t, i), jt(t, l);
     },
     p(o, [p]) {
-      Ct(t, n = ye(a, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { width: "18" },
-        { height: "16" },
-        { viewBox: "0 0 18 16" },
-        p & /*$$props*/
-        1 && /*$$props*/
-        o[0]
-      ]));
+      Ct(t, n = ye(a, [{
+        xmlns: "http://www.w3.org/2000/svg"
+      }, {
+        width: "18"
+      }, {
+        height: "16"
+      }, {
+        viewBox: "0 0 18 16"
+      }, p & /*$$props*/
+      1 && /*$$props*/
+      o[0]]));
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(o) {
       o && H(t);
     }
@@ -2861,35 +3345,44 @@ function No(e, t, i) {
     i(0, t = pt(pt({}, t), _t(l)));
   }, t = _t(t), [t];
 }
-let Ro = class extends It {
+var Ro = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, No, Oo, bt, {});
+    super(), initComponent(this, t, No, Oo, bt, {});
   }
 };
 function Wo(e) {
   let t, i, l = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { width: "10" },
-    { height: "16" },
-    { viewBox: "0 0 10 16" },
+    {
+      xmlns: "http://www.w3.org/2000/svg"
+    },
+    {
+      width: "10"
+    },
+    {
+      height: "16"
+    },
+    {
+      viewBox: "0 0 10 16"
+    },
     /*$$props*/
     e[0]
   ], a = {};
-  for (let n = 0; n < l.length; n += 1)
-    a = pt(a, l[n]);
+  for (let n = 0; n < l.length; n += 1) a = pt(a, l[n]);
   return {
     c() {
       t = v("svg"), i = v("path"), this.h();
     },
     l(n) {
       t = wt(n, "svg", {
-        xmlns: !0,
-        width: !0,
-        height: !0,
-        viewBox: !0
+        xmlns: true,
+        width: true,
+        height: true,
+        viewBox: true
       });
       var o = mt(t);
-      i = wt(o, "path", { d: !0 }), mt(i).forEach(H), o.forEach(H), this.h();
+      i = wt(o, "path", {
+        d: true
+      }), mt(i).forEach(H), o.forEach(H), this.h();
     },
     h() {
       s(i, "d", "M9.476 16V0L4.307 4.495a.25.25 0 0 1-.168.073L0 4.555v6.924l4.138-.014a.24.24 0 0 1 .168.063z"), Ct(t, a);
@@ -2898,18 +3391,20 @@ function Wo(e) {
       ve(n, t, o), jt(t, i);
     },
     p(n, [o]) {
-      Ct(t, a = ye(l, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { width: "10" },
-        { height: "16" },
-        { viewBox: "0 0 10 16" },
-        o & /*$$props*/
-        1 && /*$$props*/
-        n[0]
-      ]));
+      Ct(t, a = ye(l, [{
+        xmlns: "http://www.w3.org/2000/svg"
+      }, {
+        width: "10"
+      }, {
+        height: "16"
+      }, {
+        viewBox: "0 0 10 16"
+      }, o & /*$$props*/
+      1 && /*$$props*/
+      n[0]]));
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(n) {
       n && H(t);
     }
@@ -2920,13 +3415,13 @@ function jo(e, t, i) {
     i(0, t = pt(pt({}, t), _t(l)));
   }, t = _t(t), [t];
 }
-let Fo = class extends It {
+var Fo = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, jo, Wo, bt, {});
+    super(), initComponent(this, t, jo, Wo, bt, {});
   }
 };
 function Vo(e) {
-  ae(e, "svelte-w35jhk", '.now-playing.svelte-w35jhk{display:flex;flex-direction:column;box-sizing:border-box;height:180px;margin-top:1.7px;padding:4px 15px 7px;overflow:clip;opacity:var(--ipod-screen-opacity, 1)}.now-playing-index.svelte-w35jhk{display:grid;grid-template-columns:1fr auto;align-items:center;margin-bottom:6px;font-size:20px;line-height:1;text-align:left;direction:ltr}.now-playing-index.svelte-w35jhk:dir(rtl){text-align:right}.play-modifier.svelte-w35jhk{display:flex;align-items:center;gap:6px;fill:#484647}.now-playing-info.svelte-w35jhk{margin-bottom:5px;text-align:center}.song-title.svelte-w35jhk{margin-bottom:2px}.song-title-link.svelte-w35jhk{display:block;color:inherit;text-decoration:none;pointer-events:auto}.song-title-link.svelte-w35jhk:hover,.song-title-link.svelte-w35jhk:focus-visible{text-decoration:underline}.artist.svelte-w35jhk,.album.svelte-w35jhk{margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.now-playing-progress.svelte-w35jhk{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;width:calc(200% + 30px);margin-top:auto;transition:transform 0.3s ease-out}.now-playing-progress[data-mode=volume].svelte-w35jhk,.now-playing-progress[data-mode=scrubbing].svelte-w35jhk{transform:translateX(calc(-50% - 15px))}.now-playing-progress[data-mode=volume].svelte-w35jhk:dir(rtl),.now-playing-progress[data-mode=scrubbing].svelte-w35jhk:dir(rtl){transform:translateX(calc(50% + 15px))}@media(prefers-reduced-motion: reduce){.now-playing-progress.svelte-w35jhk{transition:none}}.time-and-progress.svelte-w35jhk,.scrubbing-indicator.svelte-w35jhk,.volume-labels.svelte-w35jhk{direction:ltr}.scrubbing-indicator.svelte-w35jhk,.volume-labels.svelte-w35jhk{grid-area:1/2}.scrubbing-indicator.inactive.svelte-w35jhk,.volume-labels.inactive.svelte-w35jhk{opacity:0}.time-and-progress.svelte-w35jhk,.scrubbing-indicator.svelte-w35jhk{padding-top:10px}.progress-labels.svelte-w35jhk{display:flex;justify-content:space-between;margin-top:6px;font-size:26px;font-feature-settings:"tnum";font-variant-numeric:tabular-nums}.volume-labels.svelte-w35jhk{display:grid;grid-template-columns:auto 1fr auto;gap:7px;align-items:center;fill:#484647}.visually-hidden.svelte-w35jhk{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}');
+  appendStyles(e, "svelte-w35jhk", '.now-playing.svelte-w35jhk{display:flex;flex-direction:column;box-sizing:border-box;height:180px;margin-top:1.7px;padding:4px 15px 7px;overflow:clip;opacity:var(--ipod-screen-opacity, 1)}.now-playing-index.svelte-w35jhk{display:grid;grid-template-columns:1fr auto;align-items:center;margin-bottom:6px;font-size:20px;line-height:1;text-align:left;direction:ltr}.now-playing-index.svelte-w35jhk:dir(rtl){text-align:right}.play-modifier.svelte-w35jhk{display:flex;align-items:center;gap:6px;fill:#484647}.now-playing-info.svelte-w35jhk{margin-bottom:5px;text-align:center}.song-title.svelte-w35jhk{margin-bottom:2px}.song-title-link.svelte-w35jhk{display:block;color:inherit;text-decoration:none;pointer-events:auto}.song-title-link.svelte-w35jhk:hover,.song-title-link.svelte-w35jhk:focus-visible{text-decoration:underline}.artist.svelte-w35jhk,.album.svelte-w35jhk{margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.now-playing-progress.svelte-w35jhk{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;width:calc(200% + 30px);margin-top:auto;transition:transform 0.3s ease-out}.now-playing-progress[data-mode=volume].svelte-w35jhk,.now-playing-progress[data-mode=scrubbing].svelte-w35jhk{transform:translateX(calc(-50% - 15px))}.now-playing-progress[data-mode=volume].svelte-w35jhk:dir(rtl),.now-playing-progress[data-mode=scrubbing].svelte-w35jhk:dir(rtl){transform:translateX(calc(50% + 15px))}@media(prefers-reduced-motion: reduce){.now-playing-progress.svelte-w35jhk{transition:none}}.time-and-progress.svelte-w35jhk,.scrubbing-indicator.svelte-w35jhk,.volume-labels.svelte-w35jhk{direction:ltr}.scrubbing-indicator.svelte-w35jhk,.volume-labels.svelte-w35jhk{grid-area:1/2}.scrubbing-indicator.inactive.svelte-w35jhk,.volume-labels.inactive.svelte-w35jhk{opacity:0}.time-and-progress.svelte-w35jhk,.scrubbing-indicator.svelte-w35jhk{padding-top:10px}.progress-labels.svelte-w35jhk{display:flex;justify-content:space-between;margin-top:6px;font-size:26px;font-feature-settings:"tnum";font-variant-numeric:tabular-nums}.volume-labels.svelte-w35jhk{display:grid;grid-template-columns:auto 1fr auto;gap:7px;align-items:center;fill:#484647}.visually-hidden.svelte-w35jhk{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}');
 }
 function la(e) {
   let t, i, l, a, n, o;
@@ -2950,7 +3445,7 @@ function la(e) {
       t = T("div"), l && l.c(), a = rt(), c && c.c(), n = rt(), s(t, "class", "play-modifier svelte-w35jhk"), s(t, "aria-hidden", "true");
     },
     m(d, A) {
-      ht(d, t, A), ~i && h[i].m(t, null), u(t, a), c && c.m(t, null), ht(d, n, A), o = !0;
+      ht(d, t, A), ~i && h[i].m(t, null), u(t, a), c && c.m(t, null), ht(d, n, A), o = true;
     },
     p(d, A) {
       let f = i;
@@ -2963,10 +3458,10 @@ function la(e) {
       }), fe());
     },
     i(d) {
-      o || ($(l), $(c), o = !0);
+      o || ($(l), $(c), o = true);
     },
     o(d) {
-      et(l), et(c), o = !1;
+      et(l), et(c), o = false;
     },
     d(d) {
       d && (H(t), H(n)), ~i && h[i].d(), c && c.d();
@@ -2975,18 +3470,22 @@ function la(e) {
 }
 function qo(e) {
   let t, i;
-  return t = new Co({ props: { class: "repeat-all-icon" } }), {
+  return t = new Co({
+    props: {
+      class: "repeat-all-icon"
+    }
+  }), {
     c() {
       gt(t.$$.fragment);
     },
     m(l, a) {
-      vt(t, l, a), i = !0;
+      vt(t, l, a), i = true;
     },
     i(l) {
-      i || ($(t.$$.fragment, l), i = !0);
+      i || ($(t.$$.fragment, l), i = true);
     },
     o(l) {
-      et(t.$$.fragment, l), i = !1;
+      et(t.$$.fragment, l), i = false;
     },
     d(l) {
       yt(t, l);
@@ -2995,18 +3494,22 @@ function qo(e) {
 }
 function Uo(e) {
   let t, i;
-  return t = new Ho({ props: { class: "repeat-one-icon" } }), {
+  return t = new Ho({
+    props: {
+      class: "repeat-one-icon"
+    }
+  }), {
     c() {
       gt(t.$$.fragment);
     },
     m(l, a) {
-      vt(t, l, a), i = !0;
+      vt(t, l, a), i = true;
     },
     i(l) {
-      i || ($(t.$$.fragment, l), i = !0);
+      i || ($(t.$$.fragment, l), i = true);
     },
     o(l) {
-      et(t.$$.fragment, l), i = !1;
+      et(t.$$.fragment, l), i = false;
     },
     d(l) {
       yt(t, l);
@@ -3015,18 +3518,22 @@ function Uo(e) {
 }
 function aa(e) {
   let t, i;
-  return t = new Qo({ props: { class: "shuffle-icon" } }), {
+  return t = new Qo({
+    props: {
+      class: "shuffle-icon"
+    }
+  }), {
     c() {
       gt(t.$$.fragment);
     },
     m(l, a) {
-      vt(t, l, a), i = !0;
+      vt(t, l, a), i = true;
     },
     i(l) {
-      i || ($(t.$$.fragment, l), i = !0);
+      i || ($(t.$$.fragment, l), i = true);
     },
     o(l) {
-      et(t.$$.fragment, l), i = !1;
+      et(t.$$.fragment, l), i = false;
     },
     d(l) {
       yt(t, l);
@@ -3072,7 +3579,7 @@ function sa(e) {
       t = T("div"), l.c(), s(t, "class", "song-title svelte-w35jhk"), s(t, "data-testid", "now-playing-song-title");
     },
     m(h, r) {
-      ht(h, t, r), o[i].m(t, null), a = !0;
+      ht(h, t, r), o[i].m(t, null), a = true;
     },
     p(h, r) {
       let c = i;
@@ -3081,10 +3588,10 @@ function sa(e) {
       }), fe(), l = o[i], l ? l.p(h, r) : (l = o[i] = n[i](h), l.c()), $(l, 1), l.m(t, null));
     },
     i(h) {
-      a || ($(l), a = !0);
+      a || ($(l), a = true);
     },
     o(h) {
-      et(l), a = !1;
+      et(l), a = false;
     },
     d(h) {
       h && H(t), o[i].d();
@@ -3109,7 +3616,7 @@ function Ko(e) {
       gt(t.$$.fragment);
     },
     m(l, a) {
-      vt(t, l, a), i = !0;
+      vt(t, l, a), i = true;
     },
     p(l, a) {
       const n = {};
@@ -3120,10 +3627,10 @@ function Ko(e) {
       l[0]), t.$set(n);
     },
     i(l) {
-      i || ($(t.$$.fragment, l), i = !0);
+      i || ($(t.$$.fragment, l), i = true);
     },
     o(l) {
-      et(t.$$.fragment, l), i = !1;
+      et(t.$$.fragment, l), i = false;
     },
     d(l) {
       yt(t, l);
@@ -3153,12 +3660,12 @@ function Go(e) {
       ), s(t, "data-testid", "now-playing-song-link");
     },
     m(p, h) {
-      ht(p, t, h), vt(i, t, null), a = !0, n || (o = Kt(l = bo.call(
+      ht(p, t, h), vt(i, t, null), a = true, n || (o = Kt(l = bo.call(
         null,
         t,
         /*navigateToUrl*/
         e[3]
-      )), n = !0);
+      )), n = true);
     },
     p(p, h) {
       const r = {};
@@ -3180,13 +3687,13 @@ function Go(e) {
       );
     },
     i(p) {
-      a || ($(i.$$.fragment, p), a = !0);
+      a || ($(i.$$.fragment, p), a = true);
     },
     o(p) {
-      et(i.$$.fragment, p), a = !1;
+      et(i.$$.fragment, p), a = false;
     },
     d(p) {
-      p && H(t), yt(i), n = !1, o();
+      p && H(t), yt(i), n = false, o();
     }
   };
 }
@@ -3334,7 +3841,9 @@ function Yo(e) {
         e[14].formatNumber(
           /*volume*/
           e[7] / 100,
-          { style: "percent" }
+          {
+            style: "percent"
+          }
         )
       ),
       testId: "now-playing-volume"
@@ -3391,12 +3900,12 @@ function Yo(e) {
       ), s(t, "class", "now-playing svelte-w35jhk"), s(t, "data-testid", "now-playing"), s(t, "role", "group"), s(t, "aria-labelledby", "menu-title"), s(t, "tabindex", "0");
     },
     m(N, it) {
-      ht(N, t, it), u(t, i), u(i, l), u(l, a), D && D.m(i, null), u(i, n), F && F.m(i, null), u(t, o), u(t, p), tt && tt.m(p, null), u(p, h), ct && ct.m(p, null), u(p, r), dt && dt.m(p, null), u(t, c), u(t, d), u(d, A), vt(f, A, null), u(A, g), u(A, M), u(M, y), u(y, w), u(M, E), u(M, I), u(I, x), u(d, U), u(d, C), vt(G, C, null), u(C, ot), u(C, nt), u(nt, at), u(at, z), u(nt, k), u(nt, Y), u(Y, W), u(d, _), u(d, X), vt(K, X, null), u(X, j), vt(P, X, null), u(X, V), vt(q, X, null), O = !0, lt || (L = Kt(Q = ln.call(
+      ht(N, t, it), u(t, i), u(i, l), u(l, a), D && D.m(i, null), u(i, n), F && F.m(i, null), u(t, o), u(t, p), tt && tt.m(p, null), u(p, h), ct && ct.m(p, null), u(p, r), dt && dt.m(p, null), u(t, c), u(t, d), u(d, A), vt(f, A, null), u(A, g), u(A, M), u(M, y), u(y, w), u(M, E), u(M, I), u(I, x), u(d, U), u(d, C), vt(G, C, null), u(C, ot), u(C, nt), u(nt, at), u(at, z), u(nt, k), u(nt, Y), u(Y, W), u(d, _), u(d, X), vt(K, X, null), u(X, j), vt(P, X, null), u(X, V), vt(q, X, null), O = true, lt || (L = Kt(Q = ln.call(
         null,
         t,
         /*shouldFocus*/
         e[11]
-      )), lt = !0);
+      )), lt = true);
     },
     p(N, it) {
       (!O || it[0] & /*positionLabel*/
@@ -3475,7 +3984,9 @@ function Yo(e) {
       N[14].formatNumber(
         /*volume*/
         N[7] / 100,
-        { style: "percent" }
+        {
+          style: "percent"
+        }
       )), P.$set(st), (!O || it[0] & /*indicator*/
       32768) && Nt(
         X,
@@ -3496,19 +4007,55 @@ function Yo(e) {
       );
     },
     i(N) {
-      O || ($(D), $(tt), $(f.$$.fragment, N), $(G.$$.fragment, N), $(K.$$.fragment, N), $(P.$$.fragment, N), $(q.$$.fragment, N), O = !0);
+      O || ($(D), $(tt), $(f.$$.fragment, N), $(G.$$.fragment, N), $(K.$$.fragment, N), $(P.$$.fragment, N), $(q.$$.fragment, N), O = true);
     },
     o(N) {
-      et(D), et(tt), et(f.$$.fragment, N), et(G.$$.fragment, N), et(K.$$.fragment, N), et(P.$$.fragment, N), et(q.$$.fragment, N), O = !1;
+      et(D), et(tt), et(f.$$.fragment, N), et(G.$$.fragment, N), et(K.$$.fragment, N), et(P.$$.fragment, N), et(q.$$.fragment, N), O = false;
     },
     d(N) {
-      N && H(t), D && D.d(), F && F.d(), tt && tt.d(), ct && ct.d(), dt && dt.d(), yt(f), yt(G), yt(K), yt(P), yt(q), lt = !1, L();
+      N && H(t), D && D.d(), F && F.d(), tt && tt.d(), ct && ct.d(), dt && dt.d(), yt(f), yt(G), yt(K), yt(P), yt(q), lt = false, L();
     }
   };
 }
 function Xo(e, t, i) {
-  let l, a, n, o, p, h, r, c, { songIndex: d } = t, { songCount: A } = t, { songId: f = void 0 } = t, { title: g = void 0 } = t, { titleUrl: M = void 0 } = t, { navigateToUrl: y = void 0 } = t, { artistName: w = void 0 } = t, { albumName: E = void 0 } = t, { currentTime: I = 0 } = t, { duration: x = 0 } = t, { isSeeking: U = !1 } = t, { seekPreviewTime: C = void 0 } = t, { isAdjustingVolume: G = !1 } = t, { volume: ot = 50 } = t, { isPositionDisabled: nt = !1 } = t, { shuffleMode: at = !1 } = t, { repeatMode: z = "none" } = t, { shouldFocus: k = !1 } = t;
-  const Y = Qi();
+  let l, a, n, o, p, h, r, c, {
+    songIndex: d
+  } = t, {
+    songCount: A
+  } = t, {
+    songId: f = void 0
+  } = t, {
+    title: g = void 0
+  } = t, {
+    titleUrl: M = void 0
+  } = t, {
+    navigateToUrl: y = void 0
+  } = t, {
+    artistName: w = void 0
+  } = t, {
+    albumName: E = void 0
+  } = t, {
+    currentTime: I = 0
+  } = t, {
+    duration: x = 0
+  } = t, {
+    isSeeking: U = false
+  } = t, {
+    seekPreviewTime: C = void 0
+  } = t, {
+    isAdjustingVolume: G = false
+  } = t, {
+    volume: ot = 50
+  } = t, {
+    isPositionDisabled: nt = false
+  } = t, {
+    shuffleMode: at = false
+  } = t, {
+    repeatMode: z = "none"
+  } = t, {
+    shouldFocus: k = false
+  } = t;
+  const Y = getTranslator();
   Ut(e, Y, (L) => i(14, c = L));
   const W = {
     "shuffle-none": "ASE.Web.IPod.NowPlaying.ShuffleOn",
@@ -3535,189 +4082,231 @@ function Xo(e, t, i) {
     335544320 && (G ? i(12, _ = "volume") : U ? i(12, _ = "scrubbing") : i(12, _ = "progress")), e.$$.dirty[0] & /*mode*/
     4096 && _ !== "progress" && i(15, X = _), e.$$.dirty[0] & /*duration, displayTime*/
     8256 && i(16, r = x > 0 ? Math.floor(l) : 0);
-  }, [
-    f,
-    g,
-    M,
-    y,
-    w,
-    E,
-    x,
-    ot,
-    nt,
-    at,
-    z,
-    k,
-    _,
-    l,
-    c,
-    X,
-    r,
-    h,
-    o,
-    n,
-    a,
-    Y,
-    K,
-    d,
-    A,
-    I,
-    U,
-    C,
-    G,
-    p,
-    j,
-    P,
-    V,
-    q,
-    Q,
-    O,
-    lt
-  ];
+  }, [f, g, M, y, w, E, x, ot, nt, at, z, k, _, l, c, X, r, h, o, n, a, Y, K, d, A, I, U, C, G, p, j, P, V, q, Q, O, lt];
 }
-class hn extends It {
+var hn = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(
-      this,
-      t,
-      Xo,
-      Yo,
-      bt,
-      {
-        songIndex: 23,
-        songCount: 24,
-        songId: 0,
-        title: 1,
-        titleUrl: 2,
-        navigateToUrl: 3,
-        artistName: 4,
-        albumName: 5,
-        currentTime: 25,
-        duration: 6,
-        isSeeking: 26,
-        seekPreviewTime: 27,
-        isAdjustingVolume: 28,
-        volume: 7,
-        isPositionDisabled: 8,
-        shuffleMode: 9,
-        repeatMode: 10,
-        shouldFocus: 11
-      },
-      Vo,
-      [-1, -1]
-    );
+    super(), initComponent(this, t, Xo, Yo, bt, {
+      songIndex: 23,
+      songCount: 24,
+      songId: 0,
+      title: 1,
+      titleUrl: 2,
+      navigateToUrl: 3,
+      artistName: 4,
+      albumName: 5,
+      currentTime: 25,
+      duration: 6,
+      isSeeking: 26,
+      seekPreviewTime: 27,
+      isAdjustingVolume: 28,
+      volume: 7,
+      isPositionDisabled: 8,
+      shuffleMode: 9,
+      repeatMode: 10,
+      shouldFocus: 11
+    }, Vo, [-1, -1]);
   }
   get songIndex() {
     return this.$$.ctx[23];
   }
   set songIndex(t) {
-    this.$$set({ songIndex: t }), R();
+    this.$$set({
+      songIndex: t
+    }), flush();
   }
   get songCount() {
     return this.$$.ctx[24];
   }
   set songCount(t) {
-    this.$$set({ songCount: t }), R();
+    this.$$set({
+      songCount: t
+    }), flush();
   }
   get songId() {
     return this.$$.ctx[0];
   }
   set songId(t) {
-    this.$$set({ songId: t }), R();
+    this.$$set({
+      songId: t
+    }), flush();
   }
   get title() {
     return this.$$.ctx[1];
   }
   set title(t) {
-    this.$$set({ title: t }), R();
+    this.$$set({
+      title: t
+    }), flush();
   }
   get titleUrl() {
     return this.$$.ctx[2];
   }
   set titleUrl(t) {
-    this.$$set({ titleUrl: t }), R();
+    this.$$set({
+      titleUrl: t
+    }), flush();
   }
   get navigateToUrl() {
     return this.$$.ctx[3];
   }
   set navigateToUrl(t) {
-    this.$$set({ navigateToUrl: t }), R();
+    this.$$set({
+      navigateToUrl: t
+    }), flush();
   }
   get artistName() {
     return this.$$.ctx[4];
   }
   set artistName(t) {
-    this.$$set({ artistName: t }), R();
+    this.$$set({
+      artistName: t
+    }), flush();
   }
   get albumName() {
     return this.$$.ctx[5];
   }
   set albumName(t) {
-    this.$$set({ albumName: t }), R();
+    this.$$set({
+      albumName: t
+    }), flush();
   }
   get currentTime() {
     return this.$$.ctx[25];
   }
   set currentTime(t) {
-    this.$$set({ currentTime: t }), R();
+    this.$$set({
+      currentTime: t
+    }), flush();
   }
   get duration() {
     return this.$$.ctx[6];
   }
   set duration(t) {
-    this.$$set({ duration: t }), R();
+    this.$$set({
+      duration: t
+    }), flush();
   }
   get isSeeking() {
     return this.$$.ctx[26];
   }
   set isSeeking(t) {
-    this.$$set({ isSeeking: t }), R();
+    this.$$set({
+      isSeeking: t
+    }), flush();
   }
   get seekPreviewTime() {
     return this.$$.ctx[27];
   }
   set seekPreviewTime(t) {
-    this.$$set({ seekPreviewTime: t }), R();
+    this.$$set({
+      seekPreviewTime: t
+    }), flush();
   }
   get isAdjustingVolume() {
     return this.$$.ctx[28];
   }
   set isAdjustingVolume(t) {
-    this.$$set({ isAdjustingVolume: t }), R();
+    this.$$set({
+      isAdjustingVolume: t
+    }), flush();
   }
   get volume() {
     return this.$$.ctx[7];
   }
   set volume(t) {
-    this.$$set({ volume: t }), R();
+    this.$$set({
+      volume: t
+    }), flush();
   }
   get isPositionDisabled() {
     return this.$$.ctx[8];
   }
   set isPositionDisabled(t) {
-    this.$$set({ isPositionDisabled: t }), R();
+    this.$$set({
+      isPositionDisabled: t
+    }), flush();
   }
   get shuffleMode() {
     return this.$$.ctx[9];
   }
   set shuffleMode(t) {
-    this.$$set({ shuffleMode: t }), R();
+    this.$$set({
+      shuffleMode: t
+    }), flush();
   }
   get repeatMode() {
     return this.$$.ctx[10];
   }
   set repeatMode(t) {
-    this.$$set({ repeatMode: t }), R();
+    this.$$set({
+      repeatMode: t
+    }), flush();
   }
   get shouldFocus() {
     return this.$$.ctx[11];
   }
   set shouldFocus(t) {
-    this.$$set({ shouldFocus: t }), R();
+    this.$$set({
+      shouldFocus: t
+    }), flush();
   }
-}
-ne(hn, { songIndex: {}, songCount: {}, songId: {}, title: {}, titleUrl: {}, navigateToUrl: {}, artistName: {}, albumName: {}, currentTime: {}, duration: {}, isSeeking: { type: "Boolean" }, seekPreviewTime: {}, isAdjustingVolume: { type: "Boolean" }, volume: {}, isPositionDisabled: { type: "Boolean" }, shuffleMode: { type: "Boolean" }, repeatMode: {}, shouldFocus: { type: "Boolean" } }, [], [], !0);
-const Se = 148, We = 101, Zi = 30, Ml = 4, Dt = 1.5, xi = 4, Bi = 12, rn = 2, Zo = 4, cn = 3, Jo = 3, Di = (Se - cn * 2 - (Bi - 1) * rn) / Bi, $o = 2, th = 5, eh = 3, ih = 1e3, lh = 40, ah = 0.1, nh = 1.5, Ji = 1.7, sh = Math.hypot(Ji, Ji), oh = 0.25, hh = 0.8, wl = Se - Zi, ra = We - Ml;
+};
+defineSvelteElement(hn, {
+  songIndex: {},
+  songCount: {},
+  songId: {},
+  title: {},
+  titleUrl: {},
+  navigateToUrl: {},
+  artistName: {},
+  albumName: {},
+  currentTime: {},
+  duration: {},
+  isSeeking: {
+    type: "Boolean"
+  },
+  seekPreviewTime: {},
+  isAdjustingVolume: {
+    type: "Boolean"
+  },
+  volume: {},
+  isPositionDisabled: {
+    type: "Boolean"
+  },
+  shuffleMode: {
+    type: "Boolean"
+  },
+  repeatMode: {},
+  shouldFocus: {
+    type: "Boolean"
+  }
+}, [], [], true);
+var Se = 148;
+var We = 101;
+var Zi = 30;
+var Ml = 4;
+var Dt = 1.5;
+var xi = 4;
+var Bi = 12;
+var rn = 2;
+var Zo = 4;
+var cn = 3;
+var Jo = 3;
+var Di = (Se - cn * 2 - (Bi - 1) * rn) / Bi;
+var $o = 2;
+var th = 5;
+var eh = 3;
+var ih = 1e3;
+var lh = 40;
+var ah = 0.1;
+var nh = 1.5;
+var Ji = 1.7;
+var sh = Math.hypot(Ji, Ji);
+var oh = 0.25;
+var hh = 0.8;
+var wl = Se - Zi;
+var ra = We - Ml;
 function ca(e, t, i) {
   return Math.min(Math.max(e, t), i);
 }
@@ -3726,13 +4315,11 @@ function pn(e) {
 }
 function dn(e) {
   const t = Math.min($o + e - 1, th), i = [];
-  for (let l = 0; l < t; l += 1)
-    for (let a = 0; a < Bi; a += 1)
-      i.push({
-        x: cn + a * (Di + rn),
-        y: Jo + l * (xi + Zo),
-        destroyed: !1
-      });
+  for (let l = 0; l < t; l += 1) for (let a = 0; a < Bi; a += 1) i.push({
+    x: cn + a * (Di + rn),
+    y: Jo + l * (xi + Zo),
+    destroyed: false
+  });
   return i;
 }
 function An() {
@@ -3747,99 +4334,119 @@ function pa() {
   return {
     paddleX: wl / 2,
     ball: An(),
-    isBallInPlay: !1,
+    isBallInPlay: false,
     serveTicks: 0,
     bricks: dn(1),
     score: 0,
     balls: eh,
     level: 1,
-    isGameOver: !1
+    isGameOver: false
   };
 }
 function rh() {
   const e = pa();
   function t() {
-    e.ball = An(), e.isBallInPlay = !1, e.serveTicks = Math.round(ih / pn(e.level));
+    e.ball = An(), e.isBallInPlay = false, e.serveTicks = Math.round(ih / pn(e.level));
   }
   function i() {
-    e.balls -= 1, e.balls > 0 ? t() : (e.isBallInPlay = !1, e.isGameOver = !0);
+    e.balls -= 1, e.balls > 0 ? t() : (e.isBallInPlay = false, e.isGameOver = true);
   }
   function l() {
     e.level += 1, e.bricks = dn(e.level), t();
   }
   function a() {
-    const { ball: c } = e, d = Zi / 2, A = ca(
-      (c.x - (e.paddleX + d)) / d,
-      -1,
-      1
-    ), f = sh * (1 + Math.abs(A) * oh), g = A * hh, M = Math.hypot(g, 1);
+    const {
+      ball: c
+    } = e, d = Zi / 2, A = ca((c.x - (e.paddleX + d)) / d, -1, 1), f = sh * (1 + Math.abs(A) * oh), g = A * hh, M = Math.hypot(g, 1);
     c.dx = g / M * f, c.dy = -f / M;
   }
   function n(c) {
     var U;
-    const { ball: d, bricks: A } = e, { x: f, y: g, destroyed: M } = A[c], y = c - Math.sign(d.dx);
-    if (M || d.x + Dt < f || d.x - Dt > f + Di || d.y + Dt < g || d.y - Dt > g + xi)
-      return null;
+    const {
+      ball: d,
+      bricks: A
+    } = e, {
+      x: f,
+      y: g,
+      destroyed: M
+    } = A[c], y = c - Math.sign(d.dx);
+    if (M || d.x + Dt < f || d.x - Dt > f + Di || d.y + Dt < g || d.y - Dt > g + xi) return null;
     const w = d.dx > 0 ? d.x + Dt - f : f + Di - d.x + Dt, E = d.dy > 0 ? d.y + Dt - g : g + xi - d.y + Dt;
-    return !(Math.floor(y / Bi) === Math.floor(c / Bi) && ((U = A[y]) == null ? void 0 : U.destroyed) === !1) && w * Math.abs(d.dy) < E * Math.abs(d.dx) ? (f + Di / 2 - d.x) * d.dx > 0 ? "side" : null : (g + xi / 2 - d.y) * d.dy > 0 ? "face" : null;
+    return !(Math.floor(y / Bi) === Math.floor(c / Bi) && ((U = A[y]) == null ? void 0 : U.destroyed) === false) && w * Math.abs(d.dy) < E * Math.abs(d.dx) ? (f + Di / 2 - d.x) * d.dx > 0 ? "side" : null : (g + xi / 2 - d.y) * d.dy > 0 ? "face" : null;
   }
   function o() {
-    const { ball: c } = e;
+    const {
+      ball: c
+    } = e;
     for (const [d, A] of e.bricks.entries()) {
       const f = n(d);
-      if (f)
-        return A.destroyed = !0, e.score += 1, f === "face" ? c.dy = -c.dy : c.dx = -c.dx, !0;
+      if (f) return A.destroyed = true, e.score += 1, f === "face" ? c.dy = -c.dy : c.dx = -c.dx, true;
     }
-    return !1;
+    return false;
   }
   function p() {
-    const { ball: c } = e;
-    if (e.serveTicks > 0 && (e.serveTicks -= 1, e.isBallInPlay = e.serveTicks === 0), !e.isBallInPlay)
-      return;
+    const {
+      ball: c
+    } = e;
+    if (e.serveTicks > 0 && (e.serveTicks -= 1, e.isBallInPlay = e.serveTicks === 0), !e.isBallInPlay) return;
     const d = c.y + Dt < ra;
     if (c.x += c.dx, c.y += c.dy, (c.x <= Dt && c.dx < 0 || c.x >= Se - Dt && c.dx > 0) && (c.dx = -c.dx), c.y <= Dt && c.dy < 0 && (c.dy = -c.dy), c.y >= We) {
       i();
       return;
     }
-    c.dy > 0 && d && c.y + Dt >= ra && c.x + Dt >= e.paddleX && c.x - Dt <= e.paddleX + Zi && a(), o() && e.bricks.every(({ destroyed: A }) => A) && l();
+    c.dy > 0 && d && c.y + Dt >= ra && c.x + Dt >= e.paddleX && c.x - Dt <= e.paddleX + Zi && a(), o() && e.bricks.every(({
+      destroyed: A
+    }) => A) && l();
   }
   function h(c) {
-    e.isGameOver || (e.paddleX = ca(
-      e.paddleX + c * wl,
-      0,
-      wl
-    ));
+    e.isGameOver || (e.paddleX = ca(e.paddleX + c * wl, 0, wl));
   }
   function r() {
-    e.isGameOver ? Object.assign(e, pa()) : (e.isBallInPlay = !0, e.serveTicks = 0);
+    e.isGameOver ? Object.assign(e, pa()) : (e.isBallInPlay = true, e.serveTicks = 0);
   }
-  return { state: e, movePaddle: h, launchBall: r, tick: p };
+  return {
+    state: e,
+    movePaddle: h,
+    launchBall: r,
+    tick: p
+  };
 }
-const ch = 20, ph = 70, dh = 25, da = 1 / 255, Ah = 1, fn = 2;
+var ch = 20;
+var ph = 70;
+var dh = 25;
+var da = 1 / 255;
+var Ah = 1;
+var fn = 2;
 function fh(e, t) {
   const i = new Uint8Array(e * t), l = new Float32Array(e * t), a = new Float32Array(e * t), n = new Uint8Array(e * t);
   function o(h) {
     const r = 1 - Math.exp(-h / ch), c = 1 - Math.exp(-h / ph), d = 1 - Math.exp(-h / dh);
-    let A = !1;
+    let A = false;
     for (let f = 0; f < a.length; f += 1) {
       const g = i[f] === 0 ? 0 : 1;
       if (n[f] = i[f] || n[f], Math.abs(g - l[f]) > da || Math.abs(g - a[f]) > da) {
         const M = n[f] === fn ? d : c, y = g - l[f];
         l[f] += y * (y > 0 ? r : M);
         const w = l[f] - a[f];
-        a[f] += w * (w > 0 ? r : M), A = !0;
-      } else
-        A || (A = l[f] !== g || a[f] !== g), l[f] = g, a[f] = g;
+        a[f] += w * (w > 0 ? r : M), A = true;
+      } else A || (A = l[f] !== g || a[f] !== g), l[f] = g, a[f] = g;
     }
     return A;
   }
   function p() {
-    for (let h = 0; h < a.length; h += 1)
-      n[h] = i[h] || n[h], l[h] = i[h] === 0 ? 0 : 1, a[h] = l[h];
+    for (let h = 0; h < a.length; h += 1) n[h] = i[h] || n[h], l[h] = i[h] === 0 ? 0 : 1, a[h] = l[h];
   }
-  return { width: e, height: t, drive: i, ink: a, fade: o, settle: p };
+  return {
+    width: e,
+    height: t,
+    drive: i,
+    ink: a,
+    fade: o,
+    settle: p
+  };
 }
-const uh = 0.7, vh = 3;
+var uh = 0.7;
+var vh = 3;
 function Aa(e, t) {
   const i = Math.round((e + 0.5) / t) * t;
   return 1 - (1 - uh) * Math.max(0, 1 - Math.abs(e + 0.5 - i));
@@ -3848,7 +4455,10 @@ function yh(e, t) {
   const i = e.getContext("2d");
   let l, a = new Int32Array(0), n = new Float32Array(0), o;
   function p() {
-    const { width: f, height: g } = e, M = f / t.width, y = M > 1;
+    const {
+      width: f,
+      height: g
+    } = e, M = f / t.width, y = M > 1;
     a = new Int32Array(f * g), n = new Float32Array(f * g);
     for (let w = 0; w < g; w += 1) {
       const E = Math.min(Math.floor((w + 0.5) / M), t.height - 1), I = y ? Aa(w, M) : 1;
@@ -3860,21 +4470,17 @@ function yh(e, t) {
   }
   function h() {
     if (i && l) {
-      for (let f = 0; f < a.length; f += 1)
-        l.data[f * 4 + 3] = t.ink[a[f]] * n[f];
+      for (let f = 0; f < a.length; f += 1) l.data[f * 4 + 3] = t.ink[a[f]] * n[f];
       i.putImageData(l, 0, 0);
     }
   }
   function r() {
     var w;
-    const f = getComputedStyle(e), g = Number(f.getPropertyValue("--ipod-scale")) || 1, M = Math.round(
-      e.clientWidth * g * devicePixelRatio
-    ), y = M >= t.width * vh ? M : t.width;
+    const f = getComputedStyle(e), g = Number(f.getPropertyValue("--ipod-scale")) || 1, M = Math.round(e.clientWidth * g * devicePixelRatio), y = M >= t.width * vh ? M : t.width;
     if (!(l && y === e.width)) {
       if (e.width = y, e.height = Math.round(y * t.height / t.width), p(), l = i == null ? void 0 : i.createImageData(e.width, e.height), l) {
         const [E = 0, I = 0, x = 0] = ((w = f.color.match(/\d+/g)) == null ? void 0 : w.map(Number)) ?? [];
-        for (let U = 0; U < l.data.length; U += 4)
-          l.data.set([E, I, x], U);
+        for (let U = 0; U < l.data.length; U += 4) l.data.set([E, I, x], U);
       }
       h();
     }
@@ -3883,9 +4489,7 @@ function yh(e, t) {
     o == null || o.removeEventListener("change", c), o = matchMedia(`(resolution: ${devicePixelRatio}dppx)`), o.addEventListener("change", c), r();
   }
   const d = e.getRootNode(), A = new ResizeObserver(() => r());
-  return A.observe(
-    d instanceof ShadowRoot ? d.host : document.documentElement
-  ), c(), {
+  return A.observe(d instanceof ShadowRoot ? d.host : document.documentElement), c(), {
     paint: h,
     destroy() {
       A.disconnect(), o == null || o.removeEventListener("change", c);
@@ -3893,7 +4497,7 @@ function yh(e, t) {
   };
 }
 function gh(e) {
-  ae(e, "svelte-80k3la", ".brick-game-screen.svelte-80k3la{height:180px;margin-top:1.7px;padding:0 5px;opacity:var(--ipod-screen-opacity, 1)}.game-area.svelte-80k3la{display:block;width:100%;color:#484647;image-rendering:pixelated}.game-message.svelte-80k3la{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}");
+  appendStyles(e, "svelte-80k3la", ".brick-game-screen.svelte-80k3la{height:180px;margin-top:1.7px;padding:0 5px;opacity:var(--ipod-screen-opacity, 1)}.game-area.svelte-80k3la{display:block;width:100%;color:#484647;image-rendering:pixelated}.game-message.svelte-80k3la{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}");
 }
 function mh(e) {
   let t, i, l, a, n;
@@ -3915,40 +4519,48 @@ function mh(e) {
         o[1]
       );
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(o) {
       o && H(t), e[11](null);
     }
   };
 }
-const bh = 10;
+var bh = 10;
 function Mh(e, t, i) {
-  let l, { paused: a = !1 } = t, { score: n = 0 } = t, { balls: o = 0 } = t;
-  const p = Qi();
+  let l, {
+    paused: a = false
+  } = t, {
+    score: n = 0
+  } = t, {
+    balls: o = 0
+  } = t;
+  const p = getTranslator();
   Ut(e, p, (W) => i(10, l = W));
   const h = rh(), r = fh(Se, We);
-  let { state: c } = h, d, A, f, g, M = 0, y = !1, w = 0, E = !1;
+  let {
+    state: c
+  } = h, d, A, f, g, M = 0, y = false, w = 0, E = false;
   function I() {
-    i(9, c = h.state), i(3, { score: n, balls: o } = c, n, i(4, o));
+    i(9, c = h.state), i(3, {
+      score: n,
+      balls: o
+    } = c, n, i(4, o));
   }
   function x(W, _, X, K, j = Ah) {
     const P = Math.round(W), V = Math.round(_), q = Math.max(P, 0), Q = Math.min(P + X, Se), O = Math.min(V + K, We);
-    for (let lt = Math.max(V, 0); lt < O; lt += 1)
-      r.drive.fill(j, lt * Se + q, lt * Se + Q);
+    for (let lt = Math.max(V, 0); lt < O; lt += 1) r.drive.fill(j, lt * Se + q, lt * Se + Q);
   }
   function U() {
     r.drive.fill(0);
-    for (const W of c.bricks)
-      W.destroyed || x(W.x, W.y, Di, xi);
-    x(c.paddleX, We - Ml, Zi, Ml, fn), x(c.ball.x - Dt, c.ball.y - Dt, Dt * 2, Dt * 2), y = !1;
+    for (const W of c.bricks) W.destroyed || x(W.x, W.y, Di, xi);
+    x(c.paddleX, We - Ml, Zi, Ml, fn), x(c.ball.x - Dt, c.ball.y - Dt, Dt * 2, Dt * 2), y = false;
   }
   function C(W) {
     const _ = g === void 0 ? 0 : W - g, X = pn(c.level);
     g = W, M = Math.min(M + _, X * bh);
-    let K = !1;
-    for (; M >= X; )
-      M -= X, K = !0, a || (h.movePaddle(w * Nl), E || (E = w !== 0), h.tick());
+    let K = false;
+    for (; M >= X; ) M -= X, K = true, a || (h.movePaddle(w * Nl), E || (E = w !== 0), h.tick());
     K && (U(), I());
     const j = r.fade(_);
     (K || j) && (A == null || A.paint()), f = (c.isBallInPlay || c.serveTicks > 0) && !a || y || j || w !== 0 && !a ? requestAnimationFrame(C) : void 0;
@@ -3960,15 +4572,15 @@ function Mh(e, t, i) {
     f !== void 0 && (cancelAnimationFrame(f), f = void 0);
   }
   function nt(W) {
-    h.movePaddle(W), y = !0, G();
+    h.movePaddle(W), y = true, G();
   }
   function at(W) {
-    W === 0 && !E && !a && nt(w * Nl), w = W, E = !1, G();
+    W === 0 && !E && !a && nt(w * Nl), w = W, E = false, G();
   }
   function z() {
-    h.launchBall(), y = !0, I(), G();
+    h.launchBall(), y = true, I(), G();
   }
-  Ra(() => (U(), r.settle(), A = yh(d, r), () => A == null ? void 0 : A.destroy())), I(), je(ot);
+  Ra(() => (U(), r.settle(), A = yh(d, r), () => A == null ? void 0 : A.destroy())), I(), onDestroy(ot);
   let k = "";
   function Y(W) {
     Jt[W ? "unshift" : "push"](() => {
@@ -3981,57 +4593,42 @@ function Mh(e, t, i) {
     e.$$.dirty & /*paused*/
     32 && (a || G()), e.$$.dirty & /*state, $i18n*/
     1536 && (c.isGameOver ? i(1, k = l.t("ASE.Web.IPod.Game.GameOver")) : c.isBallInPlay || c.serveTicks > 0 ? i(1, k = "") : i(1, k = l.t("ASE.Web.IPod.Game.LaunchBall")));
-  }, [
-    d,
-    k,
-    p,
-    n,
-    o,
-    a,
-    nt,
-    at,
-    z,
-    c,
-    l,
-    Y
-  ];
+  }, [d, k, p, n, o, a, nt, at, z, c, l, Y];
 }
-class un extends It {
+var un = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(
-      this,
-      t,
-      Mh,
-      mh,
-      bt,
-      {
-        paused: 5,
-        score: 3,
-        balls: 4,
-        movePaddle: 6,
-        steerPaddle: 7,
-        launchBall: 8
-      },
-      gh
-    );
+    super(), initComponent(this, t, Mh, mh, bt, {
+      paused: 5,
+      score: 3,
+      balls: 4,
+      movePaddle: 6,
+      steerPaddle: 7,
+      launchBall: 8
+    }, gh);
   }
   get paused() {
     return this.$$.ctx[5];
   }
   set paused(t) {
-    this.$$set({ paused: t }), R();
+    this.$$set({
+      paused: t
+    }), flush();
   }
   get score() {
     return this.$$.ctx[3];
   }
   set score(t) {
-    this.$$set({ score: t }), R();
+    this.$$set({
+      score: t
+    }), flush();
   }
   get balls() {
     return this.$$.ctx[4];
   }
   set balls(t) {
-    this.$$set({ balls: t }), R();
+    this.$$set({
+      balls: t
+    }), flush();
   }
   get movePaddle() {
     return this.$$.ctx[6];
@@ -4042,15 +4639,21 @@ class un extends It {
   get launchBall() {
     return this.$$.ctx[8];
   }
-}
-ne(un, { paused: { type: "Boolean" }, score: {}, balls: {} }, [], ["movePaddle", "steerPaddle", "launchBall"], !0);
+};
+defineSvelteElement(un, {
+  paused: {
+    type: "Boolean"
+  },
+  score: {},
+  balls: {}
+}, [], ["movePaddle", "steerPaddle", "launchBall"], true);
 function vn({
   timeoutMs: e,
   isActive: t,
   enter: i,
   onLeave: l
 }) {
-  let a = !1, n;
+  let a = false, n;
   function o() {
     t() && (n.stop(), l());
   }
@@ -4059,13 +4662,13 @@ function vn({
     a || n.start();
   }
   function h() {
-    a = !0, n.stop(), t() || i();
+    a = true, n.stop(), t() || i();
   }
   function r() {
-    a = !1, t() && n.start();
+    a = false, t() && n.start();
   }
   function c() {
-    a = !1, o();
+    a = false, o();
   }
   function d() {
     const f = a;
@@ -4084,40 +4687,46 @@ function vn({
     destroy: n.destroy
   };
 }
-const fa = {
-  isSeeking: !1,
+var fa = {
+  isSeeking: false,
   seekPreviewTime: void 0
 };
 function wh(e) {
-  const t = Ot(fa), i = Ja(yl);
-  let l, a, n, o, p = !1, h = 0, r;
+  const t = writable(fa), i = Ja(yl);
+  let l, a, n, o, p = false, h = 0, r;
   function c() {
-    if (clearTimeout(a), a = void 0, l === void 0)
-      return;
+    if (clearTimeout(a), a = void 0, l === void 0) return;
     const z = l;
     l = void 0;
     const k = ++h;
     e.seek(z).then(() => {
-      t.update(
-        (Y) => k === h ? { ...Y, seekPreviewTime: void 0 } : Y
-      );
+      t.update((Y) => k === h ? {
+        ...Y,
+        seekPreviewTime: void 0
+      } : Y);
     });
   }
   function d() {
     clearTimeout(a), a = setTimeout(c, As);
   }
   function A() {
-    c(), n = void 0, o = void 0, p = !1, t.set(fa);
+    c(), n = void 0, o = void 0, p = false, t.set(fa);
   }
   function f() {
     clearTimeout(a), a = void 0, l = void 0;
   }
   function g() {
-    return Qt(t);
+    return getStoreValue(t);
   }
   function M() {
-    const { currentTrackIndex: z, queue: k } = Qt(e);
-    n = z, o = k, r.restartIdleTimer(), t.set({ isSeeking: !0, seekPreviewTime: void 0 });
+    const {
+      currentTrackIndex: z,
+      queue: k
+    } = getStoreValue(e);
+    n = z, o = k, r.restartIdleTimer(), t.set({
+      isSeeking: true,
+      seekPreviewTime: void 0
+    });
   }
   r = vn({
     timeoutMs: fs,
@@ -4136,50 +4745,55 @@ function wh(e) {
     c(), r.release();
   }
   function E() {
-    return g().seekPreviewTime ?? Math.floor(Qt(e).currentPlaybackTime);
+    return g().seekPreviewTime ?? Math.floor(getStoreValue(e).currentPlaybackTime);
   }
   function I(z) {
-    if (!g().isSeeking)
-      return !1;
-    const k = E(), { currentPlaybackDuration: Y } = Qt(e), W = Y > 0 ? Y : 1 / 0, _ = Math.min(W, Math.max(0, Math.round(z)));
-    return r.restartIdleTimer(), _ === k ? !1 : (l = _, h += 1, p || d(), t.update((X) => ({ ...X, seekPreviewTime: _ })), !0);
+    if (!g().isSeeking) return false;
+    const k = E(), {
+      currentPlaybackDuration: Y
+    } = getStoreValue(e), W = Y > 0 ? Y : 1 / 0, _ = Math.min(W, Math.max(0, Math.round(z)));
+    return r.restartIdleTimer(), _ === k ? false : (l = _, h += 1, p || d(), t.update((X) => ({
+      ...X,
+      seekPreviewTime: _
+    })), true);
   }
   function x(z) {
     return I(E() + z * ds);
   }
   function U(z, k) {
-    const { isSeeking: Y } = g();
+    const {
+      isSeeking: Y
+    } = g();
     return Y && r.restartIdleTimer(), i.next(z, k, Y);
   }
   function C(z) {
     return El(yl, z);
   }
   function G() {
-    p = !0, clearTimeout(a), a = void 0;
+    p = true, clearTimeout(a), a = void 0;
   }
   function ot() {
-    p = !1, l !== void 0 && d();
+    p = false, l !== void 0 && d();
   }
-  const nt = e.subscribe(
-    ({
-      currentTrackIndex: z,
-      queue: k,
-      currentPlaybackDuration: Y,
-      hasLoadedItem: W
-    }) => {
-      if (!g().isSeeking)
-        return;
-      if (z !== n || k !== o) {
-        f(), W ? r.reenter() : r.exit();
-        return;
-      }
-      const { seekPreviewTime: _ } = g();
-      Y > 0 && _ !== void 0 && _ > Y && (l !== void 0 && (l = Y), t.update((X) => ({
-        ...X,
-        seekPreviewTime: Y
-      })));
+  const nt = e.subscribe(({
+    currentTrackIndex: z,
+    queue: k,
+    currentPlaybackDuration: Y,
+    hasLoadedItem: W
+  }) => {
+    if (!g().isSeeking) return;
+    if (z !== n || k !== o) {
+      f(), W ? r.reenter() : r.exit();
+      return;
     }
-  );
+    const {
+      seekPreviewTime: _
+    } = g();
+    Y > 0 && _ !== void 0 && _ > Y && (l !== void 0 && (l = Y), t.update((X) => ({
+      ...X,
+      seekPreviewTime: Y
+    })));
+  });
   function at() {
     c(), r.destroy(), nt();
   }
@@ -4201,16 +4815,16 @@ function wh(e) {
     destroy: at
   };
 }
-const kh = Object.values(Li), Ph = Object.values(Re), Eh = Object.values(zi);
+var kh = Object.values(ShuffleMode);
+var Ph = Object.values(RepeatMode);
+var Eh = Object.values(ClickerMode);
 function yn(e) {
-  return [
-    {
-      id: "no-music",
-      title: e.t("ASE.Web.IPod.Menu.NoMusic"),
-      action: "info",
-      centered: !0
-    }
-  ];
+  return [{
+    id: "no-music",
+    title: e.t("ASE.Web.IPod.Menu.NoMusic"),
+    action: "info",
+    centered: true
+  }];
 }
 function _l(e, t) {
   return e.length ? e : yn(t);
@@ -4219,285 +4833,40 @@ function Ee(e, t) {
   return {
     id: e,
     // eslint-disable-next-line no-use-before-define -- read at call time
-    title: t.t(gn[e].titleKey),
+    title: t.t(menuDefinitions[e].titleKey),
     action: "navigate",
     target: e
   };
 }
 function Ih(e, t) {
-  return { id: e, title: t, action: "toggle", target: e };
+  return {
+    id: e,
+    title: t,
+    action: "toggle",
+    target: e
+  };
 }
 function ol(e, t, i) {
-  return { id: e, title: t, action: "inline-toggle", toggleKey: e, values: i };
-}
-function Sh({ i18n: e, hasNowPlaying: t }) {
-  return [
-    Ee("playlists", e),
-    Ee("artists", e),
-    Ee("songs", e),
-    Ee("settings", e),
-    // Now Playing is the only row driven by playback state.
-    ...t ? [Ee("now-playing", e)] : []
-  ];
-}
-function xh({ i18n: e }) {
-  return [
-    Ee("about", e),
-    ol(
-      "shuffle",
-      e.t("ASE.Web.IPod.Settings.Shuffle"),
-      kh
-    ),
-    ol(
-      "repeat",
-      e.t("ASE.Web.IPod.Settings.Repeat"),
-      Ph
-    ),
-    Ee("backlight", e),
-    ol(
-      "clicker",
-      e.t("ASE.Web.IPod.Settings.Clicker"),
-      Eh
-    ),
-    Ee("reset-settings", e)
-  ];
-}
-function Dh({ i18n: e }) {
-  return Ka.map(
-    ({ mode: t, labelKey: i }) => Ih(t, e.t(i))
-  );
-}
-function _h({ i18n: e }) {
-  return [
-    {
-      id: "cancel",
-      title: e.t("ASE.Web.IPod.Reset.Cancel"),
-      action: "cancel"
-    },
-    {
-      id: "reset-all",
-      title: e.t("ASE.Web.IPod.Reset.Reset"),
-      action: "reset-all"
-    }
-  ];
-}
-function Ch({ data: e, i18n: t }) {
-  const i = (l) => t.formatNumber(l, { style: "unit", unit: "gigabyte" });
-  return [
-    // Product names are typically not localized.
-    { id: "ipod", title: "iPod", action: "info", centered: !0 },
-    {
-      id: "songs-count",
-      title: t.t("ASE.Web.IPod.About.Songs"),
-      action: "info",
-      value: t.formatNumber((e == null ? void 0 : e.songs.length) ?? 0)
-    },
-    {
-      id: "capacity",
-      title: t.t("ASE.Web.IPod.About.Capacity"),
-      action: "info",
-      value: i(9.2)
-    },
-    {
-      id: "available",
-      title: t.t("ASE.Web.IPod.About.Available"),
-      action: "info",
-      value: i(4.5)
-    },
-    {
-      id: "version",
-      title: t.t("ASE.Web.IPod.About.Version"),
-      action: "info",
-      value: "2644.1.0"
-    }
-  ];
-}
-function Bh({ data: e, i18n: t }) {
-  const i = ((e == null ? void 0 : e.playlists) ?? []).map((l) => ({
-    id: l.id,
-    title: l.name,
-    action: "navigate",
-    target: "playlist-tracks",
-    contextId: l.id
-  }));
-  return _l(i, t);
-}
-function Th({ data: e, i18n: t }) {
-  const i = ((e == null ? void 0 : e.artists) ?? []).map((l) => ({
-    id: l.id,
-    title: l.name,
-    action: "navigate",
-    target: "artist-tracks",
-    contextId: l.id
-  }));
-  return i.length && (e != null && e.songs.length) && i.unshift({
-    id: "all",
-    title: t.t("ASE.Web.IPod.Menu.All"),
-    action: "navigate",
-    target: "songs",
-    screenTitleKey: "ASE.Web.IPod.Menu.AllSongs"
-  }), _l(i, t);
-}
-function hl(e) {
-  return ({ data: t, contextId: i, i18n: l }) => {
-    if (!t)
-      return yn(l);
-    const a = nn(e, i, t).map(
-      (n) => ({
-        id: n.id,
-        title: n.name,
-        action: "play",
-        songId: n.id
-      })
-    );
-    return _l(a, l);
-  };
-}
-const gn = {
-  main: {
-    view: "list",
-    // Product names are usually not localized.
-    title: () => "iPod",
-    items: Sh,
-    listsNowPlaying: !0
-  },
-  settings: {
-    view: "list",
-    titleKey: "ASE.Web.IPod.Menu.Settings",
-    items: xh
-  },
-  about: {
-    view: "list",
-    titleKey: "ASE.Web.IPod.Settings.About",
-    items: Ch,
-    selectHold: { ms: Is, target: "brick" }
-  },
-  backlight: {
-    view: "list",
-    titleKey: "ASE.Web.IPod.Settings.BacklightTimer",
-    items: Dh
-  },
-  "reset-settings": {
-    view: "list",
-    titleKey: "ASE.Web.IPod.Settings.ResetAllSettings",
-    items: _h,
-    forgetsSelection: !0
-  },
-  playlists: {
-    view: "list",
-    titleKey: "ASE.Web.IPod.Menu.Playlists",
-    items: Bh
-  },
-  artists: {
-    view: "list",
-    titleKey: "ASE.Web.IPod.Menu.Artists",
-    items: Th
-  },
-  songs: {
-    view: "list",
-    titleKey: "ASE.Web.IPod.Menu.Songs",
-    items: hl("songs")
-  },
-  "playlist-tracks": {
-    view: "list",
-    titleKey: "ASE.Web.IPod.Menu.Playlists",
-    title: ({ data: e, contextId: t }) => {
-      var i;
-      return (i = e == null ? void 0 : e.playlists.find((l) => l.id === t)) == null ? void 0 : i.name;
-    },
-    items: hl("playlist-tracks")
-  },
-  "artist-tracks": {
-    view: "list",
-    titleKey: "ASE.Web.IPod.Menu.Artists",
-    title: ({ data: e, contextId: t }) => {
-      var i;
-      return (i = e == null ? void 0 : e.artists.find((l) => l.id === t)) == null ? void 0 : i.name;
-    },
-    items: hl("artist-tracks")
-  },
-  "now-playing": {
-    view: "now-playing",
-    titleKey: "ASE.Web.IPod.Menu.NowPlaying",
-    blocksIdleJump: !0
-  },
-  brick: {
-    view: "brick",
-    titleKey: "ASE.Web.IPod.Game.Title",
-    blocksIdleJump: !0
-  }
-};
-function pe(e) {
-  return gn[e];
-}
-function ua(e, t) {
-  return t && !!pe(e).listsNowPlaying;
-}
-function va(e, t) {
-  var i, l;
-  return ((l = (i = pe(e.key)).items) == null ? void 0 : l.call(i, {
-    ...t,
-    contextId: e.contextId
-  })) ?? [];
-}
-function Hh(e, t, i = Fe) {
-  var n;
-  if (e.titleKey)
-    return i.t(e.titleKey);
-  const l = pe(e.key), a = (n = l.title) == null ? void 0 : n.call(l, { data: t, contextId: e.contextId });
-  return a !== void 0 ? a : l.titleKey ? i.t(l.titleKey) : "";
-}
-function Ri({ key: e, contextId: t }) {
-  return `${e}:${t ?? ""}`;
-}
-function Lh() {
-  const e = /* @__PURE__ */ new Map();
-  let t, i, l;
-  function a({ queue: r, currentTrackIndex: c }, d) {
-    if (r === i && c === l)
-      return !1;
-    i = r, l = c;
-    const A = r[c];
-    return t && A && !d.some(
-      (f) => Ri(f) === t
-    ) && e.set(t, {
-      itemId: A.id,
-      index: c
-    }), !0;
-  }
-  function n(r, c, d) {
-    const A = c[d];
-    !A || pe(r.key).forgetsSelection || e.set(Ri(r), { itemId: A.id, index: d });
-  }
-  function o(r, c) {
-    var A;
-    const d = e.get(Ri(r));
-    return d ? ((A = c[d.index]) == null ? void 0 : A.id) === d.itemId ? d.index : c.findIndex((f) => f.id === d.itemId) : -1;
-  }
-  function p(r) {
-    t = Ri(r);
-  }
-  function h() {
-    t && (e.delete(t), t = void 0);
-  }
   return {
-    syncQueue: a,
-    remember: n,
-    rememberedIndexIn: o,
-    setQueueSource: p,
-    clearQueueSource: h
+    id: e,
+    title: t,
+    action: "inline-toggle",
+    toggleKey: e,
+    values: i
   };
 }
-const ya = {
-  isAdjustingVolume: !1
-};
+
+// packages/web-music-ipod/src/generated/menu.js
 function zh(e) {
-  const t = Ot(ya);
+  const t = writable(ya);
   function i() {
-    return Qt(t);
+    return getStoreValue(t);
   }
   function l() {
-    t.update((c) => ({ ...c, isAdjustingVolume: !0 }));
+    t.update((c) => ({
+      ...c,
+      isAdjustingVolume: true
+    }));
   }
   const a = vn({
     timeoutMs: ws,
@@ -4509,13 +4878,11 @@ function zh(e) {
     a.restartIdleTimer(), i().isAdjustingVolume || l();
   }
   function o(c) {
-    const d = Ci(Qt(e).volume), A = Math.min(100, Math.max(0, c));
-    return n(), A === d ? !1 : (e.setVolume(ml(A)), !0);
+    const d = Ci(getStoreValue(e).volume), A = Math.min(100, Math.max(0, c));
+    return n(), A === d ? false : (e.setVolume(ml(A)), true);
   }
   function p(c) {
-    return o(
-      Ci(Qt(e).volume) + c * Ms
-    );
+    return o(Ci(getStoreValue(e).volume) + c * Ms);
   }
   function h(c = 1) {
     return p(c);
@@ -4537,7 +4904,7 @@ function zh(e) {
   };
 }
 function Qh(e) {
-  ae(e, "svelte-1cxxedm", ".menu.svelte-1cxxedm{position:relative;display:flex;flex-direction:column;width:100%;height:100%;z-index:2}.screen-body.svelte-1cxxedm{position:relative;flex:none;height:181.7px;overflow:clip}.screen.svelte-1cxxedm{position:absolute;top:0;left:0;width:100%}");
+  appendStyles(e, "svelte-1cxxedm", ".menu.svelte-1cxxedm{position:relative;display:flex;flex-direction:column;width:100%;height:100%;z-index:2}.screen-body.svelte-1cxxedm{position:relative;flex:none;height:181.7px;overflow:clip}.screen.svelte-1cxxedm{position:absolute;top:0;left:0;width:100%}");
 }
 function Oh(e) {
   let t, i;
@@ -4577,7 +4944,7 @@ function Oh(e) {
       gt(t.$$.fragment);
     },
     m(l, a) {
-      vt(t, l, a), i = !0;
+      vt(t, l, a), i = true;
     },
     p(l, a) {
       const n = {};
@@ -4594,10 +4961,10 @@ function Oh(e) {
       l[14]), t.$set(n);
     },
     i(l) {
-      i || ($(t.$$.fragment, l), i = !0);
+      i || ($(t.$$.fragment, l), i = true);
     },
     o(l) {
-      et(t.$$.fragment, l), i = !1;
+      et(t.$$.fragment, l), i = false;
     },
     d(l) {
       yt(t, l);
@@ -4612,37 +4979,41 @@ function Nh(e) {
   function o(h) {
     e[58](h);
   }
-  let p = { paused: (
-    /*disabled*/
-    e[2]
-  ) };
+  let p = {
+    paused: (
+      /*disabled*/
+      e[2]
+    )
+  };
   return (
     /*brickScore*/
     e[21] !== void 0 && (p.score = /*brickScore*/
     e[21]), /*brickBalls*/
     e[22] !== void 0 && (p.balls = /*brickBalls*/
-    e[22]), t = new un({ props: p }), e[56](t), Jt.push(() => Xi(t, "score", n)), Jt.push(() => Xi(t, "balls", o)), {
+    e[22]), t = new un({
+      props: p
+    }), e[56](t), Jt.push(() => Xi(t, "score", n)), Jt.push(() => Xi(t, "balls", o)), {
       c() {
         gt(t.$$.fragment);
       },
       m(h, r) {
-        vt(t, h, r), a = !0;
+        vt(t, h, r), a = true;
       },
       p(h, r) {
         const c = {};
         r[0] & /*disabled*/
         4 && (c.paused = /*disabled*/
         h[2]), !i && r[0] & /*brickScore*/
-        2097152 && (i = !0, c.score = /*brickScore*/
-        h[21], Gi(() => i = !1)), !l && r[0] & /*brickBalls*/
-        4194304 && (l = !0, c.balls = /*brickBalls*/
-        h[22], Gi(() => l = !1)), t.$set(c);
+        2097152 && (i = true, c.score = /*brickScore*/
+        h[21], Gi(() => i = false)), !l && r[0] & /*brickBalls*/
+        4194304 && (l = true, c.balls = /*brickBalls*/
+        h[22], Gi(() => l = false)), t.$set(c);
       },
       i(h) {
-        a || ($(t.$$.fragment, h), a = !0);
+        a || ($(t.$$.fragment, h), a = true);
       },
       o(h) {
-        et(t.$$.fragment, h), a = !1;
+        et(t.$$.fragment, h), a = false;
       },
       d(h) {
         e[56](null), yt(t, h);
@@ -4759,7 +5130,7 @@ function Rh(e) {
       gt(t.$$.fragment);
     },
     m(h, r) {
-      vt(t, h, r), i = !0;
+      vt(t, h, r), i = true;
     },
     p(h, r) {
       var d, A, f, g, M;
@@ -4805,10 +5176,10 @@ function Rh(e) {
       h[11].repeatMode), t.$set(c);
     },
     i(h) {
-      i || ($(t.$$.fragment, h), i = !0);
+      i || ($(t.$$.fragment, h), i = true);
     },
     o(h) {
-      et(t.$$.fragment, h), i = !1;
+      et(t.$$.fragment, h), i = false;
     },
     d(h) {
       yt(t, h);
@@ -4832,7 +5203,7 @@ function ga(e) {
       t = T("div"), l.c(), s(t, "class", "screen svelte-1cxxedm"), s(t, "data-testid", "screen");
     },
     m(c, d) {
-      ht(c, t, d), h[i].m(t, null), o = !0;
+      ht(c, t, d), h[i].m(t, null), o = true;
     },
     p(c, d) {
       e = c;
@@ -4843,17 +5214,21 @@ function ga(e) {
     },
     i(c) {
       o || ($(l), c && $e(() => {
-        o && (n && n.end(1), a = es(t, Kl, { back: (
-          /*isNavigatingBack*/
-          e[19]
-        ) }), a.start());
-      }), o = !0);
+        o && (n && n.end(1), a = es(t, Kl, {
+          back: (
+            /*isNavigatingBack*/
+            e[19]
+          )
+        }), a.start());
+      }), o = true);
     },
     o(c) {
-      et(l), a && a.invalidate(), c && (n = is(t, Kl, { back: (
-        /*isNavigatingBack*/
-        e[19]
-      ) })), o = !1;
+      et(l), a && a.invalidate(), c && (n = is(t, Kl, {
+        back: (
+          /*isNavigatingBack*/
+          e[19]
+        )
+      })), o = false;
     },
     d(c) {
       c && H(t), h[i].d(), c && n && n.end();
@@ -4899,7 +5274,7 @@ function Wh(e) {
       t = T("div"), gt(i.$$.fragment), l = rt(), a = T("div"), c.c(), s(a, "class", "screen-body svelte-1cxxedm"), s(t, "class", "menu svelte-1cxxedm"), s(t, "data-testid", "menu");
     },
     m(d, A) {
-      ht(d, t, A), vt(i, t, null), u(t, l), u(t, a), c.m(a, null), e[62](t), p = !0, h || (r = Kt(o = Qs.call(null, a, {
+      ht(d, t, A), vt(i, t, null), u(t, l), u(t, a), c.m(a, null), e[62](t), p = true, h || (r = Kt(o = Qs.call(null, a, {
         disabled: (
           /*disabled*/
           e[2]
@@ -4928,7 +5303,7 @@ function Wh(e) {
           /*screenKeyboard_function*/
           e[61]
         )
-      })), h = !0);
+      })), h = true);
     },
     p(d, A) {
       const f = {};
@@ -4946,7 +5321,7 @@ function Wh(e) {
       2097152 && (f.brickScore = /*brickScore*/
       d[21]), i.$set(f), A[0] & /*navigationId*/
       262144 && bt(n, n = /*navigationId*/
-      d[18]) ? (Ae(), et(c, 1, 1, J), fe(), c = ga(d), c.c(), $(c, 1), c.m(a, null)) : c.p(d, A), o && Pt(o.update) && A[0] & /*disabled, navigationId, keysMode*/
+      d[18]) ? (Ae(), et(c, 1, 1, noop), fe(), c = ga(d), c.c(), $(c, 1), c.m(a, null)) : c.p(d, A), o && Pt(o.update) && A[0] & /*disabled, navigationId, keysMode*/
       8650756 && o.update.call(null, {
         disabled: (
           /*disabled*/
@@ -4979,39 +5354,48 @@ function Wh(e) {
       });
     },
     i(d) {
-      p || ($(i.$$.fragment, d), $(c), p = !0);
+      p || ($(i.$$.fragment, d), $(c), p = true);
     },
     o(d) {
-      et(i.$$.fragment, d), et(c), p = !1;
+      et(i.$$.fragment, d), et(c), p = false;
     },
     d(d) {
-      d && H(t), yt(i), c.d(d), e[62](null), h = !1, r();
+      d && H(t), yt(i), c.d(d), e[62](null), h = false, r();
     }
   };
 }
-const jh = "now-playing";
+var jh = "now-playing";
 function ma() {
   var e;
   let t = document.activeElement;
-  for (; !((e = t == null ? void 0 : t.shadowRoot) === null || e === void 0) && e.activeElement; )
-    t = t.shadowRoot.activeElement;
+  for (; !((e = t == null ? void 0 : t.shadowRoot) === null || e === void 0) && e.activeElement; ) t = t.shadowRoot.activeElement;
   return t;
 }
 function Ge(e) {
   return e[e.length - 1];
 }
 function rl() {
-  return { key: "now-playing" };
+  return {
+    key: "now-playing"
+  };
 }
 function Fh(e, t, i) {
-  let l, a, n, o, p, h, r, c, d, A, f = J, g = () => (f(), f = Ii(k, (b) => i(11, A = b)), k), M, y, w, E = J, I = () => (E(), E = Ii(K, (b) => i(54, w = b)), K), x, U = J, C = () => (U(), U = Ii(_, (b) => i(55, x = b)), _);
-  Ut(e, ie, (b) => i(64, M = b)), e.$$.on_destroy.push(() => f()), e.$$.on_destroy.push(() => E()), e.$$.on_destroy.push(() => U());
+  let l, a, n, o, p, h, r, c, d, A, f = noop, g = () => (f(), f = Ii(k, (b) => i(11, A = b)), k), M, y, w, E = noop, I = () => (E(), E = Ii(K, (b) => i(54, w = b)), K), x, U = noop, C = () => (U(), U = Ii(_, (b) => i(55, x = b)), _);
+  Ut(e, settings, (b) => i(64, M = b)), e.$$.on_destroy.push(() => f()), e.$$.on_destroy.push(() => E()), e.$$.on_destroy.push(() => U());
   var G, ot;
-  const nt = le("<Menu>"), at = Qi();
+  const nt = createLogger("<Menu>"), at = getTranslator();
   Ut(e, at, (b) => i(53, y = b));
-  let { data: z = void 0 } = t, { playback: k } = t;
+  let {
+    data: z = void 0
+  } = t, {
+    playback: k
+  } = t;
   g();
-  let { navigateToUrl: Y = void 0 } = t, { disabled: W = !1 } = t;
+  let {
+    navigateToUrl: Y = void 0
+  } = t, {
+    disabled: W = false
+  } = t;
   const _ = wh(k);
   C();
   const X = Ja(vl), K = zh(k);
@@ -5025,7 +5409,13 @@ function Fh(e, t, i) {
     "now-playing": "now-playing",
     brick: "passthrough"
   };
-  let q = [{ key: "main" }], Q = 0, O, lt, L, D, F = !1, tt = !1, ct, dt = !1, { scrollTarget: N = "list" } = t, { selectHoldMs: it = null } = t, Bt = 0, S = !1;
+  let q = [{
+    key: "main"
+  }], Q = 0, O, lt, L, D, F = false, tt = false, ct, dt = false, {
+    scrollTarget: N = "list"
+  } = t, {
+    selectHoldMs: it = null
+  } = t, Bt = 0, S = false;
   function st() {
     const b = ma();
     return !!b && b !== document.body && !(O != null && O.contains(b));
@@ -5038,12 +5428,12 @@ function Fh(e, t, i) {
     });
   }
   function Rt(b, Z) {
-    return b ? "seek" : P[pe(Z).view];
+    return b ? "seek" : P[getMenuDefinition(Z).view];
   }
   function Wt() {
     return Rt(_.peek().isSeeking, Ge(q).key);
   }
-  let Lt = !1;
+  let Lt = false;
   function se(b) {
     var Z;
     const At = ft(b);
@@ -5055,12 +5445,12 @@ function Fh(e, t, i) {
     return xt >= 0 ? xt : 0;
   }
   function $t(b) {
-    const Z = pe(b).view === "now-playing";
+    const Z = getMenuDefinition(b).view === "now-playing";
     _.handleScreenChange(Z), K.handleScreenChange(Z);
   }
-  function Ft(b, Z = !1) {
+  function Ft(b, Z = false) {
     var At;
-    i(15, F = Z ? !!(O != null && O.contains(ma())) : !st()), i(19, S = !1), i(18, Bt += 1), i(14, D = void 0), L = void 0;
+    i(15, F = Z ? !!(O != null && O.contains(ma())) : !st()), i(19, S = false), i(18, Bt += 1), i(14, D = void 0), L = void 0;
     const xt = Ge(q);
     j.remember(xt, h, Q);
     const Tt = Object.assign(Object.assign({}, xt), {
@@ -5070,15 +5460,18 @@ function Fh(e, t, i) {
       // An idle jump wasn't the user's choice, so it keeps their row.
       suppressNowPlayingSyncAtPush: Z && Lt
     });
-    i(47, q = [...q.slice(0, -1), Tt, b]), i(7, Q = se(b)), i(48, Lt = !1), $t(b.key), X.reset();
+    i(47, q = [...q.slice(0, -1), Tt, b]), i(7, Q = se(b)), i(48, Lt = false), $t(b.key), X.reset();
   }
   function Gt() {
     var b;
     if (q.length <= 1) return;
-    i(15, F = !st()), i(19, S = !0), i(18, Bt += 1), L = void 0, j.remember(Ge(q), h, Q), i(47, q = q.slice(0, -1));
+    i(15, F = !st()), i(19, S = true), i(18, Bt += 1), L = void 0, j.remember(Ge(q), h, Q), i(47, q = q.slice(0, -1));
     const Z = Ge(q);
-    i(48, Lt = (b = Z.suppressNowPlayingSyncAtPush) !== null && b !== void 0 ? b : !1), $t(Z.key), X.reset();
-    const At = ft(Z), xt = Ni(At, A), { selectedIndexAtPush: Tt, scrollTopAtPush: Qe } = Z;
+    i(48, Lt = (b = Z.suppressNowPlayingSyncAtPush) !== null && b !== void 0 ? b : false), $t(Z.key), X.reset();
+    const At = ft(Z), xt = Ni(At, A), {
+      selectedIndexAtPush: Tt,
+      scrollTopAtPush: Qe
+    } = Z;
     xt >= 0 && !Lt ? i(7, Q = xt) : i(7, Q = Math.max(0, j.rememberedIndexIn(Z, At))), i(14, D = Q === Tt ? Qe : void 0);
   }
   function oe() {
@@ -5086,8 +5479,10 @@ function Fh(e, t, i) {
   }
   let St = null, te = 0, ee = 0;
   function ge() {
-    const b = pe(a.key).selectHold;
-    b && Ft({ key: b.target });
+    const b = getMenuDefinition(a.key).selectHold;
+    b && Ft({
+      key: b.target
+    });
   }
   function me(b) {
     St == null || St.movePaddle(b / Ss);
@@ -5095,18 +5490,17 @@ function Fh(e, t, i) {
   function be(b) {
     St == null || St.steerPaddle(b ?? 0);
   }
-  const Yt = Il(ps, () => Ft(rl(), !0));
+  const Yt = Il(ps, () => Ft(rl(), true));
   function Me() {
     c && Yt.start();
   }
-  je(k.onQueueFinished(() => {
+  onDestroy(k.onQueueFinished(() => {
     j.clearQueueSource(), n === "now-playing" && (oe(), Ge(q).selectedItemId === jh && (i(7, Q = 0), i(14, D = void 0)));
   }));
   function we(b) {
-    if (h.length === 0)
-      return !1;
+    if (h.length === 0) return false;
     const Z = Math.min(h.length - 1, Math.max(0, Q + b)), At = Z !== Q;
-    return i(7, Q = Z), At && i(48, Lt = !0), At;
+    return i(7, Q = Z), At && i(48, Lt = true), At;
   }
   function he(b, Z) {
     const At = Wt(), xt = _.accelerate(b, Z), Tt = X.next(b, Z, At === "list");
@@ -5121,7 +5515,7 @@ function Fh(e, t, i) {
       case "list":
         return we(b * Z);
       default:
-        return !1;
+        return false;
     }
   }
   function ke(b, Z) {
@@ -5144,57 +5538,56 @@ function Fh(e, t, i) {
         K.exit();
         return;
       }
-      if (!A.hasLoadedItem)
-        return;
+      if (!A.hasLoadedItem) return;
       _.toggle();
       return;
     }
     const b = h[Q];
-    if (b)
-      switch (b.action) {
-        case "navigate":
-          Ft({
-            key: b.target,
-            contextId: b.contextId,
-            titleKey: b.screenTitleKey
-          });
-          break;
-        case "inline-toggle": {
-          const Z = M[b.toggleKey], At = b.values.indexOf(Z), xt = b.values[(At + 1) % b.values.length];
-          ie.update((Tt) => Object.assign(Object.assign({}, Tt), { [b.toggleKey]: xt }));
-          break;
-        }
-        case "toggle":
-          Ts(b.target), Gt();
-          break;
-        case "cancel":
-          Gt();
-          break;
-        case "reset-all":
-          Hs(), Gt();
-          break;
-        case "play": {
-          if (z) {
-            const Z = xl(h).indexOf(b);
-            Z >= 0 ? (Ni(h, A) === Q ? A.isPlaying || k.resume() : (j.setQueueSource(a), k.play(so(h, z), Z)), Ft(rl())) : nt.warn("Selected song not found in queue:", b.songId);
-          }
-          break;
-        }
-        case "info":
-          break;
-        default:
-          nt.warn("Unhandled menu item action:", b);
-          break;
+    if (b) switch (b.action) {
+      case "navigate":
+        Ft({
+          key: b.target,
+          contextId: b.contextId,
+          titleKey: b.screenTitleKey
+        });
+        break;
+      case "inline-toggle": {
+        const Z = M[b.toggleKey], At = b.values.indexOf(Z), xt = b.values[(At + 1) % b.values.length];
+        settings.update((Tt) => Object.assign(Object.assign({}, Tt), {
+          [b.toggleKey]: xt
+        }));
+        break;
       }
+      case "toggle":
+        setBacklight(b.target), Gt();
+        break;
+      case "cancel":
+        Gt();
+        break;
+      case "reset-all":
+        resetSettings(), Gt();
+        break;
+      case "play": {
+        if (z) {
+          const Z = xl(h).indexOf(b);
+          Z >= 0 ? (Ni(h, A) === Q ? A.isPlaying || k.resume() : (j.setQueueSource(a), k.play(so(h, z), Z)), Ft(rl())) : nt.warn("Selected song not found in queue:", b.songId);
+        }
+        break;
+      }
+      case "info":
+        break;
+      default:
+        nt.warn("Unhandled menu item action:", b);
+        break;
+    }
   }
   function kt(b) {
-    if ((b == null ? void 0 : b.action) !== "navigate" || !ho(b.target) || !z)
-      return !1;
+    if ((b == null ? void 0 : b.action) !== "navigate" || !ho(b.target) || !z) return false;
     const Z = nn(b.target, b.contextId, z);
-    return Z.length === 0 ? !1 : (j.setQueueSource({
+    return Z.length === 0 ? false : (j.setQueueSource({
       key: b.target,
       contextId: b.contextId
-    }), k.play(Z), Ft(rl()), !0);
+    }), k.play(Z), Ft(rl()), true);
   }
   function zt() {
     if (A.hasLoadedItem) {
@@ -5233,7 +5626,7 @@ function Fh(e, t, i) {
   function De(b) {
     K.keepOpen(), K.set(b.detail);
   }
-  je(() => {
+  onDestroy(() => {
     _.destroy(), K.destroy(), Yt.destroy();
   });
   function _e(b) {
@@ -5261,15 +5654,20 @@ function Fh(e, t, i) {
     "data" in b && i(35, z = b.data), "playback" in b && g(i(0, k = b.playback)), "navigateToUrl" in b && i(1, Y = b.navigateToUrl), "disabled" in b && i(2, W = b.disabled), "scrollTarget" in b && i(33, N = b.scrollTarget), "selectHoldMs" in b && i(34, it = b.selectHoldMs);
   }, e.$$.update = () => {
     if (e.$$.dirty[1] & /*$seekController*/
-    16777216 && i(8, { isSeeking: tt, seekPreviewTime: ct } = x, tt, (i(16, ct), i(55, x))), e.$$.dirty[1] & /*$volumeController*/
-    8388608 && i(17, { isAdjustingVolume: dt } = w, dt), e.$$.dirty[0] & /*$playback*/
+    16777216 && i(8, {
+      isSeeking: tt,
+      seekPreviewTime: ct
+    } = x, tt, (i(16, ct), i(55, x))), e.$$.dirty[1] & /*$volumeController*/
+    8388608 && i(17, {
+      isAdjustingVolume: dt
+    } = w, dt), e.$$.dirty[0] & /*$playback*/
     2048 && i(52, l = A.queue.length > 0), e.$$.dirty[1] & /*screenStack*/
     65536 && i(49, a = Ge(q)), e.$$.dirty[1] & /*currentScreen*/
-    262144 && i(9, n = pe(a.key).view), e.$$.dirty[1] & /*currentScreen, data, $i18n*/
+    262144 && i(9, n = getMenuDefinition(a.key).view), e.$$.dirty[1] & /*currentScreen, data, $i18n*/
     4456464 && i(25, o = Hh(a, z, y)), e.$$.dirty[0] & /*isSeeking*/
     256 | e.$$.dirty[1] & /*currentScreen*/
     262144 && i(33, N = Rt(tt, a.key)), e.$$.dirty[1] & /*currentScreen, _a, _b*/
-    311296 && i(34, it = i(46, ot = i(45, G = pe(a.key).selectHold) === null || G === void 0 ? void 0 : G.ms) !== null && ot !== void 0 ? ot : null), e.$$.dirty[1] & /*currentScreen, hasNowPlaying*/
+    311296 && i(34, it = i(46, ot = i(45, G = getMenuDefinition(a.key).selectHold) === null || G === void 0 ? void 0 : G.ms) !== null && ot !== void 0 ? ot : null), e.$$.dirty[1] & /*currentScreen, hasNowPlaying*/
     2359296 && i(51, p = ua(a.key, l)), e.$$.dirty[1] & /*currentScreen, data, currentHasNowPlaying, $i18n*/
     5505040 && i(10, h = va(a, {
       data: z,
@@ -5285,131 +5683,66 @@ function Fh(e, t, i) {
     }
     e.$$.dirty[0] & /*$playback*/
     2048 | e.$$.dirty[1] & /*currentScreen*/
-    262144 && i(50, c = A.isPlaying && !pe(a.key).blocksIdleJump), e.$$.dirty[1] & /*isNowPlayingIdleArmed*/
+    262144 && i(50, c = A.isPlaying && !getMenuDefinition(a.key).blocksIdleJump), e.$$.dirty[1] & /*isNowPlayingIdleArmed*/
     524288 && (c ? Yt.start() : Yt.stop()), e.$$.dirty[0] & /*view*/
     512 && i(23, d = V[n]);
-  }, [
-    k,
-    Y,
-    W,
-    _,
-    K,
-    oe,
-    B,
-    Q,
-    tt,
-    n,
-    h,
-    A,
-    O,
-    lt,
-    D,
-    F,
-    ct,
-    dt,
-    Bt,
-    S,
-    St,
-    te,
-    ee,
-    d,
-    r,
-    o,
-    at,
-    Vt,
-    Xt,
-    re,
-    ce,
-    xe,
-    De,
-    N,
-    it,
-    z,
-    Wt,
-    ge,
-    me,
-    be,
-    Me,
-    he,
-    qt,
-    ke,
-    zt,
-    G,
-    ot,
-    q,
-    Lt,
-    a,
-    c,
-    p,
-    l,
-    y,
-    w,
-    x,
-    _e,
-    Ce,
-    Be,
-    Te,
-    He,
-    Le,
-    ze
-  ];
+  }, [k, Y, W, _, K, oe, B, Q, tt, n, h, A, O, lt, D, F, ct, dt, Bt, S, St, te, ee, d, r, o, at, Vt, Xt, re, ce, xe, De, N, it, z, Wt, ge, me, be, Me, he, qt, ke, zt, G, ot, q, Lt, a, c, p, l, y, w, x, _e, Ce, Be, Te, He, Le, ze];
 }
-class mn extends It {
+var MenuComponent = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(
-      this,
-      t,
-      Fh,
-      Wh,
-      bt,
-      {
-        data: 35,
-        playback: 0,
-        navigateToUrl: 1,
-        disabled: 2,
-        seekController: 3,
-        volumeController: 4,
-        scrollTarget: 33,
-        selectHoldMs: 34,
-        currentScrollTarget: 36,
-        back: 5,
-        selectHold: 37,
-        turnPaddle: 38,
-        steerPaddle: 39,
-        notifyActivity: 40,
-        accelerate: 41,
-        moveBy: 42,
-        keyStep: 43,
-        select: 6,
-        play: 44
-      },
-      Qh,
-      [-1, -1, -1]
-    );
+    super(), initComponent(this, t, Fh, Wh, bt, {
+      data: 35,
+      playback: 0,
+      navigateToUrl: 1,
+      disabled: 2,
+      seekController: 3,
+      volumeController: 4,
+      scrollTarget: 33,
+      selectHoldMs: 34,
+      currentScrollTarget: 36,
+      back: 5,
+      selectHold: 37,
+      turnPaddle: 38,
+      steerPaddle: 39,
+      notifyActivity: 40,
+      accelerate: 41,
+      moveBy: 42,
+      keyStep: 43,
+      select: 6,
+      play: 44
+    }, Qh, [-1, -1, -1]);
   }
   get data() {
     return this.$$.ctx[35];
   }
   set data(t) {
-    this.$$set({ data: t }), R();
+    this.$$set({
+      data: t
+    }), flush();
   }
   get playback() {
     return this.$$.ctx[0];
   }
   set playback(t) {
-    this.$$set({ playback: t }), R();
+    this.$$set({
+      playback: t
+    }), flush();
   }
   get navigateToUrl() {
     return this.$$.ctx[1];
   }
   set navigateToUrl(t) {
-    this.$$set({ navigateToUrl: t }), R();
+    this.$$set({
+      navigateToUrl: t
+    }), flush();
   }
   get disabled() {
     return this.$$.ctx[2];
   }
   set disabled(t) {
-    this.$$set({ disabled: t }), R();
+    this.$$set({
+      disabled: t
+    }), flush();
   }
   get seekController() {
     return this.$$.ctx[3];
@@ -5421,13 +5754,17 @@ class mn extends It {
     return this.$$.ctx[33];
   }
   set scrollTarget(t) {
-    this.$$set({ scrollTarget: t }), R();
+    this.$$set({
+      scrollTarget: t
+    }), flush();
   }
   get selectHoldMs() {
     return this.$$.ctx[34];
   }
   set selectHoldMs(t) {
-    this.$$set({ selectHoldMs: t }), R();
+    this.$$set({
+      selectHoldMs: t
+    }), flush();
   }
   get currentScrollTarget() {
     return this.$$.ctx[36];
@@ -5462,54 +5799,52 @@ class mn extends It {
   get play() {
     return this.$$.ctx[44];
   }
-}
-ne(
-  mn,
-  { data: {}, playback: {}, navigateToUrl: {}, disabled: { type: "Boolean" }, scrollTarget: {}, selectHoldMs: {} },
-  [],
-  [
-    "seekController",
-    "volumeController",
-    "currentScrollTarget",
-    "back",
-    "selectHold",
-    "turnPaddle",
-    "steerPaddle",
-    "notifyActivity",
-    "accelerate",
-    "moveBy",
-    "keyStep",
-    "select",
-    "play"
-  ],
-  !0
-);
+};
+defineSvelteElement(MenuComponent, {
+  data: {},
+  playback: {},
+  navigateToUrl: {},
+  disabled: {
+    type: "Boolean"
+  },
+  scrollTarget: {},
+  selectHoldMs: {}
+}, [], ["seekController", "volumeController", "currentScrollTarget", "back", "selectHold", "turnPaddle", "steerPaddle", "notifyActivity", "accelerate", "moveBy", "keyStep", "select", "play"], true);
+
+// packages/web-music-ipod/src/assets/wheel-texture.png
+var wheel_texture_default = "data:image/png;base64,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";
+
+// packages/web-music-ipod/src/wheel-gestures.js
 function ba(e) {
   return (e == null ? void 0 : e.excludeRadiusRatio) ?? 0;
 }
-const Vh = 8, qh = 0.1;
-function Ma({ x: e, y: t }) {
-  return Math.atan2(t, e) * 180 / Math.PI;
+var Vh = 8;
+var qh = 0.1;
+function pointAngle({
+  x,
+  y
+}) {
+  return Math.atan2(y, x) * 180 / Math.PI;
 }
-function Uh(e, t) {
-  return ((t - e) % 360 + 540) % 360 - 180;
+function angleDifference(previousAngle, nextAngle) {
+  return ((nextAngle - previousAngle) % 360 + 540) % 360 - 180;
 }
-function Kh(e) {
-  return e > 0 ? 1 : -1;
+function rotationDirection(delta) {
+  return delta > 0 ? 1 : -1;
 }
-function Gh(e, t) {
-  const i = t.x - e.x, l = t.y - e.y, a = i * i + l * l, n = a === 0 ? 0 : Math.min(
-    1,
-    Math.max(0, -(e.x * i + e.y * l) / a)
-  ), o = e.x + n * i, p = e.y + n * l;
-  return o * o + p * p;
+function segmentDistanceSquared(start, end) {
+  const dx = end.x - start.x, dy = end.y - start.y, lengthSquared = dx * dx + dy * dy, projection = lengthSquared === 0 ? 0 : Math.min(1, Math.max(0, -(start.x * dx + start.y * dy) / lengthSquared)), nearestX = start.x + projection * dx, nearestY = start.y + projection * dy;
+  return nearestX * nearestX + nearestY * nearestY;
 }
-const Yh = (e, t) => {
+var trackWheelGesture = (e, t) => {
   let i = ba(t), l, a, n, o, p = 0;
   function h(A) {
     const f = e.getBoundingClientRect(), g = f.left + f.width / 2, M = f.top + f.height / 2, y = Math.min(f.width, f.height) / 2, w = y * i, E = A.clientX - g, I = A.clientY - M, x = E * E + I * I;
     return {
-      offset: { x: E, y: I },
+      offset: {
+        x: E,
+        y: I
+      },
       radius: y,
       withinWheel: (
         // The `+ 1e-6` absorbs floating-point rounding so a point
@@ -5521,35 +5856,38 @@ const Yh = (e, t) => {
   function r(A) {
     var M;
     if (l !== void 0) return;
-    const { offset: f, withinWheel: g } = h(A);
+    const {
+      offset: f,
+      withinWheel: g
+    } = h(A);
     g && (l = A.pointerId, a = f, n = A.timeStamp, (M = e.setPointerCapture) == null || M.call(e, l), e.dispatchEvent(new CustomEvent("wheeldragstart")));
   }
   function c(A) {
-    if (l !== A.pointerId || a === void 0 || n === void 0)
-      return;
-    const { offset: f, radius: g } = h(A), M = g * qh, y = a, w = A.timeStamp - n;
-    if (a = f, n = A.timeStamp, Gh(y, f) < M * M)
-      return;
-    const E = Uh(
-      Ma(y),
-      Ma(f)
-    );
-    if (E === 0)
-      return;
-    const I = Kh(E), x = Math.abs(E);
-    if (o === void 0 || I === o)
-      o = I, p = 0;
-    else {
-      if (p += x, p < Vh)
-        return;
-      o = I, p = 0;
+    if (l !== A.pointerId || a === void 0 || n === void 0) return;
+    const {
+      offset: f,
+      radius: g
+    } = h(A), M = g * qh, y = a, w = A.timeStamp - n;
+    if (a = f, n = A.timeStamp, segmentDistanceSquared(y, f) < M * M) return;
+    const E = angleDifference(pointAngle(y), pointAngle(f));
+    if (E === 0) return;
+    const I = rotationDirection(E), x = Math.abs(E);
+    if (o === void 0 || I === o) {
+      o = I;
+      p = 0;
+    } else {
+      if (p += x, p < Vh) return;
+      o = I;
+      p = 0;
     }
     const U = Za(x, w), C = {
       step: o,
       degrees: x,
       speed: U
     };
-    e.dispatchEvent(new CustomEvent("wheelscroll", { detail: C }));
+    e.dispatchEvent(new CustomEvent("wheelscroll", {
+      detail: C
+    }));
   }
   function d(A) {
     var f;
@@ -5560,26 +5898,36 @@ const Yh = (e, t) => {
       i = ba(A);
     },
     destroy() {
-      e.removeEventListener("pointerdown", r), e.removeEventListener("pointermove", c), e.removeEventListener("pointerup", d), e.removeEventListener("pointercancel", d), e.removeEventListener("lostpointercapture", d);
+      e.removeEventListener("pointerdown", r);
+      e.removeEventListener("pointermove", c);
+      e.removeEventListener("pointerup", d);
+      e.removeEventListener("pointercancel", d);
+      e.removeEventListener("lostpointercapture", d);
     }
   };
-}, wa = ["Enter", " "], Wi = (e, t) => {
-  let i = t, l, a, n = !1;
+};
+var wa = ["Enter", " "];
+var Wi = (e, t) => {
+  let i = t, l, a, n = false;
   const o = Sl((I) => {
-    l !== void 0 && (n = !0), e.dispatchEvent(
-      new CustomEvent("longpress", {
-        detail: { repeat: I }
-      })
-    );
+    l !== void 0 && (n = true);
+    e.dispatchEvent(new CustomEvent("longpress", {
+      detail: {
+        repeat: I
+      }
+    }));
   });
   function p() {
     return l !== void 0 || a !== void 0;
   }
   function h() {
-    n = !1, o.start(i.duration, i.repeatInterval);
+    n = false;
+    o.start(i.duration, i.repeatInterval);
   }
   function r() {
-    o.stop(), l = void 0, a = void 0;
+    o.stop();
+    l = void 0;
+    a = void 0;
   }
   function c(I) {
     var x;
@@ -5595,71 +5943,91 @@ const Yh = (e, t) => {
     l !== void 0 && I.preventDefault();
   }
   function g(I) {
-    i.disabled || i.keyboard === !1 || !wa.includes(I.key) || (I.preventDefault(), !(I.repeat || p()) && (a = I.key, h()));
+    i.disabled || i.keyboard === false || !wa.includes(I.key) || (I.preventDefault(), !(I.repeat || p()) && (a = I.key, h()));
   }
   function M(I) {
-    i.disabled || i.keyboard === !1 || !wa.includes(I.key) || (I.preventDefault(), I.key === a && (a = void 0, o.stop() || e.click()));
+    i.disabled || i.keyboard === false || !wa.includes(I.key) || (I.preventDefault(), I.key === a && (a = void 0, o.stop() || e.click()));
   }
   function y() {
     a !== void 0 && r();
   }
   function w() {
-    n = !1;
+    n = false;
   }
   function E(I) {
-    if (!n)
-      return;
+    if (!n) return;
     const [x] = I.composedPath();
-    !(x instanceof Node) || !(e.contains(x) || x.contains(e)) || (n = !1, I.stopImmediatePropagation(), I.preventDefault());
+    !(x instanceof Node) || !(e.contains(x) || x.contains(e)) || (n = false, I.stopImmediatePropagation(), I.preventDefault());
   }
-  return e.addEventListener("pointerdown", c), e.addEventListener("pointerup", d), e.addEventListener("pointercancel", A), e.addEventListener("pointerleave", A), e.addEventListener("contextmenu", f), e.addEventListener("keydown", g), e.addEventListener("keyup", M), e.addEventListener("blur", y), window.addEventListener("blur", r), window.addEventListener("pointerdown", w, !0), window.addEventListener("click", E, !0), {
+  return e.addEventListener("pointerdown", c), e.addEventListener("pointerup", d), e.addEventListener("pointercancel", A), e.addEventListener("pointerleave", A), e.addEventListener("contextmenu", f), e.addEventListener("keydown", g), e.addEventListener("keyup", M), e.addEventListener("blur", y), window.addEventListener("blur", r), window.addEventListener("pointerdown", w, true), window.addEventListener("click", E, true), {
     update(I) {
-      i = I, i.disabled && r();
+      i = I;
+      i.disabled && r();
     },
     destroy() {
-      r(), e.removeEventListener("pointerdown", c), e.removeEventListener("pointerup", d), e.removeEventListener("pointercancel", A), e.removeEventListener("pointerleave", A), e.removeEventListener("contextmenu", f), e.removeEventListener("keydown", g), e.removeEventListener("keyup", M), e.removeEventListener("blur", y), window.removeEventListener("blur", r), window.removeEventListener(
-        "pointerdown",
-        w,
-        !0
-      ), window.removeEventListener("click", E, !0);
+      r();
+      e.removeEventListener("pointerdown", c);
+      e.removeEventListener("pointerup", d);
+      e.removeEventListener("pointercancel", A);
+      e.removeEventListener("pointerleave", A);
+      e.removeEventListener("contextmenu", f);
+      e.removeEventListener("keydown", g);
+      e.removeEventListener("keyup", M);
+      e.removeEventListener("blur", y);
+      window.removeEventListener("blur", r);
+      window.removeEventListener("pointerdown", w, true);
+      window.removeEventListener("click", E, true);
     }
   };
-}, Xh = "data:image/png;base64,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";
+};
+var wheelTexture = wheel_texture_default;
+
+// packages/web-music-ipod/src/generated/wheel-icons.js
 function Zh(e) {
   let t, i, l, a, n, o = [
-    { xmlns: "http://www.w3.org/2000/svg" },
+    {
+      xmlns: "http://www.w3.org/2000/svg"
+    },
     {
       "xmlns:xlink": "http://www.w3.org/1999/xlink"
     },
-    { width: "400" },
-    { height: "150" },
-    { viewBox: "0 0 400 150" },
+    {
+      width: "400"
+    },
+    {
+      height: "150"
+    },
+    {
+      viewBox: "0 0 400 150"
+    },
     /*$$props*/
     e[0]
   ], p = {};
-  for (let h = 0; h < o.length; h += 1)
-    p = pt(p, o[h]);
+  for (let h = 0; h < o.length; h += 1) p = pt(p, o[h]);
   return {
     c() {
       t = v("svg"), i = v("path"), l = v("text"), a = v("textPath"), n = Mt("menu"), this.h();
     },
     l(h) {
       t = wt(h, "svg", {
-        xmlns: !0,
-        "xmlns:xlink": !0,
-        width: !0,
-        height: !0,
-        viewBox: !0
+        xmlns: true,
+        "xmlns:xlink": true,
+        width: true,
+        height: true,
+        viewBox: true
       });
       var r = mt(t);
       i = wt(r, "path", {
-        id: !0,
-        fill: !0,
-        stroke: !0,
-        d: !0
+        id: true,
+        fill: true,
+        stroke: true,
+        d: true
       }), mt(i).forEach(H), l = wt(r, "text", {});
       var c = mt(l);
-      a = wt(c, "textPath", { "xlink:href": !0, startOffset: !0 });
+      a = wt(c, "textPath", {
+        "xlink:href": true,
+        startOffset: true
+      });
       var d = mt(a);
       n = qn(d, "menu"), d.forEach(H), c.forEach(H), r.forEach(H), this.h();
     },
@@ -5670,21 +6038,22 @@ function Zh(e) {
       ve(h, t, r), jt(t, i), jt(t, l), jt(l, a), jt(a, n);
     },
     p(h, [r]) {
-      Ct(t, p = ye(o, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        {
-          "xmlns:xlink": "http://www.w3.org/1999/xlink"
-        },
-        { width: "400" },
-        { height: "150" },
-        { viewBox: "0 0 400 150" },
-        r & /*$$props*/
-        1 && /*$$props*/
-        h[0]
-      ]));
+      Ct(t, p = ye(o, [{
+        xmlns: "http://www.w3.org/2000/svg"
+      }, {
+        "xmlns:xlink": "http://www.w3.org/1999/xlink"
+      }, {
+        width: "400"
+      }, {
+        height: "150"
+      }, {
+        viewBox: "0 0 400 150"
+      }, r & /*$$props*/
+      1 && /*$$props*/
+      h[0]]));
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(h) {
       h && H(t);
     }
@@ -5695,35 +6064,44 @@ function Jh(e, t, i) {
     i(0, t = pt(pt({}, t), _t(l)));
   }, t = _t(t), [t];
 }
-let $h = class extends It {
+var $h = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, Jh, Zh, bt, {});
+    super(), initComponent(this, t, Jh, Zh, bt, {});
   }
 };
 function tr(e) {
   let t, i, l = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { width: "24" },
-    { height: "12" },
-    { viewBox: "0 0 24 12" },
+    {
+      xmlns: "http://www.w3.org/2000/svg"
+    },
+    {
+      width: "24"
+    },
+    {
+      height: "12"
+    },
+    {
+      viewBox: "0 0 24 12"
+    },
     /*$$props*/
     e[0]
   ], a = {};
-  for (let n = 0; n < l.length; n += 1)
-    a = pt(a, l[n]);
+  for (let n = 0; n < l.length; n += 1) a = pt(a, l[n]);
   return {
     c() {
       t = v("svg"), i = v("path"), this.h();
     },
     l(n) {
       t = wt(n, "svg", {
-        xmlns: !0,
-        width: !0,
-        height: !0,
-        viewBox: !0
+        xmlns: true,
+        width: true,
+        height: true,
+        viewBox: true
       });
       var o = mt(t);
-      i = wt(o, "path", { d: !0 }), mt(i).forEach(H), o.forEach(H), this.h();
+      i = wt(o, "path", {
+        d: true
+      }), mt(i).forEach(H), o.forEach(H), this.h();
     },
     h() {
       s(i, "d", "M9.58 5.635 0 11.212V.057zM19.578 0h3.796v11.273h-3.796zm-5.793 0h3.797v11.273h-3.797z"), Ct(t, a);
@@ -5732,18 +6110,20 @@ function tr(e) {
       ve(n, t, o), jt(t, i);
     },
     p(n, [o]) {
-      Ct(t, a = ye(l, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { width: "24" },
-        { height: "12" },
-        { viewBox: "0 0 24 12" },
-        o & /*$$props*/
-        1 && /*$$props*/
-        n[0]
-      ]));
+      Ct(t, a = ye(l, [{
+        xmlns: "http://www.w3.org/2000/svg"
+      }, {
+        width: "24"
+      }, {
+        height: "12"
+      }, {
+        viewBox: "0 0 24 12"
+      }, o & /*$$props*/
+      1 && /*$$props*/
+      n[0]]));
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(n) {
       n && H(t);
     }
@@ -5754,35 +6134,44 @@ function er(e, t, i) {
     i(0, t = pt(pt({}, t), _t(l)));
   }, t = _t(t), [t];
 }
-let ir = class extends It {
+var ir = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, er, tr, bt, {});
+    super(), initComponent(this, t, er, tr, bt, {});
   }
 };
 function lr(e) {
   let t, i, l = [
-    { xmlns: "http://www.w3.org/2000/svg" },
-    { width: "23" },
-    { height: "12" },
-    { viewBox: "0 0 23 12" },
+    {
+      xmlns: "http://www.w3.org/2000/svg"
+    },
+    {
+      width: "23"
+    },
+    {
+      height: "12"
+    },
+    {
+      viewBox: "0 0 23 12"
+    },
     /*$$props*/
     e[0]
   ], a = {};
-  for (let n = 0; n < l.length; n += 1)
-    a = pt(a, l[n]);
+  for (let n = 0; n < l.length; n += 1) a = pt(a, l[n]);
   return {
     c() {
       t = v("svg"), i = v("path"), this.h();
     },
     l(n) {
       t = wt(n, "svg", {
-        xmlns: !0,
-        width: !0,
-        height: !0,
-        viewBox: !0
+        xmlns: true,
+        width: true,
+        height: true,
+        viewBox: true
       });
       var o = mt(t);
-      i = wt(o, "path", { d: !0 }), mt(i).forEach(H), o.forEach(H), this.h();
+      i = wt(o, "path", {
+        d: true
+      }), mt(i).forEach(H), o.forEach(H), this.h();
     },
     h() {
       s(i, "d", "M9.58 5.635 0 11.212V.057zm9.623 0-9.58 5.577V.057zm0-5.635H23v11.273h-3.797z"), Ct(t, a);
@@ -5791,18 +6180,20 @@ function lr(e) {
       ve(n, t, o), jt(t, i);
     },
     p(n, [o]) {
-      Ct(t, a = ye(l, [
-        { xmlns: "http://www.w3.org/2000/svg" },
-        { width: "23" },
-        { height: "12" },
-        { viewBox: "0 0 23 12" },
-        o & /*$$props*/
-        1 && /*$$props*/
-        n[0]
-      ]));
+      Ct(t, a = ye(l, [{
+        xmlns: "http://www.w3.org/2000/svg"
+      }, {
+        width: "23"
+      }, {
+        height: "12"
+      }, {
+        viewBox: "0 0 23 12"
+      }, o & /*$$props*/
+      1 && /*$$props*/
+      n[0]]));
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(n) {
       n && H(t);
     }
@@ -5813,20 +6204,40 @@ function ar(e, t, i) {
     i(0, t = pt(pt({}, t), _t(l)));
   }, t = _t(t), [t];
 }
-class ka extends It {
+var ka = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, ar, lr, bt, {});
+    super(), initComponent(this, t, ar, lr, bt, {});
   }
-}
-const { window: nr } = Ln;
+};
+
+// packages/web-music-ipod/src/generated/click-wheel.js
+var {
+  window: nr
+} = Ln;
 function sr(e) {
-  ae(e, "svelte-nz296x", '.click-wheel.svelte-nz296x.svelte-nz296x{position:relative;top:30px;margin:0 auto;width:350px;height:350px;border-radius:50%;background-color:var(--control-circle-bgcolor, #f8f8f8);box-shadow:inset -16px 29px 11px 15px var(--control-circle-box-shadow-1, #f4f4f4), inset 8px -7px 34px -15px var(--control-circle-box-shadow-2, rgba(137, 137, 137, 0.8)), 0 0 0 2px var(--control-circle-box-shadow-3, rgba(135, 135, 135, 0.3803921569)), -4px 6px 10px 0 var(--control-circle-box-shadow-4, rgba(131, 131, 131, 0.231372549)), 0 0 1px 3px var(--control-circle-box-shadow-5, rgba(72, 72, 72, 0.1019607843)), 0 -1px 1px 2px var(--control-circle-box-shadow-6, rgba(168, 168, 168, 0.6705882353)), 0 0 1px 3px var(--control-circle-box-shadow-7, #e9e9e8), -2px 3px 1px 2px var(--control-circle-box-shadow-8, #d7d7d7), -1px 1px 0 3px var(--control-circle-box-shadow-9, rgba(229, 229, 229, 0.4705882353));cursor:pointer;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}@media(prefers-color-scheme: dark){.click-wheel.svelte-nz296x.svelte-nz296x{--control-circle-bgcolor:#ededed;--control-circle-box-shadow-1:#e9e9e9;--control-circle-box-shadow-2:#1b1b1b87;--control-circle-box-shadow-3:#00000017;--control-circle-box-shadow-4:#0000001f;--control-circle-box-shadow-5:#0000001f;--control-circle-box-shadow-6:#ccccccf7;--control-circle-box-shadow-7:#70707008;--control-circle-box-shadow-8:#d6d6d6;--control-circle-box-shadow-9:#dadada78}}.click-wheel.svelte-nz296x.svelte-nz296x::after{content:"";position:absolute;display:block;top:15px;left:20.5px;width:318px;height:317px;padding:4px;border-radius:50%;background-image:conic-gradient(from 345deg at center, transparent 0, transparent 16%, rgb(255, 255, 255) 22%, transparent 30%, transparent 67%, rgb(255, 255, 255) 72%, transparent 80%);mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);mask-composite:exclude;filter:blur(12px);z-index:1;pointer-events:none}.click-wheel.dragging.svelte-nz296x .wheel-button.svelte-nz296x,.click-wheel.dragging.svelte-nz296x .select-button.svelte-nz296x{pointer-events:none}.wheel-button.svelte-nz296x.svelte-nz296x{position:absolute;inset:0;display:flex;border-radius:50%;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.wheel-button.svelte-nz296x svg{fill:var(--wheel-icon-fill, #a3a3a3)}@media(prefers-contrast: more){.wheel-button.svelte-nz296x.svelte-nz296x{--wheel-icon-fill:#3a3a3a}}.wheel-button.svelte-nz296x:active svg{opacity:0.99;scale:0.97}.menu-button.svelte-nz296x.svelte-nz296x{justify-content:center;align-items:flex-start;padding-top:9.5px;clip-path:polygon(50% 50%, 0% 0%, 100% 0%)}.menu-button.svelte-nz296x.svelte-nz296x::after{content:"";display:block;position:absolute;top:2px;left:50%;width:108px;height:34px;background:radial-gradient(ellipse at 50% -189%, rgba(255, 255, 255, 0.9) 57%, rgba(255, 255, 255, 0.07) 75.6%);transform:translate(-50%);border-radius:35%;opacity:0.25}.menu-button.svelte-nz296x svg{width:136px;height:auto}.menu-button.svelte-nz296x text{font-family:Arial, sans-serif;font-weight:bold;font-size:55px;fill:var(--wheel-menu-text-fill, #898989)}@media(prefers-contrast: more){.menu-button.svelte-nz296x.svelte-nz296x{--wheel-menu-text-fill:#3a3a3a}}.menu-button.svelte-nz296x path{fill:transparent}.menu-button.svelte-nz296x:active svg{scale:0.99}.back-button.svelte-nz296x.svelte-nz296x{justify-content:flex-start;align-items:center;padding-left:6px;clip-path:polygon(50% 50%, 0% 0%, 0% 100%)}.back-button.svelte-nz296x svg{rotate:180deg}.forward-button.svelte-nz296x.svelte-nz296x{justify-content:flex-end;align-items:center;padding-right:6px;clip-path:polygon(50% 50%, 100% 0%, 100% 100%)}.playpause-button.svelte-nz296x.svelte-nz296x{justify-content:center;align-items:flex-end;padding-bottom:12px;clip-path:polygon(50% 50%, 0% 100%, 100% 100%)}.wheel-dividers.svelte-nz296x.svelte-nz296x{position:absolute;inset:0;pointer-events:none;border-radius:50%;outline:var(--wheel-outline, none)}@media(prefers-contrast: more){.wheel-dividers.svelte-nz296x.svelte-nz296x{--wheel-outline:2px solid #3a3a3a}}.wheel-dividers.svelte-nz296x.svelte-nz296x::before,.wheel-dividers.svelte-nz296x.svelte-nz296x::after{position:absolute;top:0;width:0;height:100%;content:"";border:1px solid var(--wheel-divider-color, #888)}@media(prefers-contrast: more){.wheel-dividers.svelte-nz296x.svelte-nz296x::before,.wheel-dividers.svelte-nz296x.svelte-nz296x::after{--wheel-divider-color:#3a3a3a}}.wheel-dividers.svelte-nz296x.svelte-nz296x::before{left:49.7%;transform:rotate(135deg)}.wheel-dividers.svelte-nz296x.svelte-nz296x::after{left:50%;transform:rotate(45deg)}.scroll-wheel.svelte-nz296x.svelte-nz296x{position:absolute;top:50%;left:50%;width:var(--scroll-wheel-pct);height:var(--scroll-wheel-pct);transform:translate(-50%, -50%);background-image:var(--wheel-noise-texture), radial-gradient(circle at 130% -100%, var(--clickwheel-bgcolor-1, #eaeaea), var(--clickwheel-bgcolor-2, #f6f6f6));background-size:30%;border:2px solid #7e7e7e;border-radius:50%;box-shadow:inset 0 0 0 2px var(--clickwheel-box-shadow-1, rgba(249, 249, 249, 0.2705882353)), 4px -5px 18px 0 var(--clickwheel-box-shadow-2, rgba(122, 122, 122, 0.6)), 0 -1px 4px 2px var(--clickwheel-box-shadow-3, rgba(168, 168, 168, 0.6705882353));cursor:pointer;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;transition:transform 0.1s ease-out;z-index:1}.scroll-wheel.svelte-nz296x.svelte-nz296x:focus{outline:none}@media(prefers-color-scheme: dark){.scroll-wheel.svelte-nz296x.svelte-nz296x{--clickwheel-bgcolor-1:#f1eeee;--clickwheel-bgcolor-2:#e4e4e4;--clickwheel-box-shadow-1:#c1bcbc45;--clickwheel-box-shadow-2:#b0aeae99;--clickwheel-box-shadow-3:#9b9b9bab}}.select-button.svelte-nz296x.svelte-nz296x{position:absolute;top:50%;left:50%;width:var(--select-button-pct);height:var(--select-button-pct);transform:translate(-50%, -50%) rotate(35deg);background:radial-gradient(ellipse closest-side at 50% 30%, var(--center-button-background-1, rgba(255, 255, 255, 0.2)) 0%, var(--center-button-background-2, rgba(255, 255, 255, 0.2)) 72%, transparent 80.6%), radial-gradient(farthest-side at -9% 209%, var(--center-button-background-3, rgba(22, 22, 22, 0.1882352941)) 0%, var(--center-button-background-4, rgba(250, 250, 250, 0.93)));border:2px solid #9f9f9f;border-radius:50%;touch-action:manipulation;transition:transform 0.1s ease-out, box-shadow 0.1s ease-out;-webkit-tap-highlight-color:transparent;z-index:1}@media(prefers-color-scheme: dark){.select-button.svelte-nz296x.svelte-nz296x{--center-button-background-1:#ecebeb24;--center-button-background-2:#ecebeb24;--center-button-background-3:#46454561;--center-button-background-4:#f2f2f2d9}}.select-button.svelte-nz296x.svelte-nz296x:active{transform:translate(-50%, -50%) rotate(35deg) scale(0.98);box-shadow:0 0 1px 1px #909090}');
+  appendStyles(e, "svelte-nz296x", '.click-wheel.svelte-nz296x.svelte-nz296x{position:relative;top:30px;margin:0 auto;width:350px;height:350px;border-radius:50%;background-color:var(--control-circle-bgcolor, #f8f8f8);box-shadow:inset -16px 29px 11px 15px var(--control-circle-box-shadow-1, #f4f4f4), inset 8px -7px 34px -15px var(--control-circle-box-shadow-2, rgba(137, 137, 137, 0.8)), 0 0 0 2px var(--control-circle-box-shadow-3, rgba(135, 135, 135, 0.3803921569)), -4px 6px 10px 0 var(--control-circle-box-shadow-4, rgba(131, 131, 131, 0.231372549)), 0 0 1px 3px var(--control-circle-box-shadow-5, rgba(72, 72, 72, 0.1019607843)), 0 -1px 1px 2px var(--control-circle-box-shadow-6, rgba(168, 168, 168, 0.6705882353)), 0 0 1px 3px var(--control-circle-box-shadow-7, #e9e9e8), -2px 3px 1px 2px var(--control-circle-box-shadow-8, #d7d7d7), -1px 1px 0 3px var(--control-circle-box-shadow-9, rgba(229, 229, 229, 0.4705882353));cursor:pointer;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}@media(prefers-color-scheme: dark){.click-wheel.svelte-nz296x.svelte-nz296x{--control-circle-bgcolor:#ededed;--control-circle-box-shadow-1:#e9e9e9;--control-circle-box-shadow-2:#1b1b1b87;--control-circle-box-shadow-3:#00000017;--control-circle-box-shadow-4:#0000001f;--control-circle-box-shadow-5:#0000001f;--control-circle-box-shadow-6:#ccccccf7;--control-circle-box-shadow-7:#70707008;--control-circle-box-shadow-8:#d6d6d6;--control-circle-box-shadow-9:#dadada78}}.click-wheel.svelte-nz296x.svelte-nz296x::after{content:"";position:absolute;display:block;top:15px;left:20.5px;width:318px;height:317px;padding:4px;border-radius:50%;background-image:conic-gradient(from 345deg at center, transparent 0, transparent 16%, rgb(255, 255, 255) 22%, transparent 30%, transparent 67%, rgb(255, 255, 255) 72%, transparent 80%);mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);mask-composite:exclude;filter:blur(12px);z-index:1;pointer-events:none}.click-wheel.dragging.svelte-nz296x .wheel-button.svelte-nz296x,.click-wheel.dragging.svelte-nz296x .select-button.svelte-nz296x{pointer-events:none}.wheel-button.svelte-nz296x.svelte-nz296x{position:absolute;inset:0;display:flex;border-radius:50%;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.wheel-button.svelte-nz296x svg{fill:var(--wheel-icon-fill, #a3a3a3)}@media(prefers-contrast: more){.wheel-button.svelte-nz296x.svelte-nz296x{--wheel-icon-fill:#3a3a3a}}.wheel-button.svelte-nz296x:active svg{opacity:0.99;scale:0.97}.menu-button.svelte-nz296x.svelte-nz296x{justify-content:center;align-items:flex-start;padding-top:9.5px;clip-path:polygon(50% 50%, 0% 0%, 100% 0%)}.menu-button.svelte-nz296x.svelte-nz296x::after{content:"";display:block;position:absolute;top:2px;left:50%;width:108px;height:34px;background:radial-gradient(ellipse at 50% -189%, rgba(255, 255, 255, 0.9) 57%, rgba(255, 255, 255, 0.07) 75.6%);transform:translate(-50%);border-radius:35%;opacity:0.25}.menu-button.svelte-nz296x svg{width:136px;height:auto}.menu-button.svelte-nz296x text{font-family:Arial, sans-serif;font-weight:bold;font-size:55px;fill:var(--wheel-menu-text-fill, #898989)}@media(prefers-contrast: more){.menu-button.svelte-nz296x.svelte-nz296x{--wheel-menu-text-fill:#3a3a3a}}.menu-button.svelte-nz296x path{fill:transparent}.menu-button.svelte-nz296x:active svg{scale:0.99}.back-button.svelte-nz296x.svelte-nz296x{justify-content:flex-start;align-items:center;padding-left:6px;clip-path:polygon(50% 50%, 0% 0%, 0% 100%)}.back-button.svelte-nz296x svg{rotate:180deg}.forward-button.svelte-nz296x.svelte-nz296x{justify-content:flex-end;align-items:center;padding-right:6px;clip-path:polygon(50% 50%, 100% 0%, 100% 100%)}.playpause-button.svelte-nz296x.svelte-nz296x{justify-content:center;align-items:flex-end;padding-bottom:12px;clip-path:polygon(50% 50%, 0% 100%, 100% 100%)}.wheel-dividers.svelte-nz296x.svelte-nz296x{position:absolute;inset:0;pointer-events:none;border-radius:50%;outline:var(--wheel-outline, none)}@media(prefers-contrast: more){.wheel-dividers.svelte-nz296x.svelte-nz296x{--wheel-outline:2px solid #3a3a3a}}.wheel-dividers.svelte-nz296x.svelte-nz296x::before,.wheel-dividers.svelte-nz296x.svelte-nz296x::after{position:absolute;top:0;width:0;height:100%;content:"";border:1px solid var(--wheel-divider-color, #888)}@media(prefers-contrast: more){.wheel-dividers.svelte-nz296x.svelte-nz296x::before,.wheel-dividers.svelte-nz296x.svelte-nz296x::after{--wheel-divider-color:#3a3a3a}}.wheel-dividers.svelte-nz296x.svelte-nz296x::before{left:49.7%;transform:rotate(135deg)}.wheel-dividers.svelte-nz296x.svelte-nz296x::after{left:50%;transform:rotate(45deg)}.scroll-wheel.svelte-nz296x.svelte-nz296x{position:absolute;top:50%;left:50%;width:var(--scroll-wheel-pct);height:var(--scroll-wheel-pct);transform:translate(-50%, -50%);background-image:var(--wheel-noise-texture), radial-gradient(circle at 130% -100%, var(--clickwheel-bgcolor-1, #eaeaea), var(--clickwheel-bgcolor-2, #f6f6f6));background-size:30%;border:2px solid #7e7e7e;border-radius:50%;box-shadow:inset 0 0 0 2px var(--clickwheel-box-shadow-1, rgba(249, 249, 249, 0.2705882353)), 4px -5px 18px 0 var(--clickwheel-box-shadow-2, rgba(122, 122, 122, 0.6)), 0 -1px 4px 2px var(--clickwheel-box-shadow-3, rgba(168, 168, 168, 0.6705882353));cursor:pointer;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;transition:transform 0.1s ease-out;z-index:1}.scroll-wheel.svelte-nz296x.svelte-nz296x:focus{outline:none}@media(prefers-color-scheme: dark){.scroll-wheel.svelte-nz296x.svelte-nz296x{--clickwheel-bgcolor-1:#f1eeee;--clickwheel-bgcolor-2:#e4e4e4;--clickwheel-box-shadow-1:#c1bcbc45;--clickwheel-box-shadow-2:#b0aeae99;--clickwheel-box-shadow-3:#9b9b9bab}}.select-button.svelte-nz296x.svelte-nz296x{position:absolute;top:50%;left:50%;width:var(--select-button-pct);height:var(--select-button-pct);transform:translate(-50%, -50%) rotate(35deg);background:radial-gradient(ellipse closest-side at 50% 30%, var(--center-button-background-1, rgba(255, 255, 255, 0.2)) 0%, var(--center-button-background-2, rgba(255, 255, 255, 0.2)) 72%, transparent 80.6%), radial-gradient(farthest-side at -9% 209%, var(--center-button-background-3, rgba(22, 22, 22, 0.1882352941)) 0%, var(--center-button-background-4, rgba(250, 250, 250, 0.93)));border:2px solid #9f9f9f;border-radius:50%;touch-action:manipulation;transition:transform 0.1s ease-out, box-shadow 0.1s ease-out;-webkit-tap-highlight-color:transparent;z-index:1}@media(prefers-color-scheme: dark){.select-button.svelte-nz296x.svelte-nz296x{--center-button-background-1:#ecebeb24;--center-button-background-2:#ecebeb24;--center-button-background-3:#46454561;--center-button-background-4:#f2f2f2d9}}.select-button.svelte-nz296x.svelte-nz296x:active{transform:translate(-50%, -50%) rotate(35deg) scale(0.98);box-shadow:0 0 1px 1px #909090}');
 }
 function or(e) {
   let t, i, l, a, n, o, p, h, r, c, d, A, f, g, M, y, w, E, I, x, U, C, G, ot, nt, at, z, k, Y, W, _, X, K, j, P, V = `${/*selectButtonDiameterPercent*/
   e[0]}%`, q = `${/*scrollWheelDiameterPercent*/
-  e[1]}%`, Q = `url(${Xh})`, O, lt, L;
-  return l = new $h({ props: { "aria-hidden": "true" } }), r = new ka({ props: { "aria-hidden": "true" } }), M = new ka({ props: { "aria-hidden": "true" } }), U = new ir({ props: { "aria-hidden": "true" } }), {
+  e[1]}%`, Q = `url(${wheelTexture})`, O, lt, L;
+  return l = new $h({
+    props: {
+      "aria-hidden": "true"
+    }
+  }), r = new ka({
+    props: {
+      "aria-hidden": "true"
+    }
+  }), M = new ka({
+    props: {
+      "aria-hidden": "true"
+    }
+  }), U = new ir({
+    props: {
+      "aria-hidden": "true"
+    }
+  }), {
     c() {
       t = T("div"), i = T("button"), gt(l.$$.fragment), p = rt(), h = T("button"), gt(r.$$.fragment), f = rt(), g = T("button"), gt(M.$$.fragment), I = rt(), x = T("button"), gt(U.$$.fragment), nt = rt(), at = T("div"), z = rt(), k = T("div"), W = rt(), _ = T("button"), s(i, "class", "wheel-button menu-button svelte-nz296x"), s(i, "data-testid", "wheel-menu-button"), s(i, "aria-label", a = /*$i18n*/
       e[10].t("ASE.Web.IPod.Wheel.Menu")), s(i, "tabindex", n = /*disabled*/
@@ -5856,142 +6267,120 @@ function or(e) {
       ), m(t, "--select-button-pct", V), m(t, "--scroll-wheel-pct", q), m(t, "--wheel-noise-texture", Q);
     },
     m(D, F) {
-      ht(D, t, F), u(t, i), vt(l, i, null), u(t, p), u(t, h), vt(r, h, null), u(t, f), u(t, g), vt(M, g, null), u(t, I), u(t, x), vt(U, x, null), u(t, nt), u(t, at), u(t, z), u(t, k), e[32](k), u(t, W), u(t, _), e[35](t), O = !0, lt || (L = [
-        ut(
-          nr,
-          "blur",
-          /*blur_handler*/
-          e[24]
-        ),
-        ut(
-          i,
-          "click",
-          /*click_handler*/
-          e[25]
-        ),
-        Kt(Wi.call(null, i, { duration: Oe })),
-        ut(
-          i,
-          "longpress",
-          /*longpress_handler*/
-          e[26]
-        ),
-        ut(
-          h,
-          "click",
-          /*click_handler_1*/
-          e[27]
-        ),
-        Kt(Wi.call(null, h, {
-          duration: Oe,
-          repeatInterval: ul
-        })),
-        ut(
-          h,
-          "longpress",
-          /*longpress_handler_1*/
-          e[28]
-        ),
-        ut(
-          g,
-          "click",
-          /*click_handler_2*/
-          e[29]
-        ),
-        Kt(Wi.call(null, g, {
-          duration: Oe,
-          repeatInterval: ul
-        })),
-        ut(
-          g,
-          "longpress",
-          /*longpress_handler_2*/
-          e[30]
-        ),
-        ut(
-          x,
-          "click",
-          /*click_handler_3*/
-          e[31]
-        ),
-        Kt(Y = Yh.call(null, k, {
-          excludeRadiusRatio: (
-            /*selectButtonRadiusRatio*/
-            e[9]
-          )
-        })),
-        ut(
-          k,
-          "wheelscroll",
-          /*handleWheelScroll*/
-          e[15]
-        ),
-        ut(
-          k,
-          "wheeldragstart",
-          /*handleWheelDragStart*/
-          e[16]
-        ),
-        ut(
-          k,
-          "wheeldragend",
-          /*handleWheelDragEnd*/
-          e[17]
-        ),
-        ut(
-          k,
-          "pointerdown",
-          /*focusRing*/
-          e[21]
-        ),
-        ut(
-          _,
-          "click",
-          /*click_handler_4*/
-          e[33]
-        ),
-        Kt(P = Wi.call(null, _, {
-          duration: (
-            /*selectHoldMs*/
-            e[5] ?? Oe
-          ),
-          keyboard: !1,
-          disabled: (
-            /*selectHoldMs*/
-            e[5] === null
-          )
-        })),
-        ut(
-          _,
-          "longpress",
-          /*longpress_handler_3*/
-          e[34]
-        ),
-        ut(
-          t,
-          "keydown",
-          /*handleKeyDown*/
-          e[19]
-        ),
-        ut(
-          t,
-          "keyup",
-          /*handleKeyUp*/
-          e[20]
-        ),
-        ut(
-          t,
-          "focusout",
-          /*focusout_handler*/
-          e[36]
-        ),
-        ut(
-          t,
-          "pointerup",
-          /*handlePointerUp*/
-          e[22]
+      ht(D, t, F), u(t, i), vt(l, i, null), u(t, p), u(t, h), vt(r, h, null), u(t, f), u(t, g), vt(M, g, null), u(t, I), u(t, x), vt(U, x, null), u(t, nt), u(t, at), u(t, z), u(t, k), e[32](k), u(t, W), u(t, _), e[35](t), O = true, lt || (L = [ut(
+        nr,
+        "blur",
+        /*blur_handler*/
+        e[24]
+      ), ut(
+        i,
+        "click",
+        /*click_handler*/
+        e[25]
+      ), Kt(Wi.call(null, i, {
+        duration: Oe
+      })), ut(
+        i,
+        "longpress",
+        /*longpress_handler*/
+        e[26]
+      ), ut(
+        h,
+        "click",
+        /*click_handler_1*/
+        e[27]
+      ), Kt(Wi.call(null, h, {
+        duration: Oe,
+        repeatInterval: ul
+      })), ut(
+        h,
+        "longpress",
+        /*longpress_handler_1*/
+        e[28]
+      ), ut(
+        g,
+        "click",
+        /*click_handler_2*/
+        e[29]
+      ), Kt(Wi.call(null, g, {
+        duration: Oe,
+        repeatInterval: ul
+      })), ut(
+        g,
+        "longpress",
+        /*longpress_handler_2*/
+        e[30]
+      ), ut(
+        x,
+        "click",
+        /*click_handler_3*/
+        e[31]
+      ), Kt(Y = trackWheelGesture.call(null, k, {
+        excludeRadiusRatio: (
+          /*selectButtonRadiusRatio*/
+          e[9]
         )
-      ], lt = !0);
+      })), ut(
+        k,
+        "wheelscroll",
+        /*handleWheelScroll*/
+        e[15]
+      ), ut(
+        k,
+        "wheeldragstart",
+        /*handleWheelDragStart*/
+        e[16]
+      ), ut(
+        k,
+        "wheeldragend",
+        /*handleWheelDragEnd*/
+        e[17]
+      ), ut(
+        k,
+        "pointerdown",
+        /*focusRing*/
+        e[21]
+      ), ut(
+        _,
+        "click",
+        /*click_handler_4*/
+        e[33]
+      ), Kt(P = Wi.call(null, _, {
+        duration: (
+          /*selectHoldMs*/
+          e[5] ?? Oe
+        ),
+        keyboard: false,
+        disabled: (
+          /*selectHoldMs*/
+          e[5] === null
+        )
+      })), ut(
+        _,
+        "longpress",
+        /*longpress_handler_3*/
+        e[34]
+      ), ut(
+        t,
+        "keydown",
+        /*handleKeyDown*/
+        e[19]
+      ), ut(
+        t,
+        "keyup",
+        /*handleKeyUp*/
+        e[20]
+      ), ut(
+        t,
+        "focusout",
+        /*focusout_handler*/
+        e[36]
+      ), ut(
+        t,
+        "pointerup",
+        /*handlePointerUp*/
+        e[22]
+      )], lt = true);
     },
     p(D, F) {
       (!O || F[0] & /*$i18n*/
@@ -6041,7 +6430,7 @@ function or(e) {
           /*selectHoldMs*/
           D[5] ?? Oe
         ),
-        keyboard: !1,
+        keyboard: false,
         disabled: (
           /*selectHoldMs*/
           D[5] === null
@@ -6059,22 +6448,36 @@ function or(e) {
       D[1]}%`) && m(t, "--scroll-wheel-pct", q);
     },
     i(D) {
-      O || ($(l.$$.fragment, D), $(r.$$.fragment, D), $(M.$$.fragment, D), $(U.$$.fragment, D), O = !0);
+      O || ($(l.$$.fragment, D), $(r.$$.fragment, D), $(M.$$.fragment, D), $(U.$$.fragment, D), O = true);
     },
     o(D) {
-      et(l.$$.fragment, D), et(r.$$.fragment, D), et(M.$$.fragment, D), et(U.$$.fragment, D), O = !1;
+      et(l.$$.fragment, D), et(r.$$.fragment, D), et(M.$$.fragment, D), et(U.$$.fragment, D), O = false;
     },
     d(D) {
-      D && H(t), yt(l), yt(r), yt(M), yt(U), e[32](null), e[35](null), lt = !1, ue(L);
+      D && H(t), yt(l), yt(r), yt(M), yt(U), e[32](null), e[35](null), lt = false, ue(L);
     }
   };
 }
 function hr(e, t, i) {
-  let l, a, { selectButtonDiameterPercent: n = rs } = t, { scrollWheelDiameterPercent: o = cs } = t, { disableSkip: p = !1 } = t, { disabled: h = !1 } = t, { scrollTarget: r = "list" } = t, { isPlaying: c = !1 } = t, { selectHoldMs: d = null } = t;
-  const A = Qi();
+  let l, a, {
+    selectButtonDiameterPercent: n = rs
+  } = t, {
+    scrollWheelDiameterPercent: o = cs
+  } = t, {
+    disableSkip: p = false
+  } = t, {
+    disabled: h = false
+  } = t, {
+    scrollTarget: r = "list"
+  } = t, {
+    isPlaying: c = false
+  } = t, {
+    selectHoldMs: d = null
+  } = t;
+  const A = getTranslator();
   Ut(e, A, (S) => i(10, a = S));
-  let f, g, M = !1;
-  const y = Hi(), w = le("<ClickWheel>");
+  let f, g, M = false;
+  const y = Hi(), w = createLogger("<ClickWheel>");
   function E(S) {
     p && (S === "back" || S === "forward") || (w.debug(`${S} button clicked`), y(S));
   }
@@ -6086,49 +6489,63 @@ function hr(e, t, i) {
   }
   let U, C, G = 0, ot, nt = null;
   function at() {
-    i(8, M = !0), (C == null ? void 0 : C.kind) !== "scroll" && y("dragstart");
+    i(8, M = true), (C == null ? void 0 : C.kind) !== "scroll" && y("dragstart");
   }
   function z() {
-    i(8, M = !1), (C == null ? void 0 : C.kind) !== "scroll" && y("dragend");
+    i(8, M = false), (C == null ? void 0 : C.kind) !== "scroll" && y("dragend");
   }
   function k(S) {
     var st, ft;
     switch (S) {
       case "ArrowUp":
       case "ArrowDown":
-        return r === "brick" ? { kind: "none" } : {
+        return r === "brick" ? {
+          kind: "none"
+        } : {
           kind: "scroll",
           step: S === (r === "list" ? "ArrowDown" : "ArrowUp") ? 1 : -1
         };
       case "ArrowLeft":
       case "ArrowRight": {
         const Rt = S === "ArrowLeft", Wt = Rt ? -1 : 1;
-        if (r === "seek")
-          return { kind: "scroll", step: Wt };
-        if (r === "brick")
-          return { kind: "steer", step: Wt };
-        if (r === "volume")
-          return {
-            kind: "hold",
-            button: Rt ? "back" : "forward",
-            repeatInterval: ul
-          };
-        const Lt = (ft = (st = f.parentElement) === null || st === void 0 ? void 0 : st.matches(":dir(rtl)")) !== null && ft !== void 0 ? ft : !1;
+        if (r === "seek") return {
+          kind: "scroll",
+          step: Wt
+        };
+        if (r === "brick") return {
+          kind: "steer",
+          step: Wt
+        };
+        if (r === "volume") return {
+          kind: "hold",
+          button: Rt ? "back" : "forward",
+          repeatInterval: ul
+        };
+        const Lt = (ft = (st = f.parentElement) === null || st === void 0 ? void 0 : st.matches(":dir(rtl)")) !== null && ft !== void 0 ? ft : false;
         return {
           kind: "press",
           button: Rt !== Lt ? "menu" : "select"
         };
       }
       case "Enter":
-        return d === null ? { kind: "press", button: "select" } : {
+        return d === null ? {
+          kind: "press",
+          button: "select"
+        } : {
           kind: "hold",
           button: "select",
           duration: d
         };
       case " ":
-        return { kind: "press", button: "playpause" };
+        return {
+          kind: "press",
+          button: "playpause"
+        };
       case "Escape":
-        return { kind: "hold", button: "menu" };
+        return {
+          kind: "hold",
+          button: "menu"
+        };
       default:
         return;
     }
@@ -6140,7 +6557,9 @@ function hr(e, t, i) {
     });
   }
   function W(S) {
-    r !== ot || d !== nt ? X(!1) : (C == null ? void 0 : C.kind) === "scroll" ? Y(C.step) : (C == null ? void 0 : C.kind) === "hold" && (C.button === "menu" ? y("menuhold") : C.button === "select" ? y("selecthold") : I(`${C.button}hold`, { repeat: S }));
+    r !== ot || d !== nt ? X(false) : (C == null ? void 0 : C.kind) === "scroll" ? Y(C.step) : (C == null ? void 0 : C.kind) === "hold" && (C.button === "menu" ? y("menuhold") : C.button === "select" ? y("selecthold") : I(`${C.button}hold`, {
+      repeat: S
+    }));
   }
   const _ = Sl(W);
   function X(S) {
@@ -6149,31 +6568,29 @@ function hr(e, t, i) {
   }
   function K(S) {
     var st;
-    if (S.target !== g)
-      return;
+    if (S.target !== g) return;
     if (S.ctrlKey || S.metaKey || S.altKey) {
-      X(!1);
+      X(false);
       return;
     }
     const ft = k(S.key);
-    ft && (S.preventDefault(), S.stopPropagation(), !(S.repeat || S.key === U) && (X(!1), U = S.key, C = ft, G = performance.now(), ot = r, nt = d, ft.kind === "scroll" ? (M || y("dragstart"), Y(ft.step), _.start(gs, ms)) : ft.kind === "steer" ? y("steer", ft.step) : ft.kind === "hold" && _.start(
-      (st = ft.duration) !== null && st !== void 0 ? st : Oe,
-      ft.repeatInterval
-    )));
+    ft && (S.preventDefault(), S.stopPropagation(), !(S.repeat || S.key === U) && (X(false), U = S.key, C = ft, G = performance.now(), ot = r, nt = d, ft.kind === "scroll" ? (M || y("dragstart"), Y(ft.step), _.start(gs, ms)) : ft.kind === "steer" ? y("steer", ft.step) : ft.kind === "hold" && _.start((st = ft.duration) !== null && st !== void 0 ? st : Oe, ft.repeatInterval)));
   }
   function j(S) {
-    S.key === U && (S.preventDefault(), S.stopPropagation(), X(!0));
+    S.key === U && (S.preventDefault(), S.stopPropagation(), X(true));
   }
   function P() {
-    window.matchMedia("(any-pointer: fine)").matches && g.focus({ preventScroll: !0 });
+    window.matchMedia("(any-pointer: fine)").matches && g.focus({
+      preventScroll: true
+    });
   }
   function V(S) {
     S.pointerType === "mouse" && (S.width > 0 || S.height > 0) && P();
   }
-  je(() => {
+  onDestroy(() => {
     _.stop();
   });
-  const q = () => X(!1), Q = () => E("menu"), O = () => y("menuhold"), lt = () => E("back"), L = (S) => I("backhold", S.detail), D = () => E("forward"), F = (S) => I("forwardhold", S.detail), tt = () => E("playpause");
+  const q = () => X(false), Q = () => E("menu"), O = () => y("menuhold"), lt = () => E("back"), L = (S) => I("backhold", S.detail), D = () => E("forward"), F = (S) => I("forwardhold", S.detail), tt = () => E("playpause");
   function ct(S) {
     Jt[S ? "unshift" : "push"](() => {
       g = S, i(7, g);
@@ -6185,119 +6602,102 @@ function hr(e, t, i) {
       f = S, i(6, f);
     });
   }
-  const Bt = () => X(!1);
+  const Bt = () => X(false);
   return e.$$set = (S) => {
     "selectButtonDiameterPercent" in S && i(0, n = S.selectButtonDiameterPercent), "scrollWheelDiameterPercent" in S && i(1, o = S.scrollWheelDiameterPercent), "disableSkip" in S && i(2, p = S.disableSkip), "disabled" in S && i(3, h = S.disabled), "scrollTarget" in S && i(23, r = S.scrollTarget), "isPlaying" in S && i(4, c = S.isPlaying), "selectHoldMs" in S && i(5, d = S.selectHoldMs);
   }, e.$$.update = () => {
     e.$$.dirty[0] & /*selectButtonDiameterPercent, scrollWheelDiameterPercent*/
     3 && i(9, l = n / o);
-  }, [
-    n,
-    o,
-    p,
-    h,
-    c,
-    d,
-    f,
-    g,
-    M,
-    l,
-    a,
-    A,
-    y,
-    E,
-    I,
-    x,
-    at,
-    z,
-    X,
-    K,
-    j,
-    P,
-    V,
-    r,
-    q,
-    Q,
-    O,
-    lt,
-    L,
-    D,
-    F,
-    tt,
-    ct,
-    dt,
-    N,
-    it,
-    Bt
-  ];
+  }, [n, o, p, h, c, d, f, g, M, l, a, A, y, E, I, x, at, z, X, K, j, P, V, r, q, Q, O, lt, L, D, F, tt, ct, dt, N, it, Bt];
 }
-class bn extends It {
+var ClickWheelComponent = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(
-      this,
-      t,
-      hr,
-      or,
-      bt,
-      {
-        selectButtonDiameterPercent: 0,
-        scrollWheelDiameterPercent: 1,
-        disableSkip: 2,
-        disabled: 3,
-        scrollTarget: 23,
-        isPlaying: 4,
-        selectHoldMs: 5
-      },
-      sr,
-      [-1, -1]
-    );
+    super(), initComponent(this, t, hr, or, bt, {
+      selectButtonDiameterPercent: 0,
+      scrollWheelDiameterPercent: 1,
+      disableSkip: 2,
+      disabled: 3,
+      scrollTarget: 23,
+      isPlaying: 4,
+      selectHoldMs: 5
+    }, sr, [-1, -1]);
   }
   get selectButtonDiameterPercent() {
     return this.$$.ctx[0];
   }
   set selectButtonDiameterPercent(t) {
-    this.$$set({ selectButtonDiameterPercent: t }), R();
+    this.$$set({
+      selectButtonDiameterPercent: t
+    }), flush();
   }
   get scrollWheelDiameterPercent() {
     return this.$$.ctx[1];
   }
   set scrollWheelDiameterPercent(t) {
-    this.$$set({ scrollWheelDiameterPercent: t }), R();
+    this.$$set({
+      scrollWheelDiameterPercent: t
+    }), flush();
   }
   get disableSkip() {
     return this.$$.ctx[2];
   }
   set disableSkip(t) {
-    this.$$set({ disableSkip: t }), R();
+    this.$$set({
+      disableSkip: t
+    }), flush();
   }
   get disabled() {
     return this.$$.ctx[3];
   }
   set disabled(t) {
-    this.$$set({ disabled: t }), R();
+    this.$$set({
+      disabled: t
+    }), flush();
   }
   get scrollTarget() {
     return this.$$.ctx[23];
   }
   set scrollTarget(t) {
-    this.$$set({ scrollTarget: t }), R();
+    this.$$set({
+      scrollTarget: t
+    }), flush();
   }
   get isPlaying() {
     return this.$$.ctx[4];
   }
   set isPlaying(t) {
-    this.$$set({ isPlaying: t }), R();
+    this.$$set({
+      isPlaying: t
+    }), flush();
   }
   get selectHoldMs() {
     return this.$$.ctx[5];
   }
   set selectHoldMs(t) {
-    this.$$set({ selectHoldMs: t }), R();
+    this.$$set({
+      selectHoldMs: t
+    }), flush();
   }
-}
-ne(bn, { selectButtonDiameterPercent: {}, scrollWheelDiameterPercent: {}, disableSkip: { type: "Boolean" }, disabled: { type: "Boolean" }, scrollTarget: {}, isPlaying: { type: "Boolean" }, selectHoldMs: {} }, [], [], !0);
+};
+defineSvelteElement(ClickWheelComponent, {
+  selectButtonDiameterPercent: {},
+  scrollWheelDiameterPercent: {},
+  disableSkip: {
+    type: "Boolean"
+  },
+  disabled: {
+    type: "Boolean"
+  },
+  scrollTarget: {},
+  isPlaying: {
+    type: "Boolean"
+  },
+  selectHoldMs: {}
+}, [], [], true);
+
+// packages/web-music-ipod/src/generated/overlays.js
 function rr(e) {
-  ae(e, "svelte-5htek5", ".loading-screen.svelte-5htek5{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;opacity:var(--ipod-screen-opacity, 1);pointer-events:none;-webkit-user-select:none;user-select:none}.apple-logo.svelte-5htek5{transform:translateY(-10px);fill:currentcolor}");
+  appendStyles(e, "svelte-5htek5", ".loading-screen.svelte-5htek5{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;opacity:var(--ipod-screen-opacity, 1);pointer-events:none;-webkit-user-select:none;user-select:none}.apple-logo.svelte-5htek5{transform:translateY(-10px);fill:currentcolor}");
 }
 function cr(e) {
   let t;
@@ -6308,22 +6708,22 @@ function cr(e) {
     m(i, l) {
       ht(i, t, l);
     },
-    p: J,
-    i: J,
-    o: J,
+    p: noop,
+    i: noop,
+    o: noop,
     d(i) {
       i && H(t);
     }
   };
 }
-class Mn extends It {
+var LoadingOverlay = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, null, cr, bt, {}, rr);
+    super(), initComponent(this, t, null, cr, bt, {}, rr);
   }
-}
-ne(Mn, {}, [], [], !0);
+};
+defineSvelteElement(LoadingOverlay, {}, [], [], true);
 function pr(e) {
-  ae(e, "svelte-qjo9zb", ".ipod-overlay-screen.svelte-qjo9zb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:var(--ipod-screen-opacity, 1);pointer-events:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;z-index:3}.sad-ipod-container.svelte-qjo9zb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}.sad-ipod-icon.svelte-qjo9zb{width:90px;height:auto;fill:currentcolor;transform:translateX(-10%)}.error-message.svelte-qjo9zb{margin:0 10px;font-size:13px;position:absolute;bottom:20px;text-align:center}");
+  appendStyles(e, "svelte-qjo9zb", ".ipod-overlay-screen.svelte-qjo9zb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:var(--ipod-screen-opacity, 1);pointer-events:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;z-index:3}.sad-ipod-container.svelte-qjo9zb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}.sad-ipod-icon.svelte-qjo9zb{width:90px;height:auto;fill:currentcolor;transform:translateX(-10%)}.error-message.svelte-qjo9zb{margin:0 10px;font-size:13px;position:absolute;bottom:20px;text-align:center}");
 }
 function dr(e) {
   let t, i, l, a, n, o, p, h, r, c, d, A, f, g, M, y, w, E, I, x, U, C, G, ot, nt, at, z, k, Y, W, _, X, K, j, P, V, q, Q, O, lt, L, D, F, tt, ct, dt, N, it, Bt, S, st, ft, Rt, Wt, Lt, se, $t, Ft, Gt, oe, St, te, ee, ge, me, be, Yt, Me, we, he, qt, ke, B, kt, zt, Vt, Xt, re, ce, xe, De, _e, Ce, Be, Te, He, Le, ze, b, Z, At, xt, Tt, Qe, ei, ii, li, ai, ni, si, oi, hi, ri, ci, pi, di, Ai, fi, ui, vi, yi, gi, mi, bi, Mi, wi, Ve, Cl, Oi, el;
@@ -6345,173 +6745,269 @@ function dr(e) {
         ki[0]
       );
     },
-    i: J,
-    o: J,
+    i: noop,
+    o: noop,
     d(ki) {
       ki && H(t);
     }
   };
 }
 function Ar(e, t, i) {
-  let { message: l } = t;
+  let {
+    message: l
+  } = t;
   return e.$$set = (a) => {
     "message" in a && i(0, l = a.message);
   }, [l];
 }
-class wn extends It {
+var ErrorOverlay = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(this, t, Ar, dr, bt, { message: 0 }, pr);
+    super(), initComponent(this, t, Ar, dr, bt, {
+      message: 0
+    }, pr);
   }
   get message() {
     return this.$$.ctx[0];
   }
   set message(t) {
-    this.$$set({ message: t }), R();
+    this.$$set({
+      message: t
+    }), flush();
   }
+};
+defineSvelteElement(ErrorOverlay, {
+  message: {}
+}, [], [], true);
+
+// packages/web-music-ipod/src/data.js
+var logger = createLogger("loadStorefrontData");
+var DATA_SCHEMA_VERSION = 3;
+function storefrontDataUrl(storefront, language) {
+  return new URL(`./data/${storefront}/${language}.json`, import.meta.url);
 }
-ne(wn, { message: {} }, [], [], !0);
-const fr = le("loadStorefrontData"), Pa = 3, ur = "index", vr = import.meta.url;
-function Ea(e, t) {
-  return new URL(`/includes/ipod/data/${e}/${t}.json`, vr);
-}
-async function yr({
-  storefront: e,
-  language: t
+async function loadStorefrontData({
+  storefront,
+  language
 }) {
-  let i;
-  if (t && (i = await fetch(Ea(e, t)), i.ok || fr.warn(
-    `"${t}" is not available for storefront "${e}" (${i.status}); falling back to its default language`
-  )), i != null && i.ok || (i = await fetch(Ea(e, ur))), !i.ok)
-    throw new Error(
-      `Failed to load storefront data for "${e}": ${i.status} ${i.statusText}`
-    );
-  const l = await i.json();
-  if (l.schemaVersion !== Pa)
-    throw new Error(
-      `Unsupported iPod data schema version for "${e}": expected ${Pa}, got ${l.schemaVersion}`
-    );
-  const { songs: a, artists: n, playlists: o } = l;
-  return { language: l.language, data: { songs: a, artists: n, playlists: o } };
-}
-function gr() {
-  const e = Ot({ status: "loading" });
-  let t = 0;
-  async function i(l) {
-    const a = ++t;
-    e.set({ status: "loading" });
-    try {
-      const { language: n, data: o } = await yr(l);
-      a === t && e.set({ status: "ready", language: n, data: o });
-    } catch (n) {
-      a === t && e.set({ status: "error", error: n });
+  let response;
+  if (language) {
+    response = await fetch(storefrontDataUrl(storefront, language));
+    if (!response.ok) {
+      logger.warn(`"${language}" is not available for storefront "${storefront}" (${response.status}); falling back to its default language`);
     }
   }
-  return { iPodData: e, loadIPodData: i };
-}
-const mr = le("<Html5PreviewPlayer>"), Ne = 2, kn = 50, br = 3;
-function Mr(e) {
-  return Math.cos((1 - e) * Math.PI * 0.5);
-}
-function wr(e) {
-  return Math.cos(e * Math.PI * 0.5);
-}
-function Pn(e, t) {
-  return Float32Array.from(
-    { length: t },
-    (i, l) => e(l / (t - 1))
-  );
-}
-const kr = Pn(Mr, kn), Pr = Pn(wr, kn);
-function Er(e) {
-  const t = [...e];
-  for (let i = t.length - 1; i > 0; i -= 1) {
-    const l = Math.floor(Math.random() * (i + 1));
-    [t[i], t[l]] = [t[l], t[i]];
+  if (!response?.ok) response = await fetch(storefrontDataUrl(storefront, "index"));
+  if (!response.ok) {
+    throw new Error(`Failed to load storefront data for "${storefront}": ${response.status} ${response.statusText}`);
   }
-  return t;
+  const catalog = await response.json();
+  if (catalog.schemaVersion !== DATA_SCHEMA_VERSION) {
+    throw new Error(`Unsupported iPod data schema version for "${storefront}": expected ${DATA_SCHEMA_VERSION}, got ${catalog.schemaVersion}`);
+  }
+  const {
+    songs,
+    artists,
+    playlists
+  } = catalog;
+  return {
+    language: catalog.language,
+    data: {
+      songs,
+      artists,
+      playlists
+    }
+  };
 }
-class Ir {
+function createDataStore() {
+  const iPodData = writable({
+    status: "loading"
+  });
+  let latestRequest = 0;
+  async function loadIPodData(locale) {
+    const requestId = ++latestRequest;
+    iPodData.set({
+      status: "loading"
+    });
+    try {
+      const {
+        language,
+        data
+      } = await loadStorefrontData(locale);
+      if (requestId === latestRequest) iPodData.set({
+        status: "ready",
+        language,
+        data
+      });
+    } catch (error) {
+      if (requestId === latestRequest) iPodData.set({
+        status: "error",
+        error
+      });
+    }
+  }
+  return {
+    iPodData,
+    loadIPodData
+  };
+}
+
+// packages/web-music-ipod/src/audio/preview-player.js
+var previewLogger = createLogger("<Html5PreviewPlayer>");
+var crossfadeSeconds = 2;
+var fadeCurveSamples = 50;
+var preloadSeconds = 3;
+function fadeInGain(progress) {
+  return Math.cos((1 - progress) * Math.PI * 0.5);
+}
+function fadeOutGain(progress) {
+  return Math.cos(progress * Math.PI * 0.5);
+}
+function createFadeCurve(gain, samples) {
+  return Float32Array.from({
+    length: samples
+  }, (i, l) => gain(l / (samples - 1)));
+}
+var fadeInCurve = createFadeCurve(fadeInGain, fadeCurveSamples);
+var fadeOutCurve = createFadeCurve(fadeOutGain, fadeCurveSamples);
+function shuffleItems(items) {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const l = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[l]] = [shuffled[l], shuffled[i]];
+  }
+  return shuffled;
+}
+var PreviewChannel = class {
   constructor(t, i, l) {
-    this.audio = new Audio(), this.audio.preload = "auto", this.audio.crossOrigin = "anonymous", this.audio.src = i.previewUrl, this.context = t, this.gainNode = t.createGain(), this.gainNode.gain.value = 0, this.sourceNode = t.createMediaElementSource(this.audio), this.sourceNode.connect(this.gainNode).connect(l);
+    this.audio = new Audio();
+    this.audio.preload = "auto";
+    this.audio.crossOrigin = "anonymous";
+    this.audio.src = i.previewUrl;
+    this.context = t;
+    this.gainNode = t.createGain();
+    this.gainNode.gain.value = 0;
+    this.sourceNode = t.createMediaElementSource(this.audio);
+    this.sourceNode.connect(this.gainNode).connect(l);
   }
   cancelPendingFade() {
-    clearTimeout(this.fadeDoneTimeout), this.gainNode.gain.cancelScheduledValues(this.context.currentTime);
+    clearTimeout(this.fadeDoneTimeout);
+    this.gainNode.gain.cancelScheduledValues(this.context.currentTime);
   }
   runFade(t, i) {
-    this.cancelPendingFade(), this.gainNode.gain.setValueCurveAtTime(
-      t,
-      this.context.currentTime,
-      Ne
-    ), i && (this.fadeDoneTimeout = setTimeout(
-      i,
-      Ne * 1e3
-    ));
+    this.cancelPendingFade();
+    this.gainNode.gain.setValueCurveAtTime(t, this.context.currentTime, crossfadeSeconds);
+    i && (this.fadeDoneTimeout = setTimeout(i, crossfadeSeconds * 1e3));
   }
   fadeIn() {
-    this.runFade(kr);
+    this.runFade(fadeInCurve);
   }
   fadeOut(t) {
-    this.runFade(Pr, t);
+    this.runFade(fadeOutCurve, t);
   }
   cutIn() {
-    this.cancelPendingFade(), this.gainNode.gain.setValueAtTime(1, this.context.currentTime);
+    this.cancelPendingFade();
+    this.gainNode.gain.setValueAtTime(1, this.context.currentTime);
   }
   destroy() {
-    clearTimeout(this.fadeDoneTimeout), this.audio.pause(), this.audio.removeAttribute("src"), this.audio.load(), this.sourceNode.disconnect(), this.gainNode.disconnect();
+    clearTimeout(this.fadeDoneTimeout);
+    this.audio.pause();
+    this.audio.removeAttribute("src");
+    this.audio.load();
+    this.sourceNode.disconnect();
+    this.gainNode.disconnect();
   }
-}
-class Sr {
-  constructor(t, i, l, { shuffle: a = !1, repeatMode: n = "none" } = {}) {
-    this.currentIndex = 0, this.hasTriggeredFadeForCurrent = !1, this.isShuffled = !1, this.currentRepeatMode = "none", this.playOrder = [], this.fadingOutChannels = /* @__PURE__ */ new Set(), this.isPlayingStore = Ot(!1), this.currentPlaybackTimeStore = Ot(0), this.currentPlaybackDurationStore = Ot(0), this.hasLoadedItemStore = Ot(!1), this.shuffleModeStore = Ot(!1), this.repeatModeStore = Ot("none"), this.volumeStore = Ot(1), this.queuePositionStore = Ot(0), this.isPlaying = this.isPlayingStore, this.currentPlaybackTime = this.currentPlaybackTimeStore, this.currentPlaybackDuration = this.currentPlaybackDurationStore, this.hasLoadedItem = this.hasLoadedItemStore, this.shuffleMode = this.shuffleModeStore, this.repeatMode = this.repeatModeStore, this.volume = this.volumeStore, this.queuePosition = this.queuePositionStore, this.items = t, this.context = i, this.onQueueAdvance = l, this.volumeGainNode = i.createGain(), this.volumeGainNode.connect(i.destination), this.isShuffled = a, this.shuffleModeStore.set(a), this.currentRepeatMode = n, this.repeatModeStore.set(n);
+};
+var PreviewPlayer = class {
+  constructor(t, i, l, {
+    shuffle: a = false,
+    repeatMode: n = "none"
+  } = {}) {
+    this.currentIndex = 0;
+    this.hasTriggeredFadeForCurrent = false;
+    this.isShuffled = false;
+    this.currentRepeatMode = "none";
+    this.playOrder = [];
+    this.fadingOutChannels = /* @__PURE__ */ new Set();
+    this.isPlayingStore = writable(false);
+    this.currentPlaybackTimeStore = writable(0);
+    this.currentPlaybackDurationStore = writable(0);
+    this.hasLoadedItemStore = writable(false);
+    this.shuffleModeStore = writable(false);
+    this.repeatModeStore = writable("none");
+    this.volumeStore = writable(1);
+    this.queuePositionStore = writable(0);
+    this.isPlaying = this.isPlayingStore;
+    this.currentPlaybackTime = this.currentPlaybackTimeStore;
+    this.currentPlaybackDuration = this.currentPlaybackDurationStore;
+    this.hasLoadedItem = this.hasLoadedItemStore;
+    this.shuffleMode = this.shuffleModeStore;
+    this.repeatMode = this.repeatModeStore;
+    this.volume = this.volumeStore;
+    this.queuePosition = this.queuePositionStore;
+    this.items = t;
+    this.context = i;
+    this.onQueueAdvance = l;
+    this.volumeGainNode = i.createGain();
+    this.volumeGainNode.connect(i.destination);
+    this.isShuffled = a;
+    this.shuffleModeStore.set(a);
+    this.currentRepeatMode = n;
+    this.repeatModeStore.set(n);
   }
   // Sets a queue with index 0 as a default, but changeToQueueItem()
   // is what will actually load the correct starting item.
   async setQueue() {
-    this.destroyActiveChannels(), this.currentIndex = 0, this.hasTriggeredFadeForCurrent = !1, this.queuePositionStore.set(0);
+    this.destroyActiveChannels();
+    this.currentIndex = 0;
+    this.hasTriggeredFadeForCurrent = false;
+    this.queuePositionStore.set(0);
   }
   destroyActiveChannels() {
     var t;
-    (t = this.currentChannel) == null || t.destroy(), this.clearNextChannel(), this.setCurrentChannel(void 0), this.displayChannel = void 0;
+    (t = this.currentChannel) == null || t.destroy();
+    this.clearNextChannel();
+    this.setCurrentChannel(void 0);
+    this.displayChannel = void 0;
   }
   clearNextChannel() {
     var t;
-    (t = this.nextChannel) == null || t.destroy(), this.nextChannel = void 0, this.nextIndex = void 0;
+    (t = this.nextChannel) == null || t.destroy();
+    this.nextChannel = void 0;
+    this.nextIndex = void 0;
   }
   makeNextChannelCurrent() {
-    this.setCurrentChannel(this.nextChannel), this.nextChannel = void 0, this.nextIndex = void 0;
+    this.setCurrentChannel(this.nextChannel);
+    this.nextChannel = void 0;
+    this.nextIndex = void 0;
   }
   destroyFadingChannels() {
-    this.fadingOutChannels.forEach((t) => t.destroy()), this.fadingOutChannels.clear();
+    this.fadingOutChannels.forEach((t) => t.destroy());
+    this.fadingOutChannels.clear();
   }
   // Keeps hasLoadedItem in sync with currentChannel everywhere the latter
   // is reassigned, rather than relying on each call site to remember to.
   setCurrentChannel(t) {
-    this.currentChannel = t, this.hasLoadedItemStore.set(!!t);
+    this.currentChannel = t;
+    this.hasLoadedItemStore.set(!!t);
   }
   // A channel wraps one queue item's audio node. Like a DJ's two turntables,
   // there are two at a time: the one currently playing, and the one cued
   // up next.
   createChannel(t) {
     const i = this.items[t];
-    if (!i)
-      return;
-    const l = new Ir(
-      this.context,
-      i,
-      this.volumeGainNode
-    );
+    if (!i) return;
+    const l = new PreviewChannel(this.context, i, this.volumeGainNode);
     return this.bindChannelEvents(l), l;
   }
   // Picks up duration as soon as it's known. Skips the write once it's unchanged.
   setDuration(t) {
-    Number.isFinite(t.duration) && t.duration !== Qt(this.currentPlaybackDurationStore) && this.currentPlaybackDurationStore.set(t.duration);
+    Number.isFinite(t.duration) && t.duration !== getStoreValue(this.currentPlaybackDurationStore) && this.currentPlaybackDurationStore.set(t.duration);
   }
   // Duration is 0 until the channel reports its own, rather than showing
   // the previous track's.
   syncStoresToChannel(t) {
-    this.currentPlaybackTimeStore.set((t == null ? void 0 : t.audio.currentTime) ?? 0), this.currentPlaybackDurationStore.set(
-      t && Number.isFinite(t.audio.duration) ? t.audio.duration : 0
-    );
+    this.currentPlaybackTimeStore.set((t == null ? void 0 : t.audio.currentTime) ?? 0);
+    this.currentPlaybackDurationStore.set(t && Number.isFinite(t.audio.duration) ? t.audio.duration : 0);
   }
   // Runs from timeupdate, or as the fallback when no timeupdate will fire.
   promoteToDisplayIfNeeded(t) {
@@ -6524,12 +7020,16 @@ class Sr {
   bindChannelEvents(t) {
     t.audio.addEventListener("durationchange", () => {
       t === this.displayChannel && this.setDuration(t.audio);
-    }), t.audio.addEventListener("timeupdate", () => {
-      if (t === this.currentChannel && t.audio.currentTime >= Ne / 2 && this.promoteToDisplayIfNeeded(t), t === this.displayChannel && (this.currentPlaybackTimeStore.set(t.audio.currentTime), this.setDuration(t.audio)), t !== this.currentChannel)
-        return;
-      const { currentTime: i, duration: l } = t.audio;
-      !Number.isFinite(l) || l <= Ne || this.hasTriggeredFadeForCurrent || i < l - Ne || (this.hasTriggeredFadeForCurrent = !0, this.nextChannel ? this.crossfadeToNext() : t.fadeOut());
-    }), t.audio.addEventListener("ended", () => {
+    });
+    t.audio.addEventListener("timeupdate", () => {
+      if (t === this.currentChannel && t.audio.currentTime >= crossfadeSeconds / 2 && this.promoteToDisplayIfNeeded(t), t === this.displayChannel && (this.currentPlaybackTimeStore.set(t.audio.currentTime), this.setDuration(t.audio)), t !== this.currentChannel) return;
+      const {
+        currentTime: i,
+        duration: l
+      } = t.audio;
+      !Number.isFinite(l) || l <= crossfadeSeconds || this.hasTriggeredFadeForCurrent || i < l - crossfadeSeconds || (this.hasTriggeredFadeForCurrent = true, this.nextChannel ? this.crossfadeToNext() : t.fadeOut());
+    });
+    t.audio.addEventListener("ended", () => {
       if (t === this.currentChannel) {
         if (this.promoteToDisplayIfNeeded(t), this.nextChannel) {
           this.crossfadeToNext();
@@ -6540,7 +7040,11 @@ class Sr {
     });
   }
   endQueue() {
-    this.destroyActiveChannels(), this.destroyFadingChannels(), this.pendingCrossfadeFrom = void 0, this.isPlayingStore.set(!1), this.syncStoresToChannel(void 0);
+    this.destroyActiveChannels();
+    this.destroyFadingChannels();
+    this.pendingCrossfadeFrom = void 0;
+    this.isPlayingStore.set(false);
+    this.syncStoresToChannel(void 0);
   }
   // What plays right after `fromIndex` if nobody intervenes -- loops the
   // same track for repeat-one, otherwise the next adjacent index.
@@ -6553,9 +7057,7 @@ class Sr {
     return ((t = this.pendingCrossfadeFrom) == null ? void 0 : t.index) ?? this.currentIndex;
   }
   syncQueuePosition(t = this.currentIndex) {
-    this.queuePositionStore.set(
-      this.isShuffled ? this.playOrder.indexOf(t) : t
-    );
+    this.queuePositionStore.set(this.isShuffled ? this.playOrder.indexOf(t) : t);
   }
   // What manual skip targets -- always a different track (repeat-one never gets here).
   computeAdjacentIndex(t, i) {
@@ -6564,10 +7066,8 @@ class Sr {
       return o >= 0 && o < this.items.length ? o : this.currentRepeatMode !== "all" ? void 0 : i === 1 ? 0 : this.items.length - 1;
     }
     const a = this.playOrder.indexOf(t) + i;
-    if (a >= 0 && a < this.playOrder.length)
-      return this.playOrder[a];
-    if (this.currentRepeatMode !== "all")
-      return;
+    if (a >= 0 && a < this.playOrder.length) return this.playOrder[a];
+    if (this.currentRepeatMode !== "all") return;
     const n = i === 1 ? 0 : this.playOrder.length - 1;
     return this.playOrder[n];
   }
@@ -6575,8 +7075,7 @@ class Sr {
   // state. Called whenever any of those inputs change, like when a DJ cues up
   // a new record on the second turntable.
   prepareNextChannel() {
-    if (!this.currentChannel)
-      return;
+    if (!this.currentChannel) return;
     const t = this.computeAutoAdvanceIndex(this.currentIndex);
     t !== this.nextIndex && (this.clearNextChannel(), t !== void 0 && (this.nextIndex = t, this.nextChannel = this.createChannel(t)));
   }
@@ -6588,10 +7087,13 @@ class Sr {
       index: this.currentIndex
     }), t.fadeOut(() => {
       var l;
-      t.destroy(), this.fadingOutChannels.delete(t), ((l = this.pendingCrossfadeFrom) == null ? void 0 : l.channel) === t ? (this.pendingCrossfadeFrom = void 0, this.currentChannel && this.promoteToDisplayIfNeeded(this.currentChannel)) : i === this.currentChannel && this.promoteToDisplayIfNeeded(i);
+      t.destroy();
+      this.fadingOutChannels.delete(t);
+      ((l = this.pendingCrossfadeFrom) == null ? void 0 : l.channel) === t ? (this.pendingCrossfadeFrom = void 0, this.currentChannel && this.promoteToDisplayIfNeeded(this.currentChannel)) : i === this.currentChannel && this.promoteToDisplayIfNeeded(i);
     }), this.fadingOutChannels.add(t), i.audio.play().catch((l) => {
-      mr.error("Failed to play next track during crossfade", l), i === this.currentChannel && (this.isPlayingStore.set(!1), this.promoteToDisplayIfNeeded(i));
-    }), i.fadeIn(), this.currentIndex = this.nextIndex, this.makeNextChannelCurrent(), this.hasTriggeredFadeForCurrent = !1, this.prepareNextChannel());
+      previewLogger.error("Failed to play next track during crossfade", l);
+      i === this.currentChannel && (this.isPlayingStore.set(false), this.promoteToDisplayIfNeeded(i));
+    }), i.fadeIn(), this.currentIndex = this.nextIndex, this.makeNextChannelCurrent(), this.hasTriggeredFadeForCurrent = false, this.prepareNextChannel());
   }
   // Reverts a still-in-flight, not-yet-promoted crossfade, if one is
   // pending.  Handles seeking to a point right before a crossfade, letting
@@ -6599,27 +7101,33 @@ class Sr {
   revertPendingCrossfade() {
     var i;
     const t = this.pendingCrossfadeFrom;
-    t && (this.pendingCrossfadeFrom = void 0, (i = this.currentChannel) == null || i.destroy(), t.channel.cutIn(), this.fadingOutChannels.delete(t.channel), this.destroyFadingChannels(), this.currentIndex = t.index, this.setCurrentChannel(t.channel), this.clearNextChannel(), this.hasTriggeredFadeForCurrent = !1, this.syncQueuePosition(), this.prepareNextChannel());
+    t && (this.pendingCrossfadeFrom = void 0, (i = this.currentChannel) == null || i.destroy(), t.channel.cutIn(), this.fadingOutChannels.delete(t.channel), this.destroyFadingChannels(), this.currentIndex = t.index, this.setCurrentChannel(t.channel), this.clearNextChannel(), this.hasTriggeredFadeForCurrent = false, this.syncQueuePosition(), this.prepareNextChannel());
   }
   async resume() {
     const t = this.currentChannel;
     if (!t) {
-      await this.jumpTo(this.currentIndex, { forceResume: !0 });
+      await this.jumpTo(this.currentIndex, {
+        forceResume: true
+      });
       return;
     }
-    await t.audio.play(), t.cutIn(), this.hasTriggeredFadeForCurrent = !1, this.isPlayingStore.set(!0);
+    await t.audio.play();
+    t.cutIn();
+    this.hasTriggeredFadeForCurrent = false;
+    this.isPlayingStore.set(true);
   }
   async pause() {
     var t;
-    (t = this.currentChannel) == null || t.audio.pause(), this.fadingOutChannels.forEach((i) => i.audio.pause()), this.isPlayingStore.set(!1);
+    (t = this.currentChannel) == null || t.audio.pause();
+    this.fadingOutChannels.forEach((i) => i.audio.pause());
+    this.isPlayingStore.set(false);
   }
   // Repeat-one locks Next and Back to the current track
   restartIfRepeatOne() {
-    return this.currentRepeatMode !== "one" ? !1 : (this.currentChannel && this.restartInPlace(this.currentChannel), !0);
+    return this.currentRepeatMode !== "one" ? false : (this.currentChannel && this.restartInPlace(this.currentChannel), true);
   }
   async skipToNextItem() {
-    if (this.restartIfRepeatOne())
-      return;
+    if (this.restartIfRepeatOne()) return;
     const t = this.computeAdjacentIndex(this.currentIndex, 1);
     if (t !== void 0) {
       await this.jumpTo(t);
@@ -6631,10 +7139,9 @@ class Sr {
   // Otherwise skip to previous track (paused/within threshold), or end the
   // queue if there's no previous track to go to.
   async skipToPreviousItem() {
-    if (this.restartIfRepeatOne())
-      return;
-    const t = this.currentChannel, i = Qt(this.isPlayingStore);
-    if (t && i && t.audio.currentTime > br) {
+    if (this.restartIfRepeatOne()) return;
+    const t = this.currentChannel, i = getStoreValue(this.isPlayingStore);
+    if (t && i && t.audio.currentTime > preloadSeconds) {
       this.restartInPlace(t);
       return;
     }
@@ -6646,68 +7153,85 @@ class Sr {
     this.pendingCrossfadeFrom || t && this.endQueue();
   }
   restartInPlace(t) {
-    t.audio.currentTime = 0, t.cutIn(), this.hasTriggeredFadeForCurrent = !1, this.pendingCrossfadeFrom = void 0, this.syncStoresToChannel(t);
+    t.audio.currentTime = 0;
+    t.cutIn();
+    this.hasTriggeredFadeForCurrent = false;
+    this.pendingCrossfadeFrom = void 0;
+    this.syncStoresToChannel(t);
   }
   async changeToQueueItem(t, i) {
-    await this.jumpTo(i, { forceResume: !0 });
+    await this.jumpTo(i, {
+      forceResume: true
+    });
   }
-  async jumpTo(t, { forceResume: i = !1 } = {}) {
+  async jumpTo(t, {
+    forceResume: i = false
+  } = {}) {
     var a, n, o;
     if (
       // Only a no-op if we're already there with something loaded
       // -- setQueue() no longer eagerly loads index 0, so the very
       // first jumpTo(0) still needs to build a channel.
       t === this.currentIndex && this.currentChannel || t < 0 || t >= this.items.length
-    )
-      return;
-    const l = i || Qt(this.isPlayingStore);
-    this.pendingCrossfadeFrom = void 0, t === this.nextIndex && this.nextChannel ? ((a = this.currentChannel) == null || a.destroy(), this.makeNextChannelCurrent()) : ((n = this.currentChannel) == null || n.destroy(), this.clearNextChannel(), this.setCurrentChannel(this.createChannel(t))), this.displayChannel = this.currentChannel, this.syncStoresToChannel(this.currentChannel), this.currentIndex = t, this.hasTriggeredFadeForCurrent = !1, this.isShuffled && this.playOrder.length === 0 && this.buildPlayOrder([t]), this.syncQueuePosition(), this.prepareNextChannel(), (o = this.onQueueAdvance) == null || o.call(this, this.currentIndex), l && await this.resume();
+    ) return;
+    const l = i || getStoreValue(this.isPlayingStore);
+    this.pendingCrossfadeFrom = void 0;
+    t === this.nextIndex && this.nextChannel ? ((a = this.currentChannel) == null || a.destroy(), this.makeNextChannelCurrent()) : ((n = this.currentChannel) == null || n.destroy(), this.clearNextChannel(), this.setCurrentChannel(this.createChannel(t)));
+    this.displayChannel = this.currentChannel;
+    this.syncStoresToChannel(this.currentChannel);
+    this.currentIndex = t;
+    this.hasTriggeredFadeForCurrent = false;
+    this.isShuffled && this.playOrder.length === 0 && this.buildPlayOrder([t]);
+    this.syncQueuePosition();
+    this.prepareNextChannel();
+    (o = this.onQueueAdvance) == null || o.call(this, this.currentIndex);
+    l && await this.resume();
   }
   async seekToTime(t, i) {
     var o;
-    if (i !== void 0 && i !== this.currentIndex && i !== ((o = this.pendingCrossfadeFrom) == null ? void 0 : o.index) || (this.revertPendingCrossfade(), i !== void 0 && i !== this.currentIndex))
-      return;
+    if (i !== void 0 && i !== this.currentIndex && i !== ((o = this.pendingCrossfadeFrom) == null ? void 0 : o.index) || (this.revertPendingCrossfade(), i !== void 0 && i !== this.currentIndex)) return;
     const l = this.currentChannel;
-    if (!l)
-      return;
-    const { duration: a } = l.audio, n = this.computeAutoAdvanceIndex(
-      this.currentIndex
-    );
-    if (Number.isFinite(a) && a > Ne && t >= a - Ne && n !== void 0) {
+    if (!l) return;
+    const {
+      duration: a
+    } = l.audio, n = this.computeAutoAdvanceIndex(this.currentIndex);
+    if (Number.isFinite(a) && a > crossfadeSeconds && t >= a - crossfadeSeconds && n !== void 0) {
       n === this.currentIndex ? this.restartInPlace(l) : await this.skipToNextItem();
       return;
     }
-    l.audio.currentTime = t, l.cutIn(), this.hasTriggeredFadeForCurrent = !1, l === this.displayChannel && this.currentPlaybackTimeStore.set(t);
+    l.audio.currentTime = t;
+    l.cutIn();
+    this.hasTriggeredFadeForCurrent = false;
+    l === this.displayChannel && this.currentPlaybackTimeStore.set(t);
   }
   async setShuffle(t) {
-    if (t === this.isShuffled)
-      return;
+    if (t === this.isShuffled) return;
     this.isShuffled = t;
     const i = this.displayedIndex();
-    t && this.buildPlayOrder(
-      this.currentIndex === i ? [i] : [i, this.currentIndex]
-    ), this.shuffleModeStore.set(t), this.syncQueuePosition(i), this.prepareNextChannel();
+    t && this.buildPlayOrder(this.currentIndex === i ? [i] : [i, this.currentIndex]);
+    this.shuffleModeStore.set(t);
+    this.syncQueuePosition(i);
+    this.prepareNextChannel();
   }
   buildPlayOrder(t) {
     const i = this.items.map((l, a) => a).filter((l) => !t.includes(l));
-    this.playOrder = [...t, ...Er(i)];
+    this.playOrder = [...t, ...shuffleItems(i)];
   }
   async setRepeatMode(t) {
     t !== this.currentRepeatMode && (this.currentRepeatMode = t, this.repeatModeStore.set(t), this.prepareNextChannel());
   }
   async setVolume(t) {
     const i = Math.min(1, Math.max(0, t));
-    this.volumeGainNode.gain.setTargetAtTime(
-      i,
-      this.context.currentTime,
-      0.01
-    ), this.volumeStore.set(i);
+    this.volumeGainNode.gain.setTargetAtTime(i, this.context.currentTime, 0.01);
+    this.volumeStore.set(i);
   }
   destroy() {
-    this.destroyActiveChannels(), this.destroyFadingChannels(), this.volumeGainNode.disconnect();
+    this.destroyActiveChannels();
+    this.destroyFadingChannels();
+    this.volumeGainNode.disconnect();
   }
-}
-function xr(e, t, i) {
+};
+function adaptExternalPlayer(e, t, i) {
   const l = i ? t.currentItemIndex.subscribe(i) : void 0;
   return {
     setQueue: () => t.setQueue(e.map((a) => a.trackId)),
@@ -6732,52 +7256,49 @@ function xr(e, t, i) {
     destroy: () => l == null ? void 0 : l()
   };
 }
-function Dr(e, t, i, l, a) {
-  return i ? xr(e, i, l) : new Sr(e, t, l, a);
+function createPlayer(items, context, externalPlayer, onQueueAdvance, options) {
+  return externalPlayer ? adaptExternalPlayer(items, externalPlayer, onQueueAdvance) : new PreviewPlayer(items, context, onQueueAdvance, options);
 }
-const _r = {
-  isPlaying: !1,
+
+// packages/web-music-ipod/src/audio/playback-store.js
+var initialPlaybackState = {
+  isPlaying: false,
   currentPlaybackTime: 0,
   currentPlaybackDuration: 0,
   currentTrackIndex: 0,
   queuePosition: 0,
   queue: [],
-  hasLoadedItem: !1,
-  isLoading: !1,
+  hasLoadedItem: false,
+  isLoading: false,
   volume: 1,
-  shuffleMode: !1,
+  shuffleMode: false,
   repeatMode: "none",
-  playerReady: !1
+  playerReady: false
 };
-function Cr(e) {
-  var t;
-  return ((t = e.playParams) == null ? void 0 : t.id) ?? e.id;
+function trackId(track) {
+  var playParams;
+  return ((playParams = track.playParams) == null ? void 0 : playParams.id) ?? track.id;
 }
-const Br = [
-  "isPlaying",
-  "currentPlaybackTime",
-  "currentPlaybackDuration",
-  "hasLoadedItem",
-  "shuffleMode",
-  "repeatMode",
-  "queuePosition"
-];
-function Tr(e) {
-  const t = le("<PlaybackStore>"), i = Ot(_r);
-  let l, a, n = !1, o = "none", p = 0, h = [], r = [];
+var playbackStoreKeys = ["isPlaying", "currentPlaybackTime", "currentPlaybackDuration", "hasLoadedItem", "shuffleMode", "repeatMode", "queuePosition"];
+function createPlaybackStore(e) {
+  const t = createLogger("<PlaybackStore>"), i = writable(initialPlaybackState);
+  let l, a, n = false, o = "none", p = 0, h = [], r = [];
   function c(P) {
     return r.push(P), () => {
-      r = r.filter(
-        (V) => V !== P
-      );
+      r = r.filter((V) => V !== P);
     };
   }
   function d() {
-    h.forEach((P) => P()), h = [];
+    h.forEach((P) => P());
+    h = [];
     try {
       a == null || a.destroy();
     } finally {
-      a = void 0, i.update((P) => ({ ...P, playerReady: !1 }));
+      a = void 0;
+      i.update((P) => ({
+        ...P,
+        playerReady: false
+      }));
     }
   }
   let A, f = Promise.resolve();
@@ -6799,41 +7320,52 @@ function Tr(e) {
       queue: [],
       currentTrackIndex: 0,
       queuePosition: 0,
-      hasLoadedItem: !1,
-      isPlaying: !1,
-      isLoading: !1
+      hasLoadedItem: false,
+      isPlaying: false,
+      isLoading: false
     })), M(() => (d(), l == null ? void 0 : l.clearQueue()));
   }
   function w(P, V) {
-    return V.subscribe(
-      (q) => i.update((Q) => ({ ...Q, [P]: q }))
-    );
+    return V.subscribe((q) => i.update((Q) => ({
+      ...Q,
+      [P]: q
+    })));
   }
   function E(P, V) {
-    let q = !1;
+    let q = false;
     return P.hasLoadedItem.subscribe((Q) => {
-      q && !Q && !V.aborted && Qt(i).queue.length > 0 && (y(), r.forEach((O) => {
+      q && !Q && !V.aborted && getStoreValue(i).queue.length > 0 && (y(), r.forEach((O) => {
         try {
           O();
         } catch (lt) {
           t.error("onQueueFinished listener failed", lt);
         }
-      })), q = Q;
+      }));
+      q = Q;
     });
   }
   function I(P, V) {
     const q = P;
-    h = [], h.push(E(P, V));
-    for (const Q of Br)
-      h.push(w(Q, q[Q]));
-    h.push(
-      P.volume.subscribe((Q) => {
-        p > 0 || i.update((O) => ({ ...O, volume: Q }));
-      })
-    ), i.update((Q) => ({ ...Q, playerReady: !0 }));
+    h = [];
+    h.push(E(P, V));
+    for (const Q of playbackStoreKeys) h.push(w(Q, q[Q]));
+    h.push(P.volume.subscribe((Q) => {
+      p > 0 || i.update((O) => ({
+        ...O,
+        volume: Q
+      }));
+    }));
+    i.update((Q) => ({
+      ...Q,
+      playerReady: true
+    }));
   }
   async function x(P, V) {
-    p += 1, i.update((q) => ({ ...q, volume: P }));
+    p += 1;
+    i.update((q) => ({
+      ...q,
+      volume: P
+    }));
     try {
       await V();
     } finally {
@@ -6850,17 +7382,17 @@ function Tr(e) {
     });
   }
   function C(P) {
-    i.update((V) => P < 0 || P >= V.queue.length ? (t.warn(
-      "Ignoring out-of-range queue advance index:",
-      P
-    ), V) : { ...V, currentTrackIndex: P });
+    i.update((V) => P < 0 || P >= V.queue.length ? (t.warn("Ignoring out-of-range queue advance index:", P), V) : {
+      ...V,
+      currentTrackIndex: P
+    });
   }
   async function G(P, V, q) {
     A == null || A.abort();
     const Q = new AbortController();
     A = Q;
     const O = n, lt = o, L = P.map((F) => ({
-      trackId: Cr(F),
+      trackId: trackId(F),
       previewUrl: F.previewUrl
     }));
     i.update((F) => ({
@@ -6869,42 +7401,34 @@ function Tr(e) {
       currentTrackIndex: V,
       // Shuffle pins the chosen song first, at position 0.
       queuePosition: O ? 0 : V,
-      isLoading: !0
+      isLoading: true
     }));
     const D = async () => {
       var F;
-      if (!Q.signal.aborted)
-        try {
-          d();
-          const tt = Dr(
-            L,
-            e,
-            l,
-            C,
-            { shuffle: O, repeatMode: lt }
-          );
-          if (a = tt, U(Qt(i).volume), await tt.setQueue(), Q.signal.aborted || (await tt.changeToQueueItem(
-            ((F = L[V]) == null ? void 0 : F.trackId) ?? "",
-            V
-          ), Q.signal.aborted) || (await Promise.all([
-            tt.setShuffle(O).catch(g),
-            tt.setRepeatMode(lt).catch(g)
-          ]), Q.signal.aborted) || (q ? await tt.resume() : await tt.pause(), Q.signal.aborted))
-            return;
-          U(Qt(i).volume), I(tt, Q.signal);
-        } catch (tt) {
-          Q.signal.aborted || t.error("Failed to start playback", tt);
-        } finally {
-          Q.signal.aborted || i.update((tt) => ({ ...tt, isLoading: !1 }));
-        }
+      if (!Q.signal.aborted) try {
+        d();
+        const tt = createPlayer(L, e, l, C, {
+          shuffle: O,
+          repeatMode: lt
+        });
+        if (a = tt, U(getStoreValue(i).volume), await tt.setQueue(), Q.signal.aborted || (await tt.changeToQueueItem(((F = L[V]) == null ? void 0 : F.trackId) ?? "", V), Q.signal.aborted) || (await Promise.all([tt.setShuffle(O).catch(g), tt.setRepeatMode(lt).catch(g)]), Q.signal.aborted) || (q ? await tt.resume() : await tt.pause(), Q.signal.aborted)) return;
+        U(getStoreValue(i).volume);
+        I(tt, Q.signal);
+      } catch (tt) {
+        Q.signal.aborted || t.error("Failed to start playback", tt);
+      } finally {
+        Q.signal.aborted || i.update((tt) => ({
+          ...tt,
+          isLoading: false
+        }));
+      }
     };
     return f = f.then(D), f;
   }
   function ot(P, V) {
-    if (P.length === 0)
-      return Promise.resolve();
+    if (P.length === 0) return Promise.resolve();
     const q = V ?? (n ? Math.floor(Math.random() * P.length) : 0);
-    return G(P, q, !0);
+    return G(P, q, true);
   }
   function nt() {
     return M(() => a == null ? void 0 : a.pause());
@@ -6919,16 +7443,11 @@ function Tr(e) {
     return M(() => a == null ? void 0 : a.skipToPreviousItem());
   }
   function Y(P) {
-    const V = Qt(i).currentTrackIndex;
-    return M(
-      () => a == null ? void 0 : a.seekToTime(P, V)
-    );
+    const V = getStoreValue(i).currentTrackIndex;
+    return M(() => a == null ? void 0 : a.seekToTime(P, V));
   }
   function W(P) {
-    return x(
-      P,
-      () => M(() => a == null ? void 0 : a.setVolume(P))
-    );
+    return x(P, () => M(() => a == null ? void 0 : a.setVolume(P)));
   }
   function _(P) {
     return n = P, M(() => a == null ? void 0 : a.setShuffle(P));
@@ -6937,14 +7456,18 @@ function Tr(e) {
     return o = P, M(() => a == null ? void 0 : a.setRepeatMode(P));
   }
   function K(P) {
-    if (P === l)
-      return;
+    if (P === l) return;
     l = P;
-    const { queue: V, currentTrackIndex: q, isPlaying: Q } = Qt(i);
+    const {
+      queue: V,
+      currentTrackIndex: q,
+      isPlaying: Q
+    } = getStoreValue(i);
     V.length !== 0 && G(V, q, Q);
   }
   function j() {
-    A == null || A.abort(), d();
+    A == null || A.abort();
+    d();
   }
   return {
     subscribe: i.subscribe,
@@ -6963,76 +7486,94 @@ function Tr(e) {
     destroy: j
   };
 }
-const Hr = new Map(
-  Ka.map(({ mode: e, durationMs: t }) => [e, t])
-);
-function Lr() {
-  let e = Qt(ie).backlight;
-  const t = Ot(e === de.ALWAYS_ON);
-  let i, l = !1, a = !1, n = e === de.ALWAYS_ON;
-  function o() {
-    clearTimeout(i), i = void 0;
+
+// packages/web-music-ipod/src/backlight.js
+var backlightDurations = new Map(backlightOptions.map(({
+  mode: e,
+  durationMs: t
+}) => [e, t]));
+function createBacklightStore() {
+  let mode = getStoreValue(settings).backlight;
+  const backlit = writable(mode === BacklightMode.ALWAYS_ON);
+  let timeout, manuallyOn = false, manuallyOff = false, wasBacklit = mode === BacklightMode.ALWAYS_ON;
+  function clearTimer() {
+    clearTimeout(timeout);
+    timeout = void 0;
   }
-  function p() {
-    if (n = Qt(t), l)
-      return;
-    a && (a = !1, t.set(e === de.ALWAYS_ON));
-    const c = Hr.get(e);
-    c !== void 0 && (o(), t.set(!0), i = setTimeout(() => {
-      i = void 0, t.set(!1);
+  function notifyActivity() {
+    if (wasBacklit = getStoreValue(backlit), manuallyOn) return;
+    manuallyOff && (manuallyOff = false, backlit.set(mode === BacklightMode.ALWAYS_ON));
+    const c = backlightDurations.get(mode);
+    c !== void 0 && (clearTimer(), backlit.set(true), timeout = setTimeout(() => {
+      timeout = void 0;
+      backlit.set(false);
     }, c));
   }
-  function h() {
-    o(), l = !n, a = n, n = l, t.set(l);
+  function toggle() {
+    clearTimer();
+    manuallyOn = !wasBacklit;
+    manuallyOff = wasBacklit;
+    wasBacklit = manuallyOn;
+    backlit.set(manuallyOn);
   }
-  const r = ie.subscribe(({ backlight: c }) => {
-    c !== e && (e = c, l = !1, a = !1, o(), e === de.ALWAYS_ON ? t.set(!0) : e === de.OFF ? t.set(!1) : p());
+  const unsubscribe = settings.subscribe(({
+    backlight: c
+  }) => {
+    c !== mode && (mode = c, manuallyOn = false, manuallyOff = false, clearTimer(), mode === BacklightMode.ALWAYS_ON ? backlit.set(true) : mode === BacklightMode.OFF ? backlit.set(false) : notifyActivity());
   });
   return {
-    subscribe: t.subscribe,
-    notifyActivity: p,
-    toggle: h,
+    subscribe: backlit.subscribe,
+    notifyActivity,
+    toggle,
     destroy() {
-      o(), r();
+      clearTimer();
+      unsubscribe();
     }
   };
 }
-function zr() {
+
+// packages/web-music-ipod/src/audio/context.js
+function createAudioContext() {
   return new (window.AudioContext || window.webkitAudioContext)();
 }
-function Qr(e) {
-  je(() => {
+function closeAudioOnDestroy(e) {
+  onDestroy(() => {
     e.close().catch(() => {
     });
   });
 }
-function Or(e) {
-  return e !== "running" && e !== "closed";
+function isAudioSuspended(state) {
+  return state !== "running" && state !== "closed";
 }
-const cl = /* @__PURE__ */ new WeakMap(), Nr = 1e3;
-function En(e) {
-  if (!Or(e.state) || cl.has(e)) return;
-  let t = !1;
+var cl = /* @__PURE__ */ new WeakMap();
+var Nr = 1e3;
+function resumeAudioContext(e) {
+  if (!isAudioSuspended(e.state) || cl.has(e)) return;
+  let t = false;
   const i = () => {
-    t || (t = !0, cl.delete(e));
+    t || (t = true, cl.delete(e));
   };
-  cl.set(
-    e,
-    e.resume().catch(() => {
-    }).finally(i)
-  ), setTimeout(() => {
+  cl.set(e, e.resume().catch(() => {
+  }).finally(i));
+  setTimeout(() => {
     t || i();
   }, Nr);
 }
-const Rr = 0.3, Wr = 0.05, jr = 0.15, Fr = 0.08, Vr = 200;
-function qr(e, t) {
-  const i = le("<ClickSoundPlayer>"), l = t.createGain();
-  l.gain.value = Rr, l.connect(t.destination);
+var Rr = 0.3;
+var Wr = 0.05;
+var jr = 0.15;
+var Fr = 0.08;
+var Vr = 200;
+function createClickPlayer(e, t) {
+  const i = createLogger("<ClickSoundPlayer>"), l = t.createGain();
+  l.gain.value = Rr;
+  l.connect(t.destination);
   let a = null, n = 0, o = null;
   async function p() {
     try {
       const d = await (await fetch(e)).arrayBuffer();
-      a = await t.decodeAudioData(d), i.debug("Click sound loaded successfully");
+      a = await t.decodeAudioData(d);
+      i.debug("Click sound loaded successfully");
     } catch (c) {
       i.error("Failed to load or decode click sound", c);
     }
@@ -7040,169 +7581,205 @@ function qr(e, t) {
   p();
   function h() {
     if (!a) return;
-    const { currentTime: c } = t;
-    if (n - c >= jr)
-      return;
+    const {
+      currentTime: c
+    } = t;
+    if (n - c >= jr) return;
     const d = Math.max(c, n);
     try {
       const A = t.createBufferSource();
-      A.buffer = a, A.connect(l), A.start(d), n = d + Wr;
+      A.buffer = a;
+      A.connect(l);
+      A.start(d);
+      n = d + Wr;
     } catch (A) {
       i.error("Error during click sound playback", A);
     }
   }
   t.addEventListener("statechange", () => {
-    if (t.state !== "running" || (n = Math.max(
-      n,
-      t.currentTime + Fr
-    ), o === null)) return;
+    if (t.state !== "running" || (n = Math.max(n, t.currentTime + Fr), o === null)) return;
     const c = Date.now() - o > Vr;
-    o = null, c || h();
+    o = null;
+    c || h();
   });
   function r() {
     if (t.state !== "running") {
-      En(t), o === null && (o = Date.now());
+      resumeAudioContext(t);
+      o === null && (o = Date.now());
       return;
     }
     h();
   }
-  return { playClick: r };
+  return {
+    playClick: r
+  };
 }
-const Ur = "data:audio/wav;base64,UklGRrAcAABXQVZFZm10IBAAAAABAAIAAH0AAAD0AQAEABAAZGF0YYwcAAD8Ov/8nwvC+v/cWgBbC4gBirvaB/vv6+eEEhft4vdS/5wZ4fhyKUHixONI2HnqEu90D7v5fucdBe3s2wlCBloJXQX8CcNL0wv/IMcQ8NbZGRz+9w7QtjcBTUqiA70enQOeo+71EOGo9+kOFgO7HeTu8enC5aEtTPZBK377VQ5j8JETBPsfDyT+Y/jvAtYJMBrh+9UeIvmQFC7poght2pAAd/JV/vbeJgChFLH98ug2+Wv9vfet/iX949ZZ+iD7tPkK6XP3Whja9Kz38vB99s/11x8C/LoGwQAkFIsFCwKDB6H28QmVBcIEegZfAnAMeAG7BvACtP6jAaX+xAEUAE/+EgFJ/vj/Qv8MAAcAyf8CAEIA9f+9/xMAPwDm/8f/IAAzANv/0/8oACcA1v/f/ysAGgDW/+3/JwANANz/+f8iAAEA4P8EAB4A+P/k/wsAGQD0/+v/DAARAPP/8/8PAAkA8P/7/xEAAgDv/wEAEAD8//H/BwAPAPb/8f8MAA4A9P/0/wsACgD3//j/CAAGAPf/+/8KAAQA9f/+/wwAAAD0/wIACwD8//f/BAAHAP3/+v8DAAUA/f/8/wQAAwD6////BgD///v/AwAFAPz//P8DAAMA///9/wAAAwABAP7///8BAAAA//8AAAAAAQACAP///f8BAAMA/v/8/wIABAD///3/AAADAAEA/f/+/wIAAgD/////AAAAAAAAAAABAAEA/////wEAAQD/////AAAAAAAAAQABAP///v8CAAQA/f/7/wMABQD9//v/AwAEAP7//v8BAAEAAAAAAP//AAACAP///f8BAAQAAAD8/wAAAwAAAP7/AAABAP////8CAAEA/v///wEAAQAAAAAA///+/wIAAgD+////AgAAAP7/AgABAP3/AAACAAAA//8AAAEAAAAAAAAAAAAAAP////8AAAIAAgD+//3/AgAEAP7//P8BAAMAAAD9/wAAAwD///3/AQACAAAAAQAAAP3/AAACAP//AAABAP3///8GAAIA+f/+/wUAAQD9/wAAAgD//wAAAgD+//3/AgACAP//AAAAAP//AQACAP///f8AAAIAAQAAAP7/AAACAP////8AAAAAAQABAP///v8CAAIA/f///wIAAAD//wAAAAAAAAEAAAD//wEAAQD///7///8DAAIA/P/9/wQABAD+//z/AQADAP///v8AAAEAAAAAAAAA//8BAAIA/v/+/wIAAgD///7/AAABAAAAAAAAAAAAAAAAAAEA/////wEAAQD///7/AQADAP///f8BAAMAAAD+//////8BAAMA///9/wIAAgD+/wAAAgD+////AgD/////AgAAAP7/AQACAP7/AAACAP7//v8CAAMA///8/wAABQACAPn//f8HAAIA+////wMAAQD//wAA//8AAAEA//8AAAEAAAD/////AQACAAAA/f8AAAMA///+/wIAAQD9/wAAAwD///7/AQAAAP//AgACAP3//f8DAAQA/f/8/wIABAAAAPv///8FAAEA/P/+/wQAAwD9//3/AgAEAP3/+/8EAAQA/P/+/wQAAQD9/wAAAQAAAAAA/v///wQAAgD8//7/AwABAP7/AAABAP//AAACAAAA/f///wQAAQD8/wAABAAAAPz/AAADAP////8CAP///v8CAAIA///+/wAAAQABAAEA/v/+/wIAAgD+////AwAAAP3/AQADAP7//f8DAAEA/f8BAAIA/v///wIAAQAAAP///v8BAAMA/v/8/wMAAwD9////AgAAAP//AQABAP7/AAACAP////8BAAAA//8AAAEAAQAAAP7///8DAAIA/f/+/wIAAQD//wAAAAD//wEAAgD///7/AQACAP///v8BAAEA/////wEAAgAAAP7///8CAAEA/v8AAAEA//8AAAIA///9/wIAAwD+//7/AgABAP7///8BAAEAAAD//wAAAgAAAP3/AAADAAAA/v///wEAAgD///3/AQAEAP///P8CAAMA/v/+/wEAAQD//wAAAAAAAAEA/////wIAAQD+/wAAAgD+////AwAAAP3/AAACAAAAAAAAAP//AQABAP7///8CAAEA/////wAAAQABAP////8BAAAA//8BAAAA//8BAAAA/v8CAAMA/v/8/wAABAABAPz///8DAAIA///9/wAAAwABAP7//v8BAAEAAAABAP///v8BAAMAAAD9/wAAAgD///7/AQADAP///P8BAAUAAAD7////BAACAP3//f8CAAMA///+/wEAAQD//wAAAAAAAAAAAAAAAAAAAAD//wEAAQD//wAA/////wEAAgAAAP7///8BAAIAAAD+////AQACAAAA/v///wIAAQD+/wAAAgD///7/AQACAP///v8BAAIAAAD+////AgABAP////8AAAEAAAAAAAEA///+/wEAAwD///3/AgACAP7///8BAAAA//8BAAEA//8AAAEA//8AAAEA/////wEAAQD/////AQABAAAA/v8AAAMA///+/wAAAQACAP///f8AAAMAAgD+//7/AAABAAIAAAD9////AwABAP7/AAABAP//AAACAP///v8CAAEA/f///wQAAgD7//3/BgADAPr//v8GAAEA+v8AAAUA/v/9/wMAAQD9/wAAAwAAAP3/AAADAAAA/f8AAAMA///9/wIAAwD+//7/AQABAAAA//8AAAEA//8AAAIAAAD+////AQABAAEAAAD9/wAABAAAAPz///8DAAEA//8AAAAAAAAAAAAAAAAAAAAA//8AAAIAAQD+//3/AQAEAAAA/f8AAAIAAAD+/wEAAgD+//7/AQACAAEA///+////AwACAP7//v8AAAIAAQD/////AAABAAAAAAAAAP//AAABAAAA//8AAAEAAQD///7/AgABAP3///8DAAEA/f8AAAIA//8AAAEAAAD/////AQABAP////8BAAAA//8BAAEA//8AAAEAAAD/////AQABAP//AAABAP//AAADAP7/+/8DAAUA/v/9/wEAAQAAAAAA//8AAAEAAAD//wAAAQAAAP////8CAAIA/v///wEAAAAAAP////8CAAIA/f/+/wUAAgD7//7/AwABAP//AAAAAAAAAAABAAEA/v///wIAAAD+/wEAAgD+////AwAAAP3/AAACAAAA//8AAAEAAAD+/wAAAwAAAPz/AAAFAAAA/P///wIAAQD//wAAAAAAAAEAAAD/////AQABAP////8AAAIAAAD+/wEAAQD//wAAAgD///z/AgAEAP///f///wMAAgD9//7/AwACAP3///8CAP//AAADAP7//P8CAAQA///8////BAADAP3//f8BAAIAAAD//wAAAAAAAAEAAAD/////AQABAP//AAABAP////8CAAIA/v/+/wEAAQAAAP////8BAAIA///+/wIAAgD9//7/AwACAP7//v8AAAIAAQD///7/AAADAAEA/v/+/wEAAwD///3/AAADAAEA/v///wEAAgD///3/AAADAAEA/f8AAAIAAAAAAP////8BAAEA/v///wIAAAAAAAEA/////wEAAAD//wAAAAABAAEA/v8AAAIA///+/wEAAgD///7/AQABAP//AAACAAAA/v8BAAIA/v/9/wEABAAAAPz/AAAEAAAA/P8AAAMA///+/wIAAQD+////AgABAP3///8DAAEA/f///wMAAAD+/wEAAgD///3/AgADAP3//f8CAAMA///+/wIAAQD+/wAAAQD/////AgAAAP3/AgAEAP7/+/8CAAYA/v/7/wEAAwAAAP7///8CAAIA/v///wIAAAD//wAAAAAAAAAAAAAAAAEAAAD//wEAAAD+/wAAAwABAP3//v8CAAMA///9/wAAAgABAP///////wEAAwD+//3/AwADAPz//f8EAAMA/f/9/wIAAwD///3///8CAAMAAAD9////AgABAP///////wEAAwD///3/AgACAP3//v8EAAIA+//+/wUAAQD8/wAABAD+//3/BAAAAPz/AQACAAAA//8AAAEAAQAAAP3/AAADAAAA////////AgADAP7//P8BAAQAAQD9//7/AgACAP7//v8CAAEA//8AAAEA/////wIAAAD+/wEAAgD///7/AQABAP//AAABAAEA///+/wEAAgD/////AQAAAP//AgABAP3///8CAAEAAAD+//7/AwADAP3//f8DAAIA/f///wIAAQD///7/AAACAAEA///+/wAAAgABAP7//v8CAAIA/v///wIAAAD+/wEAAgD+//7/AgACAP///////wAAAwAAAPz/AQAEAP7//f8DAAIA/f/+/wIAAgD///7/AAACAAEA/v///wMAAAD8/wEAAwD///7/AAABAAEAAAD+/wAAAgD/////AgAAAP7/AAABAAEAAAD+/wAAAgAAAP//AAAAAAAAAQD///7/AwADAPz//f8EAAIA/P///wMAAAD+/wEAAgD///7/AQABAP7/AAADAP///P8CAAQA/v/9/wEAAgD/////AQAAAAAA/////wIAAgD+//3/AgADAP///f///wMAAgD9////AwD///3/AgACAP7///8BAAAAAQABAP7///8CAAAA/v8AAAEAAAAAAAAAAAABAAEA/////wEAAAD+/wAAAgAAAP//AQABAP//AAAAAP//AAABAAAAAAABAP///v8CAAIA/v/+/wEAAwAAAP3///8CAAIA/v/9/wIAAwD///3/AQACAP7///8DAAAA/P8BAAQA/v/9/wIAAgD/////AAAAAAEAAAD+/wAAAwABAP3//v8CAAIA/v///wIA/////wMAAAD9/wAAAwD///7/AgAAAP//AQAAAP////8CAAIA/v/9/wEABQD///v/AQADAP///v8BAAEAAAAAAP7/AAACAAAA/v8AAAMAAAD+////AAABAAAAAAAAAAAAAQAAAAAA///+/wEAAwAAAPz///8FAAEA/P8AAAMA///9/wIAAwD9//3/AgADAP///v8CAAEA/f8AAAMAAAD8////BAACAP3//v8CAAIA/////wAA//8AAAMAAAD8/wAABQABAPv//v8EAAEA/f///wMAAgD+//7/AAACAAEA/f///wIAAQD//wAAAQD//wAAAQD//wAAAQD///7/AQADAP///f8BAAMA///9/wEAAwD+//3/AgACAP7///8CAAEA/v///wIAAQD+//7/AgADAP7//f8BAAMAAQD9//3/AgAEAP///P8AAAQAAgD8//3/BAACAPz///8DAP///v8DAAEA/f8AAAIAAAD//wAA/////wIAAQD//wAAAAD//wAAAgABAP3//f8DAAUA/v/7/wEAAwD/////AQD/////AwABAPz///8EAAAA/f8BAAIA/////wEAAAD//wAAAQABAP7///8CAAAAAAAAAP7/AQAEAP//+/8BAAMA/v8AAAIA/v///wMAAQD+//7/AAACAAIA///8/wAABQABAPv//f8FAAQA+//9/wUAAgD7////AwAAAAAAAAD+/wEAAwD+//3/AwABAP3/AQACAP////8AAAAAAQABAP7//v8CAAMA///9/wAAAwAAAP3/AAABAAAAAQABAP///v8BAAIA///+/wAAAgABAAAA/v/+/wIAAgD+//7/AgADAP///v8AAAEAAAD//wAAAAAAAAEAAAAAAAAA//8BAAEA/v8AAAIA/v///wMAAAD9/wEAAgD+////AgABAP7//v8DAAMA/P/9/wQAAgD8//7/BAADAP3//f8CAAMA/v/9/wIAAwD///3/AAADAAEA/v/+/wAAAgACAP///v8AAAEAAAAAAAAA//8AAAEAAAAAAAAAAAAAAP//AAABAAAAAAAAAP//AQABAP7///8CAAEA/v///wIAAgD///3/AAADAAEA/f/+/wMAAgD+////AQAAAAAAAAD//wEAAQD+////AwABAP3///8BAAEAAQD///7/AQACAP////8BAP////8DAAAA/f8CAAEA/f8BAAMA/v/+/wMAAAD9/wEAAQD//wEAAAD//wEAAQAAAP7///8BAAIAAQD9////AgAAAAAA/////wIAAQD+/wAAAgD///7/AQAAAP//AgABAP7///8CAAAA/f8BAAMAAAD+////AgABAP7///8BAAAA//8CAAMA/f/8/wIAAwABAP7//P8BAAYAAAD5/wAABwAAAPr///8EAAIA/v/+/wEAAQAAAAAA/////wEAAgD+//7/AwACAP7//f8BAAMA///9/wEABAD///z/AQADAP///v8AAAEAAgAAAP7/AAAAAP//AQACAP7//v8DAAIA/f/+/wIAAQD/////AQABAP////8BAAEA/v///wIAAQD///7/AAACAAIA/v/8/wIAAwD/////AAAAAAAAAQAAAP7/AAACAAEA/v/+/wMAAgD9//7/AwACAP3///8DAAAA/f8AAAMAAAD9/wEAAwD+//7/AwABAPz/AAAEAP///f8CAAMA/f/9/wMAAgD9////AwABAP3/AAADAP///f8BAAIA///+/wIAAgD+//7/AQADAP///f8BAAEA//8AAAIAAAD9/wAAAgABAP///v8AAAEAAQAAAP//AAAAAAAAAQAAAP7/AAADAAAA/f8AAAMAAAD9////AwADAP3//P8DAAQA/v/8/wEAAwAAAP////8BAAEA/v8AAAMA///8/wIABAD9//7/AwABAP///////wAAAgAAAP3/AQADAP///v8BAAIA///9/wAAAwAAAP3/AQADAP7//v8EAAEA/P8AAAIA//8AAAEA/v8AAAQA///8/wEAAwAAAP7///8BAAIAAAD9////AwACAP7//v8AAAIAAQD+/wAAAQD//wEAAQD+////AwAAAP3/AgACAP7///8BAAAA//8AAAEAAQD/////AQAAAAAAAQD///7/AAACAAEA/v/+/wIABAD///v/AQAEAP///P8AAAQAAQD+////AQABAP///////wEAAwAAAP3///8DAAEA/f/+/wIAAwD///7/AQABAP//AAAAAP//AQAAAP//AQABAP///v8CAAIA/f///wMAAQD9////AwAAAP3/AAADAAEA/f/+/wMAAwD+//z/AAAEAAIA/f/+/wIAAQD+////AgABAP7///8CAAIA///+/wAAAAABAAEA/v/+/wMAAwD9//3/AgADAAAA/f/+/wIAAwD+//3/AwADAP3//f8CAAMA///9/wAAAgAAAP//AAABAAAA//8AAAIAAQD9//7/AgACAAAA/v/+/wIAAwD+//3/AwACAP3///8CAAAA/v8BAAIA/v/+/wEAAwABAP3//v8BAAIAAQD///7///8CAAMA///8/wAABAABAP3///8BAAAAAAABAAAA/////wEAAgD///3/AAACAAEAAAD/////AAABAAEA/////wEAAAD//wEAAQD+////AgABAP////8BAAEA/v///wIAAQD+////AQAAAAEAAAD+/wEAAgD///7/AQACAP7//v8CAAIA/v/+/wMAAgD9////AgAAAP7/AQACAP7///8DAAEA/P/+/wUAAgD7//7/BQADAPv//P8FAAUA+//7/wUABAD8//3/AwACAP7///8BAAEA/////wIAAQD+//7/AQACAAAA/////wEAAgD///7/AQABAP7///8CAAIA///9/wAAAwAAAP3/AAADAP///v8DAAEA/P///wQAAAD7/wEABQD///z/AQAEAP///f8BAAEA/v8AAAMAAAD9/wAAAgABAAAA/v/+/wEAAwABAP3//v8CAAMA///9/wEAAQD//wAAAQD///7/AwACAPz//v8EAAIA/P8AAAMA/v///wIAAAD+/wAAAgAAAP//AAABAAAA/v8AAAIAAAD//wEAAAD+/wEAAQD+/wAAAwAAAP3/AQACAP//////////AgADAP///f8BAAMA///9/wAAAgAAAP7/AAACAAEA///+/wEAAwD///v/AAAHAAEA+f///wYAAAD7/wEAAwD+////AwABAP3///8CAAEA/////wAAAAAAAAEAAQD///7/AQAEAP//+v8AAAYAAgD8//3/AQACAAEA/v/+/wIAAwD///3/AQACAP7//f8CAAQA///9/wAAAgABAP///v8AAAIAAAD//wAAAQAAAP//AQABAP///v8BAAIA//8AAP///v8DAAQA/P/7/wUABAD7//3/BAADAP3//f8CAAMA///8/wEAAwD/////AQAAAP7/AQADAP7//f8BAAIAAAD//wAAAAAAAAEAAQD+//7/AgACAP7//v8DAAIA/P///wQAAAD9/wAAAgAAAP//AAAAAAEAAQD+////AgAAAP7/AAABAAAAAQAAAP7/AAACAAAA/v8AAAEAAAD/////AwABAPv/AAAGAAAA+v8AAAQAAAD+/wAAAQAAAAAAAQD///7/AgACAP3///8DAAEA/f///wMAAQD9////BAABAPv/AAAEAP///f8BAAIAAAAAAP///v8BAAMA///9/wAAAgABAP////8BAAEA/////wEAAAAAAAAA//8BAAEA/////wEAAgD///3/AAAEAAEA+////wUAAQD9////AAAAAAEAAQD///7/AQAEAAAA+////wQAAQD9////AwABAP3///8DAAEA/f///wIAAgAAAP3//v8DAAMA/f/+/wMAAQD+////AQAAAAAAAgAAAP3///8EAAIA+//9/wQAAwD+////AAD//wIAAgD8//3/BAADAP3//v8CAAIAAAD+//7/AQACAAAA/v8AAAIAAAD//wAAAQAAAP7/AAADAAAA/P8AAAQA///9/wIAAQD+/wEAAQD//wAAAQAAAP7///8CAAIA///+/wEAAAD//wMAAQD7//7/BQADAPz//v8DAAAA/f8BAAMA/v/9/wMAAwD9//7/AgAAAP//AQAAAAAAAAAAAAEA///9/wEABAD///z/AgADAP7//v8BAAEA//8AAAEA/v///wQAAQD7////BQABAPz///8CAAEAAAD/////AQACAP///v8BAAEA/////wEAAQD/////AQACAP///v8BAAEA/////wIAAQD8////BgACAPr//f8FAAMA/P/+/wMAAQD+/wAAAQD//wAAAQD//wAAAgAAAP7///8AAAEAAgAAAP3///8EAAIA/P/+/wMAAAD+/wEAAgD///7/AQABAAAAAAD+/wAAAgAAAAAAAQD///3/AQAEAP7//P8DAAQA/v/9/wIAAgD9//7/AgACAP////8BAAEAAAAAAAAA/v/+/wMAAwD9//3/AwADAP7//f8BAAMA///+/wIAAQD9////AwABAP3///8DAAIA/f/+/wQAAAD7/wIABAD9//7/AwAAAP7/AgABAP3/AAACAP//AAABAP////8BAAIA///+/wEAAQD//wAAAQD/////AQABAAEAAAD+////AgABAP7/AAABAP//AAACAAAA/f8AAAMA///+/wEAAgAAAP3///8EAAEA+////wQAAAD+/wIAAAD9/wIAAwD9//z/AgAEAP7//f8DAAMA/f/9/wIAAgAAAP7//v8CAAMA///+/wAAAAABAAIA/v/+/wIAAQD//wAAAAD//wEAAQD//wAA/////wMAAgD8//3/BAADAP3//v8BAAEAAQAAAP7///8CAAEA//8AAAAA//8BAAEA//8AAAAA//8=";
-class Ia extends Error {
+
+// packages/web-music-ipod/src/assets/click.wav
+var click_default = "data:audio/wave;base64,UklGRrAcAABXQVZFZm10IBAAAAABAAIAAH0AAAD0AQAEABAAZGF0YYwcAAD8Ov/8nwvC+v/cWgBbC4gBirvaB/vv6+eEEhft4vdS/5wZ4fhyKUHixONI2HnqEu90D7v5fucdBe3s2wlCBloJXQX8CcNL0wv/IMcQ8NbZGRz+9w7QtjcBTUqiA70enQOeo+71EOGo9+kOFgO7HeTu8enC5aEtTPZBK377VQ5j8JETBPsfDyT+Y/jvAtYJMBrh+9UeIvmQFC7poght2pAAd/JV/vbeJgChFLH98ug2+Wv9vfet/iX949ZZ+iD7tPkK6XP3Whja9Kz38vB99s/11x8C/LoGwQAkFIsFCwKDB6H28QmVBcIEegZfAnAMeAG7BvACtP6jAaX+xAEUAE/+EgFJ/vj/Qv8MAAcAyf8CAEIA9f+9/xMAPwDm/8f/IAAzANv/0/8oACcA1v/f/ysAGgDW/+3/JwANANz/+f8iAAEA4P8EAB4A+P/k/wsAGQD0/+v/DAARAPP/8/8PAAkA8P/7/xEAAgDv/wEAEAD8//H/BwAPAPb/8f8MAA4A9P/0/wsACgD3//j/CAAGAPf/+/8KAAQA9f/+/wwAAAD0/wIACwD8//f/BAAHAP3/+v8DAAUA/f/8/wQAAwD6////BgD///v/AwAFAPz//P8DAAMA///9/wAAAwABAP7///8BAAAA//8AAAAAAQACAP///f8BAAMA/v/8/wIABAD///3/AAADAAEA/f/+/wIAAgD/////AAAAAAAAAAABAAEA/////wEAAQD/////AAAAAAAAAQABAP///v8CAAQA/f/7/wMABQD9//v/AwAEAP7//v8BAAEAAAAAAP//AAACAP///f8BAAQAAAD8/wAAAwAAAP7/AAABAP////8CAAEA/v///wEAAQAAAAAA///+/wIAAgD+////AgAAAP7/AgABAP3/AAACAAAA//8AAAEAAAAAAAAAAAAAAP////8AAAIAAgD+//3/AgAEAP7//P8BAAMAAAD9/wAAAwD///3/AQACAAAAAQAAAP3/AAACAP//AAABAP3///8GAAIA+f/+/wUAAQD9/wAAAgD//wAAAgD+//3/AgACAP//AAAAAP//AQACAP///f8AAAIAAQAAAP7/AAACAP////8AAAAAAQABAP///v8CAAIA/f///wIAAAD//wAAAAAAAAEAAAD//wEAAQD///7///8DAAIA/P/9/wQABAD+//z/AQADAP///v8AAAEAAAAAAAAA//8BAAIA/v/+/wIAAgD///7/AAABAAAAAAAAAAAAAAAAAAEA/////wEAAQD///7/AQADAP///f8BAAMAAAD+//////8BAAMA///9/wIAAgD+/wAAAgD+////AgD/////AgAAAP7/AQACAP7/AAACAP7//v8CAAMA///8/wAABQACAPn//f8HAAIA+////wMAAQD//wAA//8AAAEA//8AAAEAAAD/////AQACAAAA/f8AAAMA///+/wIAAQD9/wAAAwD///7/AQAAAP//AgACAP3//f8DAAQA/f/8/wIABAAAAPv///8FAAEA/P/+/wQAAwD9//3/AgAEAP3/+/8EAAQA/P/+/wQAAQD9/wAAAQAAAAAA/v///wQAAgD8//7/AwABAP7/AAABAP//AAACAAAA/f///wQAAQD8/wAABAAAAPz/AAADAP////8CAP///v8CAAIA///+/wAAAQABAAEA/v/+/wIAAgD+////AwAAAP3/AQADAP7//f8DAAEA/f8BAAIA/v///wIAAQAAAP///v8BAAMA/v/8/wMAAwD9////AgAAAP//AQABAP7/AAACAP////8BAAAA//8AAAEAAQAAAP7///8DAAIA/f/+/wIAAQD//wAAAAD//wEAAgD///7/AQACAP///v8BAAEA/////wEAAgAAAP7///8CAAEA/v8AAAEA//8AAAIA///9/wIAAwD+//7/AgABAP7///8BAAEAAAD//wAAAgAAAP3/AAADAAAA/v///wEAAgD///3/AQAEAP///P8CAAMA/v/+/wEAAQD//wAAAAAAAAEA/////wIAAQD+/wAAAgD+////AwAAAP3/AAACAAAAAAAAAP//AQABAP7///8CAAEA/////wAAAQABAP////8BAAAA//8BAAAA//8BAAAA/v8CAAMA/v/8/wAABAABAPz///8DAAIA///9/wAAAwABAP7//v8BAAEAAAABAP///v8BAAMAAAD9/wAAAgD///7/AQADAP///P8BAAUAAAD7////BAACAP3//f8CAAMA///+/wEAAQD//wAAAAAAAAAAAAAAAAAAAAD//wEAAQD//wAA/////wEAAgAAAP7///8BAAIAAAD+////AQACAAAA/v///wIAAQD+/wAAAgD///7/AQACAP///v8BAAIAAAD+////AgABAP////8AAAEAAAAAAAEA///+/wEAAwD///3/AgACAP7///8BAAAA//8BAAEA//8AAAEA//8AAAEA/////wEAAQD/////AQABAAAA/v8AAAMA///+/wAAAQACAP///f8AAAMAAgD+//7/AAABAAIAAAD9////AwABAP7/AAABAP//AAACAP///v8CAAEA/f///wQAAgD7//3/BgADAPr//v8GAAEA+v8AAAUA/v/9/wMAAQD9/wAAAwAAAP3/AAADAAAA/f8AAAMA///9/wIAAwD+//7/AQABAAAA//8AAAEA//8AAAIAAAD+////AQABAAEAAAD9/wAABAAAAPz///8DAAEA//8AAAAAAAAAAAAAAAAAAAAA//8AAAIAAQD+//3/AQAEAAAA/f8AAAIAAAD+/wEAAgD+//7/AQACAAEA///+////AwACAP7//v8AAAIAAQD/////AAABAAAAAAAAAP//AAABAAAA//8AAAEAAQD///7/AgABAP3///8DAAEA/f8AAAIA//8AAAEAAAD/////AQABAP////8BAAAA//8BAAEA//8AAAEAAAD/////AQABAP//AAABAP//AAADAP7/+/8DAAUA/v/9/wEAAQAAAAAA//8AAAEAAAD//wAAAQAAAP////8CAAIA/v///wEAAAAAAP////8CAAIA/f/+/wUAAgD7//7/AwABAP//AAAAAAAAAAABAAEA/v///wIAAAD+/wEAAgD+////AwAAAP3/AAACAAAA//8AAAEAAAD+/wAAAwAAAPz/AAAFAAAA/P///wIAAQD//wAAAAAAAAEAAAD/////AQABAP////8AAAIAAAD+/wEAAQD//wAAAgD///z/AgAEAP///f///wMAAgD9//7/AwACAP3///8CAP//AAADAP7//P8CAAQA///8////BAADAP3//f8BAAIAAAD//wAAAAAAAAEAAAD/////AQABAP//AAABAP////8CAAIA/v/+/wEAAQAAAP////8BAAIA///+/wIAAgD9//7/AwACAP7//v8AAAIAAQD///7/AAADAAEA/v/+/wEAAwD///3/AAADAAEA/v///wEAAgD///3/AAADAAEA/f8AAAIAAAAAAP////8BAAEA/v///wIAAAAAAAEA/////wEAAAD//wAAAAABAAEA/v8AAAIA///+/wEAAgD///7/AQABAP//AAACAAAA/v8BAAIA/v/9/wEABAAAAPz/AAAEAAAA/P8AAAMA///+/wIAAQD+////AgABAP3///8DAAEA/f///wMAAAD+/wEAAgD///3/AgADAP3//f8CAAMA///+/wIAAQD+/wAAAQD/////AgAAAP3/AgAEAP7/+/8CAAYA/v/7/wEAAwAAAP7///8CAAIA/v///wIAAAD//wAAAAAAAAAAAAAAAAEAAAD//wEAAAD+/wAAAwABAP3//v8CAAMA///9/wAAAgABAP///////wEAAwD+//3/AwADAPz//f8EAAMA/f/9/wIAAwD///3///8CAAMAAAD9////AgABAP///////wEAAwD///3/AgACAP3//v8EAAIA+//+/wUAAQD8/wAABAD+//3/BAAAAPz/AQACAAAA//8AAAEAAQAAAP3/AAADAAAA////////AgADAP7//P8BAAQAAQD9//7/AgACAP7//v8CAAEA//8AAAEA/////wIAAAD+/wEAAgD///7/AQABAP//AAABAAEA///+/wEAAgD/////AQAAAP//AgABAP3///8CAAEAAAD+//7/AwADAP3//f8DAAIA/f///wIAAQD///7/AAACAAEA///+/wAAAgABAP7//v8CAAIA/v///wIAAAD+/wEAAgD+//7/AgACAP///////wAAAwAAAPz/AQAEAP7//f8DAAIA/f/+/wIAAgD///7/AAACAAEA/v///wMAAAD8/wEAAwD///7/AAABAAEAAAD+/wAAAgD/////AgAAAP7/AAABAAEAAAD+/wAAAgAAAP//AAAAAAAAAQD///7/AwADAPz//f8EAAIA/P///wMAAAD+/wEAAgD///7/AQABAP7/AAADAP///P8CAAQA/v/9/wEAAgD/////AQAAAAAA/////wIAAgD+//3/AgADAP///f///wMAAgD9////AwD///3/AgACAP7///8BAAAAAQABAP7///8CAAAA/v8AAAEAAAAAAAAAAAABAAEA/////wEAAAD+/wAAAgAAAP//AQABAP//AAAAAP//AAABAAAAAAABAP///v8CAAIA/v/+/wEAAwAAAP3///8CAAIA/v/9/wIAAwD///3/AQACAP7///8DAAAA/P8BAAQA/v/9/wIAAgD/////AAAAAAEAAAD+/wAAAwABAP3//v8CAAIA/v///wIA/////wMAAAD9/wAAAwD///7/AgAAAP//AQAAAP////8CAAIA/v/9/wEABQD///v/AQADAP///v8BAAEAAAAAAP7/AAACAAAA/v8AAAMAAAD+////AAABAAAAAAAAAAAAAQAAAAAA///+/wEAAwAAAPz///8FAAEA/P8AAAMA///9/wIAAwD9//3/AgADAP///v8CAAEA/f8AAAMAAAD8////BAACAP3//v8CAAIA/////wAA//8AAAMAAAD8/wAABQABAPv//v8EAAEA/f///wMAAgD+//7/AAACAAEA/f///wIAAQD//wAAAQD//wAAAQD//wAAAQD///7/AQADAP///f8BAAMA///9/wEAAwD+//3/AgACAP7///8CAAEA/v///wIAAQD+//7/AgADAP7//f8BAAMAAQD9//3/AgAEAP///P8AAAQAAgD8//3/BAACAPz///8DAP///v8DAAEA/f8AAAIAAAD//wAA/////wIAAQD//wAAAAD//wAAAgABAP3//f8DAAUA/v/7/wEAAwD/////AQD/////AwABAPz///8EAAAA/f8BAAIA/////wEAAAD//wAAAQABAP7///8CAAAAAAAAAP7/AQAEAP//+/8BAAMA/v8AAAIA/v///wMAAQD+//7/AAACAAIA///8/wAABQABAPv//f8FAAQA+//9/wUAAgD7////AwAAAAAAAAD+/wEAAwD+//3/AwABAP3/AQACAP////8AAAAAAQABAP7//v8CAAMA///9/wAAAwAAAP3/AAABAAAAAQABAP///v8BAAIA///+/wAAAgABAAAA/v/+/wIAAgD+//7/AgADAP///v8AAAEAAAD//wAAAAAAAAEAAAAAAAAA//8BAAEA/v8AAAIA/v///wMAAAD9/wEAAgD+////AgABAP7//v8DAAMA/P/9/wQAAgD8//7/BAADAP3//f8CAAMA/v/9/wIAAwD///3/AAADAAEA/v/+/wAAAgACAP///v8AAAEAAAAAAAAA//8AAAEAAAAAAAAAAAAAAP//AAABAAAAAAAAAP//AQABAP7///8CAAEA/v///wIAAgD///3/AAADAAEA/f/+/wMAAgD+////AQAAAAAAAAD//wEAAQD+////AwABAP3///8BAAEAAQD///7/AQACAP////8BAP////8DAAAA/f8CAAEA/f8BAAMA/v/+/wMAAAD9/wEAAQD//wEAAAD//wEAAQAAAP7///8BAAIAAQD9////AgAAAAAA/////wIAAQD+/wAAAgD///7/AQAAAP//AgABAP7///8CAAAA/f8BAAMAAAD+////AgABAP7///8BAAAA//8CAAMA/f/8/wIAAwABAP7//P8BAAYAAAD5/wAABwAAAPr///8EAAIA/v/+/wEAAQAAAAAA/////wEAAgD+//7/AwACAP7//f8BAAMA///9/wEABAD///z/AQADAP///v8AAAEAAgAAAP7/AAAAAP//AQACAP7//v8DAAIA/f/+/wIAAQD/////AQABAP////8BAAEA/v///wIAAQD///7/AAACAAIA/v/8/wIAAwD/////AAAAAAAAAQAAAP7/AAACAAEA/v/+/wMAAgD9//7/AwACAP3///8DAAAA/f8AAAMAAAD9/wEAAwD+//7/AwABAPz/AAAEAP///f8CAAMA/f/9/wMAAgD9////AwABAP3/AAADAP///f8BAAIA///+/wIAAgD+//7/AQADAP///f8BAAEA//8AAAIAAAD9/wAAAgABAP///v8AAAEAAQAAAP//AAAAAAAAAQAAAP7/AAADAAAA/f8AAAMAAAD9////AwADAP3//P8DAAQA/v/8/wEAAwAAAP////8BAAEA/v8AAAMA///8/wIABAD9//7/AwABAP///////wAAAgAAAP3/AQADAP///v8BAAIA///9/wAAAwAAAP3/AQADAP7//v8EAAEA/P8AAAIA//8AAAEA/v8AAAQA///8/wEAAwAAAP7///8BAAIAAAD9////AwACAP7//v8AAAIAAQD+/wAAAQD//wEAAQD+////AwAAAP3/AgACAP7///8BAAAA//8AAAEAAQD/////AQAAAAAAAQD///7/AAACAAEA/v/+/wIABAD///v/AQAEAP///P8AAAQAAQD+////AQABAP///////wEAAwAAAP3///8DAAEA/f/+/wIAAwD///7/AQABAP//AAAAAP//AQAAAP//AQABAP///v8CAAIA/f///wMAAQD9////AwAAAP3/AAADAAEA/f/+/wMAAwD+//z/AAAEAAIA/f/+/wIAAQD+////AgABAP7///8CAAIA///+/wAAAAABAAEA/v/+/wMAAwD9//3/AgADAAAA/f/+/wIAAwD+//3/AwADAP3//f8CAAMA///9/wAAAgAAAP//AAABAAAA//8AAAIAAQD9//7/AgACAAAA/v/+/wIAAwD+//3/AwACAP3///8CAAAA/v8BAAIA/v/+/wEAAwABAP3//v8BAAIAAQD///7///8CAAMA///8/wAABAABAP3///8BAAAAAAABAAAA/////wEAAgD///3/AAACAAEAAAD/////AAABAAEA/////wEAAAD//wEAAQD+////AgABAP////8BAAEA/v///wIAAQD+////AQAAAAEAAAD+/wEAAgD///7/AQACAP7//v8CAAIA/v/+/wMAAgD9////AgAAAP7/AQACAP7///8DAAEA/P/+/wUAAgD7//7/BQADAPv//P8FAAUA+//7/wUABAD8//3/AwACAP7///8BAAEA/////wIAAQD+//7/AQACAAAA/////wEAAgD///7/AQABAP7///8CAAIA///9/wAAAwAAAP3/AAADAP///v8DAAEA/P///wQAAAD7/wEABQD///z/AQAEAP///f8BAAEA/v8AAAMAAAD9/wAAAgABAAAA/v/+/wEAAwABAP3//v8CAAMA///9/wEAAQD//wAAAQD///7/AwACAPz//v8EAAIA/P8AAAMA/v///wIAAAD+/wAAAgAAAP//AAABAAAA/v8AAAIAAAD//wEAAAD+/wEAAQD+/wAAAwAAAP3/AQACAP//////////AgADAP///f8BAAMA///9/wAAAgAAAP7/AAACAAEA///+/wEAAwD///v/AAAHAAEA+f///wYAAAD7/wEAAwD+////AwABAP3///8CAAEA/////wAAAAAAAAEAAQD///7/AQAEAP//+v8AAAYAAgD8//3/AQACAAEA/v/+/wIAAwD///3/AQACAP7//f8CAAQA///9/wAAAgABAP///v8AAAIAAAD//wAAAQAAAP//AQABAP///v8BAAIA//8AAP///v8DAAQA/P/7/wUABAD7//3/BAADAP3//f8CAAMA///8/wEAAwD/////AQAAAP7/AQADAP7//f8BAAIAAAD//wAAAAAAAAEAAQD+//7/AgACAP7//v8DAAIA/P///wQAAAD9/wAAAgAAAP//AAAAAAEAAQD+////AgAAAP7/AAABAAAAAQAAAP7/AAACAAAA/v8AAAEAAAD/////AwABAPv/AAAGAAAA+v8AAAQAAAD+/wAAAQAAAAAAAQD///7/AgACAP3///8DAAEA/f///wMAAQD9////BAABAPv/AAAEAP///f8BAAIAAAAAAP///v8BAAMA///9/wAAAgABAP////8BAAEA/////wEAAAAAAAAA//8BAAEA/////wEAAgD///3/AAAEAAEA+////wUAAQD9////AAAAAAEAAQD///7/AQAEAAAA+////wQAAQD9////AwABAP3///8DAAEA/f///wIAAgAAAP3//v8DAAMA/f/+/wMAAQD+////AQAAAAAAAgAAAP3///8EAAIA+//9/wQAAwD+////AAD//wIAAgD8//3/BAADAP3//v8CAAIAAAD+//7/AQACAAAA/v8AAAIAAAD//wAAAQAAAP7/AAADAAAA/P8AAAQA///9/wIAAQD+/wEAAQD//wAAAQAAAP7///8CAAIA///+/wEAAAD//wMAAQD7//7/BQADAPz//v8DAAAA/f8BAAMA/v/9/wMAAwD9//7/AgAAAP//AQAAAAAAAAAAAAEA///9/wEABAD///z/AgADAP7//v8BAAEA//8AAAEA/v///wQAAQD7////BQABAPz///8CAAEAAAD/////AQACAP///v8BAAEA/////wEAAQD/////AQACAP///v8BAAEA/////wIAAQD8////BgACAPr//f8FAAMA/P/+/wMAAQD+/wAAAQD//wAAAQD//wAAAgAAAP7///8AAAEAAgAAAP3///8EAAIA/P/+/wMAAAD+/wEAAgD///7/AQABAAAAAAD+/wAAAgAAAAAAAQD///3/AQAEAP7//P8DAAQA/v/9/wIAAgD9//7/AgACAP////8BAAEAAAAAAAAA/v/+/wMAAwD9//3/AwADAP7//f8BAAMA///+/wIAAQD9////AwABAP3///8DAAIA/f/+/wQAAAD7/wIABAD9//7/AwAAAP7/AgABAP3/AAACAP//AAABAP////8BAAIA///+/wEAAQD//wAAAQD/////AQABAAEAAAD+////AgABAP7/AAABAP//AAACAAAA/f8AAAMA///+/wEAAgAAAP3///8EAAEA+////wQAAAD+/wIAAAD9/wIAAwD9//z/AgAEAP7//f8DAAMA/f/9/wIAAgAAAP7//v8CAAMA///+/wAAAAABAAIA/v/+/wIAAQD//wAAAAD//wEAAQD//wAA/////wMAAgD8//3/BAADAP3//v8BAAEAAQAAAP7///8CAAEA//8AAAAA//8BAAEA//8AAAAA//8=";
+
+// packages/web-music-ipod/src/assets/click-sound.js
+var clickSound = click_default;
+
+// packages/web-music-ipod/src/lifecycle.js
+var DestroyedError = class extends Error {
   constructor() {
-    super("component was destroyed before tick resolved."), this.name = "DestroyedError";
+    super("component was destroyed before tick resolved.");
+    this.name = "DestroyedError";
   }
-}
-const Kr = () => {
-  let e = !1;
-  return je(() => {
-    e = !0;
+};
+var createAsyncGuard = () => {
+  let e = false;
+  return onDestroy(() => {
+    e = true;
   }), async (t) => {
     try {
       await t(async () => {
-        if (await Jn(), e) throw new Ia();
+        if (await tick(), e) throw new DestroyedError();
       });
     } catch (i) {
-      if (!(i instanceof Ia)) throw i;
+      if (!(i instanceof DestroyedError)) throw i;
     }
   };
-}, Sa = Ua(!0, (e) => {
+};
+var online = readable(true, (e) => {
   function t() {
     e(navigator.onLine);
   }
   return t(), window.addEventListener("online", t), window.addEventListener("offline", t), () => {
-    window.removeEventListener("online", t), window.removeEventListener("offline", t);
+    window.removeEventListener("online", t);
+    window.removeEventListener("offline", t);
   };
-}), Gr = {
-  [Re.OFF]: "none",
-  [Re.ONE]: "one",
-  [Re.ALL]: "all"
+});
+var repeatModes = {
+  [RepeatMode.OFF]: "none",
+  [RepeatMode.ONE]: "one",
+  [RepeatMode.ALL]: "all"
 };
-function Yr(e) {
-  return Gr[e];
+function playerRepeatMode(mode) {
+  return repeatModes[mode];
 }
-function pl(e, t) {
-  const i = Math.floor(e / t);
-  return { count: i, remainder: e - i * t };
+
+// packages/web-music-ipod/src/wheel-navigation.js
+function divideSteps(distance, stepSize) {
+  const count = Math.floor(distance / stepSize);
+  return { count, remainder: distance - count * stepSize };
 }
-function Xr({
-  move: e,
-  click: t
-}) {
-  let i = 0, l, a, n = 0, o = !1;
-  function p() {
-    i = 0, n = 0, o = !1;
+function createWheelNavigation({ move, click }) {
+  let accumulatedDegrees = 0;
+  let previousDirection;
+  let wasVolume;
+  let clickDegrees = 0;
+  let volumeChanged = false;
+  function reset() {
+    accumulatedDegrees = 0;
+    clickDegrees = 0;
+    volumeChanged = false;
   }
-  function h(c, d) {
-    const A = pl(i, Ps);
-    if (i = A.remainder, A.count >= 1) {
-      const g = e(c, A.count);
-      o = o || g;
+  function changeVolume(direction, degrees) {
+    const steps = divideSteps(accumulatedDegrees, Ps);
+    accumulatedDegrees = steps.remainder;
+    if (steps.count >= 1) {
+      const changed = move(direction, steps.count);
+      volumeChanged = volumeChanged || changed;
     }
-    const f = pl(
-      n + d,
-      Es
-    );
-    n = f.remainder, f.count >= 1 && (o && t(f.count, "volume"), o = !1);
+    const clicks = divideSteps(clickDegrees + degrees, Es);
+    clickDegrees = clicks.remainder;
+    if (clicks.count >= 1) {
+      if (volumeChanged) click(clicks.count, "volume");
+      volumeChanged = false;
+    }
   }
-  function r({
-    step: c,
-    degrees: d,
-    target: A,
-    multiplier: f,
-    dragStepDegrees: g
-  }) {
-    const M = A === "volume";
-    if ((c !== l || M !== a) && (l = c, a = M, p()), i += d, M) {
-      h(c, d);
+  function scroll({ step, degrees, target, multiplier, dragStepDegrees }) {
+    const isVolume = target === "volume";
+    if (step !== previousDirection || isVolume !== wasVolume) {
+      previousDirection = step;
+      wasVolume = isVolume;
+      reset();
+    }
+    accumulatedDegrees += degrees;
+    if (isVolume) {
+      changeVolume(step, degrees);
       return;
     }
-    const { count: y, remainder: w } = pl(i, g);
-    i = w, !(y < 1) && e(c, y * f) && t(y, A);
+    const steps = divideSteps(accumulatedDegrees, dragStepDegrees);
+    accumulatedDegrees = steps.remainder;
+    if (steps.count >= 1 && move(step, steps.count * multiplier)) {
+      click(steps.count, target);
+    }
   }
-  return { scroll: r, reset: p };
+  return { scroll, reset };
 }
-function Zr() {
-  let e, t, i = 0;
-  function l(n, o, {
-    isInert: p,
-    isSeeking: h,
-    hasLoadedItem: r,
-    currentTrackIndex: c,
-    currentPlaybackTime: d,
-    currentPlaybackDuration: A
-  }) {
-    if (o || (e = p ? void 0 : d, t = c, i = 0), e === void 0 || p || h || !r || A <= 0 || c !== t)
-      return;
-    const f = Ol[Math.min(i, Ol.length - 1)], g = Math.min(
-      Math.max(e + n * f, 0),
-      A
-    );
-    return i += 1, e = g > 0 && g < A ? g : void 0, g;
+function createSeekController() {
+  let seekTime;
+  let trackIndex;
+  let repeatedSteps = 0;
+  function step(direction, repeat, state) {
+    const {
+      isInert,
+      isSeeking,
+      hasLoadedItem,
+      currentTrackIndex,
+      currentPlaybackTime,
+      currentPlaybackDuration
+    } = state;
+    if (!repeat) {
+      seekTime = isInert ? void 0 : currentPlaybackTime;
+      trackIndex = currentTrackIndex;
+      repeatedSteps = 0;
+    }
+    if (seekTime === void 0 || isInert || isSeeking || !hasLoadedItem || currentPlaybackDuration <= 0 || currentTrackIndex !== trackIndex) return;
+    const seconds = Ol[Math.min(repeatedSteps, Ol.length - 1)];
+    const nextTime = Math.min(Math.max(seekTime + direction * seconds, 0), currentPlaybackDuration);
+    repeatedSteps += 1;
+    seekTime = nextTime > 0 && nextTime < currentPlaybackDuration ? nextTime : void 0;
+    return nextTime;
   }
-  function a() {
-    e = void 0;
-  }
-  return { step: l, cancel: a };
+  return { step, cancel() {
+    seekTime = void 0;
+  } };
 }
-function Jr(e) {
-  ae(e, "svelte-4kg78n", '.ipod.svelte-4kg78n{display:flex;justify-content:center;position:relative;width:100%;color-scheme:light dark}.ipod-shadow.svelte-4kg78n{position:relative;width:415px}.ipod-shadow-inner.svelte-4kg78n{--ipod-scale:1;position:relative;margin:0 auto;width:100%;transform-origin:top;transition:scale 0.25s ease-in-out;scale:var(--ipod-scale)}@container ipod (width < 440px){.ipod-shadow-inner.svelte-4kg78n{--ipod-scale:0.9}}@container ipod (width < 400px){.ipod-shadow-inner.svelte-4kg78n{--ipod-scale:0.8}}@container ipod (width < 360px){.ipod-shadow-inner.svelte-4kg78n{--ipod-scale:0.75}}.ipod-shadow-inner.svelte-4kg78n::before{content:"";position:absolute;height:200px;bottom:0;left:0;z-index:1;width:100%;background:linear-gradient(180deg, #010101 0, rgba(87, 87, 87, 0.8901960784) 5%, rgba(72, 72, 72, 0.4117647059) 17%, transparent 50%);transform:translateY(100%);border-radius:38px 38px 0 0;opacity:0.3;box-shadow:0 -1px 1px 0.5px rgb(112, 112, 112);filter:blur(1px)}.ipod-shadow-inner.svelte-4kg78n::after{content:"";position:absolute;inset:-2px;z-index:1;border-radius:38px;background:linear-gradient(249deg, transparent 79%, #000 84%);background-size:181% 200%;background-position:0% 50%;background-repeat:no-repeat;pointer-events:none}.ipod-container.svelte-4kg78n{position:relative;z-index:2;width:415px;height:692px;border:1px solid transparent;border-radius:38px;background:linear-gradient(42deg, var(--ipod-container-gradient-1, rgba(232, 232, 232, 0.9607843137)) 0, var(--ipod-container-gradient-2, #fff) 149%);-webkit-box-reflect:below 4px linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.15) 100%);box-shadow:inset 0 -1px 3px 2px var(--ipod-container-shadow-1, rgba(168, 168, 168, 0.6705882353)), inset -1px 0 2px 5px var(--ipod-container-shadow-2, white), -1px 1px 0 3px var(--ipod-container-shadow-3, rgba(146, 146, 146, 0.4705882353)), 2px 1px 0 3px var(--ipod-container-shadow-4, #e7e7e7)}@media(prefers-color-scheme: dark){.ipod-container.svelte-4kg78n{--ipod-container-gradient-1:#d4d4d4f5;--ipod-container-gradient-2:#fefefe;--ipod-container-shadow-1:#2d2d2dab;--ipod-container-shadow-2:#9e9e9e;--ipod-container-shadow-3:#00000078;--ipod-container-shadow-4:#777}}.ipod-container.svelte-4kg78n::before,.ipod-container.svelte-4kg78n::after{--border-width:6px;display:block;inset:0;position:absolute;content:"";pointer-events:none;z-index:2;border-radius:38px;width:calc(100% + var(--border-width));height:calc(100% + var(--border-width));top:calc(0% - var(--border-width) / 2);left:calc(0% - var(--border-width) / 2);padding:var(--border-width)}.ipod-container.svelte-4kg78n::before{overflow:clip;background:linear-gradient(249deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.08) 40% 50%, rgba(255, 255, 255, 0) 52% 76%), linear-gradient(257deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.04) 42% 55%, rgba(255, 255, 255, 0) 58% 76%);z-index:3;background-size:181% 200%;background-position:0% 50%;background-repeat:no-repeat}.ipod-container.svelte-4kg78n::after{--angle-2:-23deg;background:conic-gradient(from var(--angle-2) at 50% 50%, transparent 0, rgba(255, 255, 255, 0.4) 1%, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0.4) 2%, transparent 2.5%, transparent 5%, rgba(255, 255, 255, 0.4) 5.5%, rgba(255, 255, 255, 0.4) 6%, rgba(255, 255, 255, 0.4) 6.5%, transparent 8%, transparent 9%, rgba(255, 255, 255, 0.4) 10%, rgba(255, 255, 255, 0.4) 11%, rgba(255, 255, 255, 0.4) 12%, transparent 13%), conic-gradient(from var(--angle-2) at 50% 50%, rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0.3) 10%, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 0.45) 57%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0.2) 95%, rgba(0, 0, 0, 0.2)), linear-gradient(44deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), linear-gradient(44deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);mask-composite:exclude;box-shadow:inset 0 0 0 calc(var(--border-width) / 2) rgba(255, 255, 255, 0.5)}.menu-layer.svelte-4kg78n{width:100%;height:100%}.menu-layer.hidden.svelte-4kg78n{visibility:hidden}.loading-message.svelte-4kg78n{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.ipod-screen.svelte-4kg78n{position:relative;margin:30px auto 0;width:273px;height:223px;background-image:linear-gradient(135deg, #a5a59b, #d6d5d0);border-radius:10px;box-shadow:inset 0 0 10px 2px #4d4d4d;font-size:26px;line-height:1;color:#484647;border:8px solid rgba(0, 0, 0, 0.5);box-sizing:content-box;pointer-events:none}@media(prefers-color-scheme: dark){.ipod-screen.svelte-4kg78n{--ipod-screen-opacity:0.85}}@media(prefers-contrast: more){.ipod-screen.svelte-4kg78n{color:black}}.ipod-screen.svelte-4kg78n::before,.ipod-screen.svelte-4kg78n::after{content:"";position:absolute;display:block;top:50%;left:50%;transform:translate(-50%, -50%);pointer-events:none;z-index:1}.ipod-screen.svelte-4kg78n::before{height:calc(100% - 10px);width:calc(100% - 10px);background-color:var(--ipod-bg-scrim, rgba(72, 70, 71, 0.1));mix-blend-mode:luminosity}@media(prefers-contrast: more){.ipod-screen.svelte-4kg78n::before{--ipod-bg-scrim:#eed;mix-blend-mode:initial}}.ipod-screen.backlit.svelte-4kg78n{--ipod-bg-scrim:#0f69ff;--ipod-faux-backlit:#b5c3d8;--ipod-screen-opacity:0.85;box-shadow:inset 0 0 0 5px rgba(71, 71, 71, 0.85);border:8px solid rgba(24, 24, 24, 0.7)}@media(prefers-contrast: more){.ipod-screen.backlit.svelte-4kg78n{--ipod-faux-backlit:#f0f0e6}}.ipod-screen.backlit.svelte-4kg78n::before{mix-blend-mode:plus-lighter;opacity:0.2;box-shadow:-1px 0 4px 7px white}.ipod-screen.backlit.svelte-4kg78n::after{--backlight-bulb-color:254, 249, 220;height:calc(100% - 10px);width:calc(100% + 2px);transform:translate(calc(-50% - 6px), -50%);background-image:radial-gradient(50% 70% at 0% 19%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, rgb(var(--backlight-bulb-color), 0.15) 20%, transparent 50%), radial-gradient(50% 70% at 0% 53%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, rgb(var(--backlight-bulb-color), 0.15) 20%, transparent 50%), radial-gradient(50% 70% at 0% 83%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, rgb(var(--backlight-bulb-color), 0.15) 20%, transparent 50%), radial-gradient(50% 70% at 0% 19%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, transparent 33%), radial-gradient(50% 70% at 0% 53%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, transparent 33%), radial-gradient(50% 70% at 0% 83%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, transparent 33%), radial-gradient(20% 83% at 100% 19%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.7) 6%, transparent 33%), radial-gradient(20% 83% at 100% 54%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.7) 6%, transparent 33%), radial-gradient(20% 83% at 100% 83%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.7) 6%, transparent 33%);opacity:0.15;mix-blend-mode:plus-lighter}');
+
+// packages/web-music-ipod/src/generated/ipod.js
+function appendIPodStyles(e) {
+  appendStyles(e, "svelte-4kg78n", '.ipod.svelte-4kg78n{display:flex;justify-content:center;position:relative;width:100%;color-scheme:light dark}.ipod-shadow.svelte-4kg78n{position:relative;width:415px}.ipod-shadow-inner.svelte-4kg78n{--ipod-scale:1;position:relative;margin:0 auto;width:100%;transform-origin:top;transition:scale 0.25s ease-in-out;scale:var(--ipod-scale)}@container ipod (width < 440px){.ipod-shadow-inner.svelte-4kg78n{--ipod-scale:0.9}}@container ipod (width < 400px){.ipod-shadow-inner.svelte-4kg78n{--ipod-scale:0.8}}@container ipod (width < 360px){.ipod-shadow-inner.svelte-4kg78n{--ipod-scale:0.75}}.ipod-shadow-inner.svelte-4kg78n::before{content:"";position:absolute;height:200px;bottom:0;left:0;z-index:1;width:100%;background:linear-gradient(180deg, #010101 0, rgba(87, 87, 87, 0.8901960784) 5%, rgba(72, 72, 72, 0.4117647059) 17%, transparent 50%);transform:translateY(100%);border-radius:38px 38px 0 0;opacity:0.3;box-shadow:0 -1px 1px 0.5px rgb(112, 112, 112);filter:blur(1px)}.ipod-shadow-inner.svelte-4kg78n::after{content:"";position:absolute;inset:-2px;z-index:1;border-radius:38px;background:linear-gradient(249deg, transparent 79%, #000 84%);background-size:181% 200%;background-position:0% 50%;background-repeat:no-repeat;pointer-events:none}.ipod-container.svelte-4kg78n{position:relative;z-index:2;width:415px;height:692px;border:1px solid transparent;border-radius:38px;background:linear-gradient(42deg, var(--ipod-container-gradient-1, rgba(232, 232, 232, 0.9607843137)) 0, var(--ipod-container-gradient-2, #fff) 149%);-webkit-box-reflect:below 4px linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.15) 100%);box-shadow:inset 0 -1px 3px 2px var(--ipod-container-shadow-1, rgba(168, 168, 168, 0.6705882353)), inset -1px 0 2px 5px var(--ipod-container-shadow-2, white), -1px 1px 0 3px var(--ipod-container-shadow-3, rgba(146, 146, 146, 0.4705882353)), 2px 1px 0 3px var(--ipod-container-shadow-4, #e7e7e7)}@media(prefers-color-scheme: dark){.ipod-container.svelte-4kg78n{--ipod-container-gradient-1:#d4d4d4f5;--ipod-container-gradient-2:#fefefe;--ipod-container-shadow-1:#2d2d2dab;--ipod-container-shadow-2:#9e9e9e;--ipod-container-shadow-3:#00000078;--ipod-container-shadow-4:#777}}.ipod-container.svelte-4kg78n::before,.ipod-container.svelte-4kg78n::after{--border-width:6px;display:block;inset:0;position:absolute;content:"";pointer-events:none;z-index:2;border-radius:38px;width:calc(100% + var(--border-width));height:calc(100% + var(--border-width));top:calc(0% - var(--border-width) / 2);left:calc(0% - var(--border-width) / 2);padding:var(--border-width)}.ipod-container.svelte-4kg78n::before{overflow:clip;background:linear-gradient(249deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.08) 40% 50%, rgba(255, 255, 255, 0) 52% 76%), linear-gradient(257deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.04) 42% 55%, rgba(255, 255, 255, 0) 58% 76%);z-index:3;background-size:181% 200%;background-position:0% 50%;background-repeat:no-repeat}.ipod-container.svelte-4kg78n::after{--angle-2:-23deg;background:conic-gradient(from var(--angle-2) at 50% 50%, transparent 0, rgba(255, 255, 255, 0.4) 1%, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0.4) 2%, transparent 2.5%, transparent 5%, rgba(255, 255, 255, 0.4) 5.5%, rgba(255, 255, 255, 0.4) 6%, rgba(255, 255, 255, 0.4) 6.5%, transparent 8%, transparent 9%, rgba(255, 255, 255, 0.4) 10%, rgba(255, 255, 255, 0.4) 11%, rgba(255, 255, 255, 0.4) 12%, transparent 13%), conic-gradient(from var(--angle-2) at 50% 50%, rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0.3) 10%, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 0.45) 57%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0.2) 95%, rgba(0, 0, 0, 0.2)), linear-gradient(44deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), linear-gradient(44deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);mask-composite:exclude;box-shadow:inset 0 0 0 calc(var(--border-width) / 2) rgba(255, 255, 255, 0.5)}.menu-layer.svelte-4kg78n{width:100%;height:100%}.menu-layer.hidden.svelte-4kg78n{visibility:hidden}.loading-message.svelte-4kg78n{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.ipod-screen.svelte-4kg78n{position:relative;margin:30px auto 0;width:273px;height:223px;background-image:linear-gradient(135deg, #a5a59b, #d6d5d0);border-radius:10px;box-shadow:inset 0 0 10px 2px #4d4d4d;font-size:26px;line-height:1;color:#484647;border:8px solid rgba(0, 0, 0, 0.5);box-sizing:content-box;pointer-events:none}@media(prefers-color-scheme: dark){.ipod-screen.svelte-4kg78n{--ipod-screen-opacity:0.85}}@media(prefers-contrast: more){.ipod-screen.svelte-4kg78n{color:black}}.ipod-screen.svelte-4kg78n::before,.ipod-screen.svelte-4kg78n::after{content:"";position:absolute;display:block;top:50%;left:50%;transform:translate(-50%, -50%);pointer-events:none;z-index:1}.ipod-screen.svelte-4kg78n::before{height:calc(100% - 10px);width:calc(100% - 10px);background-color:var(--ipod-bg-scrim, rgba(72, 70, 71, 0.1));mix-blend-mode:luminosity}@media(prefers-contrast: more){.ipod-screen.svelte-4kg78n::before{--ipod-bg-scrim:#eed;mix-blend-mode:initial}}.ipod-screen.backlit.svelte-4kg78n{--ipod-bg-scrim:#0f69ff;--ipod-faux-backlit:#b5c3d8;--ipod-screen-opacity:0.85;box-shadow:inset 0 0 0 5px rgba(71, 71, 71, 0.85);border:8px solid rgba(24, 24, 24, 0.7)}@media(prefers-contrast: more){.ipod-screen.backlit.svelte-4kg78n{--ipod-faux-backlit:#f0f0e6}}.ipod-screen.backlit.svelte-4kg78n::before{mix-blend-mode:plus-lighter;opacity:0.2;box-shadow:-1px 0 4px 7px white}.ipod-screen.backlit.svelte-4kg78n::after{--backlight-bulb-color:254, 249, 220;height:calc(100% - 10px);width:calc(100% + 2px);transform:translate(calc(-50% - 6px), -50%);background-image:radial-gradient(50% 70% at 0% 19%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, rgb(var(--backlight-bulb-color), 0.15) 20%, transparent 50%), radial-gradient(50% 70% at 0% 53%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, rgb(var(--backlight-bulb-color), 0.15) 20%, transparent 50%), radial-gradient(50% 70% at 0% 83%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, rgb(var(--backlight-bulb-color), 0.15) 20%, transparent 50%), radial-gradient(50% 70% at 0% 19%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, transparent 33%), radial-gradient(50% 70% at 0% 53%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, transparent 33%), radial-gradient(50% 70% at 0% 83%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.85) 6%, transparent 33%), radial-gradient(20% 83% at 100% 19%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.7) 6%, transparent 33%), radial-gradient(20% 83% at 100% 54%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.7) 6%, transparent 33%), radial-gradient(20% 83% at 100% 83%, rgb(var(--backlight-bulb-color)) 0%, rgb(var(--backlight-bulb-color), 0.7) 6%, transparent 33%);opacity:0.15;mix-blend-mode:plus-lighter}');
 }
-function $r(e) {
+function createLoadingFragment(e) {
   let t, i;
-  return t = new Mn({}), {
+  return t = new LoadingOverlay({}), {
     c() {
       gt(t.$$.fragment);
     },
     m(l, a) {
-      vt(t, l, a), i = !0;
+      vt(t, l, a), i = true;
     },
-    p: J,
+    p: noop,
     i(l) {
-      i || ($(t.$$.fragment, l), i = !0);
+      i || ($(t.$$.fragment, l), i = true);
     },
     o(l) {
-      et(t.$$.fragment, l), i = !1;
+      et(t.$$.fragment, l), i = false;
     },
     d(l) {
       yt(t, l);
     }
   };
 }
-function t1(e) {
+function createErrorFragment(e) {
   let t, i;
-  return t = new wn({
-    props: { message: (
-      /*offlineMessage*/
-      e[5]
-    ) }
+  return t = new ErrorOverlay({
+    props: {
+      message: (
+        /*offlineMessage*/
+        e[5]
+      )
+    }
   }), {
     c() {
       gt(t.$$.fragment);
     },
     m(l, a) {
-      vt(t, l, a), i = !0;
+      vt(t, l, a), i = true;
     },
     p(l, a) {
       const n = {};
@@ -7211,19 +7788,19 @@ function t1(e) {
       l[5]), t.$set(n);
     },
     i(l) {
-      i || ($(t.$$.fragment, l), i = !0);
+      i || ($(t.$$.fragment, l), i = true);
     },
     o(l) {
-      et(t.$$.fragment, l), i = !1;
+      et(t.$$.fragment, l), i = false;
     },
     d(l) {
       yt(t, l);
     }
   };
 }
-function e1(e) {
+function createIPodFragment(e) {
   let t, i, l, a, n, o, p, h, r, c, d, A, f, g, M, y, w, E, I, x;
-  const U = [t1, $r], C = [];
+  const U = [createErrorFragment, createLoadingFragment], C = [];
   function G(z, k) {
     return (
       /*$isOnline*/
@@ -7266,11 +7843,13 @@ function e1(e) {
     e[1] !== void 0 && (at.scrollTarget = /*scrollTarget*/
     e[1]), /*selectHoldMs*/
     e[10] !== void 0 && (at.selectHoldMs = /*selectHoldMs*/
-    e[10]), f = new mn({ props: at }), e[41](f), Jt.push(() => Xi(f, "scrollTarget", ot)), Jt.push(() => Xi(f, "selectHoldMs", nt)), f.$on(
+    e[10]), f = new MenuComponent({
+      props: at
+    }), e[41](f), Jt.push(() => Xi(f, "scrollTarget", ot)), Jt.push(() => Xi(f, "selectHoldMs", nt)), f.$on(
       "menuhold",
       /*backlight*/
       e[14].toggle
-    ), w = new bn({
+    ), w = new ClickWheelComponent({
       props: {
         scrollTarget: (
           /*scrollTarget*/
@@ -7415,27 +7994,23 @@ function e1(e) {
         ), s(a, "class", "ipod-container svelte-4kg78n"), s(a, "data-testid", "ipod-container"), s(l, "class", "ipod-shadow-inner svelte-4kg78n"), s(i, "class", "ipod-shadow svelte-4kg78n"), s(t, "class", "ipod svelte-4kg78n");
       },
       m(z, k) {
-        ht(z, t, k), u(t, i), u(i, l), u(l, a), u(a, n), ~o && C[o].m(n, null), u(n, h), u(n, r), u(r, c), u(n, d), u(n, A), vt(f, A, null), u(a, y), vt(w, a, null), E = !0, I || (x = [
-          ut(
-            a,
-            "pointerdown",
-            /*handleUserActivity*/
-            e[17]
-          ),
-          ut(
-            a,
-            "keydown",
-            /*handleKeyActivity*/
-            e[18],
-            !0
-          ),
-          ut(
-            a,
-            "click",
-            /*handleUserActivity*/
-            e[17]
-          )
-        ], I = !0);
+        ht(z, t, k), u(t, i), u(i, l), u(l, a), u(a, n), ~o && C[o].m(n, null), u(n, h), u(n, r), u(r, c), u(n, d), u(n, A), vt(f, A, null), u(a, y), vt(w, a, null), E = true, I || (x = [ut(
+          a,
+          "pointerdown",
+          /*handleUserActivity*/
+          e[17]
+        ), ut(
+          a,
+          "keydown",
+          /*handleKeyActivity*/
+          e[18],
+          true
+        ), ut(
+          a,
+          "click",
+          /*handleUserActivity*/
+          e[17]
+        )], I = true);
       },
       p(z, k) {
         e = z;
@@ -7459,10 +8034,10 @@ function e1(e) {
         ) : void 0), k[0] & /*navigateToUrl*/
         1 && (W.navigateToUrl = /*navigateToUrl*/
         e[0]), !g && k[0] & /*scrollTarget*/
-        2 && (g = !0, W.scrollTarget = /*scrollTarget*/
-        e[1], Gi(() => g = !1)), !M && k[0] & /*selectHoldMs*/
-        1024 && (M = !0, W.selectHoldMs = /*selectHoldMs*/
-        e[10], Gi(() => M = !1)), f.$set(W), (!E || k[0] & /*isInert*/
+        2 && (g = true, W.scrollTarget = /*scrollTarget*/
+        e[1], Gi(() => g = false)), !M && k[0] & /*selectHoldMs*/
+        1024 && (M = true, W.selectHoldMs = /*selectHoldMs*/
+        e[10], Gi(() => M = false)), f.$set(W), (!E || k[0] & /*isInert*/
         4) && Nt(
           A,
           "hidden",
@@ -7495,48 +8070,72 @@ function e1(e) {
         e[4]), w.$set(_);
       },
       i(z) {
-        E || ($(p), $(f.$$.fragment, z), $(w.$$.fragment, z), E = !0);
+        E || ($(p), $(f.$$.fragment, z), $(w.$$.fragment, z), E = true);
       },
       o(z) {
-        et(p), et(f.$$.fragment, z), et(w.$$.fragment, z), E = !1;
+        et(p), et(f.$$.fragment, z), et(w.$$.fragment, z), E = false;
       },
       d(z) {
-        z && H(t), ~o && C[o].d(), e[41](null), yt(f), yt(w), I = !1, ue(x);
+        z && H(t), ~o && C[o].d(), e[41](null), yt(f), yt(w), I = false, ue(x);
       }
     }
   );
 }
-function i1(e, t, i) {
+function createIPodInstance(e, t, i) {
   let l, a, n, o, p, h, r, c, d, A, f, g, M, y, w;
-  Ut(e, ie, (B) => i(38, A = B)), Ut(e, Sa, (B) => i(8, y = B));
-  let { locale: E = Ql } = t, { dragStepDegrees: I = os } = t, { backlit: x = void 0 } = t, { playback: U = void 0 } = t, { navigateToUrl: C = void 0 } = t, { i18n: G = void 0 } = t;
-  const ot = le("<IPod>"), nt = Kr(), at = zr(), z = qr(Ur, at), k = Tr(at);
+  Ut(e, settings, (B) => i(38, A = B)), Ut(e, online, (B) => i(8, y = B));
+  let {
+    locale: E = defaultLocale
+  } = t, {
+    dragStepDegrees: I = os
+  } = t, {
+    backlit: x = void 0
+  } = t, {
+    playback: U = void 0
+  } = t, {
+    navigateToUrl: C = void 0
+  } = t, {
+    i18n: G = void 0
+  } = t;
+  const ot = createLogger("<IPod>"), nt = createAsyncGuard(), at = createAudioContext(), z = createClickPlayer(clickSound, at), k = createPlaybackStore(at);
   Ut(e, k, (B) => i(7, g = B));
-  const Y = Lr();
+  const Y = createBacklightStore();
   Ut(e, Y, (B) => i(40, w = B));
-  const W = Fs();
+  const W = getTranslationStore();
   Ut(e, W, (B) => i(39, M = B));
-  const { iPodData: _, loadIPodData: X } = gr();
+  const {
+    iPodData: _,
+    loadIPodData: X
+  } = createDataStore();
   Ut(e, _, (B) => i(6, f = B));
   const K = _;
-  let j, P = !1, V = !1, q = !1, Q = "list", O = null, lt = !1, L = "", D = A.volume;
+  let j, P = false, V = false, q = false, Q = "list", O = null, lt = false, L = "", D = A.volume;
   const F = Il(ks, () => {
-    ie.update((B) => Object.assign(Object.assign({}, B), { volume: D }));
-  }), tt = Bs(() => {
+    settings.update((B) => Object.assign(Object.assign({}, B), {
+      volume: D
+    }));
+  }), tt = onSettingsReset(() => {
     F.stop(), i(33, D = A.volume), k.setVolume(ml(D));
   });
   function ct() {
     Y.notifyActivity(), j == null || j.notifyActivity();
   }
   function dt() {
-    En(at), ct();
+    resumeAudioContext(at), ct();
   }
   function N(B) {
     (!B.repeat || B.key.startsWith("Arrow")) && dt();
   }
-  const it = Zr();
-  function Bt(B, { repeat: kt }) {
-    const { hasLoadedItem: zt, currentTrackIndex: Vt, currentPlaybackTime: Xt, currentPlaybackDuration: re } = g, ce = it.step(B, kt, {
+  const it = createSeekController();
+  function Bt(B, {
+    repeat: kt
+  }) {
+    const {
+      hasLoadedItem: zt,
+      currentTrackIndex: Vt,
+      currentPlaybackTime: Xt,
+      currentPlaybackDuration: re
+    } = g, ce = it.step(B, kt, {
       isInert: r,
       isSeeking: o,
       hasLoadedItem: zt,
@@ -7547,18 +8146,19 @@ function i1(e, t, i) {
     ce !== void 0 && (ct(), k.seek(ce));
   }
   function S(B, kt) {
-    if (!(A.clicker !== zi.ON || kt === "seek"))
-      for (let zt = 0; zt < B; zt += 1)
-        z.playClick();
+    if (!(A.clicker !== ClickerMode.ON || kt === "seek")) for (let zt = 0; zt < B; zt += 1) z.playClick();
   }
-  const st = Xr({
+  const st = createWheelNavigation({
     move: (B, kt) => j.moveBy(B, kt),
     click: S
   });
   function ft(B) {
-    if (ct(), r || !j)
-      return;
-    const { step: kt, degrees: zt, speed: Vt } = B.detail, Xt = j.currentScrollTarget();
+    if (ct(), r || !j) return;
+    const {
+      step: kt,
+      degrees: zt,
+      speed: Vt
+    } = B.detail, Xt = j.currentScrollTarget();
     if (Xt === "brick") {
       j.turnPaddle(kt * zt);
       return;
@@ -7572,9 +8172,11 @@ function i1(e, t, i) {
     });
   }
   function Rt(B) {
-    if (ct(), r || !j)
-      return;
-    const { step: kt, heldMs: zt } = B.detail, Vt = j.currentScrollTarget();
+    if (ct(), r || !j) return;
+    const {
+      step: kt,
+      heldMs: zt
+    } = B.detail, Vt = j.currentScrollTarget();
     j.keyStep(kt, zt) && S(1, Vt);
   }
   function Wt() {
@@ -7594,29 +8196,23 @@ function i1(e, t, i) {
       lt || Ft(), k.pause();
       return;
     }
-    lt ? i(31, V = !0) : (i(30, P = !1), i(31, V = !1), se = setTimeout(
-      () => {
-        i(30, P = !0);
-      },
-      ns
-    ), $t = setTimeout(
-      () => {
-        i(31, V = !0);
-      },
-      ss
-    )), f.status !== "ready" && X(n);
+    lt ? i(31, V = true) : (i(30, P = false), i(31, V = false), se = setTimeout(() => {
+      i(30, P = true);
+    }, ns), $t = setTimeout(() => {
+      i(31, V = true);
+    }, ss)), f.status !== "ready" && X(n);
   }
   Ra(() => {
     k.setVolume(ml(A.volume)), nt(async (kt) => {
-      await kt(), i(32, q = !0);
+      await kt(), i(32, q = true);
     });
-    const B = Sa.subscribe(Gt);
+    const B = online.subscribe(Gt);
     return () => {
       B(), Ft();
     };
-  }), je(() => {
+  }), onDestroy(() => {
     F.flush(), tt(), k.destroy(), Y.destroy();
-  }), Qr(at);
+  }), closeAudioOnDestroy(at);
   function oe(B) {
     Jt[B ? "unshift" : "push"](() => {
       j = B, i(9, j);
@@ -7640,15 +8236,15 @@ function i1(e, t, i) {
     67108864 && i(37, l = typeof x == "string" ? x !== "false" : x), e.$$.dirty[1] & /*override, $backlight*/
     576 && i(12, a = l ?? w), e.$$.dirty[0] & /*playback*/
     134217728 && k.setPlayback(U), e.$$.dirty[0] & /*locale*/
-    16777216 && i(34, n = E ?? Ql), e.$$.dirty[0] & /*hostI18n*/
+    16777216 && i(34, n = E ?? defaultLocale), e.$$.dirty[0] & /*hostI18n*/
     268435456 | e.$$.dirty[1] & /*activeLocale*/
-    8 && W.set($a(G, n.language)), e.$$.dirty[0] & /*scrollTarget*/
+    8 && W.set(createTranslator(G, n.language)), e.$$.dirty[0] & /*scrollTarget*/
     2 && i(4, o = Q === "seek"), e.$$.dirty[1] & /*$i18n*/
     256 && i(5, p = M.t("ASE.Web.IPod.Error.NotConnected")), e.$$.dirty[0] & /*$iPodData, minDisplayTimeElapsed*/
     1073741888 | e.$$.dirty[1] & /*maxHoldElapsed*/
     1 && i(3, h = !V && f.status === "loading" || !P), e.$$.dirty[0] & /*isLoading, $isOnline*/
     264 && i(2, r = h || !y), e.$$.dirty[0] & /*isInert*/
-    4 && (r || (lt = !0)), e.$$.dirty[0] & /*$isOnline, offlineMessage, isLoading*/
+    4 && (r || (lt = true)), e.$$.dirty[0] & /*$isOnline, offlineMessage, isLoading*/
     296 | e.$$.dirty[1] & /*liveRegionMounted, $i18n*/
     258 && q && (y ? i(11, L = M.t(h ? "ASE.Web.IPod.Status.Loading" : "ASE.Web.IPod.Status.Ready")) : i(11, L = p)), e.$$.dirty[0] & /*$iPodData*/
     64 && (f.status === "error" ? ot.error("Failed to load iPod data", f.error) : ot.debug("iPod data status:", f)), e.$$.dirty[0] & /*$playbackStore*/
@@ -7658,138 +8254,105 @@ function i1(e, t, i) {
       B !== D && (i(33, D = B), F.start());
     }
     e.$$.dirty[1] & /*$settings*/
-    128 && i(36, c = A.shuffle === Li.SONGS), e.$$.dirty[1] & /*$settings*/
-    128 && i(35, d = Yr(A.repeat)), e.$$.dirty[1] & /*shuffleSongs*/
+    128 && i(36, c = A.shuffle === ShuffleMode.SONGS), e.$$.dirty[1] & /*$settings*/
+    128 && i(35, d = playerRepeatMode(A.repeat)), e.$$.dirty[1] & /*shuffleSongs*/
     32 && k.setShuffle(c), e.$$.dirty[1] & /*repeatMode*/
     16 && k.setRepeatMode(d), e.$$.dirty[0] & /*isSeeking*/
     16 && o && it.cancel();
-  }, [
-    C,
-    Q,
-    r,
-    h,
-    o,
-    p,
-    f,
-    g,
-    y,
-    j,
-    O,
-    L,
-    a,
-    k,
-    Y,
-    W,
-    _,
-    dt,
-    N,
-    Bt,
-    ft,
-    Rt,
-    Wt,
-    Lt,
-    E,
-    I,
-    x,
-    U,
-    G,
-    K,
-    P,
-    V,
-    q,
-    D,
-    n,
-    d,
-    c,
-    l,
-    A,
-    M,
-    w,
-    oe,
-    St,
-    te,
-    ee,
-    ge,
-    me,
-    be,
-    Yt,
-    Me,
-    we,
-    he,
-    qt,
-    ke
-  ];
+  }, [C, Q, r, h, o, p, f, g, y, j, O, L, a, k, Y, W, _, dt, N, Bt, ft, Rt, Wt, Lt, E, I, x, U, G, K, P, V, q, D, n, d, c, l, A, M, w, oe, St, te, ee, ge, me, be, Yt, Me, we, he, qt, ke];
 }
-class In extends It {
+var IPodComponent = class extends SvelteComponent {
   constructor(t) {
-    super(), Et(
-      this,
-      t,
-      i1,
-      e1,
-      bt,
-      {
-        locale: 24,
-        dragStepDegrees: 25,
-        backlit: 26,
-        playback: 27,
-        navigateToUrl: 0,
-        i18n: 28,
-        iPodDataStore: 29
-      },
-      Jr,
-      [-1, -1, -1]
-    );
+    super(), initComponent(this, t, createIPodInstance, createIPodFragment, bt, {
+      locale: 24,
+      dragStepDegrees: 25,
+      backlit: 26,
+      playback: 27,
+      navigateToUrl: 0,
+      i18n: 28,
+      iPodDataStore: 29
+    }, appendIPodStyles, [-1, -1, -1]);
   }
   get locale() {
     return this.$$.ctx[24];
   }
   set locale(t) {
-    this.$$set({ locale: t }), R();
+    this.$$set({
+      locale: t
+    }), flush();
   }
   get dragStepDegrees() {
     return this.$$.ctx[25];
   }
   set dragStepDegrees(t) {
-    this.$$set({ dragStepDegrees: t }), R();
+    this.$$set({
+      dragStepDegrees: t
+    }), flush();
   }
   get backlit() {
     return this.$$.ctx[26];
   }
   set backlit(t) {
-    this.$$set({ backlit: t }), R();
+    this.$$set({
+      backlit: t
+    }), flush();
   }
   get playback() {
     return this.$$.ctx[27];
   }
   set playback(t) {
-    this.$$set({ playback: t }), R();
+    this.$$set({
+      playback: t
+    }), flush();
   }
   get navigateToUrl() {
     return this.$$.ctx[0];
   }
   set navigateToUrl(t) {
-    this.$$set({ navigateToUrl: t }), R();
+    this.$$set({
+      navigateToUrl: t
+    }), flush();
   }
   get i18n() {
     return this.$$.ctx[28];
   }
   set i18n(t) {
-    this.$$set({ i18n: t }), R();
+    this.$$set({
+      i18n: t
+    }), flush();
   }
   get iPodDataStore() {
     return this.$$.ctx[29];
   }
-}
-ne(In, { locale: {}, dragStepDegrees: {}, backlit: {}, playback: {}, navigateToUrl: {}, i18n: {} }, [], ["iPodDataStore"], !0);
-const l1 = In.element;
-Bn();
-class a1 extends l1 {
+};
+defineSvelteElement(IPodComponent, {
+  locale: {},
+  dragStepDegrees: {},
+  backlit: {},
+  playback: {},
+  navigateToUrl: {},
+  i18n: {}
+}, [], ["iPodDataStore"], true);
+var IPodElementBase = IPodComponent.element;
+registerFonts();
+var WebMusicIPod = class extends IPodElementBase {
   constructor() {
     var i;
     super();
     const t = document.createElement("style");
-    t.textContent = Tn, (i = this.shadowRoot) == null || i.prepend(t);
+    t.textContent = base_default, (i = this.shadowRoot) == null || i.prepend(t);
+  }
+};
+
+// packages/web-music-ipod/src/index.js
+function registerIPod(tagName = "web-music-ipod") {
+  if (!customElements.get(tagName)) {
+    customElements.define(tagName, WebMusicIPod);
   }
 }
-customElements.define("web-music-ipod", a1);
+registerIPod();
+export {
+  WebMusicIPod,
+  registerIPod
+};
+//# sourceMappingURL=web-music-ipod.esm.js.map
